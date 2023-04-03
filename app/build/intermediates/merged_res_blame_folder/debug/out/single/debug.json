@@ -56,10 +56,6 @@
         "source": "C:\\Users\\Rafael\\.gradle\\daemon\\7.5\\com.example.testapp-main-36:\\layout\\fragment_evidencija.xml"
     },
     {
-        "merged": "com.example.testapp-merged_res-34:/layout_fragment_evidencija.xml.flat",
-        "source": "com.example.testapp-main-36:/layout/fragment_evidencija.xml"
-    },
-    {
         "merged": "C:\\Users\\Rafael\\.gradle\\daemon\\7.5\\com.example.testapp-merged_res-34:\\mipmap-mdpi_ic_launcher.webp.flat",
         "source": "C:\\Users\\Rafael\\.gradle\\daemon\\7.5\\com.example.testapp-main-36:\\mipmap-mdpi\\ic_launcher.webp"
     },
@@ -90,5 +86,9 @@
     {
         "merged": "C:\\Users\\Rafael\\.gradle\\daemon\\7.5\\com.example.testapp-merged_res-34:\\drawable-v24_ic_launcher_foreground.xml.flat",
         "source": "C:\\Users\\Rafael\\.gradle\\daemon\\7.5\\com.example.testapp-main-36:\\drawable-v24\\ic_launcher_foreground.xml"
+    },
+    {
+        "merged": "com.example.testapp-merged_res-34:/layout_item.xml.flat",
+        "source": "com.example.testapp-main-36:/layout/item.xml"
     }
 ]

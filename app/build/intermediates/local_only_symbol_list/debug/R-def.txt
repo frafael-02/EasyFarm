@@ -18,6 +18,7 @@ id evidencijaFragmentId
 id evidencijaListId
 id fragmentContainerView
 id imePesticidaId
+id itemId
 id loginButton
 id passwordId
 id planerFragmentId
