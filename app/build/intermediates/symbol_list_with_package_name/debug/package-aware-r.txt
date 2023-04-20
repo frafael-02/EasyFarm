@@ -2918,6 +2918,7 @@ id action_text
 id actions
 id activity_chooser_view_content
 id add
+id addEvidencijaButton
 id adjust_height
 id adjust_width
 id alertTitle
@@ -2930,6 +2931,7 @@ id animateToStart
 id antiClockwise
 id anticipate
 id arc
+id arkodView
 id asConfigured
 id async
 id auto
@@ -2954,6 +2956,7 @@ id browser_actions_menu_items
 id browser_actions_menu_view
 id btnAI
 id btnEvidencija
+id btnHome
 id btnPlaner
 id button2
 id buttonPanel
@@ -2997,6 +3000,7 @@ id customPanel
 id cut
 id dark
 id date_picker_actions
+id datumView
 id decelerate
 id decelerateAndComplete
 id decor_content_parent
@@ -3081,7 +3085,6 @@ id ifRoom
 id ignore
 id ignoreRequest
 id image
-id imePesticidaId
 id immediateStop
 id included
 id indeterminate
@@ -3093,6 +3096,7 @@ id itemId
 id item_touch_helper_previous_elevation
 id jumpToEnd
 id jumpToStart
+id kulturaView
 id labeled
 id layout
 id left
@@ -3172,6 +3176,10 @@ id navigation_bar_item_labels_group
 id navigation_bar_item_large_label_view
 id navigation_bar_item_small_label_view
 id navigation_header_container
+id nazivKulture
+id nazivPesticida
+id nazivPolja
+id nazivView
 id never
 id neverCompleteToEnd
 id neverCompleteToStart
@@ -3201,9 +3209,9 @@ id path
 id pathRelative
 id peekHeight
 id percent
+id pesticidView
 id pin
 id planerFragmentId
-id poljeId
 id position
 id postLayout
 id pressed
@@ -3273,6 +3281,9 @@ id snapMargins
 id south
 id spacer
 id special_effects_controller_view_tag
+id spinnerKulture
+id spinnerPesticida
+id spinnerPolja
 id spline
 id split_action_bar
 id spread
@@ -3315,9 +3326,6 @@ id textSpacerNoButtons
 id textSpacerNoTitle
 id textStart
 id textTop
-id textView
-id textView7
-id textView9
 id text_input_end_icon
 id text_input_error_icon
 id text_input_start_icon
@@ -3476,6 +3484,7 @@ layout abc_select_dialog_material
 layout abc_tooltip
 layout activity_main
 layout activity_main2
+layout activity_nova_evidencija
 layout browser_actions_context_menu_page
 layout browser_actions_context_menu_row
 layout custom_dialog
@@ -3495,6 +3504,7 @@ layout design_navigation_menu_item
 layout design_text_input_end_icon
 layout design_text_input_start_icon
 layout fragment_evidencija
+layout fragment_home
 layout fragment_planer
 layout item
 layout m3_alert_dialog

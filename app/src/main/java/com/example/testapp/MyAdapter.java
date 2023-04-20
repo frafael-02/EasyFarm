@@ -10,7 +10,8 @@ import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
-import java.lang.reflect.Array;
+import com.example.testapp.entiteti.Evidencija;
+
 import java.util.ArrayList;
 
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder>{
@@ -40,8 +41,11 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder>{
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
 
         Evidencija evidencija = list.get(position);
-        holder.imePolja.setText(evidencija.getImePolja());
+        holder.imePolja.setText(evidencija.getPoljeIme());
+        holder.arkodId.setText(evidencija.getArkodId());
         holder.imePesticida.setText(evidencija.getImePesticida());
+        holder.imeBiljke.setText(evidencija.getImeBiljke());
+        holder.datum.setText(evidencija.getVrijemeStart().getDayOfMonth() + " " + evidencija.getVrijemeStart().getMonthValue() + " " + evidencija.getVrijemeStart().getYear());
         holder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -61,13 +65,20 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder>{
 
         TextView imePesticida;
         TextView imePolja;
+        TextView datum;
+        TextView imeBiljke;
+        TextView arkodId;
         public CardView cardView;
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            imePesticida = itemView.findViewById(R.id.imePesticidaId);
-            imePolja = itemView.findViewById(R.id.poljeId);
+            imePesticida = itemView.findViewById(R.id.pesticidView);
+            imePolja = itemView.findViewById(R.id.nazivView);
+            imeBiljke = itemView.findViewById(R.id.kulturaView);
+            datum = itemView.findViewById(R.id.datumView);
+            arkodId = itemView.findViewById(R.id.arkodView);
+
             cardView=itemView.findViewById(R.id.itemId);
         }
     }

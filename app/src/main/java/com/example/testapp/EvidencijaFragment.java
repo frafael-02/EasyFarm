@@ -1,5 +1,6 @@
 package com.example.testapp;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -10,16 +11,18 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.Toast;
 
-import com.google.firebase.FirebaseApp;
+import com.example.testapp.database.DatabaseQueries;
+import com.example.testapp.entiteti.Evidencija;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 /**
@@ -88,29 +91,26 @@ public class EvidencijaFragment extends Fragment implements SelectListener {
         recyclerView.setHasFixedSize(true);
 
 
-        databaseReference = FirebaseDatabase.getInstance("https://testapp-dc63d-default-rtdb.europe-west1.firebasedatabase.app").getReference("Evidencija");
+        databaseReference = FirebaseDatabase.getInstance("https://testapp-dc63d-default-rtdb.europe-west1.firebasedatabase.app").getReference("evidencija");
 
-      list = new ArrayList<>();
+      list = new ArrayList<>(MainActivity2.evidencijaList);
       myAdapter = new MyAdapter(view.getContext(), list, this);
       recyclerView.setAdapter(myAdapter);
-    databaseReference.addValueEventListener(new ValueEventListener() {
-        @Override
-        public void onDataChange(@NonNull DataSnapshot snapshot) {
-            for(DataSnapshot dataSnapshot : snapshot.getChildren())
-            {
-                Evidencija evidencija = dataSnapshot.getValue(Evidencija.class);
-                list.add(evidencija);
-                System.out.println(evidencija.getImePesticida());
+
+        FloatingActionButton mButton = (FloatingActionButton) view.findViewById(R.id.addEvidencijaButton);
+        mButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // here you set what you want to do when user clicks your button,
+
+                    Intent myIntent = new Intent(getActivity(), NovaEvidencijaActivity.class);
+                    // myIntent.putExtra("key", value); //Optional parameters
+                    startActivity(myIntent);
+
 
             }
-            myAdapter.notifyDataSetChanged();
-        }
+        });
 
-        @Override
-        public void onCancelled(@NonNull DatabaseError error) {
-
-        }
-    });
 
 
       return view;
@@ -120,6 +120,11 @@ public class EvidencijaFragment extends Fragment implements SelectListener {
 
     @Override
     public void onItemClicked(Evidencija evidencija) {
-        Toast.makeText(getContext(), evidencija.getImePesticida(), Toast.LENGTH_SHORT).show();
+       // Toast.makeText(getContext(), evidencija.getImePesticida(), Toast.LENGTH_SHORT).show();
     }
+
+
+
+
+
 }

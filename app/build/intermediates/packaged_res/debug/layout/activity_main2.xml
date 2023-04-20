@@ -15,23 +15,30 @@
         android:translationY="630dp">
 
         <Button
-            android:id="@+id/btnEvidencija"
-            android:layout_width="133dp"
+            android:id="@+id/btnHome"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Home" />
+
+        <Button
+            android:id="@+id/btnEvidencija"
+            android:layout_width="87dp"
+            android:layout_height="match_parent"
             android:layout_weight="1"
             android:text="Evidencija" />
 
         <Button
             android:id="@+id/btnPlaner"
-            android:layout_width="103dp"
+            android:layout_width="74dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Planer" />
 
         <Button
             android:id="@+id/btnAI"
-            android:layout_width="148dp"
-            android:layout_height="wrap_content"
+            android:layout_width="33dp"
+            android:layout_height="match_parent"
             android:layout_weight="1"
             android:text="PRONAĐI PESTICID" />
     </LinearLayout>

@@ -32,6 +32,9 @@
         android:testOnly="true"
         android:theme="@style/Theme.TestApp" >
         <activity
+            android:name="com.example.testapp.NovaEvidencijaActivity"
+            android:exported="false" />
+        <activity
             android:name="com.example.testapp.MainActivity2"
             android:exported="false" />
         <activity

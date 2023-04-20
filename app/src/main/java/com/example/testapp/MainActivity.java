@@ -21,6 +21,7 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
+    public static FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     void loginAccountInFirebase(String email, String password) {
-        FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
+
         firebaseAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
@@ -85,7 +86,7 @@ public class MainActivity extends AppCompatActivity {
 
     void registerAccountInFirebase(String email, String password)
     {
-        FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
+
 
         firebaseAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(MainActivity.this, new OnCompleteListener<AuthResult>() {
             @Override

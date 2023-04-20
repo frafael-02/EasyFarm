@@ -5,13 +5,20 @@ import androidx.fragment.app.FragmentManager;
 
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.provider.ContactsContract;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
 
+import com.example.testapp.database.DatabaseQueries;
+import com.example.testapp.entiteti.Biljka;
+import com.example.testapp.entiteti.Evidencija;
+import com.example.testapp.entiteti.Pesticid;
+import com.example.testapp.entiteti.Polje;
 import com.google.firebase.FirebaseApp;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -19,6 +26,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class MainActivity2 extends AppCompatActivity{
@@ -26,12 +34,43 @@ public class MainActivity2 extends AppCompatActivity{
     //FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance("https://testapp-dc63d-default-rtdb.europe-west1.firebasedatabase.app");
     //DatabaseReference myRef = firebaseDatabase.getReference("pesticidi");
 
+    public static List<Pesticid> pesticidList = DatabaseQueries.getPesticidi();
+    public static List<Biljka> biljkaList = DatabaseQueries.getBiljke();
+
+    public static List<Polje> poljeList = DatabaseQueries.getPolja();
+
+    public static List<Evidencija> evidencijaList = DatabaseQueries.getEvidencija();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
         FragmentManager fragmentManager = getSupportFragmentManager();
         Button btnEvidencija = findViewById(R.id.btnEvidencija);
+
+    Button btnHome = findViewById(R.id.btnHome);
+    if(savedInstanceState == null)
+    {
+        fragmentManager.beginTransaction()
+                .replace(R.id.fragmentContainerView, HomeFragment.class, null)
+                .setReorderingAllowed(true)
+                .addToBackStack("name") // name can be null
+                .commit();
+    }
+
+    btnHome.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            fragmentManager.beginTransaction()
+                    .replace(R.id.fragmentContainerView, HomeFragment.class, null)
+                    .setReorderingAllowed(true)
+                    .addToBackStack("name") // name can be null
+                    .commit();
+        }
+    });
+
+
+
         btnEvidencija.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -163,6 +202,8 @@ public class MainActivity2 extends AppCompatActivity{
     }*/
 
     }
+
+
 
 
 }
