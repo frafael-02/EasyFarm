@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".OdabranaEvidencijaActivity">
+
+    <Spinner
+        android:id="@+id/spinnerPolje"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:translationY="25px" />
+
+    <EditText
+        android:id="@+id/arkodId"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="ARKOD ID"
+        android:inputType="text" />
+
+    <Spinner
+        android:id="@+id/spinnerBiljka"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:translationY="25px" />
+
+    <EditText
+        android:id="@+id/povrsinaId2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Povrsina"
+        android:inputType="number" />
+
+    <Spinner
+        android:id="@+id/spinnerSredstvo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:translationY="25px" />
+
+    <TextView
+        android:id="@+id/datumId2"
+        android:layout_width="match_parent"
+        android:layout_height="39dp"
+        android:onClick="pickDatum"
+        android:text="DATUM"
+        android:textSize="20sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="89dp">
+
+        <EditText
+            android:id="@+id/vrijemeStartId"
+            android:layout_width="204dp"
+            android:layout_height="wrap_content"
+            android:hint="Početak" />
+
+        <EditText
+            android:id="@+id/vrijemeKrajId"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Kraj" />
+    </LinearLayout>
+
+    <EditText
+        android:id="@+id/dozaId2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Doza"
+        android:inputType="number" />
+
+    <Button
+        android:id="@+id/spremiEditBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="spremiClicked"
+        android:text="SPREMI" />
+
+
+</LinearLayout>

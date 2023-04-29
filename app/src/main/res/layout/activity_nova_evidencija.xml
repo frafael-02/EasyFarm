@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".NovaEvidencijaActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/nazivPolja"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Naziv polja:"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            />
+
+        <Spinner
+            android:id="@+id/spinnerPolja"
+            android:layout_width="wrap_content"
+            android:layout_height="29dp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="0dp"
+            android:background="@android:drawable/btn_dropdown"
+            android:spinnerMode="dropdown" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/nazivKulture"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tretirana kultura:"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            />
+
+        <Spinner
+            android:id="@+id/spinnerKulture"
+            android:layout_width="wrap_content"
+            android:layout_height="29dp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="0dp"
+            android:background="@android:drawable/btn_dropdown"
+            android:spinnerMode="dropdown" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/nazivPesticida"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Naziv sredstva:"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            />
+
+        <Spinner
+            android:id="@+id/spinnerPesticida"
+            android:layout_width="wrap_content"
+            android:layout_height="29dp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="0dp"
+            android:background="@android:drawable/btn_dropdown"
+            android:spinnerMode="dropdown" />
+    </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="73dp"
+        app:srcCompat="@android:drawable/ic_lock_idle_alarm" />
+
+    <Chronometer
+
+
+        android:id="@+id/stopericaId"
+        android:layout_width="match_parent"
+        android:layout_height="36dp"
+        android:textAlignment="center"
+        android:textSize="25sp"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/startButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="startStoperica"
+        android:text="Kreni"
+        />
+
+    <EditText
+
+        android:id="@+id/povrsinaId"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Površina(Ha)"
+        android:inputType="number" />
+
+    <EditText
+
+        android:id="@+id/dozaId"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Doza(ml))"
+        android:inputType="number" />
+
+    <Button
+        android:id="@+id/btnSpremi"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="60px"
+        android:onClick="spremiClicked"
+        android:text="SPREMI" />
+
+
+</LinearLayout>
