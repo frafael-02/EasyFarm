@@ -7,6 +7,17 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
+
+import com.example.testapp.api.OpenMeteoApiClient;
+import com.example.testapp.entiteti.Current;
+import com.example.testapp.entiteti.Daily;
+import com.example.testapp.entiteti.Hourly;
+import com.example.testapp.entiteti.WeatherData;
+import com.example.testapp.entiteti.WeatherDataCallback;
+
+import java.util.List;
+
 
 /**
  * A simple {@link Fragment} subclass.
@@ -23,6 +34,8 @@ public class HomeFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+
+    private OpenMeteoApiClient apiClient;
 
     public HomeFragment() {
         // Required empty public constructor
@@ -59,6 +72,34 @@ public class HomeFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_home, container, false);
+        View view =inflater.inflate(R.layout.fragment_home, container, false);
+        apiClient = new OpenMeteoApiClient();
+        double latitude = 46.32;
+        double longitude = 16.80;
+        apiClient.getWeatherData(latitude, longitude, new WeatherDataCallback() {
+            @Override
+            public void onSuccess(WeatherData weatherData) {
+                // Use the weather data here
+                List<Daily> dailyList = weatherData.getDailyList();
+                List<Hourly> hourlyList = weatherData.getHourlyList();
+                Current current = weatherData.getCurrent();
+
+                // Example: set the current temperature on a TextView
+
+
+                TextView temperatureTextView = view.findViewById(R.id.tempratureTextView);
+                temperatureTextView.setText("Trenutna temperatura " + String.valueOf(current.getTemperature()));
+
+            }
+
+            @Override
+            public void onFailure(Exception e) {
+                // Handle the error here
+                e.printStackTrace();
+            }
+        });
+
+
+        return view;
     }
 }

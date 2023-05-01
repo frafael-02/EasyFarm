@@ -11,4 +11,12 @@
         android:layout_height="match_parent"
         android:text="@string/hello_blank_fragment" />
 
+    <TextView
+        android:id="@+id/tempratureTextView"
+        android:layout_width="141dp"
+        android:layout_height="32dp"
+        android:text="Temperature"
+        android:translationX="50px"
+        android:translationY="100px" />
+
 </FrameLayout>
