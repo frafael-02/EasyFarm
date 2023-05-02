@@ -21,6 +21,7 @@ drawable shadow
 id addEvidencijaButton
 id arkodId
 id arkodView
+id bottomGuidline
 id btnAI
 id btnEvidencija
 id btnHome
@@ -65,6 +66,7 @@ id spremiEditBtn
 id startButton
 id stopericaId
 id tekst
+id tempratureTextView
 id titleGuidline
 id topGuidline
 id vrijemeKrajId

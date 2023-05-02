@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
+    android:background="@drawable/backlogin"
     tools:context=".MainActivity">
 
     <androidx.constraintlayout.widget.Guideline
@@ -13,89 +13,149 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.7" />
-
-    <ImageView
-        android:id="@+id/imageView2"
+        app:layout_constraintGuide_percent="0.2" />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/bottomGuidline"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:adjustViewBounds="true"
-        android:scaleType="centerInside"
-        android:src="@drawable/backlogin"
-        android:translationZ="-1dp"
-        app:layout_constraintBottom_toBottomOf="@id/topGuidline"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.8" />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/titleGuidline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.10" />
+    <RelativeLayout
+        android:id="@+id/linearLayoutTop"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/shadow"
+        app:layout_constraintBottom_toBottomOf="@id/titleGuidline"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/topDobrodosli"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Dobrodošli"
+            android:textColor="@color/white"
+            android:layout_centerInParent="true"
+            android:textSize="25sp"
+            />
+
+        <ImageButton
+            android:onClick="backArrow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="10dp"
+            android:background="@drawable/arrow" />
+    </RelativeLayout>
+    <TextView
+        android:id="@+id/dobrodosli"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="50dp"
+        android:text="Dobrodošli \n nazad"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="@id/topGuidline" />
+
+    <TextView
+        android:id="@+id/tekst"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:text="Prijavite se na svoj profil"
+        android:textColor="@color/iconGrey"
+        android:textSize="15sp"
+
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/dobrodosli" />
+
+
     <ImageView
         android:id="@+id/main_square"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:background="@drawable/main_square"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:translationZ="-1dp"
+        app:layout_constraintBottom_toBottomOf="@id/bottomGuidline"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/topGuidline"/>
-
-
+        app:layout_constraintTop_toBottomOf="@id/topGuidline"
+        app:layout_constraintVertical_bias="1.0" />
 
     <EditText
         android:id="@+id/emailAddressId"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:ems="10"
+        android:background="@color/white"
+        android:drawableLeft="@drawable/mail"
         android:hint="Email"
         android:inputType="textEmailAddress"
-        android:padding="20dp"
-        android:password="false"
-        app:layout_constraintBottom_toTopOf="@+id/passwordId"
+        android:padding="10dp"
+        android:drawablePadding="10dp"
+        android:layout_marginBottom="10dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/nazivPolja"
-        app:layout_constraintVertical_bias="0.5" />
+        app:layout_constraintBottom_toTopOf="@+id/passwordId" />
 
     <EditText
         android:id="@+id/passwordId"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:ems="10"
+        android:background="@color/white"
         android:hint="Password"
         android:inputType="textPassword"
-        android:padding="20dp"
+        android:drawablePadding="10dp"
+        android:padding="10dp"
+        android:drawableLeft="@drawable/lock"
+        app:layout_constraintBottom_toTopOf="@+id/forggotPassword"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.378"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/emailAddressId"
-        app:layout_constraintVertical_bias="0.5" />
+        app:layout_constraintStart_toStartOf="parent" />
 
-    <TextView
-        android:id="@+id/nazivPolja"
+
+    <Button
+        android:id="@+id/forggotPassword"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="220dp"
-        android:text="Ulogirajte se"
+        android:onClick="loginClicked"
+        android:inputType="textAutoCorrect"
+        android:background="?android:attr/selectableItemBackground"
+        android:textColor="@color/link"
+        android:textSize="14sp"
+        android:text="Zaboravili ste lozinku?"
+        app:layout_constraintBottom_toTopOf="@id/button2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
+        />
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_height="40dp"
         android:orientation="horizontal"
         android:gravity="center"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/bottomGuidline"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/button2">
+        >
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/profil"
-            android:text="Već imate profil?"
+            android:text="Nemate profil?"
             android:layout_marginRight="-10dp"
             android:textColor="@color/iconGrey"/>
         <Button
@@ -103,25 +163,28 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick="loginClicked"
+            android:inputType="textAutoCorrect"
             android:background="?android:attr/selectableItemBackground"            android:textColor="@color/greyText"
             android:textSize="15sp"
-            android:text="Login" />
+            android:text="Sign up" />
 
 
     </LinearLayout>
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/button2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
         android:onClick="registerClicked"
         android:background="@drawable/gradient_shape"
-        android:text="Napravite profil"
+        android:text="Login"
+        android:textSize="20sp"
+        android:textColor="@color/white"
         android:inputType="textAutoCorrect"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:paddingTop="20dp"
+        android:paddingBottom="20dp"
+        app:layout_constraintBottom_toTopOf="@id/linearLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/topGuidline"
         />
 
 
