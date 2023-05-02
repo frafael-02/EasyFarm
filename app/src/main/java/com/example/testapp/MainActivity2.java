@@ -39,7 +39,11 @@ public class MainActivity2 extends AppCompatActivity{
     public static List<Polje> poljeList=DatabaseQueries.getPolja();
     public static List<Evidencija> evidencijaList=DatabaseQueries.getEvidencija();
 
-    public boolean newEvidencijaAdded;
+
+
+   public static long maxId;
+
+   public static long maxIdPolje;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
