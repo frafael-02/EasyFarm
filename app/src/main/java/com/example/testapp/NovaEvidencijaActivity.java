@@ -65,6 +65,7 @@ public class NovaEvidencijaActivity extends AppCompatActivity {
         buttonStoperica = findViewById(R.id.startButton);
         povrsina = findViewById(R.id.povrsinaId);
         doza = findViewById(R.id.dozaId);
+        System.out.println("Max id: " + MainActivity2.maxId );
 
         PoljeAdapter adapterPolja = new PoljeAdapter(this, new ArrayList<>(MainActivity2.poljeList));
         adapterPolja.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -168,9 +169,8 @@ public class NovaEvidencijaActivity extends AppCompatActivity {
         {
             int dozaInt = Integer.parseInt(doza.getText().toString());
             int povrsinaInt = Integer.parseInt(povrsina.getText().toString());
-             OptionalLong maksimalniId = MainActivity2.evidencijaList.stream()
-                    .mapToLong(Entitet::getId).max();
-            Evidencija evidencija = new Evidencija(maksimalniId.getAsLong() + 1L, selectedPesticid, dozaInt, selectedPolje, startTime, endTime, povrsinaInt, selectedBiljka, DatabaseQueries.getCurrentUser());
+
+            Evidencija evidencija = new Evidencija(MainActivity2.maxId+1L, selectedPesticid, dozaInt, selectedPolje, startTime, endTime, povrsinaInt, selectedBiljka, DatabaseQueries.getCurrentUser());
 
             DatabaseQueries.sendEvidencija(evidencija);
             finish();
