@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".NovoPoljeActivity">
+
+    <EditText
+        android:id="@+id/nazivId"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="DOMAĆI NAZIV"
+        android:inputType="text" />
+
+    <EditText
+        android:id="@+id/arkodId"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="ARKOD ID"
+        android:inputType="text" />
+
+    <Spinner
+        android:id="@+id/spinnerBiljka"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:translationY="25px" />
+
+    <EditText
+        android:id="@+id/povrsinaId"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Povrsina(ha)"
+        android:inputType="number" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="spremiClicked"
+        android:text="SPREMI" />
+
+
+</LinearLayout>

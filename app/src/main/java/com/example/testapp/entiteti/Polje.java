@@ -9,16 +9,19 @@ public class Polje extends Entitet implements Serializable {
 
     String arkodId;
     String naziv;
-    List<Biljka> listaKultura;
+    long biljkaId;
 
     String korisnikEmail;
 
-    public Polje(Long id, String arkodId, String naziv, List<Biljka> listaKultura, String korisnikEmail) {
+    int povrsina;
+
+    public Polje(Long id, String arkodId, String naziv, long biljkaId, String korisnikEmail, int povrsina) {
         super(id);
         this.arkodId = arkodId;
         this.naziv = naziv;
-        this.listaKultura = listaKultura;
+        this.biljkaId=biljkaId;
         this.korisnikEmail = korisnikEmail;
+        this.povrsina = povrsina;
     }
 
     public String getArkodId() {
@@ -37,17 +40,28 @@ public class Polje extends Entitet implements Serializable {
         this.naziv = naziv;
     }
 
-    public List<Biljka> getListaKultura() {
-        return listaKultura;
+
+    public long getBiljkaId() {
+        return biljkaId;
     }
 
-    public void setListaKultura(List<Biljka> listaKultura) {
-        this.listaKultura = listaKultura;
+    public void setBiljkaId(long biljkaId) {
+        this.biljkaId = biljkaId;
+    }
+
+    public void setKorisnikEmail(String korisnikEmail) {
+        this.korisnikEmail = korisnikEmail;
+    }
+
+    public void setPovrsina(int povrsina) {
+        this.povrsina = povrsina;
     }
 
     public String getKorisnikEmail() {
         return korisnikEmail;
     }
+
+    public int getPovrsina(){return povrsina;}
 
     @NonNull
     @Override
@@ -63,9 +77,11 @@ public class Polje extends Entitet implements Serializable {
                 result++;
             else if(!naziv.equals(((Polje) o).getNaziv()))
                 result++;
-            else if(!listaKultura.equals(((Polje) o).getListaKultura()))
+            else if(biljkaId != ((Polje) o).getBiljkaId())
                 result++;
             else if(!korisnikEmail.equals(((Polje) o).getKorisnikEmail()))
+                result++;
+            else if(povrsina != ((Polje) o).getPovrsina())
                 result++;
 
             return (result == 0);

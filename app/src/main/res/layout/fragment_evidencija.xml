@@ -34,6 +34,18 @@
             android:src="@android:drawable/ic_input_add"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@+id/evidencijaListId" />
+
+        <Button
+            android:id="@+id/button3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="44dp"
+            android:onClick="dodajPoljeClicked"
+            android:text="Dodaj polje"
+            app:layout_constraintBottom_toTopOf="@+id/evidencijaListId"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.432" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </FrameLayout>

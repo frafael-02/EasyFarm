@@ -95,42 +95,20 @@ public class DatabaseQueries {
 
                 for (DataSnapshot pestSnapshot : dataSnapshot.getChildren()) {
                     Long id = Long.valueOf(pestSnapshot.getKey());
+                    MainActivity2.maxIdPolje=id;
                     String attribute1 = pestSnapshot.child("arkodId").getValue(String.class);
                     String attribute2 = pestSnapshot.child("naziv").getValue(String.class);
                     String korisnikEmail = pestSnapshot.child("korisnikEmail").getValue(String.class);
-                    List<Biljka> biljkaList = new ArrayList<>();
+                    Long biljkaId = pestSnapshot.child("biljkaId").getValue(Long.class);
+                    int povrsina = pestSnapshot.child("povrsina").getValue(Integer.class);
 
-                    DatabaseReference myRef2 = firebaseDatabase.getReference("poljeKulture");
-                    myRef2.addValueEventListener(new ValueEventListener() {
-                        @Override
-                        public void onDataChange(@NonNull DataSnapshot snapshot) {
-                            for(DataSnapshot dataSnapshot1 : dataSnapshot.getChildren())
-                            {
-                                Long key = Long.valueOf(dataSnapshot1.getKey());
-                                if(key.equals(id))
-                                {
+                    if(korisnikEmail.equals(getCurrentUser()))
+                    {
+                        Polje polje = new Polje(id, attribute1, attribute2, biljkaId, korisnikEmail, povrsina);
 
-                                   Long biljkaId= dataSnapshot1.child(key.toString()).getValue(Long.class);
-                                    for(Biljka b : MainActivity2.biljkaList)
-                                    {
-                                        if(b.getId().equals(biljkaId))
-                                            biljkaList.add(b);
-                                    }
-                                }
+                        poljeList.add(polje);
+                    }
 
-
-                            }
-                        }
-
-                        @Override
-                        public void onCancelled(@NonNull DatabaseError error) {
-
-                        }
-                    });
-
-                    Polje polje = new Polje(id, attribute1, attribute2, biljkaList, korisnikEmail);
-
-                    poljeList.add(polje);
                 }
 
                 // Do something with the list of Pesticid objects
@@ -143,6 +121,8 @@ public class DatabaseQueries {
         });
         return poljeList;
     }
+
+
 
     public static List<Evidencija> getEvidencija()
     {   List<Evidencija> evidencijaList = new ArrayList<>();
@@ -157,6 +137,8 @@ public class DatabaseQueries {
 
                 for (DataSnapshot pestSnapshot : dataSnapshot.getChildren()) {
                     Long id = Long.valueOf(pestSnapshot.getKey());
+                    MainActivity2.maxId = id;
+
                     Long biljkaId = pestSnapshot.child("biljkaId").getValue(Long.class);
                     Integer koristenaDoza = pestSnapshot.child("koristenaDoza").getValue(Integer.class);
                     Long pesticidId = pestSnapshot.child("pesticidId").getValue(Long.class);
@@ -168,8 +150,12 @@ public class DatabaseQueries {
                     LocalDateTime start = LocalDateTime.parse(vrijemeStart, formatter);
                     LocalDateTime kraj = LocalDateTime.parse(vrijemeKraj, formatter);
                     String korisnikEmail = pestSnapshot.child("korisnikEmail").getValue(String.class);
-                    Evidencija evidencija = new Evidencija(id, pesticidId, koristenaDoza, poljeId,start, kraj, tretiranaPovrsina, biljkaId, korisnikEmail );
-                    evidencijaList.add(evidencija);
+                    if(korisnikEmail.equals(getCurrentUser()))
+                    {
+                        Evidencija evidencija = new Evidencija(id, pesticidId, koristenaDoza, poljeId,start, kraj, tretiranaPovrsina, biljkaId, korisnikEmail );
+                        evidencijaList.add(evidencija);
+                    }
+
 
                 }
 
@@ -239,6 +225,26 @@ public class DatabaseQueries {
         newRecordMap.put("vrijemeStart", vrijemeStart);
         System.out.println("editing");
         newRecordId.setValue(newRecordMap);
+
+    }
+
+    public static void sendPolje(Polje polje)
+    {
+        FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance("https://testapp-dc63d-default-rtdb.europe-west1.firebasedatabase.app");
+        DatabaseReference myRef = firebaseDatabase.getReference("polje");
+        DatabaseReference newRecordId = myRef.child(String.valueOf(polje.getId()));
+        HashMap<String, Object> newRecordMap = new HashMap<>();
+        newRecordMap.put("arkodId", polje.getArkodId());
+        newRecordMap.put("naziv", polje.getNaziv());
+        newRecordMap.put("korisnikEmail", polje.getKorisnikEmail());
+        newRecordMap.put("povrsina", polje.getPovrsina());
+        newRecordMap.put("biljkaId", polje.getBiljkaId());
+        newRecordId.setValue(newRecordMap);
+
+
+
+
+
 
     }
 
