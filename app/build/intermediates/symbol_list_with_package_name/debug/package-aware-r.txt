@@ -2727,6 +2727,7 @@ drawable abc_textfield_search_default_mtrl_alpha
 drawable abc_textfield_search_material
 drawable abc_vector_test
 drawable account
+drawable arrow
 drawable avd_hide_password
 drawable avd_show_password
 drawable backlogin
@@ -2780,6 +2781,7 @@ drawable ic_mtrl_chip_checked_black
 drawable ic_mtrl_chip_checked_circle
 drawable ic_mtrl_chip_close_circle
 drawable ic_search_black_24
+drawable lock
 drawable m3_appbar_background
 drawable m3_avd_hide_password
 drawable m3_avd_show_password
@@ -2791,6 +2793,7 @@ drawable m3_tabs_background
 drawable m3_tabs_line_indicator
 drawable m3_tabs_rounded_line_indicator
 drawable m3_tabs_transparent_background
+drawable mail
 drawable main_square
 drawable material_cursor_drawable
 drawable material_ic_calendar_black_24dp
@@ -3076,6 +3079,7 @@ id fixed
 id flip
 id floating
 id forever
+id forggotPassword
 id fragmentContainerView
 id fragment_container_view_tag
 id frost
@@ -3375,6 +3379,7 @@ id titleGuidline
 id title_template
 id toggle
 id top
+id topDobrodosli
 id topGuidline
 id topPanel
 id touch_outside

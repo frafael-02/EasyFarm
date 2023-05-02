@@ -11,11 +11,14 @@ color link
 color transparent
 color white
 drawable account
+drawable arrow
 drawable backlogin
 drawable google
 drawable gradient_shape
 drawable ic_launcher_background
 drawable ic_launcher_foreground
+drawable lock
+drawable mail
 drawable main_square
 drawable shadow
 id addEvidencijaButton
@@ -36,6 +39,7 @@ id dozaId2
 id emailAddressId
 id evidencijaFragmentId
 id evidencijaListId
+id forggotPassword
 id fragmentContainerView
 id google
 id imageView
@@ -68,6 +72,7 @@ id stopericaId
 id tekst
 id tempratureTextView
 id titleGuidline
+id topDobrodosli
 id topGuidline
 id vrijemeKrajId
 id vrijemeStartId
