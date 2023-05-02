@@ -38,7 +38,7 @@ public class PoljeAdapter extends ArrayAdapter<Polje> {
             textView.setText(objekt.getNaziv());
         }
         else
-            textView.setText("");
+            textView.setText("Odaberite polje");
 
         return convertView;
     }
@@ -54,7 +54,7 @@ public class PoljeAdapter extends ArrayAdapter<Polje> {
        }
        else
        {
-           textView.setText("");
+           textView.setText("Odaberite polje");
            return textView;
        }
 

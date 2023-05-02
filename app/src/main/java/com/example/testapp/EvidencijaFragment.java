@@ -120,7 +120,19 @@ public class EvidencijaFragment extends Fragment implements SelectListener {
 
             }
         });
+    Button novoPoljeBtn = view.findViewById(R.id.button3);
+    novoPoljeBtn.setOnClickListener(new View.OnClickListener(){
 
+      @Override
+      public void onClick(View v)
+      {
+          Intent myIntent = new Intent(getActivity(), NovoPoljeActivity.class);
+          // myIntent.putExtra("key", value); //Optional parameters
+
+          startActivity(myIntent);
+      }
+
+    });
 
 
       return view;

@@ -45,6 +45,11 @@ public class RegisterActivity extends AppCompatActivity {
 
     }
 
+    public void backArrow(View v)
+    {
+        finish();
+    }
+
 
 
     void registerAccountInFirebase(String email, String password)

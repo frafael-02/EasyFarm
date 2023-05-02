@@ -68,6 +68,24 @@ public class LoginActivity extends AppCompatActivity {
         startActivity(myIntent);
     }
 
+    public void forgotClicked(View v)
+    {
+        String email = ((EditText) findViewById(R.id.emailAddressId)).getText().toString();
+        if(email.equals(""))
+        {
+            Toast.makeText(this, "Unesite email za reset", Toast.LENGTH_SHORT).show();
+        }
+        else{
+            firebaseAuth.sendPasswordResetEmail(email);
+            Toast.makeText(this, "Reset link je poslan na email!", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    public void backArrow(View v)
+    {
+        finish();
+    }
+
     /*public void registerClicked(View v)
     {
 

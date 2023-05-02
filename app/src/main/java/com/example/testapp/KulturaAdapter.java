@@ -36,7 +36,7 @@ public class KulturaAdapter extends ArrayAdapter<Biljka> {
             textView.setText(objekt.getNaziv());
         }
         else
-            textView.setText("");
+            textView.setText("Odaberite kulturu");
 
         return convertView;
     }
@@ -52,7 +52,7 @@ public class KulturaAdapter extends ArrayAdapter<Biljka> {
         }
         else
         {
-            textView.setText(""); return textView;
+            textView.setText("Odaberite kulturu"); return textView;
         }
 
 

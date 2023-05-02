@@ -36,7 +36,7 @@ public class PesticidAdapter extends ArrayAdapter<Pesticid> {
             textView.setText(objekt.getNaziv());
         }
         else
-            textView.setText("");
+            textView.setText("Odaberite pesticid");
 
         return convertView;
     }
@@ -52,7 +52,7 @@ public class PesticidAdapter extends ArrayAdapter<Pesticid> {
         }
         else
         {
-            textView.setText("");
+            textView.setText("Odaberite pesticid");
             return textView;
         }
 
