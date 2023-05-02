@@ -1306,6 +1306,7 @@ color accent_material_dark
 color accent_material_light
 color androidx_core_ripple_material_light
 color androidx_core_secondary_text_default_material_light
+color background
 color background_floating_material_dark
 color background_floating_material_light
 color background_material_dark
@@ -1384,8 +1385,14 @@ color error_color_material_dark
 color error_color_material_light
 color foreground_material_dark
 color foreground_material_light
+color greenDark
+color greenLight
+color greyText
 color highlighted_text_material_dark
 color highlighted_text_material_light
+color iconGrey
+color iconYellow
+color link
 color m3_appbar_overlay_color
 color m3_assist_chip_icon_tint_color
 color m3_assist_chip_stroke_color
@@ -1916,9 +1923,6 @@ color primary_text_default_material_dark
 color primary_text_default_material_light
 color primary_text_disabled_material_dark
 color primary_text_disabled_material_light
-color purple_200
-color purple_500
-color purple_700
 color ripple_material_dark
 color ripple_material_light
 color secondary_text_default_material_dark
@@ -1931,10 +1935,9 @@ color switch_thumb_material_dark
 color switch_thumb_material_light
 color switch_thumb_normal_material_dark
 color switch_thumb_normal_material_light
-color teal_200
-color teal_700
 color tooltip_background_dark
 color tooltip_background_light
+color transparent
 color white
 dimen abc_action_bar_content_inset_material
 dimen abc_action_bar_content_inset_with_nav
@@ -2723,8 +2726,11 @@ drawable abc_textfield_search_activated_mtrl_alpha
 drawable abc_textfield_search_default_mtrl_alpha
 drawable abc_textfield_search_material
 drawable abc_vector_test
+drawable account
+drawable arrow
 drawable avd_hide_password
 drawable avd_show_password
+drawable backlogin
 drawable btn_checkbox_checked_mtrl
 drawable btn_checkbox_checked_to_unchecked_mtrl_animation
 drawable btn_checkbox_unchecked_mtrl
@@ -2757,8 +2763,10 @@ drawable design_ic_visibility
 drawable design_ic_visibility_off
 drawable design_password_eye
 drawable design_snackbar_background
+drawable google
 drawable googleg_disabled_color_18
 drawable googleg_standard_color_18
+drawable gradient_shape
 drawable ic_arrow_back_black_24
 drawable ic_clear_black_24
 drawable ic_clock_black_24dp
@@ -2773,6 +2781,7 @@ drawable ic_mtrl_chip_checked_black
 drawable ic_mtrl_chip_checked_circle
 drawable ic_mtrl_chip_close_circle
 drawable ic_search_black_24
+drawable lock
 drawable m3_appbar_background
 drawable m3_avd_hide_password
 drawable m3_avd_show_password
@@ -2784,6 +2793,8 @@ drawable m3_tabs_background
 drawable m3_tabs_line_indicator
 drawable m3_tabs_rounded_line_indicator
 drawable m3_tabs_transparent_background
+drawable mail
+drawable main_square
 drawable material_cursor_drawable
 drawable material_ic_calendar_black_24dp
 drawable material_ic_clear_black_24dp
@@ -2844,6 +2855,7 @@ drawable notification_template_icon_bg
 drawable notification_template_icon_low_bg
 drawable notification_tile_bg
 drawable notify_panel_notification_icon_bg
+drawable shadow
 drawable test_level_drawable
 drawable tooltip_frame_dark
 drawable tooltip_frame_light
@@ -2946,6 +2958,7 @@ id beginning
 id bestChoice
 id blocking
 id bottom
+id bottomGuidline
 id bounce
 id bounceBoth
 id bounceEnd
@@ -3023,6 +3036,7 @@ id disableIntraAutoTransition
 id disablePostScroll
 id disableScroll
 id disjoint
+id dobrodosli
 id dozaId
 id dozaId2
 id dragAnticlockwise
@@ -3065,6 +3079,7 @@ id fixed
 id flip
 id floating
 id forever
+id forggotPassword
 id fragmentContainerView
 id fragment_container_view_tag
 id frost
@@ -3072,6 +3087,7 @@ id fullscreen_header
 id ghost_view
 id ghost_view_holder
 id gone
+id google
 id graph
 id graph_wrap
 id group_divider
@@ -3091,6 +3107,7 @@ id ignore
 id ignoreRequest
 id image
 id imageView
+id imageView2
 id immediateStop
 id included
 id indeterminate
@@ -3112,10 +3129,13 @@ id light
 id line1
 id line3
 id linear
+id linearLayout
+id linearLayoutTop
 id listMode
 id list_item
 id loginButton
 id m3_side_sheet
+id main_square
 id marquee
 id masked
 id match_constraint
@@ -3223,6 +3243,7 @@ id postLayout
 id povrsinaId
 id povrsinaId2
 id pressed
+id profil
 id progress_circular
 id progress_horizontal
 id radio
@@ -3333,6 +3354,8 @@ id tag_transition_group
 id tag_unhandled_key_event_manager
 id tag_unhandled_key_listeners
 id tag_window_insets_animation_callback
+id tekst
+id tempratureTextView
 id text
 id text2
 id textEnd
@@ -3352,9 +3375,12 @@ id textinput_suffix_text
 id time
 id title
 id titleDividerNoCustom
+id titleGuidline
 id title_template
 id toggle
 id top
+id topDobrodosli
+id topGuidline
 id topPanel
 id touch_outside
 id transitionToEnd
@@ -3498,10 +3524,12 @@ layout abc_search_dropdown_item_icons_2line
 layout abc_search_view
 layout abc_select_dialog_material
 layout abc_tooltip
+layout activity_login
 layout activity_main
 layout activity_main2
 layout activity_nova_evidencija
 layout activity_odabrana_evidencija
+layout activity_register
 layout browser_actions_context_menu_page
 layout browser_actions_context_menu_row
 layout custom_dialog
