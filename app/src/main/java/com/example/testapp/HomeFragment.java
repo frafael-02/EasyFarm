@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.testapp.api.OpenMeteoApiClient;
+import com.example.testapp.database.DatabaseQueries;
 import com.example.testapp.entiteti.Current;
 import com.example.testapp.entiteti.Daily;
 import com.example.testapp.entiteti.Hourly;
@@ -73,9 +74,12 @@ public class HomeFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view =inflater.inflate(R.layout.fragment_home, container, false);
+
+
         apiClient = new OpenMeteoApiClient();
         double latitude = 46.32;
         double longitude = 16.80;
+
         apiClient.getWeatherData(latitude, longitude, new WeatherDataCallback() {
             @Override
             public void onSuccess(WeatherData weatherData) {
@@ -85,10 +89,12 @@ public class HomeFragment extends Fragment {
                 Current current = weatherData.getCurrent();
 
                 // Example: set the current temperature on a TextView
-
-
                 TextView temperatureTextView = view.findViewById(R.id.tempratureTextView);
-                temperatureTextView.setText("Trenutna temperatura " + String.valueOf(current.getTemperature()));
+
+                String temperature=String.valueOf(current.getTemperature());
+                setText(temperatureTextView, "Trenutna temperatura: " + String.valueOf(current.getTemperature()));
+
+
 
             }
 
@@ -100,6 +106,16 @@ public class HomeFragment extends Fragment {
         });
 
 
+
         return view;
+    }
+
+    private void setText(final TextView text,final String value){
+       getActivity().runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                text.setText(value);
+            }
+        });
     }
 }
