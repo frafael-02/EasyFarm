@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.testapp.api.OpenMeteoApiClient;
 import com.example.testapp.database.DatabaseQueries;
@@ -84,14 +85,13 @@ public class HomeFragment extends Fragment {
             @Override
             public void onSuccess(WeatherData weatherData) {
                 // Use the weather data here
-                List<Daily> dailyList = weatherData.getDailyList();
-                List<Hourly> hourlyList = weatherData.getHourlyList();
+              //  List<Daily> dailyList = weatherData.getDailyList();
+                //List<Hourly> hourlyList = weatherData.getHourlyList();
                 Current current = weatherData.getCurrent();
 
                 // Example: set the current temperature on a TextView
                 TextView temperatureTextView = view.findViewById(R.id.tempratureTextView);
 
-                String temperature=String.valueOf(current.getTemperature());
                 setText(temperatureTextView, "Trenutna temperatura: " + String.valueOf(current.getTemperature()));
 
 
@@ -111,11 +111,18 @@ public class HomeFragment extends Fragment {
     }
 
     private void setText(final TextView text,final String value){
-       getActivity().runOnUiThread(new Runnable() {
-            @Override
-            public void run() {
-                text.setText(value);
-            }
-        });
+        if(getActivity() != null)
+        {
+            getActivity().runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    text.setText(value);
+                }
+            });
+        }
+        else {
+            Toast.makeText(getContext(), "Informacije o temperaturi trenutno nisu dostupne, ponovo otvorite Home page", Toast.LENGTH_SHORT).show();
+        }
+
     }
 }
