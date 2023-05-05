@@ -65,8 +65,6 @@ public class NovaEvidencijaActivity extends AppCompatActivity {
         buttonStoperica = findViewById(R.id.startButton);
         povrsina = findViewById(R.id.povrsinaId);
         doza = findViewById(R.id.dozaId);
-        System.out.println("Max id: " + MainActivity2.maxId );
-
         PoljeAdapter adapterPolja = new PoljeAdapter(this, new ArrayList<>(MainActivity2.poljeList));
         adapterPolja.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerPolja.setAdapter(adapterPolja);

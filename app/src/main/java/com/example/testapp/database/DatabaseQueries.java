@@ -35,6 +35,7 @@ public class DatabaseQueries {
 
                 for (DataSnapshot pestSnapshot : dataSnapshot.getChildren()) {
                     Long id = Long.valueOf(pestSnapshot.getKey());
+                    MainActivity2.maxIdPesticid=id;
                     String attribute1 = pestSnapshot.child("naziv").getValue(String.class);
                     Integer attribute2 = pestSnapshot.child("dozaMax").getValue(Integer.class);
 
@@ -223,7 +224,6 @@ public class DatabaseQueries {
 
         newRecordMap.put("vrijemeKraj", vrijemeKraj);
         newRecordMap.put("vrijemeStart", vrijemeStart);
-        System.out.println("editing");
         newRecordId.setValue(newRecordMap);
 
     }
@@ -240,12 +240,17 @@ public class DatabaseQueries {
         newRecordMap.put("povrsina", polje.getPovrsina());
         newRecordMap.put("biljkaId", polje.getBiljkaId());
         newRecordId.setValue(newRecordMap);
+    }
 
-
-
-
-
-
+    public static void sendPesticid(Pesticid pesticid)
+    {
+        FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance("https://testapp-dc63d-default-rtdb.europe-west1.firebasedatabase.app");
+        DatabaseReference myRef = firebaseDatabase.getReference("pesticidi");
+        DatabaseReference newRecordId = myRef.child(String.valueOf(pesticid.getId()));
+        HashMap<String, Object> newRecordMap = new HashMap<>();
+        newRecordMap.put("naziv", pesticid.getNaziv());
+        newRecordMap.put("dozaMax", pesticid.getDozaMax());
+        newRecordId.setValue(newRecordMap);
     }
 
 

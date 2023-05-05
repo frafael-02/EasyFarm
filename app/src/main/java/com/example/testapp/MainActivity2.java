@@ -1,63 +1,72 @@
 package com.example.testapp;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
-import android.graphics.Typeface;
+
 import android.os.Bundle;
-import android.provider.ContactsContract;
-import android.view.View;
-import android.widget.Button;
-import android.widget.TableLayout;
-import android.widget.TableRow;
-import android.widget.TextView;
 
 import com.example.testapp.database.DatabaseQueries;
+import com.example.testapp.databinding.ActivityMain2Binding;
+import com.example.testapp.databinding.ActivityMainBinding;
 import com.example.testapp.entiteti.Biljka;
 import com.example.testapp.entiteti.Evidencija;
 import com.example.testapp.entiteti.Pesticid;
 import com.example.testapp.entiteti.Polje;
-import com.google.firebase.FirebaseApp;
-import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-
 public class MainActivity2 extends AppCompatActivity{
     //FirebaseApp firebaseApp = FirebaseApp.initializeApp(this);
     //FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance("https://testapp-dc63d-default-rtdb.europe-west1.firebasedatabase.app");
     //DatabaseReference myRef = firebaseDatabase.getReference("pesticidi");
-
     public static  List<Pesticid> pesticidList = DatabaseQueries.getPesticidi();
     public static List<Biljka> biljkaList=DatabaseQueries.getBiljke();
     public static List<Polje> poljeList=DatabaseQueries.getPolja();
     public static List<Evidencija> evidencijaList=DatabaseQueries.getEvidencija();
-
-
-
    public static long maxId;
-
    public static long maxIdPolje;
+
+   public static long maxIdPesticid;
+    ActivityMain2Binding binding;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
-
-
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
-        FragmentManager fragmentManager = getSupportFragmentManager();
-        Button btnEvidencija = findViewById(R.id.btnEvidencija);
+        binding = ActivityMain2Binding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
+        replaceFragment(new HomeFragment());
 
-    Button btnHome = findViewById(R.id.btnHome);
+        binding.bottomNavigation.setOnItemSelectedListener(item -> {
+switch(item.getItemId()){
+    case R.id.btnHome:
+        replaceFragment(new HomeFragment());
+        break;
+    case R.id.btnAI:
+        replaceFragment(new HomeFragment());
+        break;
+    case R.id.btnEvidencija:
+        replaceFragment(new EvidencijaFragment());
+        break;
+    case R.id.shop:
+        replaceFragment(new HomeFragment());
+        break;
+    }
+    return true;
+        });
 
+
+
+
+
+
+
+        /*  ImageButton btnEvidencija = findViewById(R.id.btnEvidencija);
+        ImageButton btnHome = findViewById(R.id.btnHome);
+        ImageButton btnPlaner = findViewById(R.id.btnPlaner);
 
 
     if(savedInstanceState == null)
@@ -74,6 +83,10 @@ public class MainActivity2 extends AppCompatActivity{
     btnHome.setOnClickListener(new View.OnClickListener() {
         @Override
         public void onClick(View v) {
+
+            btnHome.setColorFilter(getResources().getColor(R.color.white));
+            btnEvidencija.clearColorFilter();
+
             fragmentManager.beginTransaction()
                     .replace(R.id.fragmentContainerView, HomeFragment.class, null)
                     .setReorderingAllowed(true)
@@ -87,6 +100,9 @@ public class MainActivity2 extends AppCompatActivity{
         btnEvidencija.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                btnEvidencija.setColorFilter(R.color.iconYellow,PorterDuff.Mode.SRC_IN);
+                btnHome.clearColorFilter();;
+
 
                 fragmentManager.beginTransaction()
                         .replace(R.id.fragmentContainerView, EvidencijaFragment.class, null)
@@ -98,10 +114,14 @@ public class MainActivity2 extends AppCompatActivity{
             }
         });
 
-        Button btnPlaner = findViewById(R.id.btnPlaner);
+
         btnPlaner.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+               btnEvidencija.setColorFilter(R.color.iconGrey);
+                btnHome.setColorFilter(R.color.iconGrey);
+                btnPlaner.setColorFilter(R.color.iconYellow);
 
                 fragmentManager.beginTransaction()
                         .replace(R.id.fragmentContainerView, PlanerFragment.class, null)
@@ -109,12 +129,12 @@ public class MainActivity2 extends AppCompatActivity{
                         .addToBackStack("name") // name can be null
                         .commit();
             }
-        });
+        });*/
 
 
 
-
-        /*myRef.addValueEventListener(new ValueEventListener() {
+/*
+        myRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 TableLayout tableLayout = findViewById(R.id.tablica);
@@ -216,12 +236,11 @@ public class MainActivity2 extends AppCompatActivity{
 
     }
 
+    private void replaceFragment(Fragment fragment){
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.fragmentContainerView,fragment);
+        fragmentTransaction.commit();
 
-
-
-
-
-
-
-
+    }
 }

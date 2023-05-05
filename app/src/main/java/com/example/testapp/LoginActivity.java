@@ -29,7 +29,7 @@ public class LoginActivity extends AppCompatActivity {
     public void loginClicked(View v) {
         String email = ((EditText) findViewById(R.id.emailAddressId)).getText().toString();
         String password = ((EditText) findViewById(R.id.passwordId)).getText().toString();
-        System.out.println(email + " " + password);
+
         if (email.equals("") || password.equals("")) {
             Toast.makeText(this, "Unesite email i šifru!", Toast.LENGTH_LONG).show();
         } else
