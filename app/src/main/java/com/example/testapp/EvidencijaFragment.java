@@ -130,6 +130,18 @@ public class EvidencijaFragment extends Fragment implements SelectListener {
         }
     });
 
+    Button novPesticidBtn = view.findViewById(R.id.button8);
+    novPesticidBtn.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View v)
+        {
+            Intent myIntent = new Intent(getActivity(), NovPesticidActivity.class);
+
+            startActivity(myIntent);
+        }
+
+    });
+
 
       return view;
 
