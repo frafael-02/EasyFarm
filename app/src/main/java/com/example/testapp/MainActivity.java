@@ -51,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
                     handleSignInResult(task);
                 } else {
                     // Handle sign in failure
-                    Toast.makeText(this, "Login failed", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, "Login failed" + result.getResultCode(), Toast.LENGTH_SHORT).show();
                 }
             });
     @Override
@@ -67,7 +67,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void configureGoogleSignIn() {
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-                .requestIdToken("201873315142-be4m5tjcl1lj30qe20hlagqa2sacpgjv.apps.googleusercontent.com")
+                .requestIdToken("330981750807-heruhi425npb8md6drtl0b3m3solh6d3.apps.googleusercontent.com")
                 .requestEmail()
                 .build();
 
