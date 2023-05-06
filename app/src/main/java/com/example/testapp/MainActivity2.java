@@ -50,7 +50,7 @@ switch(item.getItemId()){
         replaceFragment(new HomeFragment());
         break;
     case R.id.btnAI:
-        replaceFragment(new HomeFragment());
+        replaceFragment(new AiFragment());
         break;
     case R.id.btnEvidencija:
         replaceFragment(new EvidencijaFragment());
