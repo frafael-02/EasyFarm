@@ -6,6 +6,7 @@ import com.example.testapp.MainActivity;
 import com.example.testapp.MainActivity2;
 import com.example.testapp.entiteti.Biljka;
 import com.example.testapp.entiteti.Evidencija;
+import com.example.testapp.entiteti.Korisnik;
 import com.example.testapp.entiteti.Pesticid;
 import com.example.testapp.entiteti.Polje;
 import com.google.firebase.auth.FirebaseAuth;
@@ -15,12 +16,14 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.firestore.auth.User;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class DatabaseQueries {
 
@@ -251,6 +254,57 @@ public class DatabaseQueries {
         newRecordMap.put("naziv", pesticid.getNaziv());
         newRecordMap.put("dozaMax", pesticid.getDozaMax());
         newRecordId.setValue(newRecordMap);
+    }
+
+    public static void addKorisnik(FirebaseUser user)
+    {
+        FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance("https://testapp-dc63d-default-rtdb.europe-west1.firebasedatabase.app");
+        DatabaseReference myRef = firebaseDatabase.getReference("korisnici");
+        String newKey = user.getUid();
+        Map<String, Object> korisnikData = new HashMap<>();
+        korisnikData.put("email", user.getEmail());
+        korisnikData.put("MIBPG", 0);
+        korisnikData.put("ime", "Nema");
+        myRef.child(newKey).setValue(korisnikData);
+
+    }
+
+    public static void urediKorisnik(String uid, String ime, int mibpg)
+    {
+        FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance("https://testapp-dc63d-default-rtdb.europe-west1.firebasedatabase.app");
+        DatabaseReference myRef = firebaseDatabase.getReference("korisnici");
+
+        Map<String, Object> korisnikData = new HashMap<>();
+        korisnikData.put("email", DatabaseQueries.getCurrentUser());
+        korisnikData.put("MIBPG", mibpg);
+        korisnikData.put("ime", ime);
+        myRef.child(uid).setValue(korisnikData);
+    }
+
+    public static void dohvatiKorisnik(String uid)
+    {
+        FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance("https://testapp-dc63d-default-rtdb.europe-west1.firebasedatabase.app");
+        DatabaseReference myRef = firebaseDatabase.getReference("korisnici");
+
+        myRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for(DataSnapshot dataSnapshot : snapshot.getChildren())
+                {
+                    if(dataSnapshot.getKey().equals(uid))
+                    {
+                       MainActivity2.korisnik = new Korisnik(dataSnapshot.child("email").getValue(String.class), dataSnapshot.child("MIBPG").getValue(Integer.class), dataSnapshot.child("punoIme").getValue(String.class));
+
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
     }
 
 

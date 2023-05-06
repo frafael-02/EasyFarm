@@ -13,8 +13,11 @@ import com.example.testapp.databinding.ActivityMain2Binding;
 import com.example.testapp.databinding.ActivityMainBinding;
 import com.example.testapp.entiteti.Biljka;
 import com.example.testapp.entiteti.Evidencija;
+import com.example.testapp.entiteti.Korisnik;
 import com.example.testapp.entiteti.Pesticid;
 import com.example.testapp.entiteti.Polje;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.List;
 public class MainActivity2 extends AppCompatActivity{
@@ -29,12 +32,15 @@ public class MainActivity2 extends AppCompatActivity{
    public static long maxIdPolje;
 
    public static long maxIdPesticid;
+
+   public static Korisnik korisnik;
     ActivityMain2Binding binding;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_main2);
         binding = ActivityMain2Binding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
@@ -42,6 +48,8 @@ public class MainActivity2 extends AppCompatActivity{
         {
             replaceFragment(new HomeFragment());
         }
+        DatabaseQueries.dohvatiKorisnik(FirebaseAuth.getInstance().getCurrentUser().getUid());
+
 
 
         binding.bottomNavigation.setOnItemSelectedListener(item -> {
