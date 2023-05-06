@@ -13,6 +13,7 @@ import android.widget.Chronometer;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.testapp.database.DatabaseQueries;
 import com.example.testapp.entiteti.Biljka;
@@ -163,7 +164,7 @@ public class NovaEvidencijaActivity extends AppCompatActivity {
 
     public void spremiClicked(View v)
     {
-        if(doza.getText() != null && povrsina.getText() != null)
+        if(!doza.getText().toString().equals("") && !povrsina.getText().toString().equals("") && selectedBiljka != 0L && selectedPesticid !=0L && selectedPolje !=0L && startTime != null && endTime !=null)
         {
             int dozaInt = Integer.parseInt(doza.getText().toString());
             int povrsinaInt = Integer.parseInt(povrsina.getText().toString());
@@ -174,6 +175,7 @@ public class NovaEvidencijaActivity extends AppCompatActivity {
             finish();
 
         }
+        else Toast.makeText(this, "Popunite sva polja!", Toast.LENGTH_SHORT).show();
 
 
     }

@@ -178,23 +178,28 @@ public class OdabranaEvidencijaActivity extends AppCompatActivity {
 
     public void spremiClicked(View v)
     {
-        int dozaInt = Integer.parseInt(doza.getText().toString());
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd. MM. yyyy. HH:mm");
-        String vrijemeStartString = datum.getText() + " " + vrijemeStart.getText();
-
-        LocalDateTime vrijemeStart2 = LocalDateTime.parse(vrijemeStartString, formatter);
-
-        String vrijemeKrajString = datum.getText() + " " + vrijemeKraj.getText();
-        LocalDateTime vrijemeKraj2 = LocalDateTime.parse(vrijemeKrajString, formatter);
-        int povrsinaInt = Integer.parseInt(povrsina.getText().toString());
-        Evidencija evidencijaNew = new Evidencija(evidencija.getId(), selectedPesticid, dozaInt, selectedPolje, vrijemeStart2, vrijemeKraj2, povrsinaInt,selectedBiljka, DatabaseQueries.getCurrentUser());
-        if(!evidencija.equals(evidencijaNew))
+        if(!doza.getText().toString().equals("") && !datum.getText().toString().equals("") && !vrijemeKraj.getText().toString().equals("") && !vrijemeStart.getText().toString().equals("") && !povrsina.getText().toString().equals("") && selectedBiljka != 0L && selectedPesticid != 0L && selectedPolje != 0L)
         {
-            DatabaseQueries.editEvidencija(evidencijaNew);
-            finish();
-        }
+            int dozaInt = Integer.parseInt(doza.getText().toString());
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd. MM. yyyy. HH:mm");
+            String vrijemeStartString = datum.getText() + " " + vrijemeStart.getText();
 
-        else Toast.makeText(this, "Nisu unesene nikakve promjene", Toast.LENGTH_SHORT).show();
+            LocalDateTime vrijemeStart2 = LocalDateTime.parse(vrijemeStartString, formatter);
+
+            String vrijemeKrajString = datum.getText() + " " + vrijemeKraj.getText();
+            LocalDateTime vrijemeKraj2 = LocalDateTime.parse(vrijemeKrajString, formatter);
+            int povrsinaInt = Integer.parseInt(povrsina.getText().toString());
+            Evidencija evidencijaNew = new Evidencija(evidencija.getId(), selectedPesticid, dozaInt, selectedPolje, vrijemeStart2, vrijemeKraj2, povrsinaInt,selectedBiljka, DatabaseQueries.getCurrentUser());
+            if(!evidencija.equals(evidencijaNew))
+            {
+                DatabaseQueries.editEvidencija(evidencijaNew);
+                finish();
+            }
+
+            else Toast.makeText(this, "Nisu unesene nikakve promjene", Toast.LENGTH_SHORT).show();
+        }
+        else Toast.makeText(this, "Popunite sva polja!", Toast.LENGTH_SHORT).show();
+
 
 
     }
