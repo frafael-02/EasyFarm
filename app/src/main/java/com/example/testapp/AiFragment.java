@@ -94,6 +94,7 @@ public class AiFragment extends Fragment {
         ImagePicker.Companion.with(getActivity())
                 .maxResultSize(1920,1080,true)
                 .provider(ImageProvider.BOTH)
+                .crop()
                 .createIntentFromDialog((Function1)(new Function1(){
                     public Object invoke(Object var1){
                         this.invoke((Intent)var1);
