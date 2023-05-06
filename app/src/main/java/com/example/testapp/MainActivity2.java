@@ -38,7 +38,11 @@ public class MainActivity2 extends AppCompatActivity{
         setContentView(R.layout.activity_main2);
         binding = ActivityMain2Binding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-        replaceFragment(new HomeFragment());
+        if(savedInstanceState == null)
+        {
+            replaceFragment(new HomeFragment());
+        }
+
 
         binding.bottomNavigation.setOnItemSelectedListener(item -> {
 switch(item.getItemId()){
@@ -239,7 +243,7 @@ switch(item.getItemId()){
     private void replaceFragment(Fragment fragment){
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.fragmentContainerView,fragment);
+        fragmentTransaction.replace(R.id.fragmentContainerView,fragment, null);
         fragmentTransaction.commit();
 
     }

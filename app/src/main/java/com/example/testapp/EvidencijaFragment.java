@@ -11,10 +11,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 
 import com.example.testapp.api.ExcelFileController;
 import com.example.testapp.database.DatabaseQueries;
 import com.example.testapp.entiteti.Evidencija;
+import com.example.testapp.entiteti.UtilityClass;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
@@ -29,6 +31,9 @@ public class EvidencijaFragment extends Fragment implements SelectListener {
     RecyclerView recyclerView;
 
     MyAdapter myAdapter;
+   public TextView ukupnoPrskanja;
+   public TextView danasPrskanje;
+    public   TextView mjesecPrskanje;
 
 
 
@@ -89,6 +94,16 @@ public class EvidencijaFragment extends Fragment implements SelectListener {
       recyclerView = view.findViewById(R.id.evidencijaListId);
         recyclerView.setLayoutManager(new LinearLayoutManager(view.getContext()));
         recyclerView.setHasFixedSize(true);
+        danasPrskanje = view.findViewById(R.id.danasIspod);
+        mjesecPrskanje = view.findViewById(R.id.ovajMjesecIspod);
+        ukupnoPrskanja = view.findViewById(R.id.ukupnoIspod);
+
+       danasPrskanje.setText(String.valueOf(UtilityClass.getPrskanjeDanas(MainActivity2.evidencijaList)) + " ha");
+        mjesecPrskanje.setText(String.valueOf(UtilityClass.getPrskanjeMjesec(MainActivity2.evidencijaList)) + " ha");
+        ukupnoPrskanja.setText(String.valueOf(UtilityClass.getPrskanjeUkupno(MainActivity2.evidencijaList)) + " ha");
+
+
+
 
 
         myAdapter = new MyAdapter(view.getContext(), (ArrayList<Evidencija>) MainActivity2.evidencijaList, this);

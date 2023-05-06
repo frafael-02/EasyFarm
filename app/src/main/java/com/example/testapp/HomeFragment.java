@@ -4,6 +4,7 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
+import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,14 +12,13 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.testapp.api.OpenMeteoApiClient;
-import com.example.testapp.database.DatabaseQueries;
+
 import com.example.testapp.entiteti.Current;
-import com.example.testapp.entiteti.Daily;
-import com.example.testapp.entiteti.Hourly;
+;
 import com.example.testapp.entiteti.WeatherData;
 import com.example.testapp.entiteti.WeatherDataCallback;
 
-import java.util.List;
+
 
 
 /**
@@ -38,6 +38,9 @@ public class HomeFragment extends Fragment {
     private String mParam2;
 
     private OpenMeteoApiClient apiClient;
+    public TextView temperatureTextView;
+
+    public static String string;
 
     public HomeFragment() {
         // Required empty public constructor
@@ -68,15 +71,6 @@ public class HomeFragment extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
-    }
-
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        View view =inflater.inflate(R.layout.fragment_home, container, false);
-
-
         apiClient = new OpenMeteoApiClient();
         double latitude = 46.32;
         double longitude = 16.80;
@@ -85,16 +79,13 @@ public class HomeFragment extends Fragment {
             @Override
             public void onSuccess(WeatherData weatherData) {
                 // Use the weather data here
-              //  List<Daily> dailyList = weatherData.getDailyList();
+                //  List<Daily> dailyList = weatherData.getDailyList();
                 //List<Hourly> hourlyList = weatherData.getHourlyList();
                 Current current = weatherData.getCurrent();
 
                 // Example: set the current temperature on a TextView
-                TextView temperatureTextView = view.findViewById(R.id.tempratureTextView);
 
-                setText(temperatureTextView, "Trenutna temperatura: " + String.valueOf(current.getTemperature()));
-
-
+                string = current.getTemperature() + "°C";
 
             }
 
@@ -104,25 +95,32 @@ public class HomeFragment extends Fragment {
                 e.printStackTrace();
             }
         });
+    }
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        // Inflate the layout for this fragment
+        View view =inflater.inflate(R.layout.fragment_home, container, false);
+        temperatureTextView = view.findViewById(R.id.tempratureTextView);
+
+        new Handler().postDelayed(new Runnable() {
+            public void run () {
+                if(string != null)
+                temperatureTextView.setText("Trenutna temperatura: " + string);
+            else
+                Toast.makeText(getActivity(), "Ponovo otvorite Home page za temperaturu", Toast.LENGTH_SHORT).show();
+
+            }
+        }, 500L);
+
+
+
 
 
 
         return view;
     }
 
-    private void setText(final TextView text,final String value){
-        if(getActivity() != null)
-        {
-            getActivity().runOnUiThread(new Runnable() {
-                @Override
-                public void run() {
-                    text.setText(value);
-                }
-            });
-        }
-        else {
-            Toast.makeText(getContext(), "Informacije o temperaturi trenutno nisu dostupne, ponovo otvorite Home page", Toast.LENGTH_SHORT).show();
-        }
 
-    }
 }
