@@ -3,6 +3,7 @@ package com.example.testapp.api;
 import android.content.Context;
 
 import com.example.testapp.entiteti.Evidencija;
+import com.example.testapp.entiteti.Korisnik;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.storage.FileDownloadTask;
 import com.google.firebase.storage.FirebaseStorage;
@@ -20,6 +21,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
@@ -42,7 +44,7 @@ public class ExcelFileController {
 
     private static FirebaseStorage storage = FirebaseStorage.getInstance();
 
-    public static void writeExcelFileAndSendByEmail(Context context, String toEmail, List<Evidencija> evidencijaList) {
+    public static void writeExcelFileAndSendByEmail(Context context, Korisnik korisnik, List<Evidencija> evidencijaList) {
         new Thread(new Runnable(){
             @Override
             public void run() {
@@ -68,8 +70,20 @@ public class ExcelFileController {
                                 Row firstRow = sheet.getRow(0);
                                 Cell cell = firstRow.getCell(0);
                                 String sentence = cell.getStringCellValue();
-                                String updatedSentence = sentence.replace("xx", "2023");
+                                String updatedSentence = sentence.replace("xx", String.valueOf(LocalDate.now().getYear()));
                                 cell.setCellValue(updatedSentence);
+                                Row secondRow = sheet.getRow(1);
+                                Cell cell2 = secondRow.getCell(0);
+                                sentence = cell2.getStringCellValue();
+                                updatedSentence = sentence.replace("xx", korisnik.getPunoIme());
+                                cell2.setCellValue(updatedSentence);
+                                Row thirdRow = sheet.getRow(2);
+                                Cell cell3 = thirdRow.getCell(1);
+                                sentence = cell3.getStringCellValue();
+                                updatedSentence = sentence.replace("xx", String.valueOf(korisnik.getMibpg()));
+                                cell3.setCellValue(updatedSentence);
+
+
 
                                 Row emptyRow = sheet.getRow(5);
 
@@ -149,6 +163,7 @@ public class ExcelFileController {
                                 outputStream.close();
 
                                 // Send the edited Excel file via email
+                                String toEmail = korisnik.getEmail();
                                 sendExcelFileByEmail(context, localFile, toEmail);
 
                                 // Delete the local Excel file

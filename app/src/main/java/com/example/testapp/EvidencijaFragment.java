@@ -123,6 +123,7 @@ public class EvidencijaFragment extends Fragment implements SelectListener {
 
             }
         });
+
     Button novoPoljeBtn = view.findViewById(R.id.dodajZemlju);
     novoPoljeBtn.setOnClickListener(new View.OnClickListener(){
 
@@ -141,7 +142,7 @@ public class EvidencijaFragment extends Fragment implements SelectListener {
     posaljiBtn.setOnClickListener(new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            ExcelFileController.writeExcelFileAndSendByEmail(view.getContext(), DatabaseQueries.getCurrentUser(), MainActivity2.evidencijaList);
+            ExcelFileController.writeExcelFileAndSendByEmail(view.getContext(), MainActivity2.korisnik, MainActivity2.evidencijaList);
         }
     });
 
