@@ -1,5 +1,7 @@
 package com.example.testapp.api;
 
+import com.example.testapp.BuildConfig;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -24,7 +26,7 @@ public class VirtualAgent {
 
 
         String url = "https://api.openai.com/v1/chat/completions";
-        String apiKey = "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";
+        String apiKey = BuildConfig.ApiKey;
         String model = "gpt-3.5-turbo";
 
         OkHttpClient client = new OkHttpClient();
