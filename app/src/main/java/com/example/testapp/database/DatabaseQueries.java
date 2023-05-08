@@ -293,7 +293,7 @@ public class DatabaseQueries {
                 {
                     if(dataSnapshot.getKey().equals(uid))
                     {
-                       MainActivity2.korisnik = new Korisnik(dataSnapshot.child("email").getValue(String.class), dataSnapshot.child("MIBPG").getValue(Integer.class), dataSnapshot.child("punoIme").getValue(String.class));
+                       MainActivity2.korisnik = new Korisnik(dataSnapshot.child("email").getValue(String.class), dataSnapshot.child("MIBPG").getValue(Integer.class), dataSnapshot.child("ime").getValue(String.class));
 
                     }
                 }
