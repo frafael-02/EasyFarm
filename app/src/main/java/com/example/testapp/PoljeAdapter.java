@@ -29,10 +29,10 @@ public class PoljeAdapter extends ArrayAdapter<Polje> {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         if (convertView == null) {
-            convertView = LayoutInflater.from(getContext()).inflate(android.R.layout.simple_spinner_dropdown_item, parent, false);
+            convertView = LayoutInflater.from(getContext()).inflate(R.layout.spinner_dropdown_layout, parent, false);
         }
 
-        TextView textView = (TextView) convertView.findViewById(android.R.id.text1);
+        TextView textView = (TextView) convertView.findViewById(R.id.text1);
         Polje objekt = getItem(position);
         if (objekt != null) {
             textView.setText(objekt.getNaziv());
@@ -45,7 +45,7 @@ public class PoljeAdapter extends ArrayAdapter<Polje> {
 
     @Override
     public View getDropDownView(int position, View convertView, ViewGroup parent) {
-        TextView textView = (TextView) LayoutInflater.from(mContext).inflate(android.R.layout.simple_spinner_dropdown_item, parent, false);
+        TextView textView = (TextView) LayoutInflater.from(mContext).inflate(R.layout.spinner_dropdown_layout, parent, false);
        if(position != 0)
        {
            Polje myObject = mObjects.get(position);
@@ -79,4 +79,6 @@ public class PoljeAdapter extends ArrayAdapter<Polje> {
     public String toString() {
         return mObjects.toString();
     }
+
+
 }

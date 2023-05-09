@@ -24,6 +24,7 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
 import java.util.Locale;
 
 public class OdabranaEvidencijaActivity extends AppCompatActivity {
@@ -76,7 +77,14 @@ public class OdabranaEvidencijaActivity extends AppCompatActivity {
         Intent intent = getIntent();
       evidencija = (Evidencija) intent.getSerializableExtra("evidencija");
         spinnerPolje.setAdapter(adapterPolja);
-        spinnerPolje.setSelection(Long.valueOf(evidencija.getPoljeId()).intValue());
+
+
+        for(Polje p:MainActivity2.poljeList)
+        {
+            if(evidencija.getPoljeId() == p.getId())
+                spinnerPolje.setSelection(MainActivity2.poljeList.indexOf(p)+1);
+        }
+
         spinnerPolje.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -202,6 +210,11 @@ public class OdabranaEvidencijaActivity extends AppCompatActivity {
 
 
 
+    }
+
+    public void backArrow(View v)
+    {
+        finish();
     }
 
 
