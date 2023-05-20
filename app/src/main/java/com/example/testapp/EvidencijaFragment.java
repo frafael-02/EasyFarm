@@ -1,5 +1,6 @@
 package com.example.testapp;
 
+import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -7,19 +8,40 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.transition.AutoTransition;
+import android.transition.Slide;
+import android.transition.TransitionManager;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.DatePicker;
+import android.widget.EditText;
+import android.widget.LinearLayout;
+
+import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.testapp.api.ExcelFileController;
-import com.example.testapp.database.DatabaseQueries;
+
 import com.example.testapp.entiteti.Evidencija;
+import com.example.testapp.entiteti.Pesticid;
+import com.example.testapp.entiteti.Polje;
 import com.example.testapp.entiteti.UtilityClass;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.List;
+import java.util.Locale;
+import java.util.stream.Collectors;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -34,6 +56,24 @@ public class EvidencijaFragment extends Fragment implements SelectListener {
    public TextView ukupnoPrskanja;
    public TextView danasPrskanje;
     public   TextView mjesecPrskanje;
+
+    public Button filterBtn;
+
+    public LinearLayout filterLayout;
+
+    public Spinner nazivSpinner;
+
+    public Spinner sredstvoSpinner;
+
+    private boolean isVisible;
+
+    private List<Evidencija> filteredList;
+
+    private long selectedPolje;
+
+    private long selectedSredstvo;
+
+    public EditText datum;
 
 
 
@@ -81,6 +121,11 @@ public class EvidencijaFragment extends Fragment implements SelectListener {
 
 
         }
+        selectedSredstvo = 0L;
+        selectedPolje = 0L;
+
+
+
 
 
 
@@ -97,10 +142,63 @@ public class EvidencijaFragment extends Fragment implements SelectListener {
         danasPrskanje = view.findViewById(R.id.danasIspod);
         mjesecPrskanje = view.findViewById(R.id.ovajMjesecIspod);
         ukupnoPrskanja = view.findViewById(R.id.ukupnoIspod);
+        isVisible = false;
 
-       danasPrskanje.setText(String.valueOf(UtilityClass.getPrskanjeDanas(MainActivity2.evidencijaList)) + " ha");
-        mjesecPrskanje.setText(String.valueOf(UtilityClass.getPrskanjeMjesec(MainActivity2.evidencijaList)) + " ha");
-        ukupnoPrskanja.setText(String.valueOf(UtilityClass.getPrskanjeUkupno(MainActivity2.evidencijaList)) + " ha");
+       danasPrskanje.setText(String.valueOf(UtilityClass.getPrskanjeDanas(MainActivity2.evidencijaList)) + "ha");
+        mjesecPrskanje.setText(String.valueOf(UtilityClass.getPrskanjeMjesec(MainActivity2.evidencijaList)) + "ha");
+        ukupnoPrskanja.setText(String.valueOf(UtilityClass.getPrskanjeUkupno(MainActivity2.evidencijaList)) + "ha");
+        filterBtn = view.findViewById(R.id.filterBtn);
+        filterLayout = view.findViewById(R.id.filterLayout);
+        nazivSpinner = view.findViewById(R.id.nazivSpinner);
+        datum = view.findViewById(R.id.datumId2);
+
+        PoljeAdapter adapterPolja = new PoljeAdapter(getContext(), new ArrayList<>(MainActivity2.poljeList));
+        adapterPolja.setDropDownViewResource(R.layout.spinner_dropdown_layout);
+        nazivSpinner.setAdapter(adapterPolja);
+        nazivSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                if(adapterPolja.getItem(position) != null)
+                {
+                    selectedPolje = adapterPolja.getItem(position).getId();
+
+                }
+                else
+                    selectedPolje = 0L;
+
+
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
+        sredstvoSpinner = view.findViewById(R.id.sredstvoSpinner);
+        PesticidAdapter pesticidAdapter = new PesticidAdapter(getContext(), new ArrayList<>(MainActivity2.pesticidList));
+        pesticidAdapter.setDropDownViewResource(R.layout.spinner_dropdown_layout);
+        sredstvoSpinner.setAdapter(pesticidAdapter);
+        sredstvoSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                if(pesticidAdapter.getItem(position) != null)
+                {
+                    selectedSredstvo = pesticidAdapter.getItem(position).getId();
+
+
+                }
+                else selectedSredstvo = 0L;
+
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
+
 
 
 
@@ -113,10 +211,10 @@ public class EvidencijaFragment extends Fragment implements SelectListener {
         mButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // here you set what you want to do when user clicks your button,
+
 
                     Intent myIntent = new Intent(getActivity(), NovaEvidencijaActivity.class);
-                    // myIntent.putExtra("key", value); //Optional parameters
+
 
                     startActivity(myIntent);
 
@@ -131,7 +229,7 @@ public class EvidencijaFragment extends Fragment implements SelectListener {
       public void onClick(View v)
       {
           Intent myIntent = new Intent(getActivity(), NovoPoljeActivity.class);
-          // myIntent.putExtra("key", value); //Optional parameters
+
 
           startActivity(myIntent);
       }
@@ -143,6 +241,7 @@ public class EvidencijaFragment extends Fragment implements SelectListener {
         @Override
         public void onClick(View v) {
             ExcelFileController.writeExcelFileAndSendByEmail(view.getContext(), MainActivity2.korisnik, MainActivity2.evidencijaList);
+            Toast.makeText(getContext(), "Formular poslan na email!", Toast.LENGTH_SHORT).show();
         }
     });
 
@@ -158,6 +257,47 @@ public class EvidencijaFragment extends Fragment implements SelectListener {
 
     });
 
+    filterBtn.setOnClickListener(new View.OnClickListener(){
+        @Override
+        public void onClick(View v)
+        {
+            if(!isVisible)
+            {
+                TransitionManager.beginDelayedTransition(filterLayout, new AutoTransition());
+                filterLayout.setVisibility(View.VISIBLE);
+
+            }
+            else{
+                if(filtrirajListu() != null)
+                {
+                    myAdapter.list = (ArrayList<Evidencija>) filteredList;
+                    recyclerView.setAdapter(myAdapter);
+
+                }
+                else{
+                    myAdapter.list =(ArrayList<Evidencija>)  MainActivity2.evidencijaList;
+                    recyclerView.setAdapter(myAdapter);
+                }
+                TransitionManager.beginDelayedTransition(filterLayout, new AutoTransition());
+
+                filterLayout.setVisibility(View.GONE);
+
+            }
+            isVisible=!isVisible;
+
+
+
+
+        }
+    });
+
+    datum.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            pickDatum();
+        }
+    });
+
 
       return view;
 
@@ -167,6 +307,7 @@ public class EvidencijaFragment extends Fragment implements SelectListener {
     @Override
     public void onItemClicked(Evidencija evidencija) {
         Intent myIntent = new Intent(getActivity(), OdabranaEvidencijaActivity.class);
+
         myIntent.putExtra("evidencija", evidencija);
         startActivity(myIntent);
     }
@@ -182,7 +323,72 @@ public class EvidencijaFragment extends Fragment implements SelectListener {
     }
 
 
+    public List<Evidencija> filtrirajListu()
+    {
+        if(selectedSredstvo != 0L)
+        {
+            filteredList=new ArrayList<>(MainActivity2.evidencijaList);
+            filteredList=filteredList.stream().filter(e -> e.getPesticidId() == selectedSredstvo).collect(Collectors.toList());
 
+            if(selectedPolje != 0L)
+            {
+                filteredList=filteredList.stream().filter(e -> e.getPoljeId() == selectedPolje).collect(Collectors.toList());
+            }
+            if(!datum.getText().toString().equals(""))
+            {
+                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd. MM. yyyy.");
+                LocalDate localDateTime = LocalDate.parse(datum.getText().toString(), formatter);
+                filteredList=filteredList.stream().filter(e->e.getVrijemeStart().toLocalDate().equals(localDateTime)).collect(Collectors.toList());
+
+            }
+
+            return filteredList;
+        }
+        else if(selectedPolje != 0L)
+        {
+            filteredList = new ArrayList<>(MainActivity2.evidencijaList);
+            filteredList=filteredList.stream().filter(e -> e.getPoljeId() == selectedPolje).collect(Collectors.toList());
+            if(!datum.getText().toString().equals(""))
+            {
+                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd. MM. yyyy.");
+                LocalDate localDateTime = LocalDate.parse(datum.getText().toString(), formatter);
+                filteredList=filteredList.stream().filter(e->e.getVrijemeStart().toLocalDate().equals(localDateTime)).collect(Collectors.toList());
+            }
+            return filteredList;
+
+        }
+        else if(!datum.getText().toString().equals(""))
+        {
+            filteredList = new ArrayList<>(MainActivity2.evidencijaList);
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd. MM. yyyy.");
+            LocalDate localDateTime = LocalDate.parse(datum.getText().toString(), formatter);
+            filteredList=filteredList.stream().filter(e->e.getVrijemeStart().toLocalDate().equals(localDateTime)).collect(Collectors.toList());
+            return filteredList;
+        }
+
+        return null;
+    }
+
+    public void pickDatum()
+    {
+        LocalDateTime result = null;
+        Calendar mCalendar = Calendar.getInstance();
+        int year = mCalendar.get(Calendar.YEAR);
+        int month = mCalendar.get(Calendar.MONTH);
+        int day = mCalendar.get(Calendar.DAY_OF_MONTH);
+        DatePickerDialog datePickerDialog = new DatePickerDialog(getContext(),
+                new DatePickerDialog.OnDateSetListener() {
+                    @Override
+                    public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+                        mCalendar.set(year, month, dayOfMonth);
+                        SimpleDateFormat sdf = new SimpleDateFormat("dd. MM. yyyy.", Locale.ITALY);
+                        datum.setText(sdf.format(mCalendar.getTime()));
+                    }
+                }, year, month, day);
+        datePickerDialog.show();
+
+
+    }
 
 
 }
