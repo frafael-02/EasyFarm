@@ -27,31 +27,35 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             app:layout_constraintGuide_percent="0.40" />
-        <RelativeLayout
-            android:id="@+id/relativeLayout1"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            app:layout_constraintBottom_toBottomOf="@id/titleGuidline"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+
+
             <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@mipmap/logo_foreground"
-                android:layout_centerInParent="true"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:adjustViewBounds="true"
+                android:src="@drawable/logo"
+                android:layout_margin="10dp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/relativeLayout2"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
                 />
+
 
             <ImageButton
                 android:id="@+id/profilBtn"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentStart="true"
-                android:layout_centerVertical="true"
-                android:layout_marginStart="5dp"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:adjustViewBounds="true"
+                app:layout_constraintDimensionRatio="1:1"
                 android:backgroundTint="@color/transparent"
-                android:src="@drawable/account_home" />
+                android:src="@drawable/account_home"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/relativeLayout2"
+                />
 
-        </RelativeLayout>
+
 
 
         <RelativeLayout
@@ -60,35 +64,38 @@
             android:layout_height="0dp"
             android:background="@drawable/gradient_shape_back"
             android:elevation="20dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginStart="10dp"
             app:layout_constraintBottom_toBottomOf="@id/lowerGuidline"
-            app:layout_constraintTop_toBottomOf="@id/relativeLayout1">
+            app:layout_constraintTop_toBottomOf="@id/titleGuidline">
 
             <ImageView
                 android:id="@+id/cloud"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:layout_centerHorizontal="true"
-                android:layout_margin="10dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="10dp"
                 android:scaleType="fitXY"
-                android:src="@drawable/cloud"
+                android:src="@drawable/cloud" />
 
-                />
 
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/cloud"
-                android:layout_centerHorizontal="true"
-
-                >
 
                 <TextView
                     android:id="@+id/tempratureTextView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginRight="5dp"
-                    android:text="Učitavanje vremenske prognoze"
-                    android:textSize="20sp" />
+                    android:layout_below="@+id/cloud"
+                    android:layout_centerHorizontal="true"
+                    android:padding="5dp"
+                    android:textAlignment="center"
+                    android:hint="Učitavanje"
+                    android:textColorHint="@color/iconGrey"
+                    android:fontFamily="@font/poppinsregular"
+                    android:textColor="@color/white"
+                    android:textSize="48sp" />
                 <!--     <TextView
                 android:id="@+id/temp"
                 android:layout_width="wrap_content"
@@ -99,43 +106,93 @@
                 />
 -->
 
-            </LinearLayout>
+
         </RelativeLayout>
 
         <EditText
             android:id="@+id/pitanjeTextView"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="60dp"
-            android:layout_marginTop="108dp"
+            android:backgroundTint="@color/iconYellow"
             android:hint="Upišite pitanje za Virtualnog Asistenta"
+            android:textColorHint="@color/iconGrey"
             android:inputType="textMultiLine"
+            android:textColor="@color/greyText"
+            android:textSize="16sp"
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/lowerGuidline" />
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/button3"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="140dp"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="20dp"
+            android:padding="8dp"
             android:text="Pitaj"
+            android:fontFamily="@font/poppinsbold"
+            android:textSize="24sp"
+            android:background="@drawable/yellow_button"
+            android:textColor="@color/greyText"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/pitanjeTextView" />
-
-        <TextView
-            android:id="@+id/odgovorText"
-            android:text="Odgovor:"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:ems="10"
-            android:gravity="start|top"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.412"
+            app:layout_constraintTop_toBottomOf="@+id/pitanjeTextView" />
+        <ScrollView
+            android:id="@+id/screenId"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintTop_toBottomOf="@id/button3"
+            android:background="@drawable/main_square"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginStart="10dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/button3" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            >
+            <TextView
+                android:id="@+id/odgovorText"
+                android:hint="Odgovor:"
+                android:textColorHint="@color/iconGrey"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:padding="10dp"
+                android:gravity="start|top"
+                android:textColor="@color/greyText"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent" />
 
+
+        </ScrollView>
+
+        <com.facebook.shimmer.ShimmerFrameLayout
+            android:id="@+id/shimmer_view"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintTop_toBottomOf="@id/button3"
+            android:background="@drawable/main_square"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginStart="10dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            >
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/main_square"
+                android:backgroundTint="#DDDDDD"/>
+
+
+        </com.facebook.shimmer.ShimmerFrameLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

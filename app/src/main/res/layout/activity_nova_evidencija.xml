@@ -1,131 +1,290 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
+    android:background="@drawable/backwheat"
     tools:context=".NovaEvidencijaActivity">
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <TextView
-            android:id="@+id/nazivPolja"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Naziv polja:"
-            android:layout_alignParentStart="true"
-            android:layout_centerVertical="true"
-            />
-
-        <Spinner
-            android:id="@+id/spinnerPolja"
-            android:layout_width="wrap_content"
-            android:layout_height="29dp"
-            android:layout_alignParentEnd="true"
-            android:layout_centerVertical="true"
-            android:layout_marginEnd="0dp"
-            android:background="@android:drawable/btn_dropdown"
-            android:spinnerMode="dropdown" />
-    </RelativeLayout>
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/titleGuidline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.08" />
 
     <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:id="@+id/linearLayoutTop"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="@id/titleGuidline"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        >
 
         <TextView
-            android:id="@+id/nazivKulture"
+            android:id="@+id/topDobrodosli"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Tretirana kultura:"
-            android:layout_alignParentStart="true"
-            android:layout_centerVertical="true"
-            />
+            android:layout_centerInParent="true"
+            android:text="Novo prskanje"
+            android:textColor="@color/greyText"
+            android:textSize="20sp" />
 
-        <Spinner
-            android:id="@+id/spinnerKulture"
-            android:layout_width="wrap_content"
-            android:layout_height="29dp"
-            android:layout_alignParentEnd="true"
-            android:layout_centerVertical="true"
-            android:layout_marginEnd="0dp"
-            android:background="@android:drawable/btn_dropdown"
-            android:spinnerMode="dropdown" />
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <TextView
-            android:id="@+id/nazivPesticida"
+        <ImageButton
+            android:onClick="backArrow"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Naziv sredstva:"
             android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
             android:layout_centerVertical="true"
-            />
-
-        <Spinner
-            android:id="@+id/spinnerPesticida"
-            android:layout_width="wrap_content"
-            android:layout_height="29dp"
-            android:layout_alignParentEnd="true"
-            android:layout_centerVertical="true"
-            android:layout_marginEnd="0dp"
-            android:background="@android:drawable/btn_dropdown"
-            android:spinnerMode="dropdown" />
+            android:layout_marginStart="10dp"
+            android:backgroundTint="@color/iconGrey"
+            android:background="@drawable/arrow" />
     </RelativeLayout>
 
-    <ImageView
-        android:id="@+id/imageView"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
         android:layout_width="match_parent"
-        android:layout_height="73dp"
-        app:srcCompat="@android:drawable/ic_lock_idle_alarm" />
+        android:layout_height="0dp"
+        android:background="@drawable/main_square"
+        android:layout_marginBottom="20dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="5dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/titleGuidline"
+        app:layout_constraintBottom_toBottomOf="parent">
 
-    <Chronometer
+        <LinearLayout
+            android:id="@+id/linearLayout1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:background="@color/white"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <Spinner
+                android:id="@+id/spinnerPolja"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/style_spinner"
+                android:spinnerMode="dropdown"
+                android:layout_marginStart="5dp"
+                />
+
+            <TextView
+                android:id="@+id/nazivPolja"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:text="DOMAĆI NAZIV"
+                android:textSize="10sp"
+                android:textColor="@color/iconGrey"/>
+
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/linearLayout2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:background="@color/white"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/linearLayout1">
+
+            <Spinner
+                android:id="@+id/spinnerKulture"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/style_spinner"
+                android:spinnerMode="dropdown"
+                android:layout_marginStart="5dp"
+                />
+            <TextView
+                android:id="@+id/nazivKulture"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="10sp"
+                android:text="TRETIRANA KULTURA"
+                android:layout_marginStart="10dp"
+                android:textColor="@color/iconGrey"
+                />
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/linearLayout3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:background="@color/white"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/linearLayout2">
+
+            <Spinner
+                android:id="@+id/spinnerPesticida"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/style_spinner"
+                android:spinnerMode="dropdown"
+                android:layout_marginStart="5dp"
+                />
+            <TextView
+                android:id="@+id/nazivPesticida"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="10sp"
+                android:text="NAZIV SREDSTVA"
+                android:layout_marginStart="10dp"
+                android:textColor="@color/iconGrey"
+                />
+
+        </LinearLayout>
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            app:layout_constraintTop_toBottomOf="@id/linearLayout3"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:srcCompat="@drawable/timer" />
+        <Chronometer
+            android:id="@+id/stopericaId"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            android:textColor="@color/greyText"
+            app:layout_constraintTop_toBottomOf="@+id/imageView" />
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/startButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="startStoperica"
+            android:background="@drawable/yellow_button"
+            android:text="Kreni"
+            android:paddingLeft="40dp"
+            android:paddingRight="40dp"
+            android:paddingTop="15dp"
+            android:paddingBottom="15dp"
+            android:layout_marginTop="10dp"
+            android:textColor="@color/greyText"
+            android:fontFamily="@font/poppinsbold"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/stopericaId" />
 
 
-        android:id="@+id/stopericaId"
-        android:layout_width="match_parent"
-        android:layout_height="36dp"
-        android:textAlignment="center"
-        android:textSize="25sp"
-        android:textStyle="bold" />
-
-    <Button
-        android:id="@+id/startButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:onClick="startStoperica"
-        android:text="Kreni"
-        />
-
-    <EditText
-
-        android:id="@+id/povrsinaId"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Površina(Ha)"
-        android:inputType="number" />
-
-    <EditText
-
-        android:id="@+id/dozaId"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Doza(ml))"
-        android:inputType="number" />
-
-    <Button
-        android:id="@+id/btnSpremi"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="60px"
-        android:onClick="spremiClicked"
-        android:text="SPREMI" />
+        <LinearLayout
+            android:id="@+id/linearLayout4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@color/white"
+            android:orientation="vertical"
+            app:layout_constraintTop_toBottomOf="@+id/startButton"
+            app:layout_constraintStart_toStartOf="parent">
+            <EditText
+                android:id="@+id/povrsinaId"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:drawableEnd="@drawable/pen"
+                android:textColor="@color/greyText"
+                android:textStyle="bold"
+                android:textSize="20sp"
+                android:hint="POVRŠINA(Ha)"
+                android:inputType="number"
+                android:layout_marginStart="10dp"
+                />
+            <TextView
+                android:id="@+id/povrsinaTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="10sp"
+                android:text="POVRŠINA"
+                android:layout_marginStart="10dp"
+                android:textColor="@color/iconGrey"
+                />
+        </LinearLayout>
 
 
-</LinearLayout>
+        <LinearLayout
+            android:id="@+id/linearLayout5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="20dp"
+            android:background="@color/white"
+            android:orientation="vertical"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout4"
+            app:layout_constraintStart_toStartOf="parent">
+            <EditText
+                android:id="@+id/dozaId"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Doza(ml))"
+                android:inputType="number"
+                android:background="@color/white"
+                android:drawableEnd="@drawable/pen"
+                android:textColor="@color/greyText"
+                android:textStyle="bold"
+                android:textSize="20sp"
+                android:layout_marginStart="10dp"
+                />
+            <TextView
+                android:id="@+id/dozaTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="10sp"
+                android:text="DOZA"
+                android:layout_marginStart="10dp"
+                android:textColor="@color/iconGrey"
+                />
+        </LinearLayout>
+
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnSpremi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="60px"
+            android:onClick="spremiClicked"
+            android:text=" SPREMI"
+            android:background="@drawable/yellow_button"
+            android:drawableStart="@drawable/save"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:layout_marginTop="10dp"
+            android:textColor="@color/greyText"
+            android:fontFamily="@font/poppinsbold"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+
+
+
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

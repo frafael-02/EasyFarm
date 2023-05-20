@@ -1,45 +1,206 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/backwheat"
     tools:context=".NovoPoljeActivity">
 
-    <EditText
-        android:id="@+id/nazivId"
+
+    <RelativeLayout
+        android:id="@+id/linearLayoutTop"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="DOMAĆI NAZIV"
-        android:inputType="text" />
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        >
 
-    <EditText
-        android:id="@+id/arkodId"
+        <TextView
+            android:id="@+id/topDobrodosli"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="Nova zemlja"
+            android:textColor="@color/greyText"
+            android:textSize="20sp" />
+
+        <ImageButton
+            android:onClick="backArrow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="10dp"
+            android:backgroundTint="@color/iconGrey"
+            android:background="@drawable/arrow" />
+    </RelativeLayout>
+
+
+
+
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_centerInParent="true"
+    android:layout_marginStart="5dp"
+    android:layout_marginEnd="5dp"
+    android:background="@drawable/main_square"
+    >
+    <LinearLayout
+        android:id="@+id/linearLayout1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="ARKOD ID"
-        android:inputType="text" />
+        android:layout_marginTop="20dp"
+        android:background="#FFFFFF"
+        android:orientation="vertical"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+        <EditText
+            android:id="@+id/nazivId"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="DOMAĆI NAZIV"
+            android:inputType="text"
+            android:background="@color/white"
+            android:drawableEnd="@drawable/pen"
+            android:textColor="@color/greyText"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:layout_marginStart="10dp"/>
 
-    <Spinner
-        android:id="@+id/spinnerBiljka"
+        <TextView
+            android:id="@+id/nazivTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="10sp"
+            android:text="DOMAĆI NAZIV"
+            android:layout_marginStart="10dp"
+            android:textColor="@color/iconGrey"
+            />
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/linearLayout2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:translationY="25px" />
+        android:layout_marginTop="10dp"
+        android:background="@color/white"
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@id/linearLayout1"
+        app:layout_constraintStart_toStartOf="parent">
+        <EditText
+            android:id="@+id/arkodId"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="ARKOD ID"
+            android:inputType="text"
+            android:background="@color/white"
+            android:drawableEnd="@drawable/pen"
+            android:textColor="@color/greyText"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:layout_marginStart="10dp"/>
 
-    <EditText
-        android:id="@+id/povrsinaId"
+        <TextView
+            android:id="@+id/arkodTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="10sp"
+            android:text="ARKOD ID"
+            android:layout_marginStart="10dp"
+            android:textColor="@color/iconGrey"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Povrsina(ha)"
-        android:inputType="number" />
+        android:layout_marginTop="20dp"
+        android:background="@color/white"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/linearLayout2">
 
-    <Button
+        <Spinner
+            android:id="@+id/spinnerBiljka"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/style_spinner"
+            android:spinnerMode="dropdown"
+            android:layout_marginStart="5dp"
+            />
+        <TextView
+            android:id="@+id/nazivPesticida"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="10sp"
+            android:text="TRETIRANA KULTURA"
+            android:layout_marginStart="10dp"
+            android:textColor="@color/iconGrey"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="20dp"
+        android:background="@color/white"
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@id/linearLayout3"
+        app:layout_constraintBottom_toTopOf="@id/button"
+        app:layout_constraintStart_toStartOf="parent">
+        <EditText
+            android:id="@+id/povrsinaId"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="POVRŠINA(ha)"
+            android:inputType="text"
+            android:background="@color/white"
+            android:drawableEnd="@drawable/pen"
+            android:textColor="@color/greyText"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:layout_marginStart="10dp"/>
+
+        <TextView
+            android:id="@+id/povrsinaTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="10sp"
+            android:text="POVRŠINA"
+            android:layout_marginStart="10dp"
+            android:textColor="@color/iconGrey"
+            />
+    </LinearLayout>
+
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/button"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_margin="20dp"
         android:onClick="spremiClicked"
-        android:text="SPREMI" />
+        android:text=" SPREMI"
+        android:background="@drawable/yellow_button"
+        android:drawableStart="@drawable/save"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:layout_marginTop="10dp"
+        android:textColor="@color/greyText"
+        android:fontFamily="@font/poppinsbold"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
 
 
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</RelativeLayout>

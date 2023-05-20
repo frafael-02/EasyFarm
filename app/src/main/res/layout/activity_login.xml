@@ -5,8 +5,26 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/backlogin"
-    tools:context=".MainActivity">
+    tools:context=".LoginActivity">
+
+    <com.facebook.shimmer.ShimmerFrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/shimmer_view"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        >
+        <include layout="@layout/home_loading"/>
+    </com.facebook.shimmer.ShimmerFrameLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/screenId"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/backlogin"
+        >
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/topGuidline"
@@ -40,13 +58,13 @@
             android:id="@+id/topDobrodosli"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
             android:text="Dobrodošli"
             android:textColor="@color/white"
-            android:layout_centerInParent="true"
-            android:textSize="25sp"
-            />
+            android:textSize="24sp" />
 
         <ImageButton
+            android:id="@+id/backArrow"
             android:onClick="backArrow"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -60,10 +78,12 @@
         android:id="@+id/dobrodosli"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="20dp"
         android:text="Dobrodošli\nnazad"
+        android:transitionName="titleBigTransition"
         android:textAlignment="center"
         android:textColor="@color/black"
+        android:fontFamily="@font/poppinsregular"
         android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -73,11 +93,11 @@
         android:id="@+id/tekst"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="10dp"
         android:text="Prijavite se na svoj profil"
+        android:transitionName="titleSmallTransition"
         android:textColor="@color/iconGrey"
-        android:textSize="15sp"
-
+        android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/dobrodosli" />
@@ -89,12 +109,11 @@
         android:layout_height="0dp"
         android:background="@drawable/main_square"
         android:translationZ="-1dp"
+        android:transitionName="main_square"
         app:layout_constraintBottom_toBottomOf="@id/bottomGuidline"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/topGuidline"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintTop_toBottomOf="@id/topGuidline" />
 
     <EditText
         android:id="@+id/emailAddressId"
@@ -103,10 +122,16 @@
         android:background="@color/white"
         android:drawableLeft="@drawable/mail"
         android:hint="Email"
+        android:textColor="@color/greyText"
+        android:textColorHint="@color/iconGrey"
         android:inputType="textEmailAddress"
+        android:transitionName="emailTransition"
         android:padding="10dp"
+        android:textSize="18sp"
         android:drawablePadding="10dp"
         android:layout_marginBottom="5dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintBottom_toTopOf="@+id/passwordId" />
@@ -116,34 +141,39 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/white"
-        android:hint="Password"
+        android:hint="Lozinka"
+        android:transitionName="passwordTransition"
+        android:textColor="@color/greyText"
+        android:textColorHint="@color/iconGrey"
         android:inputType="textPassword"
         android:drawablePadding="10dp"
+        android:textSize="18sp"
         android:padding="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
         android:drawableLeft="@drawable/lock"
         app:layout_constraintBottom_toTopOf="@+id/forggotPassword"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
 
-    <Button
-        android:id="@+id/forggotPassword"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="loginClicked"
-        android:inputType="textAutoCorrect"
-        android:background="?android:attr/selectableItemBackground"
-        android:textColor="@color/link"
-        android:textSize="14sp"
-        android:text="Zaboravili ste lozinku?"
-        app:layout_constraintBottom_toTopOf="@id/button2"
-        app:layout_constraintEnd_toEndOf="parent"
-        />
-    <LinearLayout
+        <Button
+            android:id="@+id/forggotPassword"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="?android:attr/selectableItemBackground"
+            android:fontFamily="@font/poppinsregular"
+            android:inputType="textAutoCorrect"
+            android:onClick="forgotClicked"
+            android:text="Zaboravili ste lozinku?"
+            android:textColor="@color/link"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toTopOf="@id/button2"
+            app:layout_constraintEnd_toEndOf="parent" />
+    <RelativeLayout
         android:id="@+id/linearLayout"
-        android:layout_width="0dp"
-        android:layout_height="40dp"
-        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:gravity="center"
         app:layout_constraintBottom_toBottomOf="@id/bottomGuidline"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -151,26 +181,33 @@
         >
 
         <TextView
+            android:id="@+id/nemateProfil"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/profil"
             android:text="Nemate profil?"
             android:layout_marginRight="-10dp"
-            android:textColor="@color/iconGrey"/>
+            android:textSize="13sp"
+            android:textColor="@color/iconGrey"
+            android:layout_centerVertical="true"
+
+            />
 
         <Button
             android:id="@+id/loginButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_toEndOf="@+id/nemateProfil"
             android:background="?android:attr/selectableItemBackground"
             android:inputType="textAutoCorrect"
             android:onClick="registerClicked"
             android:text="Sign up"
+            android:fontFamily="@font/poppinsregular"
             android:textColor="@color/greyText"
             android:textSize="15sp" />
 
 
-    </LinearLayout>
+    </RelativeLayout>
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/button2"
         android:layout_width="match_parent"
@@ -178,15 +215,18 @@
         android:onClick="loginClicked"
         android:background="@drawable/gradient_shape"
         android:text="Login"
-        android:textSize="20sp"
+        android:transitionName="buttonTransition"
+        android:textSize="24sp"
         android:textColor="@color/white"
         android:inputType="textAutoCorrect"
-        android:paddingTop="20dp"
-        android:paddingBottom="20dp"
+        android:paddingTop="15dp"
+        android:paddingBottom="15dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
         app:layout_constraintBottom_toTopOf="@id/linearLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         />
 
-
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

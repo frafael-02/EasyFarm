@@ -79,6 +79,7 @@
         android:layout_height="wrap_content"
         app:itemIconTint="@drawable/selector"
         app:itemTextColor="@drawable/selector"
+        android:background="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
