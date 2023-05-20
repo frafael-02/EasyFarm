@@ -11,151 +11,178 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@color/white">
+
+
 
         <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/bottomGuidline"
+            android:id="@+id/leftVerticalGuidline"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.25" />
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.1" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/rightVerticalGuidline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.9" />
 
         <RelativeLayout
             android:id="@+id/relativeLayout"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_marginTop="10dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
             android:background="@drawable/gradient_shape_back"
             android:elevation="20dp"
-            android:padding="20dp"
+            android:padding="10dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="@id/bottomGuidline">
-<TextView
-    android:id="@+id/time"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_alignParentRight="true"
-    android:layout_alignParentTop="true"
-    android:text="TIME"
-    android:textStyle="bold"
-    android:textColor="@color/white"
-    android:textSize="30dp"
-    />
-<RelativeLayout
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_alignParentLeft="true"
-    android:layout_alignParentBottom="true"
-    android:background="@drawable/gradient_shape_back"
-    android:backgroundTint="#66FFFFFF"
-    android:padding="5dp"
-    android:layout_toLeftOf="@id/time"
-    >
-    <TextView
-        android:id="@+id/prskanjeTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="PRSKANJE"
-        android:textStyle="bold"
-        android:textColor="@color/greyText"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:textSize="20dp"
-        />
+            app:layout_constraintTop_toTopOf="parent">
 
-    <TextView
-        android:id="@+id/ukupno"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="UKUPNO"
-        android:textStyle="bold"
-        android:textColor="@color/iconGrey"
-        android:layout_below="@id/prskanjeTextView"
-        android:layout_alignParentLeft="true"
-        android:textSize="15dp"
-        />
-    <TextView
-        android:id="@+id/ovajMjesec"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="OVAJ\nMJESEC"
-        android:textAlignment="center"
-        android:textStyle="bold"
-        android:textColor="@color/iconGrey"
-        android:layout_below="@id/prskanjeTextView"
-        android:layout_alignParentRight="true"
-        android:textSize="15dp"
-        />
-    <TextView
-        android:id="@+id/ovajMjesecIspod"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="ha"
-        android:textStyle="bold"
-        android:textColor="@color/greyText"
-        android:layout_below="@id/ovajMjesec"
-        android:layout_alignParentRight="true"
-        android:textSize="20dp"
-        />
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:background="@drawable/gradient_shape_back"
+                android:backgroundTint="#66FFFFFF"
+                android:padding="16dp">
 
-    <TextView
-        android:id="@+id/ukupnoIspod"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="ha"
-        android:textStyle="bold"
-        android:textColor="@color/greyText"
-        android:layout_below="@id/ukupno"
-        android:layout_alignParentLeft="true"
-        android:textSize="20dp"
-        />
-    <TextView
-        android:id="@+id/danas"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="DANAS"
-        android:textStyle="bold"
-        android:textColor="@color/iconGrey"
-        android:layout_below="@id/ukupnoIspod"
-        android:layout_centerHorizontal="true"
-        android:textSize="15dp"
-        />
+                <TextView
+                    android:id="@+id/prskanjeTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true"
+                    android:text="PRSKANJE"
+                    android:textColor="@color/greyText"
+                    android:textSize="24sp"
+                    android:fontFamily="@font/poppinsregular"
+                    android:textStyle="bold" />
 
-    <TextView
-        android:id="@+id/danasIspod"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="ha"
-        android:textStyle="bold"
-        android:textColor="@color/greyText"
-        android:layout_below="@id/danas"
-        android:layout_centerHorizontal="true"
-        android:textSize="20dp"
-        />
-</RelativeLayout>
+                <LinearLayout
+                    android:id="@+id/ukupnoLinearLayout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/prskanjeTextView"
+                    android:layout_alignParentStart="true"
+                    android:gravity="center"
+                    android:layout_marginTop="8dp"
+
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/ukupno"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="UKUPNO"
+                        android:textColor="@color/iconGrey"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/ukupnoIspod"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/ukupno"
+                        android:layout_alignParentLeft="true"
+                        android:text="ha"
+                        android:textColor="@color/greyText"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/prskanjeTextView"
+                    android:layout_centerHorizontal="true"
+                    android:gravity="center"
+                    android:layout_marginTop="8dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/ovajMjesec"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="OVAJ MJESEC"
+                        android:textAlignment="center"
+                        android:textColor="@color/iconGrey"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/ovajMjesecIspod"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/ovajMjesec"
+                        android:layout_alignParentRight="true"
+                        android:text="ha"
+                        android:textColor="@color/greyText"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/danasLinearLayout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/prskanjeTextView"
+                    android:layout_alignParentEnd="true"
+                    android:gravity="center"
+                    android:layout_marginTop="8dp"
+                    android:orientation="vertical">
+                    <TextView
+                        android:id="@+id/danas"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:text="DANAS"
+                        android:textColor="@color/iconGrey"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/danasIspod"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:text="ha"
+                        android:textColor="@color/greyText"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+            </RelativeLayout>
 
         </RelativeLayout>
 
+<ImageView
+    android:layout_width="match_parent"
+    android:layout_height="40dp"
+    android:src="@drawable/shadow"
+    android:alpha="0.2"
+    android:translationZ="1dp"
 
+    app:layout_constraintTop_toTopOf="@id/evidencijaListId"
+    />
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/evidencijaListId"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="10dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/relativeLayout2" />
+            app:layout_constraintTop_toBottomOf="@id/dodajZemlju" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/addEvidencijaButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-
             android:layout_margin="30dp"
-            android:backgroundTint="@color/transparent"
+            android:backgroundTint="@color/background"
             android:clickable="true"
             android:src="@android:drawable/ic_input_add"
             app:backgroundTint="@color/iconYellow"
@@ -166,94 +193,114 @@
             />
 
 
-
         <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/filter"
+            android:id="@+id/filterBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="  Filter"
+            android:background="@drawable/main_square"
             android:drawableLeft="@drawable/filter"
-            android:background="@drawable/main_square"
-            android:textSize="20sp"
-            android:textColor="@color/greyText"
-            android:textStyle="bold"
             android:padding="10dp"
+            android:text=" Filter"
+            android:textColor="@color/greyText"
+            android:textSize="18sp"
+            android:fontFamily="@font/poppinsbold"
             android:layout_marginTop="20dp"
-            app:layout_constraintEnd_toStartOf="@+id/sort"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/leftVerticalGuidline"
             app:layout_constraintTop_toBottomOf="@+id/relativeLayout" />
 
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/sort"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="  Sortiraj"
-            android:drawableLeft="@drawable/sort"
-            android:background="@drawable/main_square"
-            android:padding="10dp"
-            android:textSize="20sp"
-            android:textColor="@color/greyText"
-            android:textStyle="bold"
-            android:layout_marginTop="20dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/filter"
-            app:layout_constraintTop_toBottomOf="@+id/relativeLayout" />
-        />
 
-        <RelativeLayout
-            android:id="@+id/relativeLayout2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintEnd_toStartOf="@+id/izvoz"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginTop="10dp"
-            app:layout_constraintTop_toBottomOf="@id/filter">
+
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/dodajZemlju"
-                android:drawableLeft="@drawable/soil"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/main_square"
+                android:drawableLeft="@drawable/soil"
                 android:padding="10dp"
-                android:textSize="20sp"
+                android:text="  DODAJ\n  ZEMLJU"
                 android:textColor="@color/greyText"
-                android:textStyle="bold"
-                android:text="  DODAJ\n  ZEMLJU" />
+                android:textSize="18sp"
+                android:fontFamily="@font/poppinsbold"
+                android:layout_marginTop="10dp"
+                app:layout_constraintTop_toBottomOf="@id/filterBtn"
+                app:layout_constraintStart_toStartOf="@id/leftVerticalGuidline"
+                />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/button8"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:drawableLeft="@drawable/pesticid"
                 android:layout_below="@id/dodajZemlju"
+                android:layout_marginBottom="5dp"
                 android:background="@drawable/main_square"
-                android:layout_marginTop="10dp"
-                android:textColor="@color/greyText"
-                android:textStyle="bold"
+                android:drawableLeft="@drawable/pesticid"
                 android:padding="10dp"
-                android:textSize="20sp"
-                android:text=" DODAJ\n  PESTICID" />
-        </RelativeLayout>
+                android:text=" DODAJ\n  PESTICID"
+                android:textColor="@color/greyText"
+                android:textSize="18sp"
+                android:fontFamily="@font/poppinsbold"
+                android:layout_marginTop="12dp"
+                app:layout_constraintEnd_toStartOf="@id/rightVerticalGuidline"
+                app:layout_constraintTop_toBottomOf="@id/izvoz"
+                />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/izvoz"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="  IZVOZ"
             android:background="@drawable/main_square"
-            android:padding="10dp"
-            android:layout_marginTop="10dp"
-            android:textSize="20sp"
-            android:textColor="@color/greyText"
-            android:textStyle="bold"
             android:drawableLeft="@drawable/export"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/relativeLayout2"
-            app:layout_constraintTop_toBottomOf="@+id/sort" />
+            android:padding="10dp"
+            android:text="  IZVOZ"
+            android:textColor="@color/greyText"
+            android:textSize="18sp"
+            android:fontFamily="@font/poppinsbold"
+            android:layout_marginTop="20dp"
+            app:layout_constraintEnd_toStartOf="@id/rightVerticalGuidline"
+            app:layout_constraintTop_toBottomOf="@+id/relativeLayout"
+             />
+
+        <LinearLayout
+            android:id="@+id/filterLayout"
+            android:layout_width="316dp"
+            android:layout_height="208dp"
+            android:layout_marginTop="20dp"
+            android:background="@color/white"
+            android:clickable="true"
+
+            android:orientation="vertical"
+            android:translationZ="90dp"
+            android:visibility="gone"
+            app:layout_constraintTop_toBottomOf="@+id/filterBtn"
+
+            tools:layout_editor_absoluteX="45dp">
+
+            <EditText
+                android:id="@+id/datumId2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:background="@color/white"
+                android:drawableEnd="@drawable/date"
+                android:focusable="false"
+                android:hint="DATUM"
+                android:inputType="none"
+                android:onClick="pickDatum"
+                android:textColor="@color/greyText"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <Spinner
+                android:id="@+id/nazivSpinner"
+                android:layout_width="match_parent"
+                android:layout_height="48dp" />
+
+            <Spinner
+                android:id="@+id/sredstvoSpinner"
+                android:layout_width="match_parent"
+                android:layout_height="46dp" />
+        </LinearLayout>
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
