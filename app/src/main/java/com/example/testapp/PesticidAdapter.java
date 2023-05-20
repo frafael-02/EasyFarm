@@ -8,7 +8,7 @@ import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
 import com.example.testapp.entiteti.Pesticid;
-import com.example.testapp.entiteti.Polje;
+
 
 import java.util.ArrayList;
 
@@ -27,10 +27,10 @@ public class PesticidAdapter extends ArrayAdapter<Pesticid> {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         if (convertView == null) {
-            convertView = LayoutInflater.from(getContext()).inflate(android.R.layout.simple_spinner_dropdown_item, parent, false);
+            convertView = LayoutInflater.from(getContext()).inflate(R.layout.spinner_dropdown_layout, parent, false);
         }
 
-        TextView textView = (TextView) convertView.findViewById(android.R.id.text1);
+        TextView textView = (TextView) convertView.findViewById(R.id.text1);
         Pesticid objekt = getItem(position);
         if (objekt != null) {
             textView.setText(objekt.getNaziv());

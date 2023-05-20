@@ -2,29 +2,29 @@ package com.example.testapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
+
 import android.os.Bundle;
 import android.os.SystemClock;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
+
 import android.widget.Button;
 import android.widget.Chronometer;
 import android.widget.EditText;
+
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.testapp.database.DatabaseQueries;
 import com.example.testapp.entiteti.Biljka;
-import com.example.testapp.entiteti.Entitet;
+
 import com.example.testapp.entiteti.Evidencija;
 import com.example.testapp.entiteti.Pesticid;
 import com.example.testapp.entiteti.Polje;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.OptionalLong;
 
 public class NovaEvidencijaActivity extends AppCompatActivity {
     private Chronometer stoperica;
@@ -67,7 +67,7 @@ public class NovaEvidencijaActivity extends AppCompatActivity {
         povrsina = findViewById(R.id.povrsinaId);
         doza = findViewById(R.id.dozaId);
         PoljeAdapter adapterPolja = new PoljeAdapter(this, new ArrayList<>(MainActivity2.poljeList));
-        adapterPolja.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        adapterPolja.setDropDownViewResource(R.layout.spinner_dropdown_layout);
         spinnerPolja.setAdapter(adapterPolja);
 
         spinnerPolja.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -77,19 +77,20 @@ public class NovaEvidencijaActivity extends AppCompatActivity {
                 {
                     Polje polje = adapterPolja.getItem(position);
                     selectedPolje = polje.getId();
-
+                    povrsina.setText(String.valueOf(polje.getPovrsina()));
                 }
+
 
             }
 
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
-                // ne treba raditi ništa
+
             }
         });
 
         KulturaAdapter kulturaAdapter = new KulturaAdapter(this, new ArrayList<>(MainActivity2.biljkaList));
-        kulturaAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        kulturaAdapter.setDropDownViewResource(R.layout.spinner_dropdown_layout);
         spinnerKulture.setAdapter(kulturaAdapter);
 
         spinnerKulture.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -106,12 +107,12 @@ public class NovaEvidencijaActivity extends AppCompatActivity {
 
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
-                // ne treba raditi ništa
+
             }
         });
 
         PesticidAdapter pesticidAdapter = new PesticidAdapter(this, new ArrayList<>(MainActivity2.pesticidList));
-        pesticidAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        pesticidAdapter.setDropDownViewResource(R.layout.spinner_dropdown_layout);
         spinnerPesticida.setAdapter(pesticidAdapter);
         spinnerPesticida.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -127,7 +128,7 @@ public class NovaEvidencijaActivity extends AppCompatActivity {
 
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
-                // ne treba raditi ništa
+
             }
         });
 
@@ -179,4 +180,9 @@ public class NovaEvidencijaActivity extends AppCompatActivity {
 
 
     }
+    public void backArrow(View v){
+        finish();
+    }
+
+
 }

@@ -22,13 +22,13 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.Properties;
 
 import javax.activation.DataHandler;
 import javax.activation.FileDataSource;
+import javax.mail.Authenticator;
 import javax.mail.Message;
 import javax.mail.MessagingException;
 import javax.mail.Multipart;
@@ -49,7 +49,7 @@ public class ExcelFileController {
             @Override
             public void run() {
                 try {
-                    // Download the Excel file from Firebase Storage
+
                     StorageReference storageRef = storage.getReference().child("evidencija.xlsx");
                     File localFile = File.createTempFile("evidencija", "xlsx");
                     storageRef.getFile(localFile).addOnSuccessListener(new OnSuccessListener<FileDownloadTask.TaskSnapshot>() {
@@ -188,8 +188,8 @@ public class ExcelFileController {
             @Override
             public void run() {
                 // Set the email properties
-                String fromEmail = "testingaccfr@gmail.com";
-                String fromPassword = "rtvvetfvmpvpxrly";
+                String fromEmail = "easyfarminfo@gmail.com";
+                String fromPassword = "gpzpmdigjvxgavmb";
 
                 String subject = "EasyFarm-Evidencija";
                 String body = "Vaša evidencija se nalazi u privitku.";
@@ -201,7 +201,7 @@ public class ExcelFileController {
                 props.put("mail.smtp.starttls.enable", "true");
 
                 // Create a new session with the email server
-                Session session = Session.getInstance(props, new javax.mail.Authenticator() {
+                Session session = Session.getInstance(props, new Authenticator() {
                     protected PasswordAuthentication getPasswordAuthentication() {
                         return new PasswordAuthentication(fromEmail, fromPassword);
                     }

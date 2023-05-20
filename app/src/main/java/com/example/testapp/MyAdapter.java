@@ -45,7 +45,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder>{
         holder.arkodId.setText(evidencija.getArkodId());
         holder.imePesticida.setText(evidencija.getImePesticida());
         holder.imeBiljke.setText(evidencija.getImeBiljke());
-        holder.datum.setText(evidencija.getVrijemeStart().getDayOfMonth() + " " + evidencija.getVrijemeStart().getMonthValue() + " " + evidencija.getVrijemeStart().getYear());
+        holder.datum.setText(evidencija.getVrijemeStart().getDayOfMonth() + ". " + evidencija.getVrijemeStart().getMonthValue() + ". " + evidencija.getVrijemeStart().getYear() + ".");
         holder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

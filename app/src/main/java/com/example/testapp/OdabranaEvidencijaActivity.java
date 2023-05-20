@@ -24,7 +24,7 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.List;
+
 import java.util.Locale;
 
 public class OdabranaEvidencijaActivity extends AppCompatActivity {
@@ -73,7 +73,7 @@ public class OdabranaEvidencijaActivity extends AppCompatActivity {
 
 
         PoljeAdapter adapterPolja = new PoljeAdapter(this, new ArrayList<>(MainActivity2.poljeList));
-        adapterPolja.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        adapterPolja.setDropDownViewResource(R.layout.spinner_dropdown_layout);
         Intent intent = getIntent();
       evidencija = (Evidencija) intent.getSerializableExtra("evidencija");
         spinnerPolje.setAdapter(adapterPolja);
@@ -105,7 +105,7 @@ public class OdabranaEvidencijaActivity extends AppCompatActivity {
 
 
         KulturaAdapter biljkaAdapter = new KulturaAdapter(this, new ArrayList<>(MainActivity2.biljkaList));
-        biljkaAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        biljkaAdapter.setDropDownViewResource(R.layout.spinner_dropdown_layout);
         spinnerBiljke.setAdapter(biljkaAdapter);
         spinnerBiljke.setSelection(Long.valueOf(evidencija.getBiljkaId()).intValue());
         spinnerBiljke.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -122,13 +122,13 @@ public class OdabranaEvidencijaActivity extends AppCompatActivity {
 
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
-                // ne treba raditi ništa
+
             }
         });
 
 
         PesticidAdapter pesticidAdapter = new PesticidAdapter(this, new ArrayList<>(MainActivity2.pesticidList));
-        pesticidAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        pesticidAdapter.setDropDownViewResource(R.layout.spinner_dropdown_layout);
         spinnerSredstva.setAdapter(pesticidAdapter);
         spinnerSredstva.setSelection(Long.valueOf(evidencija.getPesticidId()).intValue());
         spinnerSredstva.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -145,7 +145,7 @@ public class OdabranaEvidencijaActivity extends AppCompatActivity {
 
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
-                // ne treba raditi ništa
+
             }
         });
 

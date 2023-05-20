@@ -1,17 +1,16 @@
 package com.example.testapp.api;
 
 import com.example.testapp.BuildConfig;
+import com.google.gson.Gson;
+import com.google.gson.JsonObject;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.BufferedReader;
+
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
-import java.net.HttpURLConnection;
-import java.net.URL;
+
 
 import okhttp3.MediaType;
 import okhttp3.OkHttpClient;
@@ -29,16 +28,28 @@ public class VirtualAgent {
         String apiKey = BuildConfig.ApiKey;
         String model = "gpt-3.5-turbo";
 
-        OkHttpClient client = new OkHttpClient();
+        Gson gson = new Gson();
+        JsonObject messageJson = new JsonObject();
+        messageJson.addProperty("role", "user");
+        messageJson.addProperty("content", message);
 
-        MediaType mediaType = MediaType.parse("application/json");
-        RequestBody body = RequestBody.create("{\"model\": \"" + model + "\", \"messages\": [{\"role\": \"user\", \"content\": \"" + message + "\"}]}", mediaType);
+        JsonObject requestJson = new JsonObject();
+        requestJson.addProperty("model", model);
+        requestJson.add("messages", gson.toJsonTree(new JsonObject[]{messageJson}));
+
+        RequestBody body = RequestBody.create(gson.toJson(requestJson), MediaType.parse("application/json"));
+        OkHttpClient client = new OkHttpClient();
         Request request = new Request.Builder()
                 .url(url)
                 .post(body)
                 .addHeader("Content-Type", "application/json")
                 .addHeader("Authorization", "Bearer " + apiKey)
                 .build();
+       /*
+
+        MediaType mediaType = MediaType.parse("application/json");
+        RequestBody body = RequestBody.create("{\"model\": \"" + model + "\", \"messages\": [{\"role\": \"user\", \"content\": \"" + message + "\"}]}", mediaType);
+        */
 
         try {
             Response response = client.newCall(request).execute();
@@ -54,7 +65,7 @@ public class VirtualAgent {
         } catch (IOException e) {
             throw new RuntimeException(e);
         } catch (JSONException e) {
-            throw new RuntimeException(e);
+            return "Agent trenutno nije dostupan, pokušajte kasnije.";
         }
 
     }

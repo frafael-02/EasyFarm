@@ -1,5 +1,6 @@
 package com.example.testapp.entiteti;
 
+
 import java.time.LocalDate;
 import java.util.List;
 
@@ -37,6 +38,8 @@ public class UtilityClass {
         }
         return result;
     }
+
+
 
 }
 

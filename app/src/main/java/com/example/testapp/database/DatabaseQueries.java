@@ -2,7 +2,7 @@ package com.example.testapp.database;
 
 import androidx.annotation.NonNull;
 
-import com.example.testapp.MainActivity;
+
 import com.example.testapp.MainActivity2;
 import com.example.testapp.entiteti.Biljka;
 import com.example.testapp.entiteti.Evidencija;
@@ -16,7 +16,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.google.firebase.firestore.auth.User;
+
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -46,12 +46,12 @@ public class DatabaseQueries {
                     pesticidiList.add(pesticid);
                 }
 
-                // Do something with the list of Pesticid objects
+
             }
 
             @Override
             public void onCancelled(DatabaseError databaseError) {
-                // Handle errors here
+
             }
         });
     return pesticidiList;
@@ -77,12 +77,12 @@ public class DatabaseQueries {
                     biljkaList.add(biljka);
                 }
 
-                // Do something with the list of Pesticid objects
+
             }
 
             @Override
             public void onCancelled(DatabaseError databaseError) {
-                // Handle errors here
+
             }
         });
         return biljkaList;
@@ -100,14 +100,15 @@ public class DatabaseQueries {
                 for (DataSnapshot pestSnapshot : dataSnapshot.getChildren()) {
                     Long id = Long.valueOf(pestSnapshot.getKey());
                     MainActivity2.maxIdPolje=id;
-                    String attribute1 = pestSnapshot.child("arkodId").getValue(String.class);
-                    String attribute2 = pestSnapshot.child("naziv").getValue(String.class);
                     String korisnikEmail = pestSnapshot.child("korisnikEmail").getValue(String.class);
-                    Long biljkaId = pestSnapshot.child("biljkaId").getValue(Long.class);
-                    int povrsina = pestSnapshot.child("povrsina").getValue(Integer.class);
+
+
 
                     if(korisnikEmail.equals(getCurrentUser()))
-                    {
+                    {String attribute1 = pestSnapshot.child("arkodId").getValue(String.class);
+                        String attribute2 = pestSnapshot.child("naziv").getValue(String.class);
+                        Long biljkaId = pestSnapshot.child("biljkaId").getValue(Long.class);
+                        int povrsina = pestSnapshot.child("povrsina").getValue(Integer.class);
                         Polje polje = new Polje(id, attribute1, attribute2, biljkaId, korisnikEmail, povrsina);
 
                         poljeList.add(polje);
@@ -115,12 +116,12 @@ public class DatabaseQueries {
 
                 }
 
-                // Do something with the list of Pesticid objects
+
             }
 
             @Override
             public void onCancelled(DatabaseError databaseError) {
-                // Handle errors here
+
             }
         });
         return poljeList;
@@ -142,33 +143,34 @@ public class DatabaseQueries {
                 for (DataSnapshot pestSnapshot : dataSnapshot.getChildren()) {
                     Long id = Long.valueOf(pestSnapshot.getKey());
                     MainActivity2.maxId = id;
-
-                    Long biljkaId = pestSnapshot.child("biljkaId").getValue(Long.class);
-                    Integer koristenaDoza = pestSnapshot.child("koristenaDoza").getValue(Integer.class);
-                    Long pesticidId = pestSnapshot.child("pesticidId").getValue(Long.class);
-                    Long poljeId = pestSnapshot.child("poljeId").getValue(Long.class);
-                    Integer tretiranaPovrsina = pestSnapshot.child("tretiranaPovrsina").getValue(Integer.class);
-                    String vrijemeStart = pestSnapshot.child("vrijemeStart").getValue(String.class);
-                    String vrijemeKraj = pestSnapshot.child("vrijemeKraj").getValue(String.class);
-                    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
-                    LocalDateTime start = LocalDateTime.parse(vrijemeStart, formatter);
-                    LocalDateTime kraj = LocalDateTime.parse(vrijemeKraj, formatter);
                     String korisnikEmail = pestSnapshot.child("korisnikEmail").getValue(String.class);
                     if(korisnikEmail.equals(getCurrentUser()))
-                    {
+                    {   Long biljkaId = pestSnapshot.child("biljkaId").getValue(Long.class);
+                        Integer koristenaDoza = pestSnapshot.child("koristenaDoza").getValue(Integer.class);
+                        Long pesticidId = pestSnapshot.child("pesticidId").getValue(Long.class);
+                        Long poljeId = pestSnapshot.child("poljeId").getValue(Long.class);
+                        Integer tretiranaPovrsina = pestSnapshot.child("tretiranaPovrsina").getValue(Integer.class);
+                        String vrijemeStart = pestSnapshot.child("vrijemeStart").getValue(String.class);
+                        String vrijemeKraj = pestSnapshot.child("vrijemeKraj").getValue(String.class);
+                        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+                        LocalDateTime start = LocalDateTime.parse(vrijemeStart, formatter);
+                        LocalDateTime kraj = LocalDateTime.parse(vrijemeKraj, formatter);
                         Evidencija evidencija = new Evidencija(id, pesticidId, koristenaDoza, poljeId,start, kraj, tretiranaPovrsina, biljkaId, korisnikEmail );
                         evidencijaList.add(evidencija);
                     }
 
 
+
+
+
                 }
 
-                // Do something with the list of Pesticid objects
+
             }
 
             @Override
             public void onCancelled(DatabaseError databaseError) {
-                // Handle errors here
+
                 System.out.println("Error kod ucitavanja evidencije");
             }
         });
@@ -205,7 +207,7 @@ public class DatabaseQueries {
         newRecordMap.put("vrijemeStart", vrijemeStart);
 
         newRecordId.setValue(newRecordMap);
-       // MainActivity2.evidencijaList.add(evidencija);
+
 
     }
 

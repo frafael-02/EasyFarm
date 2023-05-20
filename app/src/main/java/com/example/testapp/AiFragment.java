@@ -4,6 +4,8 @@ package com.example.testapp;
 import static android.app.Activity.RESULT_OK;
 
 import android.content.Intent;
+import android.database.Cursor;
+import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 
@@ -13,15 +15,25 @@ import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.fragment.app.Fragment;
 
+import android.os.Handler;
+import android.provider.MediaStore;
 import android.view.LayoutInflater;
+
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 
+import android.widget.ImageView;
+import android.widget.TextView;
+
+import com.example.testapp.api.ImagePostRequest;
 import com.github.drjacky.imagepicker.ImagePicker;
 import com.github.drjacky.imagepicker.constant.ImageProvider;
 
 import org.jetbrains.annotations.NotNull;
+
+
+import java.io.IOException;
+
 
 import kotlin.Unit;
 import kotlin.jvm.functions.Function1;
@@ -43,7 +55,11 @@ public class AiFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
+    public TextView textView;
+
     public ImageView slika;
+
+
 
     public AiFragment() {
         // Required empty public constructor
@@ -80,15 +96,35 @@ public class AiFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_ai, container, false);
-        slika = view.findViewById(R.id.imageView3);
+        slika = view.findViewById(R.id.imageView);
+
         ActivityResultLauncher<Intent> launcher=
                 registerForActivityResult(new ActivityResultContracts.StartActivityForResult(),(ActivityResult result)->{
                     if(result.getResultCode()==RESULT_OK){
                         Uri uri=result.getData().getData();
                         slika.setImageURI(uri);
+
+                        Bitmap bitmap = null;
+                        try {
+                            bitmap = MediaStore.Images.Media.getBitmap(getActivity().getContentResolver(), uri);
+                        } catch (IOException e) {
+                            throw new RuntimeException(e);
+                        }
+                        String path= MediaStore.Images.Media.insertImage(getActivity().getContentResolver(), bitmap, "slika" , "slika");
+                        Uri newUri=Uri.parse(path);
+                        String[] projection = { MediaStore.Images.Media.DATA };
+                        Cursor cursor = getActivity().getContentResolver().query(newUri, projection, null, null, null);
+                        cursor.moveToFirst();
+                        String imagePath = cursor.getString(cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA));
+                        cursor.close();
+
+
+                        sendImage(imagePath);
+
                         // Use the uri to load the image
                     }else if(result.getResultCode()==ImagePicker.RESULT_ERROR){
                         // Use ImagePicker.Companion.getError(result.getData()) to show an error
+                        System.out.println(ImagePicker.Companion.getError(result.getData()));
                     }
                 });
         ImagePicker.Companion.with(getActivity())
@@ -108,8 +144,38 @@ public class AiFragment extends Fragment {
                 }));
 
 
+        textView = view.findViewById(R.id.textView);
+
+
+
+
 
         return view;
     }
+
+    public void sendImage(String uri)
+    {
+
+
+        if(getActivity() != null) {
+            ImagePostRequest.sendImagePostRequest(getActivity(), uri);
+            new Handler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    textView.setText(MainActivity2.responseString);
+                }
+            }, 1000L);
+
+
+            MainActivity2.responseString=null;
+
+
+        }
+        else
+            System.out.println("getActivity je null");
+    }
+
+
+
 
 }

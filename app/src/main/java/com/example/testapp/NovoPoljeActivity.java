@@ -14,7 +14,7 @@ import com.example.testapp.entiteti.Biljka;
 import com.example.testapp.entiteti.Polje;
 
 import java.util.ArrayList;
-import java.util.List;
+
 
 public class NovoPoljeActivity extends AppCompatActivity {
 
@@ -37,7 +37,7 @@ public class NovoPoljeActivity extends AppCompatActivity {
         povrsina=findViewById(R.id.povrsinaId);
 
         KulturaAdapter biljkaAdapter = new KulturaAdapter(this, new ArrayList<>(MainActivity2.biljkaList));
-        biljkaAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        biljkaAdapter.setDropDownViewResource(R.layout.spinner_dropdown_layout);
         spinnerBiljke.setAdapter(biljkaAdapter);
 
         spinnerBiljke.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -54,7 +54,7 @@ public class NovoPoljeActivity extends AppCompatActivity {
 
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
-                // ne treba raditi ništa
+
             }
         });
     }
@@ -70,5 +70,8 @@ public class NovoPoljeActivity extends AppCompatActivity {
         }
         else Toast.makeText(this, "Unesite sve podatke", Toast.LENGTH_SHORT).show();
 
+    }
+    public void backArrow(View v){
+        finish();
     }
 }

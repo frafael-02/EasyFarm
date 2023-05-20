@@ -3,6 +3,7 @@ package com.example.testapp;
 import android.os.Bundle;
 
 import androidx.appcompat.widget.AppCompatImageButton;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
 
 import android.os.Handler;
@@ -11,22 +12,23 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageButton;
+
+import android.widget.ScrollView;
 import android.widget.TextView;
-import android.widget.Toast;
+
 
 import com.example.testapp.api.OpenMeteoApiClient;
 
 import com.example.testapp.api.VirtualAgent;
-import com.example.testapp.database.DatabaseQueries;
+
 import com.example.testapp.entiteti.AccountDialog;
 import com.example.testapp.entiteti.Current;
-;
+
 import com.example.testapp.entiteti.Korisnik;
 import com.example.testapp.entiteti.WeatherData;
 import com.example.testapp.entiteti.WeatherDataCallback;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.DataSnapshot;
+import com.facebook.shimmer.ShimmerFrameLayout;
+
 
 import java.util.ArrayList;
 import java.util.List;
@@ -48,7 +50,9 @@ public class HomeFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    private static String odgovorStatic;
+
+
+    private static volatile String odgovorStatic;
 
     private OpenMeteoApiClient apiClient;
     public TextView temperatureTextView;
@@ -63,6 +67,8 @@ public class HomeFragment extends Fragment {
     public long timer;
 
     public Button pitajBtn;
+    ShimmerFrameLayout shimmerFrameLayout;
+    ScrollView scrollView;
 
     public HomeFragment() {
         // Required empty public constructor
@@ -89,6 +95,8 @@ public class HomeFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
@@ -101,11 +109,11 @@ public class HomeFragment extends Fragment {
         apiClient.getWeatherData(latitude, longitude, new WeatherDataCallback() {
             @Override
             public void onSuccess(WeatherData weatherData) {
-                // Use the weather data here
+
                 //  List<Daily> dailyList = weatherData.getDailyList();
                 //List<Hourly> hourlyList = weatherData.getHourlyList();
                 Current current = weatherData.getCurrent();
-                // Example: set the current temperature on a TextView
+
 
                 string = current.getTemperature() + "°C";
 
@@ -130,15 +138,18 @@ public class HomeFragment extends Fragment {
         pitanje = view.findViewById(R.id.pitanjeTextView);
         odgovor=view.findViewById(R.id.odgovorText);
         pitajBtn = view.findViewById(R.id.button3);
+        shimmerFrameLayout=view.findViewById(R.id.shimmer_view);
+        shimmerFrameLayout.setVisibility(View.INVISIBLE);
+        scrollView=view.findViewById(R.id.screenId);
 
 
         new Handler().postDelayed(new Runnable() {
 
             public void run () {
                 if(string != null)
-                temperatureTextView.setText("Trenutna temperatura: " + string);
-            else
-                timer=timer+100L;
+                    temperatureTextView.setText( string);
+                else
+                    timer=timer+100L;
 
 
             }
@@ -155,15 +166,20 @@ public class HomeFragment extends Fragment {
         pitajBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                odgovorStatic=null;
+
                 timer=500L;
 
                 pitaj(pitanje.getText().toString());
                 new Handler().postDelayed(new Runnable() {
                     public void run () {
-                        if(odgovorStatic != null)
+
+                        while(odgovorStatic == null)
+                        {}
+                        if(odgovorStatic!=null)
                             odgovor.setText(odgovorStatic);
-                        else
-                            timer=timer+100L;
+
 
 
                     }
@@ -188,10 +204,22 @@ public class HomeFragment extends Fragment {
     public void pitaj(String pitanje)
     {
         List<String> result = new ArrayList<>();
+        shimmerFrameLayout.setVisibility(View.VISIBLE);
+        scrollView.setVisibility(View.INVISIBLE);
+        shimmerFrameLayout.startShimmer();
+        Handler handler = new Handler();
+        handler.postDelayed(()->{
+
+            shimmerFrameLayout.stopShimmer();
+            shimmerFrameLayout.setVisibility(View.INVISIBLE);
+            scrollView.setVisibility(View.VISIBLE);
+
+        },3000);
         new Thread(new Runnable() {
             @Override
             public void run() {
-               odgovorStatic = (VirtualAgent.chatGPT(pitanje));
+
+                odgovorStatic = (VirtualAgent.chatGPT(pitanje));
 
             }
         }).start();

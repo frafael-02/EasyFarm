@@ -2,6 +2,7 @@ package com.example.testapp.entiteti;
 
 import java.io.Serializable;
 
+
 public class Pesticid extends Entitet implements Serializable {
 
 
@@ -33,17 +34,20 @@ public class Pesticid extends Entitet implements Serializable {
 
 
     @Override
-    public boolean equals(Object o)
-    {
-        if(o instanceof Pesticid)
-        {
-            int result =0;
-            if(!naziv.equals(((Pesticid) o).getNaziv()))
+    public boolean equals(Object o) {
+        if (o instanceof Pesticid) {
+            int result = 0;
+            if (!naziv.equals(((Pesticid) o).getNaziv()))
                 result++;
-            else if(dozaMax != ((Pesticid) o).dozaMax)
+            else if (dozaMax != ((Pesticid) o).dozaMax)
                 result++;
-            return (result==0);
-        }
-        else return false;
+            return (result == 0);
+        } else return false;
     }
 }
+
+
+
+
+
+

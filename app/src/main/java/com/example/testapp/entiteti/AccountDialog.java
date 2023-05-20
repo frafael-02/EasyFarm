@@ -30,7 +30,7 @@ public class AccountDialog extends AppCompatDialogFragment {
         View view = inflater.inflate(R.layout.layout_dialog, null);
         builder.setView(view)
                 .setTitle("Profil")
-                .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                .setNegativeButton("Odustani", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
 

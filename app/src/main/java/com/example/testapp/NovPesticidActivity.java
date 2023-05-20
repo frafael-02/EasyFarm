@@ -40,4 +40,10 @@ public class NovPesticidActivity extends AppCompatActivity {
 
 
     }
+    public void backArrow(View v){
+        finish();
+    }
+
+
+
 }

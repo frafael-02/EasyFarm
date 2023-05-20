@@ -1,6 +1,6 @@
 package com.example.testapp.entiteti;
 
-import com.example.testapp.MainActivity;
+
 import com.example.testapp.MainActivity2;
 
 import java.io.Serializable;
