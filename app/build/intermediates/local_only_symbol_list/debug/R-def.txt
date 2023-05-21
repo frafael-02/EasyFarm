@@ -140,6 +140,7 @@ id povrsinaTextView
 id profil
 id profilBtn
 id prskanjeTextView
+id recyclerView
 id relativeLayout
 id relativeLayout2
 id repeatPasswordId
@@ -148,6 +149,7 @@ id rv_child
 id rv_parent
 id screenId
 id searchBar
+id searchView
 id shimmer_view
 id shop
 id spinnerBiljka
@@ -186,6 +188,7 @@ layout activity_nova_evidencija
 layout activity_novo_polje
 layout activity_odabrana_evidencija
 layout activity_register
+layout activity_search
 layout child_rv_layout
 layout color_spinner_layout
 layout fragment_ai

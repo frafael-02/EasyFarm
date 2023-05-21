@@ -294,13 +294,6 @@ public class EvidencijaFragment extends Fragment implements SelectListener {
 
                     }
                 });
-
-
-
-
-
-
-
         }
     });
 

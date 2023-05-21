@@ -9,4 +9,8 @@ public class ShopChildModelClass {
         this.image = image;
         this.text = text;
     }
+
+    public String getItemName() {
+    return text;
+    }
 }

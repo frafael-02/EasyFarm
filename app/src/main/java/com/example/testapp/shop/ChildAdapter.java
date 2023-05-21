@@ -55,4 +55,9 @@ public class ChildAdapter extends RecyclerView.Adapter<ChildAdapter.ViewHolder> 
             tv_child_text=itemView.findViewById(R.id.tv_child_item);
         }
     }
+
+    public void setFilteredList(List<ShopChildModelClass> filteredList){
+        this.childModelClassList=filteredList;
+        notifyDataSetChanged();
+    }
 }

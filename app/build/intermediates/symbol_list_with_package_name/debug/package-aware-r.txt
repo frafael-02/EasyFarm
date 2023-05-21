@@ -3454,6 +3454,7 @@ id radial
 id radio
 id ratio
 id rectangles
+id recyclerView
 id relativeLayout
 id relativeLayout2
 id repeatPasswordId
@@ -3484,6 +3485,7 @@ id scrollIndicatorUp
 id scrollView
 id scrollable
 id searchBar
+id searchView
 id search_badge
 id search_bar
 id search_bar_text_view
@@ -3782,6 +3784,7 @@ layout activity_nova_evidencija
 layout activity_novo_polje
 layout activity_odabrana_evidencija
 layout activity_register
+layout activity_search
 layout browser_actions_context_menu_page
 layout browser_actions_context_menu_row
 layout child_rv_layout

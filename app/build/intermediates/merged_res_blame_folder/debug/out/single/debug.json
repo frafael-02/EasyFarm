@@ -72,16 +72,16 @@
         "source": "C:\\Users\\anton\\.gradle\\daemon\\7.5\\com.example.testapp-main-46:\\mipmap-xxxhdpi\\ic_launcher_round.webp"
     },
     {
-        "merged": "com.example.testapp-merged_res-44:/layout_fragment_evidencija.xml.flat",
-        "source": "com.example.testapp-main-46:/layout/fragment_evidencija.xml"
-    },
-    {
         "merged": "C:\\Users\\anton\\.gradle\\daemon\\7.5\\com.example.testapp-merged_res-44:\\drawable_export.xml.flat",
         "source": "C:\\Users\\anton\\.gradle\\daemon\\7.5\\com.example.testapp-main-46:\\drawable\\export.xml"
     },
     {
         "merged": "C:\\Users\\anton\\.gradle\\daemon\\7.5\\com.example.testapp-merged_res-44:\\layout_activity_login.xml.flat",
         "source": "C:\\Users\\anton\\.gradle\\daemon\\7.5\\com.example.testapp-main-46:\\layout\\activity_login.xml"
+    },
+    {
+        "merged": "C:\\Users\\anton\\.gradle\\daemon\\7.5\\com.example.testapp-merged_res-44:\\layout_activity_search.xml.flat",
+        "source": "C:\\Users\\anton\\.gradle\\daemon\\7.5\\com.example.testapp-main-46:\\layout\\activity_search.xml"
     },
     {
         "merged": "C:\\Users\\anton\\.gradle\\daemon\\7.5\\com.example.testapp-merged_res-44:\\drawable_watch.xml.flat",
@@ -220,6 +220,10 @@
         "source": "C:\\Users\\anton\\.gradle\\daemon\\7.5\\com.example.testapp-main-46:\\mipmap-hdpi\\logo_foreground.png"
     },
     {
+        "merged": "com.example.testapp-merged_res-44:/layout_activity_search.xml.flat",
+        "source": "com.example.testapp-main-46:/layout/activity_search.xml"
+    },
+    {
         "merged": "C:\\Users\\anton\\.gradle\\daemon\\7.5\\com.example.testapp-merged_res-44:\\mipmap-xxhdpi_ic_launcher.webp.flat",
         "source": "C:\\Users\\anton\\.gradle\\daemon\\7.5\\com.example.testapp-main-46:\\mipmap-xxhdpi\\ic_launcher.webp"
     },
@@ -348,12 +352,12 @@
         "source": "C:\\Users\\anton\\.gradle\\daemon\\7.5\\com.example.testapp-main-46:\\drawable\\google.xml"
     },
     {
-        "merged": "C:\\Users\\anton\\.gradle\\daemon\\7.5\\com.example.testapp-merged_res-44:\\drawable_drop_down.xml.flat",
-        "source": "C:\\Users\\anton\\.gradle\\daemon\\7.5\\com.example.testapp-main-46:\\drawable\\drop_down.xml"
-    },
-    {
         "merged": "C:\\Users\\anton\\.gradle\\daemon\\7.5\\com.example.testapp-merged_res-44:\\drawable_pen.xml.flat",
         "source": "C:\\Users\\anton\\.gradle\\daemon\\7.5\\com.example.testapp-main-46:\\drawable\\pen.xml"
+    },
+    {
+        "merged": "C:\\Users\\anton\\.gradle\\daemon\\7.5\\com.example.testapp-merged_res-44:\\drawable_drop_down.xml.flat",
+        "source": "C:\\Users\\anton\\.gradle\\daemon\\7.5\\com.example.testapp-main-46:\\drawable\\drop_down.xml"
     },
     {
         "merged": "C:\\Users\\anton\\.gradle\\daemon\\7.5\\com.example.testapp-merged_res-44:\\mipmap-xhdpi_ic_launcher.webp.flat",

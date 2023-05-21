@@ -1,10 +1,14 @@
 package com.example.testapp;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
+import androidx.core.app.ActivityOptionsCompat;
+import androidx.core.view.ViewCompat;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -23,6 +27,7 @@ public class ShopFragment extends Fragment {
     ArrayList<ShopChildModelClass> regularPList;
     ArrayList<ShopChildModelClass> bioPList;
     ArrayList<ShopChildModelClass> josNekajPList;
+    Button searchButton;
 
     ParentAdapter parentAdapter;
 
@@ -36,6 +41,7 @@ public class ShopFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view =inflater.inflate(R.layout.fragment_shop, container, false);
+        searchButton=view.findViewById(R.id.searchBar);
 
         recyclerView=view.findViewById(R.id.rv_parent);
         childModelClassArrayList=new ArrayList<>();
@@ -73,7 +79,18 @@ public class ShopFragment extends Fragment {
        recyclerView.setAdapter(parentAdapter);
        parentAdapter.notifyDataSetChanged();;
 
+
+        searchButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), SearchActivty.class);
+                startActivity(intent);
+            }
+        });
+
+
         return view;
     }
+
 
 }
