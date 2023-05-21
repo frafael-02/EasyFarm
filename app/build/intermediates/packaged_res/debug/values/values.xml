@@ -10,7 +10,7 @@
     <color name="link">#407EC7</color>
     <color name="transparent">#00FFFFFF</color>
     <color name="white">#FFFFFFFF</color>
-    <string name="app_name">TestApp</string>
+    <string name="app_name">EasyFarm</string>
     <string name="default_web_client_id" translatable="false">330981750807-heruhi425npb8md6drtl0b3m3solh6d3.apps.googleusercontent.com</string>
     <string name="gcm_defaultSenderId" translatable="false">330981750807</string>
     <string name="google_api_key" translatable="false">AIzaSyBXzfSNZyHcEHxCUk421nM_XNOa_MDg0fk</string>
@@ -27,9 +27,11 @@
         
         <item name="colorSecondary">@color/iconYellow</item>
         <item name="colorSecondaryVariant">@color/iconGrey</item>
-        <item name="colorOnSecondary">@color/black</item>
+        <item name="colorOnSecondary">@color/iconYellow</item>
         
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
         
+        <item name="android:fontFamily">@font/poppinslight</item>
+        <item name="android:windowContentTransitions">true</item>
     </style>
 </resources>

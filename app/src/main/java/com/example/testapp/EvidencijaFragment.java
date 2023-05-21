@@ -15,6 +15,7 @@ import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.AlphaAnimation;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.DatePicker;
@@ -58,6 +59,8 @@ public class EvidencijaFragment extends Fragment implements SelectListener {
     public   TextView mjesecPrskanje;
 
     public Button filterBtn;
+    public Button filterBtn2;
+
 
     public LinearLayout filterLayout;
 
@@ -148,6 +151,8 @@ public class EvidencijaFragment extends Fragment implements SelectListener {
         mjesecPrskanje.setText(String.valueOf(UtilityClass.getPrskanjeMjesec(MainActivity2.evidencijaList)) + "ha");
         ukupnoPrskanja.setText(String.valueOf(UtilityClass.getPrskanjeUkupno(MainActivity2.evidencijaList)) + "ha");
         filterBtn = view.findViewById(R.id.filterBtn);
+        filterBtn.setVisibility(View.VISIBLE);
+        filterBtn2 = view.findViewById(R.id.filterBtn2);
         filterLayout = view.findViewById(R.id.filterLayout);
         nazivSpinner = view.findViewById(R.id.nazivSpinner);
         datum = view.findViewById(R.id.datumId2);
@@ -261,29 +266,37 @@ public class EvidencijaFragment extends Fragment implements SelectListener {
         @Override
         public void onClick(View v)
         {
-            if(!isVisible)
-            {
                 TransitionManager.beginDelayedTransition(filterLayout, new AutoTransition());
+            AlphaAnimation animation1 = new AlphaAnimation(1.0f, 0.0f);
+            animation1.setDuration(300);
+            animation1.setFillAfter(true);
+            AlphaAnimation animation2 = new AlphaAnimation(0.0f, 1.0f);
+            animation2.setDuration(300);
+            animation2.setFillAfter(true);
+                filterBtn.startAnimation(animation1);
+                filterBtn.setVisibility(View.INVISIBLE);
                 filterLayout.setVisibility(View.VISIBLE);
+                filterBtn2.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        if (filtrirajListu() != null) {
+                            myAdapter.list = (ArrayList<Evidencija>) filteredList;
+                            recyclerView.setAdapter(myAdapter);
 
-            }
-            else{
-                if(filtrirajListu() != null)
-                {
-                    myAdapter.list = (ArrayList<Evidencija>) filteredList;
-                    recyclerView.setAdapter(myAdapter);
+                        } else {
+                            myAdapter.list = (ArrayList<Evidencija>) MainActivity2.evidencijaList;
+                            recyclerView.setAdapter(myAdapter);
+                        }
+                        TransitionManager.beginDelayedTransition(filterLayout, new AutoTransition());
+                        filterBtn.startAnimation(animation2);
+                        filterBtn.setVisibility(View.VISIBLE);
+                        filterLayout.setVisibility(View.GONE);
 
-                }
-                else{
-                    myAdapter.list =(ArrayList<Evidencija>)  MainActivity2.evidencijaList;
-                    recyclerView.setAdapter(myAdapter);
-                }
-                TransitionManager.beginDelayedTransition(filterLayout, new AutoTransition());
+                    }
+                });
 
-                filterLayout.setVisibility(View.GONE);
 
-            }
-            isVisible=!isVisible;
+
 
 
 

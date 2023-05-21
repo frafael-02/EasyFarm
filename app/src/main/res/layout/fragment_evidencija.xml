@@ -223,7 +223,7 @@
                 android:textSize="18sp"
                 android:fontFamily="@font/poppinsbold"
                 android:layout_marginTop="10dp"
-                app:layout_constraintTop_toBottomOf="@id/filterBtn"
+                app:layout_constraintTop_toBottomOf="@id/filterLayout"
                 app:layout_constraintStart_toStartOf="@id/leftVerticalGuidline"
                 />
 
@@ -242,7 +242,7 @@
                 android:fontFamily="@font/poppinsbold"
                 android:layout_marginTop="12dp"
                 app:layout_constraintEnd_toStartOf="@id/rightVerticalGuidline"
-                app:layout_constraintTop_toBottomOf="@id/izvoz"
+                app:layout_constraintTop_toBottomOf="@id/filterLayout"
                 />
 
         <androidx.appcompat.widget.AppCompatButton
@@ -263,43 +263,65 @@
 
         <LinearLayout
             android:id="@+id/filterLayout"
-            android:layout_width="316dp"
-            android:layout_height="208dp"
-            android:layout_marginTop="20dp"
-            android:background="@color/white"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/main_square"
             android:clickable="true"
-
             android:orientation="vertical"
-            android:translationZ="90dp"
-            android:visibility="gone"
+            android:gravity="right"
             app:layout_constraintTop_toBottomOf="@+id/filterBtn"
-
-            tools:layout_editor_absoluteX="45dp">
+            app:layout_constraintStart_toStartOf="@id/leftVerticalGuidline"
+            app:layout_constraintEnd_toEndOf="@id/rightVerticalGuidline"
+            >
 
             <EditText
                 android:id="@+id/datumId2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:background="@color/white"
+                android:background="@color/transparent"
                 android:drawableEnd="@drawable/date"
                 android:focusable="false"
+                android:padding="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="7dp"
                 android:hint="DATUM"
                 android:inputType="none"
                 android:onClick="pickDatum"
                 android:textColor="@color/greyText"
-                android:textSize="20sp"
+                android:textSize="16sp"
                 android:textStyle="bold" />
 
             <Spinner
                 android:id="@+id/nazivSpinner"
                 android:layout_width="match_parent"
-                android:layout_height="48dp" />
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:layout_marginTop="5dp"/>
 
             <Spinner
                 android:id="@+id/sredstvoSpinner"
                 android:layout_width="match_parent"
-                android:layout_height="46dp" />
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:layout_marginTop="5dp"
+                />
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/filterBtn2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/main_square"
+                android:drawableLeft="@drawable/filter"
+                android:padding="5dp"
+                android:paddingEnd="10dp"
+                android:text=" Filter"
+                android:textColor="@color/greyText"
+                android:textSize="16sp"
+                android:fontFamily="@font/poppinsbold"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="2dp"
+                />
         </LinearLayout>
 
 

@@ -1,8 +1,25 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.testapp-mergeDebugResources-32:/values-zh-rTW/values-zh-rTW.xml",
+            "outputFile": "com.example.testapp-mergeDebugResources-42:/values-zh-rTW/values-zh-rTW.xml",
             "map": [
+                {
+                    "source": "C:\\Users\\anton\\.gradle\\caches\\transforms-3\\40d051ec76015a051b8e274d50c57ecd\\transformed\\ucrop-2.2.8\\res\\values-zh-rTW\\values-zh-rTW.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7,8,9",
+                        "startColumns": "4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,97,174,228,282,329,446,490",
+                        "endColumns": "41,76,53,53,46,116,43,42",
+                        "endOffsets": "92,169,223,277,324,441,485,528"
+                    },
+                    "to": {
+                        "startLines": "115,116,117,118,119,120,121,122",
+                        "startColumns": "4,4,4,4,4,4,4,4",
+                        "startOffsets": "9151,9193,9270,9324,9378,9425,9542,9586",
+                        "endColumns": "41,76,53,53,46,116,43,42",
+                        "endOffsets": "9188,9265,9319,9373,9420,9537,9581,9624"
+                    }
+                },
                 {
                     "source": "C:\\Users\\anton\\.gradle\\caches\\transforms-3\\2fb13fbd4f2364aafa4d08df45006df2\\transformed\\play-services-base-18.0.1\\res\\values-zh-rTW\\values.xml",
                     "from": {
@@ -18,23 +35,6 @@
                         "startOffsets": "3477,3578,3706,3821,3923,4030,4146,4246,4444,4554,4655,4784,4899,5001,5109,5165,5222",
                         "endColumns": "100,127,114,101,106,115,99,94,109,100,128,114,101,107,55,56,73",
                         "endOffsets": "3573,3701,3816,3918,4025,4141,4241,4336,4549,4650,4779,4894,4996,5104,5160,5217,5291"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\anton\\.gradle\\caches\\transforms-3\\ec1d0473320eafbc6e1a7cdc007dfb1a\\transformed\\play-services-basement-18.1.0\\res\\values-zh-rTW\\values.xml",
-                    "from": {
-                        "startLines": "4",
-                        "startColumns": "0",
-                        "startOffsets": "199",
-                        "endColumns": "98",
-                        "endOffsets": "297"
-                    },
-                    "to": {
-                        "startLines": "49",
-                        "startColumns": "4",
-                        "startOffsets": "4341",
-                        "endColumns": "102",
-                        "endOffsets": "4439"
                     }
                 },
                 {
@@ -88,6 +88,23 @@
                         "startOffsets": "9050",
                         "endColumns": "100",
                         "endOffsets": "9146"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\anton\\.gradle\\caches\\transforms-3\\7c18f01edd35157f44e84f7847d1313d\\transformed\\play-services-basement-18.2.0\\res\\values-zh-rTW\\values.xml",
+                    "from": {
+                        "startLines": "4",
+                        "startColumns": "0",
+                        "startOffsets": "199",
+                        "endColumns": "98",
+                        "endOffsets": "297"
+                    },
+                    "to": {
+                        "startLines": "49",
+                        "startColumns": "4",
+                        "startOffsets": "4341",
+                        "endColumns": "102",
+                        "endOffsets": "4439"
                     }
                 }
             ]

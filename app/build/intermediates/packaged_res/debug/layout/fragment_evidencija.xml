@@ -11,29 +11,319 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="582dp">
+        android:layout_height="match_parent"
+        android:background="@color/white">
 
+
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/leftVerticalGuidline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.1" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/rightVerticalGuidline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.9" />
+
+        <RelativeLayout
+            android:id="@+id/relativeLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:background="@drawable/gradient_shape_back"
+            android:elevation="20dp"
+            android:padding="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:background="@drawable/gradient_shape_back"
+                android:backgroundTint="#66FFFFFF"
+                android:padding="16dp">
+
+                <TextView
+                    android:id="@+id/prskanjeTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true"
+                    android:text="PRSKANJE"
+                    android:textColor="@color/greyText"
+                    android:textSize="24sp"
+                    android:fontFamily="@font/poppinsregular"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:id="@+id/ukupnoLinearLayout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/prskanjeTextView"
+                    android:layout_alignParentStart="true"
+                    android:gravity="center"
+                    android:layout_marginTop="8dp"
+
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/ukupno"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="UKUPNO"
+                        android:textColor="@color/iconGrey"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/ukupnoIspod"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/ukupno"
+                        android:layout_alignParentLeft="true"
+                        android:text="ha"
+                        android:textColor="@color/greyText"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/prskanjeTextView"
+                    android:layout_centerHorizontal="true"
+                    android:gravity="center"
+                    android:layout_marginTop="8dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/ovajMjesec"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="OVAJ MJESEC"
+                        android:textAlignment="center"
+                        android:textColor="@color/iconGrey"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/ovajMjesecIspod"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/ovajMjesec"
+                        android:layout_alignParentRight="true"
+                        android:text="ha"
+                        android:textColor="@color/greyText"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/danasLinearLayout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/prskanjeTextView"
+                    android:layout_alignParentEnd="true"
+                    android:gravity="center"
+                    android:layout_marginTop="8dp"
+                    android:orientation="vertical">
+                    <TextView
+                        android:id="@+id/danas"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:text="DANAS"
+                        android:textColor="@color/iconGrey"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/danasIspod"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:text="ha"
+                        android:textColor="@color/greyText"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+<ImageView
+    android:layout_width="match_parent"
+    android:layout_height="40dp"
+    android:src="@drawable/shadow"
+    android:alpha="0.2"
+    android:translationZ="1dp"
+
+    app:layout_constraintTop_toTopOf="@id/evidencijaListId"
+    />
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/evidencijaListId"
-            android:layout_width="418dp"
-            android:layout_height="219dp"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="10dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.571"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.801" />
+            app:layout_constraintTop_toBottomOf="@id/dodajZemlju" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/addEvidencijaButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="152dp"
-            android:layout_marginEnd="28dp"
+            android:layout_margin="30dp"
+            android:backgroundTint="@color/background"
             android:clickable="true"
             android:src="@android:drawable/ic_input_add"
+            app:backgroundTint="@color/iconYellow"
+            app:borderWidth="7dp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/evidencijaListId" />
+
+            />
+
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/filterBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/main_square"
+            android:drawableLeft="@drawable/filter"
+            android:padding="10dp"
+            android:text=" Filter"
+            android:textColor="@color/greyText"
+            android:textSize="18sp"
+            android:fontFamily="@font/poppinsbold"
+            android:layout_marginTop="20dp"
+            app:layout_constraintStart_toStartOf="@+id/leftVerticalGuidline"
+            app:layout_constraintTop_toBottomOf="@+id/relativeLayout" />
+
+
+
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/dodajZemlju"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/main_square"
+                android:drawableLeft="@drawable/soil"
+                android:padding="10dp"
+                android:text="  DODAJ\n  ZEMLJU"
+                android:textColor="@color/greyText"
+                android:textSize="18sp"
+                android:fontFamily="@font/poppinsbold"
+                android:layout_marginTop="10dp"
+                app:layout_constraintTop_toBottomOf="@id/filterLayout"
+                app:layout_constraintStart_toStartOf="@id/leftVerticalGuidline"
+                />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/button8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/dodajZemlju"
+                android:layout_marginBottom="5dp"
+                android:background="@drawable/main_square"
+                android:drawableLeft="@drawable/pesticid"
+                android:padding="10dp"
+                android:text=" DODAJ\n  PESTICID"
+                android:textColor="@color/greyText"
+                android:textSize="18sp"
+                android:fontFamily="@font/poppinsbold"
+                android:layout_marginTop="12dp"
+                app:layout_constraintEnd_toStartOf="@id/rightVerticalGuidline"
+                app:layout_constraintTop_toBottomOf="@id/filterLayout"
+                />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/izvoz"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/main_square"
+            android:drawableLeft="@drawable/export"
+            android:padding="10dp"
+            android:text="  IZVOZ"
+            android:textColor="@color/greyText"
+            android:textSize="18sp"
+            android:fontFamily="@font/poppinsbold"
+            android:layout_marginTop="20dp"
+            app:layout_constraintEnd_toStartOf="@id/rightVerticalGuidline"
+            app:layout_constraintTop_toBottomOf="@+id/relativeLayout"
+             />
+
+        <LinearLayout
+            android:id="@+id/filterLayout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/main_square"
+            android:clickable="true"
+            android:visibility="gone"
+            android:orientation="vertical"
+            android:gravity="right"
+            app:layout_constraintTop_toBottomOf="@+id/filterBtn"
+            app:layout_constraintStart_toStartOf="@id/leftVerticalGuidline"
+            app:layout_constraintEnd_toEndOf="@id/rightVerticalGuidline"
+            >
+
+            <EditText
+                android:id="@+id/datumId2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:background="@color/transparent"
+                android:drawableEnd="@drawable/date"
+                android:focusable="false"
+                android:padding="5dp"
+                android:hint="DATUM"
+                android:inputType="none"
+                android:onClick="pickDatum"
+                android:textColor="@color/greyText"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <Spinner
+                android:id="@+id/nazivSpinner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:layout_marginTop="5dp"/>
+
+            <Spinner
+                android:id="@+id/sredstvoSpinner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:layout_marginTop="5dp"
+                />
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/filterBtn2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/main_square"
+                android:drawableLeft="@drawable/filter"
+                android:padding="5dp"
+                android:paddingRight="10dp"
+                android:text=" Filter"
+                android:textColor="@color/greyText"
+                android:textSize="16sp"
+                android:fontFamily="@font/poppinsbold"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="2dp"
+                />
+        </LinearLayout>
+
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </FrameLayout>

@@ -7,7 +7,27 @@
     android:layout_height="match_parent"
     android:background="@color/white"
     tools:context=".MainActivity">
+<!--
+<com.facebook.shimmer.ShimmerFrameLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/shimmer_view"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintBottom_toBottomOf="parent"
+    >
+<include layout="@layout/activity_loading"/>
+</com.facebook.shimmer.ShimmerFrameLayout>
+-->
 
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/screenId"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/topGuidline"
         android:layout_width="wrap_content"
@@ -41,6 +61,7 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:background="@drawable/main_square"
+        android:transitionName="main_square"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -53,7 +74,9 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="30dp"
         android:text="Dobrodošli"
+        android:transitionName="titleBigTransition"
         android:textColor="@color/black"
+        android:fontFamily="@font/poppinsregular"
         android:textSize="30sp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -65,8 +88,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:paddingStart="16dp"
-        android:text="Mobilna aplikacija dizajnirana kako bi olakšala proces
-        evidencije i optimizirala prskanja polja."
+        android:text="Mobilna aplikacija dizajnirana kako bi olakšala proces evidencije i optimizirala prskanja polja."
+        android:transitionName="titleSmallTransition"
         android:textColor="@color/iconGrey"
         android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -98,8 +121,10 @@
         android:layout_height="wrap_content"
         android:onClick="loginClicked"
         android:inputType="textAutoCorrect"
-        android:background="?android:attr/selectableItemBackground"        android:textColor="@color/greyText"
-        android:textSize="15sp"
+        android:background="?android:attr/selectableItemBackground"
+        android:textColor="@color/greyText"
+        android:fontFamily="@font/poppinsregular"
+        android:textSize="16sp"
         android:text="Login"
  />
     </LinearLayout>
@@ -120,7 +145,7 @@
             android:layout_height="wrap_content"
             android:text="Dobrodošli"
             android:textColor="@color/white"
-            android:textSize="25sp"
+            android:textSize="24sp"
         />
     </LinearLayout>
 
@@ -128,43 +153,45 @@
         android:id="@+id/button2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="15dp"
         android:background="@drawable/gradient_shape"
         android:drawableLeft="@drawable/account"
         android:inputType="textAutoCorrect"
         android:onClick="registerClicked"
         android:paddingLeft="9dp"
         android:paddingTop="10dp"
-        android:paddingRight="30dp"
+        android:paddingRight="9dp"
         android:paddingBottom="10dp"
         android:text="Napravite profil"
         android:textAlignment="center"
         android:textColor="@color/white"
-        android:textSize="15sp"
+        android:textSize="16sp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
         app:layout_constraintBottom_toTopOf="@id/google"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tekst" />
 
-    <Button
-        android:id="@+id/google"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="15dp"
-        android:backgroundTint="@color/white"
-        android:textColor="@color/black"
-        android:text="Nastavite s googlom"
-        android:inputType="textAutoCorrect"
-        android:drawableLeft="@drawable/google"
-        android:paddingTop="10dp"
-        android:paddingBottom="10dp"
-        android:textSize="15sp"
-        android:textAlignment="center"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/button2"
-        />
+        <Button
+            android:id="@+id/google"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:backgroundTint="@color/white"
+            android:drawableLeft="@drawable/google"
+            android:inputType="textAutoCorrect"
+            android:onClick="signIn"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:text="Nastavite s Google-om"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/button2" />
 
-
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

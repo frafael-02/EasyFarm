@@ -1,8 +1,25 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.testapp-mergeDebugResources-32:/values-kk/values-kk.xml",
+            "outputFile": "com.example.testapp-mergeDebugResources-42:/values-kk/values-kk.xml",
             "map": [
+                {
+                    "source": "C:\\Users\\anton\\.gradle\\caches\\transforms-3\\7c18f01edd35157f44e84f7847d1313d\\transformed\\play-services-basement-18.2.0\\res\\values-kk\\values.xml",
+                    "from": {
+                        "startLines": "4",
+                        "startColumns": "0",
+                        "startOffsets": "195",
+                        "endColumns": "159",
+                        "endOffsets": "354"
+                    },
+                    "to": {
+                        "startLines": "49",
+                        "startColumns": "4",
+                        "startOffsets": "4701",
+                        "endColumns": "163",
+                        "endOffsets": "4860"
+                    }
+                },
                 {
                     "source": "C:\\Users\\anton\\.gradle\\caches\\transforms-3\\4a8fc8d4cffe1deef03672f2112cd6a4\\transformed\\appcompat-1.6.1\\res\\values-kk\\values-kk.xml",
                     "from": {
@@ -54,23 +71,6 @@
                         "endLines": "5,33,34,35,36,37,38,39,40,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99,100,101,102,103,104,105,106,107,108,109,110,111,112",
                         "endColumns": "12,77,75,78,93,87,91,111,81,63,94,69,62,106,64,66,60,66,61,53,113,58,60,53,74,125,87,88,141,71,72,88,56,55,65,70,76,85,71,75,80,69,86,71,90,92,73,74,91,51,65,83,85,61,63,62,103,99,93,100,60,59,83",
                         "endOffsets": "318,3087,3163,3242,3336,3424,3516,3628,3710,5991,6086,6156,6219,6326,6391,6458,6519,6586,6648,6702,6816,6875,6936,6990,7065,7191,7279,7368,7510,7582,7655,7744,7801,7857,7923,7994,8071,8157,8229,8305,8386,8456,8543,8615,8706,8799,8873,8948,9040,9092,9158,9242,9328,9390,9454,9517,9621,9721,9815,9916,9977,10037,10121"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\anton\\.gradle\\caches\\transforms-3\\ec1d0473320eafbc6e1a7cdc007dfb1a\\transformed\\play-services-basement-18.1.0\\res\\values-kk\\values.xml",
-                    "from": {
-                        "startLines": "4",
-                        "startColumns": "0",
-                        "startOffsets": "195",
-                        "endColumns": "159",
-                        "endOffsets": "354"
-                    },
-                    "to": {
-                        "startLines": "49",
-                        "startColumns": "4",
-                        "startOffsets": "4701",
-                        "endColumns": "163",
-                        "endOffsets": "4860"
                     }
                 },
                 {

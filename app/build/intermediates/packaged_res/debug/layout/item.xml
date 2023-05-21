@@ -3,66 +3,75 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/itemId"
+android:backgroundTint="@color/white"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="223dp">
+        android:layout_height="match_parent"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:paddingLeft="25sp"
+        android:paddingRight="25dp"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/main_square"
+        >
 
         <TextView
             android:id="@+id/datumView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="64dp"
-            android:layout_marginEnd="312dp"
             android:text="DATUM"
+            android:textColor="@color/greyText"
             android:textSize="16sp"
+            app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            />
 
         <TextView
             android:id="@+id/kulturaView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
-            android:layout_marginTop="108dp"
             android:text="KULTURA"
+            android:layout_marginTop="25dp"
             android:textSize="20sp"
+            android:textColor="@color/greyText"
+            android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@id/datumView" />
 
         <TextView
             android:id="@+id/nazivView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="48dp"
-            android:layout_marginEnd="84dp"
+            android:textColor="@color/greyText"
+            android:textStyle="bold"
             android:text="DOMAĆI NAZIV"
-            android:textSize="24sp"
-            app:layout_constraintEnd_toEndOf="parent"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/arkodView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="80dp"
-            android:layout_marginEnd="96dp"
             android:text="ARKOD ID"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:textColor="@color/iconGrey"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/nazivView" />
 
         <TextView
             android:id="@+id/pesticidView"
-            android:layout_width="116dp"
-            android:layout_height="35dp"
-            android:layout_marginTop="108dp"
-            android:layout_marginEnd="76dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:text="PESTICID"
-            android:textSize="24sp"
+            android:textSize="20sp"
+            android:textColor="@color/greyText"
+            android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@id/arkodView" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>
