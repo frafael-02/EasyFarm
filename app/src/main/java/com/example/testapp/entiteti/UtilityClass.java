@@ -1,7 +1,11 @@
 package com.example.testapp.entiteti;
 
 
+import com.example.testapp.R;
+import com.example.testapp.shop.ShopChildModelClass;
+
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 public class UtilityClass {
@@ -37,6 +41,17 @@ public class UtilityClass {
             result+=evidencija.koristenaDoza;
         }
         return result;
+    }
+
+
+    public static List<ShopChildModelClass> pesticidToShopList(List<Pesticid> pesticidList)
+    {
+        List<ShopChildModelClass> list = new ArrayList<>();
+        for(Pesticid p : pesticidList)
+            list.add(new ShopChildModelClass(R.drawable.pesticid,p));
+
+        return list;
+
     }
 
 
