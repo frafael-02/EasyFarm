@@ -8,6 +8,7 @@ import androidx.appcompat.widget.SearchView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.testapp.entiteti.UtilityClass;
 import com.example.testapp.shop.ChildAdapter;
 import com.example.testapp.shop.ShopChildModelClass;
 
@@ -45,12 +46,13 @@ public class SearchActivty extends AppCompatActivity {
         recyclerView=findViewById(R.id.recyclerView);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
-        itemList=new ArrayList<>();
-        itemList.add(new ShopChildModelClass(R.drawable.pesticid,"pesticid"));
+        itemList= UtilityClass.pesticidToShopList(MainActivity2.pesticidList);
+
+     /*   itemList.add(new ShopChildModelClass(R.drawable.pesticid,"pesticid"));
         itemList.add(new ShopChildModelClass(R.drawable.backwheat,"pesticid"));
         itemList.add(new ShopChildModelClass(R.drawable.backlogin,"pesticid"));
         itemList.add(new ShopChildModelClass(R.drawable.backwheat,"pesticid"));
-        itemList.add(new ShopChildModelClass(R.drawable.backlogin,"pesticid"));
+        itemList.add(new ShopChildModelClass(R.drawable.backlogin,"pesticid"));*/
 
         itemAdapter=new ChildAdapter(itemList,this);
         recyclerView.setAdapter(itemAdapter);
