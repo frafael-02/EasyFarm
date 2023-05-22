@@ -44,9 +44,8 @@ public class SearchActivty extends AppCompatActivity {
 
         recyclerView=findViewById(R.id.recyclerView);
         recyclerView.setHasFixedSize(true);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
         itemList=new ArrayList<>();
-
         itemList.add(new ShopChildModelClass(R.drawable.pesticid,"pesticid"));
         itemList.add(new ShopChildModelClass(R.drawable.backwheat,"pesticid"));
         itemList.add(new ShopChildModelClass(R.drawable.backlogin,"pesticid"));
