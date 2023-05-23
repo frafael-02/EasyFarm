@@ -34,4 +34,9 @@
         <item name="android:fontFamily">@font/poppinslight</item>
         <item name="android:windowContentTransitions">true</item>
     </style>
+    <style name="ThemeOverlay.SearchView" parent="">
+        <item name="android:editTextColor">@color/greyText</item>
+        <item name="android:textColorHint">@color/iconGrey</item>
+        <item name="android:iconTint">@color/greyText</item>
+    </style>
 </resources>
