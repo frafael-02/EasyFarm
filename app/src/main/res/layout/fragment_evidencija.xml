@@ -288,6 +288,7 @@
                 android:layout_marginStart="10dp"
                 android:layout_marginEnd="7dp"
                 android:hint="DATUM"
+                android:textColorHint="@color/iconGrey"
                 android:inputType="none"
                 android:onClick="pickDatum"
                 android:textColor="@color/greyText"

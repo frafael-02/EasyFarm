@@ -12,12 +12,12 @@
         "source": "C:\\Users\\anton\\.gradle\\daemon\\7.5\\com.example.testapp-main-46:\\layout\\activity_odabrana_evidencija.xml"
     },
     {
-        "merged": "C:\\Users\\anton\\.gradle\\daemon\\7.5\\com.example.testapp-merged_res-44:\\mipmap-xxhdpi_logo_round.png.flat",
-        "source": "C:\\Users\\anton\\.gradle\\daemon\\7.5\\com.example.testapp-main-46:\\mipmap-xxhdpi\\logo_round.png"
-    },
-    {
         "merged": "C:\\Users\\anton\\.gradle\\daemon\\7.5\\com.example.testapp-merged_res-44:\\mipmap-mdpi_logo.png.flat",
         "source": "C:\\Users\\anton\\.gradle\\daemon\\7.5\\com.example.testapp-main-46:\\mipmap-mdpi\\logo.png"
+    },
+    {
+        "merged": "C:\\Users\\anton\\.gradle\\daemon\\7.5\\com.example.testapp-merged_res-44:\\mipmap-xxhdpi_logo_round.png.flat",
+        "source": "C:\\Users\\anton\\.gradle\\daemon\\7.5\\com.example.testapp-main-46:\\mipmap-xxhdpi\\logo_round.png"
     },
     {
         "merged": "C:\\Users\\anton\\.gradle\\daemon\\7.5\\com.example.testapp-merged_res-44:\\drawable_arrowfilled.xml.flat",
@@ -52,6 +52,10 @@
         "source": "C:\\Users\\anton\\.gradle\\daemon\\7.5\\com.example.testapp-main-46:\\drawable\\cloud.xml"
     },
     {
+        "merged": "com.example.testapp-merged_res-44:/layout_parent_rv_layout.xml.flat",
+        "source": "com.example.testapp-main-46:/layout/parent_rv_layout.xml"
+    },
+    {
         "merged": "C:\\Users\\anton\\.gradle\\daemon\\7.5\\com.example.testapp-merged_res-44:\\mipmap-xhdpi_logo_round.png.flat",
         "source": "C:\\Users\\anton\\.gradle\\daemon\\7.5\\com.example.testapp-main-46:\\mipmap-xhdpi\\logo_round.png"
     },
@@ -84,12 +88,12 @@
         "source": "C:\\Users\\anton\\.gradle\\daemon\\7.5\\com.example.testapp-main-46:\\layout\\activity_login.xml"
     },
     {
-        "merged": "C:\\Users\\anton\\.gradle\\daemon\\7.5\\com.example.testapp-merged_res-44:\\layout_activity_search.xml.flat",
-        "source": "C:\\Users\\anton\\.gradle\\daemon\\7.5\\com.example.testapp-main-46:\\layout\\activity_search.xml"
-    },
-    {
         "merged": "C:\\Users\\anton\\.gradle\\daemon\\7.5\\com.example.testapp-merged_res-44:\\drawable_watch.xml.flat",
         "source": "C:\\Users\\anton\\.gradle\\daemon\\7.5\\com.example.testapp-main-46:\\drawable\\watch.xml"
+    },
+    {
+        "merged": "C:\\Users\\anton\\.gradle\\daemon\\7.5\\com.example.testapp-merged_res-44:\\layout_activity_search.xml.flat",
+        "source": "C:\\Users\\anton\\.gradle\\daemon\\7.5\\com.example.testapp-main-46:\\layout\\activity_search.xml"
     },
     {
         "merged": "C:\\Users\\anton\\.gradle\\daemon\\7.5\\com.example.testapp-merged_res-44:\\drawable_yellow_button.xml.flat",
@@ -176,12 +180,12 @@
         "source": "C:\\Users\\anton\\.gradle\\daemon\\7.5\\com.example.testapp-main-46:\\drawable\\database.xml"
     },
     {
-        "merged": "C:\\Users\\anton\\.gradle\\daemon\\7.5\\com.example.testapp-merged_res-44:\\mipmap-hdpi_logo_round.png.flat",
-        "source": "C:\\Users\\anton\\.gradle\\daemon\\7.5\\com.example.testapp-main-46:\\mipmap-hdpi\\logo_round.png"
-    },
-    {
         "merged": "C:\\Users\\anton\\.gradle\\daemon\\7.5\\com.example.testapp-merged_res-44:\\layout_item.xml.flat",
         "source": "C:\\Users\\anton\\.gradle\\daemon\\7.5\\com.example.testapp-main-46:\\layout\\item.xml"
+    },
+    {
+        "merged": "C:\\Users\\anton\\.gradle\\daemon\\7.5\\com.example.testapp-merged_res-44:\\mipmap-hdpi_logo_round.png.flat",
+        "source": "C:\\Users\\anton\\.gradle\\daemon\\7.5\\com.example.testapp-main-46:\\mipmap-hdpi\\logo_round.png"
     },
     {
         "merged": "C:\\Users\\anton\\.gradle\\daemon\\7.5\\com.example.testapp-merged_res-44:\\mipmap-anydpi-v26_ic_launcher_round.xml.flat",
@@ -224,10 +228,6 @@
         "source": "C:\\Users\\anton\\.gradle\\daemon\\7.5\\com.example.testapp-main-46:\\mipmap-hdpi\\logo_foreground.png"
     },
     {
-        "merged": "com.example.testapp-merged_res-44:/layout_activity_search.xml.flat",
-        "source": "com.example.testapp-main-46:/layout/activity_search.xml"
-    },
-    {
         "merged": "C:\\Users\\anton\\.gradle\\daemon\\7.5\\com.example.testapp-merged_res-44:\\mipmap-xxhdpi_ic_launcher.webp.flat",
         "source": "C:\\Users\\anton\\.gradle\\daemon\\7.5\\com.example.testapp-main-46:\\mipmap-xxhdpi\\ic_launcher.webp"
     },
@@ -246,6 +246,10 @@
     {
         "merged": "C:\\Users\\anton\\.gradle\\daemon\\7.5\\com.example.testapp-merged_res-44:\\font_poppinslight.ttf.flat",
         "source": "C:\\Users\\anton\\.gradle\\daemon\\7.5\\com.example.testapp-main-46:\\font\\poppinslight.ttf"
+    },
+    {
+        "merged": "com.example.testapp-merged_res-44:/layout_child_rv_layout.xml.flat",
+        "source": "com.example.testapp-main-46:/layout/child_rv_layout.xml"
     },
     {
         "merged": "C:\\Users\\anton\\.gradle\\daemon\\7.5\\com.example.testapp-merged_res-44:\\drawable-v24_ic_launcher_foreground.xml.flat",
