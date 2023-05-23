@@ -71,6 +71,11 @@
         android:testOnly="true"
         android:theme="@style/Theme.TestApp" >
         <activity
+            android:name="com.example.testapp.OdabraniPesticidActivity"
+            android:exported="false"
+            android:label="@string/title_activity_odabrani_pesticid"
+            android:theme="@style/Theme.TestApp.NoActionBar" />
+        <activity
             android:name="com.example.testapp.NovPesticidActivity"
             android:exported="false" />
         <activity
@@ -221,6 +226,13 @@
                 android:name="androidx.lifecycle.ProcessLifecycleInitializer"
                 android:value="androidx.startup" />
         </provider>
+
+        <uses-library
+            android:name="androidx.window.extensions"
+            android:required="false" />
+        <uses-library
+            android:name="androidx.window.sidecar"
+            android:required="false" />
     </application>
 
 </manifest>

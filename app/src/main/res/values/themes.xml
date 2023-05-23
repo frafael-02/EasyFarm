@@ -21,4 +21,19 @@
         <item name="android:textColorHint">@color/iconGrey</item>
         <item name="android:iconTint">@color/greyText</item>
     </style>
+
+    <style name="Theme.TestApp.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+    <style name="Theme.Collapsingtoolbar" parent="">
+
+        <item name="android:statusBarColor">@color/greenDark</item>
+        <item name="android:textColor">@color/greyText</item>
+        <item name="fontFamily">@font/poppinsbold</item>
+    </style>
+
+    <style name="Theme.TestApp.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="Theme.TestApp.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 </resources>

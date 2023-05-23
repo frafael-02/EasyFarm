@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:backgroundTint="@color/white"
     tools:context=".MainActivity2">
 
     <androidx.constraintlayout.widget.Guideline
@@ -46,7 +47,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
         android:id="@+id/bottomAppBar"
-        android:background="@android:color/transparent"
+        android:background="@android:color/white"
         app:fabCradleMargin="15dp"
         app:fabCradleRoundedCornerRadius="20dp"
         app:fabCradleVerticalOffset="10dp"

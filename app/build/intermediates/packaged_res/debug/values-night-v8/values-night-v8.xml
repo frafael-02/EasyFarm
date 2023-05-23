@@ -4,11 +4,11 @@
         
         <item name="colorPrimary">@color/greenDark</item>
         <item name="colorPrimaryVariant">@color/greenLight</item>
-        <item name="colorOnPrimary">@color/black</item>
+        <item name="colorOnPrimary">@color/white</item>
         
         <item name="colorSecondary">@color/iconYellow</item>
         <item name="colorSecondaryVariant">@color/iconGrey</item>
-        <item name="colorOnSecondary">@color/black</item>
+        <item name="colorOnSecondary">@color/white</item>
         
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
         
@@ -17,8 +17,7 @@
     </style>
     <style name="ThemeOverlay.SearchView" parent="">
         <item name="android:editTextColor">@color/white</item>
-        <item name="android:textColorHint">@color/iconGrey</item>
-        <item name="android:backgroundTint">#40FFFFFF</item>
-
+        <item name="android:textColorHint">#DADADA</item>
+        <item name="android:backgroundTint">#80000000</item>
     </style>
 </resources>

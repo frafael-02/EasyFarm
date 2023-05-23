@@ -17,8 +17,8 @@
     </style>
     <style name="ThemeOverlay.SearchView" parent="">
         <item name="android:editTextColor">@color/white</item>
-        <item name="android:textColorHint">@color/iconGrey</item>
-        <item name="android:backgroundTint">#40FFFFFF</item>
+        <item name="android:textColorHint">#DADADA</item>
+        <item name="android:backgroundTint">#80000000</item>
     </style>
 
 </resources>

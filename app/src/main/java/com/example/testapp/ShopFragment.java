@@ -90,7 +90,7 @@ public class ShopFragment extends Fragment {
         searchButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getActivity(), SearchActivty.class);
+                Intent intent = new Intent(getActivity(), OdabraniPesticidActivity.class);
                 startActivity(intent);
             }
         });

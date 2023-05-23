@@ -10,15 +10,29 @@
     <color name="link">#407EC7</color>
     <color name="transparent">#00FFFFFF</color>
     <color name="white">#FFFFFFFF</color>
+    <dimen name="fab_margin">16dp</dimen>
     <string name="app_name">EasyFarm</string>
     <string name="default_web_client_id" translatable="false">330981750807-heruhi425npb8md6drtl0b3m3solh6d3.apps.googleusercontent.com</string>
+    <string name="first_fragment_label">First Fragment</string>
     <string name="gcm_defaultSenderId" translatable="false">330981750807</string>
     <string name="google_api_key" translatable="false">AIzaSyBXzfSNZyHcEHxCUk421nM_XNOa_MDg0fk</string>
     <string name="google_app_id" translatable="false">1:330981750807:android:a7e853fc84eedbd055c452</string>
     <string name="google_crash_reporting_api_key" translatable="false">AIzaSyBXzfSNZyHcEHxCUk421nM_XNOa_MDg0fk</string>
     <string name="google_storage_bucket" translatable="false">testapp-dc63d.appspot.com</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
     <string name="project_id" translatable="false">testapp-dc63d</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="title_activity_odabrani_pesticid">OdabraniPesticidActivity</string>
+    <style name="Theme.Collapsingtoolbar" parent="">
+
+        <item name="android:statusBarColor">@color/greenDark</item>
+        <item name="android:textColor">@color/greyText</item>
+        <item name="fontFamily">@font/poppinsbold</item>
+    </style>
     <style name="Theme.TestApp" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         
         <item name="colorPrimary">@color/greenLight</item>
@@ -34,6 +48,12 @@
         <item name="android:fontFamily">@font/poppinslight</item>
         <item name="android:windowContentTransitions">true</item>
     </style>
+    <style name="Theme.TestApp.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar"/>
+    <style name="Theme.TestApp.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+    <style name="Theme.TestApp.PopupOverlay" parent="ThemeOverlay.AppCompat.Light"/>
     <style name="ThemeOverlay.SearchView" parent="">
         <item name="android:editTextColor">@color/greyText</item>
         <item name="android:textColorHint">@color/iconGrey</item>
