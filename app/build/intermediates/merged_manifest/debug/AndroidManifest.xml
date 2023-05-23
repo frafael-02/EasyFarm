@@ -74,6 +74,9 @@
             android:name="com.example.testapp.NovPesticidActivity"
             android:exported="false" />
         <activity
+            android:name="com.example.testapp.search.SearchActivty"
+            android:exported="false" />
+        <activity
             android:name="com.example.testapp.NovoPoljeActivity"
             android:exported="false" />
         <activity

@@ -212,7 +212,7 @@ public class EvidencijaFragment extends Fragment implements SelectListener {
         myAdapter = new MyAdapter(view.getContext(), (ArrayList<Evidencija>) MainActivity2.evidencijaList, this);
       recyclerView.setAdapter(myAdapter);
 
-        FloatingActionButton mButton = (FloatingActionButton) view.findViewById(R.id.addEvidencijaButton);
+      /*  FloatingActionButton mButton = (FloatingActionButton) view.findViewById(R.id.addEvidencijaButton);
         mButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -226,7 +226,7 @@ public class EvidencijaFragment extends Fragment implements SelectListener {
 
             }
         });
-
+*/
     Button novoPoljeBtn = view.findViewById(R.id.dodajZemlju);
     novoPoljeBtn.setOnClickListener(new View.OnClickListener(){
 
@@ -271,7 +271,7 @@ public class EvidencijaFragment extends Fragment implements SelectListener {
             animation1.setDuration(300);
             animation1.setFillAfter(true);
             AlphaAnimation animation2 = new AlphaAnimation(0.0f, 1.0f);
-            animation2.setDuration(300);
+            animation2.setDuration(150);
             animation2.setFillAfter(true);
                 filterBtn.startAnimation(animation1);
                 filterBtn.setVisibility(View.INVISIBLE);

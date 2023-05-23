@@ -1,22 +1,29 @@
 package com.example.testapp;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 
+import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
+import android.view.View;
 
 import com.example.testapp.database.DatabaseQueries;
-import com.example.testapp.databinding.ActivityMain2Binding;
 
+
+import com.example.testapp.databinding.ActivityMain2Binding;
 import com.example.testapp.entiteti.AccountDialog;
 import com.example.testapp.entiteti.Biljka;
 import com.example.testapp.entiteti.Evidencija;
 import com.example.testapp.entiteti.Korisnik;
 import com.example.testapp.entiteti.Pesticid;
 import com.example.testapp.entiteti.Polje;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.auth.FirebaseAuth;
 
 
@@ -36,8 +43,8 @@ public class MainActivity2 extends AppCompatActivity implements AccountDialog.Ac
 
    public static Korisnik korisnik;
     ActivityMain2Binding binding;
-
-
+BottomNavigationView bottomNavigationView;
+    FloatingActionButton mButton;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,6 +52,9 @@ public class MainActivity2 extends AppCompatActivity implements AccountDialog.Ac
         setContentView(R.layout.activity_main2);
         binding = ActivityMain2Binding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+        bottomNavigationView=findViewById(R.id.bottomNavigation);
+        bottomNavigationView.setBackgroundColor(Color.TRANSPARENT);
+
         if(savedInstanceState == null)
         {
             replaceFragment(new HomeFragment());
@@ -74,7 +84,14 @@ switch(item.getItemId()){
 
 
 
-
+        mButton = findViewById(R.id.addEvidencijaButton);
+        mButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent myIntent = new Intent(MainActivity2.this, NovaEvidencijaActivity.class);
+                startActivity(myIntent);
+            }
+        });
 
 
         /*  ImageButton btnEvidencija = findViewById(R.id.btnEvidencija);

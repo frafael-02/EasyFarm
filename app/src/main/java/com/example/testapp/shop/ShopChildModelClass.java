@@ -4,6 +4,7 @@ import com.example.testapp.entiteti.Pesticid;
 
 public class ShopChildModelClass {
 
+
     int image;
     String text;
 
@@ -16,10 +17,18 @@ public class ShopChildModelClass {
     }
 
     public String getItemName() {
-    return text;
+        return text;
     }
 
     public Pesticid getPesticid() {
         return pesticid;
+    }
+
+    public int getImage() {
+        return image;
+    }
+
+    public String getText() {
+        return text;
     }
 }

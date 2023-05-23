@@ -10,6 +10,8 @@
         android:icon="@drawable/camera"
         android:color="@color/iconYellow" android:state_checked="true"
         />
+    <item android:id="@+id/placeholder"
+        android:title=""/>
     <item android:title="Database"
         android:id="@+id/btnEvidencija"
         android:icon="@drawable/database"/>

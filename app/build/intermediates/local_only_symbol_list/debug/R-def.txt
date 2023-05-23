@@ -59,6 +59,7 @@ id arkodId
 id arkodTextView
 id arkodView
 id backArrow
+id bottomAppBar
 id bottomGuidline
 id bottomNavigation
 id btnAI
@@ -71,6 +72,7 @@ id button3
 id button8
 id cloud
 id constraintLayout
+id coordinator
 id cv_child_item
 id danas
 id danasIspod
@@ -95,6 +97,7 @@ id filterBtn2
 id filterLayout
 id forggotPassword
 id fragmentContainerView
+id fragmentHorizontalGuidline
 id google
 id imageView
 id imageView2
@@ -119,6 +122,7 @@ id loginButton
 id lowerGuidline
 id main_square
 id mipgtextView
+id navBarVerticalGuidline
 id nazivId
 id nazivKulture
 id nazivPesticida
@@ -133,6 +137,7 @@ id ovajMjesecIspod
 id passwordId
 id pesticidView
 id pitanjeTextView
+id placeholder
 id planerFragmentId
 id povrsinaId
 id povrsinaId2
@@ -199,6 +204,7 @@ layout home_loading
 layout item
 layout layout_dialog
 layout parent_rv_layout
+layout search_cards
 layout spinner_dropdown_layout
 menu bottom_nav_menu
 mipmap ic_launcher
@@ -215,6 +221,7 @@ string google_crash_reporting_api_key
 string google_storage_bucket
 string hello_blank_fragment
 string project_id
+style ThemeOverlay.SearchView
 style Theme.TestApp
 xml backup_rules
 xml data_extraction_rules

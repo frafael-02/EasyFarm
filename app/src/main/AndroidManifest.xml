@@ -29,6 +29,9 @@
             android:name=".NovPesticidActivity"
             android:exported="false" />
         <activity
+            android:name=".search.SearchActivty"
+            android:exported="false" />
+        <activity
             android:name=".NovoPoljeActivity"
             android:exported="false" />
         <activity

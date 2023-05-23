@@ -177,7 +177,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/dodajZemlju" />
 
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
+    <!--    <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/addEvidencijaButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -190,7 +190,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
 
-            />
+            /> -->
 
 
         <androidx.appcompat.widget.AppCompatButton
@@ -269,6 +269,7 @@
             android:background="@drawable/main_square"
             android:clickable="true"
             android:orientation="vertical"
+            android:visibility="gone"
             android:gravity="right"
             app:layout_constraintTop_toBottomOf="@+id/filterBtn"
             app:layout_constraintStart_toStartOf="@id/leftVerticalGuidline"

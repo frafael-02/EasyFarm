@@ -36,6 +36,10 @@
         "source": "C:\\Users\\anton\\.gradle\\daemon\\7.5\\com.example.testapp-main-46:\\layout\\spinner_dropdown_layout.xml"
     },
     {
+        "merged": "C:\\Users\\anton\\.gradle\\daemon\\7.5\\com.example.testapp-merged_res-44:\\layout_search_cards.xml.flat",
+        "source": "C:\\Users\\anton\\.gradle\\daemon\\7.5\\com.example.testapp-main-46:\\layout\\search_cards.xml"
+    },
+    {
         "merged": "C:\\Users\\anton\\.gradle\\daemon\\7.5\\com.example.testapp-merged_res-44:\\drawable_logo.png.flat",
         "source": "C:\\Users\\anton\\.gradle\\daemon\\7.5\\com.example.testapp-main-46:\\drawable\\logo.png"
     },
@@ -140,12 +144,12 @@
         "source": "C:\\Users\\anton\\.gradle\\daemon\\7.5\\com.example.testapp-main-46:\\mipmap-hdpi\\logo.png"
     },
     {
-        "merged": "C:\\Users\\anton\\.gradle\\daemon\\7.5\\com.example.testapp-merged_res-44:\\layout_layout_dialog.xml.flat",
-        "source": "C:\\Users\\anton\\.gradle\\daemon\\7.5\\com.example.testapp-main-46:\\layout\\layout_dialog.xml"
-    },
-    {
         "merged": "C:\\Users\\anton\\.gradle\\daemon\\7.5\\com.example.testapp-merged_res-44:\\drawable_gradient_shape.xml.flat",
         "source": "C:\\Users\\anton\\.gradle\\daemon\\7.5\\com.example.testapp-main-46:\\drawable\\gradient_shape.xml"
+    },
+    {
+        "merged": "C:\\Users\\anton\\.gradle\\daemon\\7.5\\com.example.testapp-merged_res-44:\\layout_layout_dialog.xml.flat",
+        "source": "C:\\Users\\anton\\.gradle\\daemon\\7.5\\com.example.testapp-main-46:\\layout\\layout_dialog.xml"
     },
     {
         "merged": "C:\\Users\\anton\\.gradle\\daemon\\7.5\\com.example.testapp-merged_res-44:\\mipmap-mdpi_logo_round.png.flat",
@@ -172,12 +176,12 @@
         "source": "C:\\Users\\anton\\.gradle\\daemon\\7.5\\com.example.testapp-main-46:\\drawable\\database.xml"
     },
     {
-        "merged": "C:\\Users\\anton\\.gradle\\daemon\\7.5\\com.example.testapp-merged_res-44:\\layout_item.xml.flat",
-        "source": "C:\\Users\\anton\\.gradle\\daemon\\7.5\\com.example.testapp-main-46:\\layout\\item.xml"
-    },
-    {
         "merged": "C:\\Users\\anton\\.gradle\\daemon\\7.5\\com.example.testapp-merged_res-44:\\mipmap-hdpi_logo_round.png.flat",
         "source": "C:\\Users\\anton\\.gradle\\daemon\\7.5\\com.example.testapp-main-46:\\mipmap-hdpi\\logo_round.png"
+    },
+    {
+        "merged": "C:\\Users\\anton\\.gradle\\daemon\\7.5\\com.example.testapp-merged_res-44:\\layout_item.xml.flat",
+        "source": "C:\\Users\\anton\\.gradle\\daemon\\7.5\\com.example.testapp-main-46:\\layout\\item.xml"
     },
     {
         "merged": "C:\\Users\\anton\\.gradle\\daemon\\7.5\\com.example.testapp-merged_res-44:\\mipmap-anydpi-v26_ic_launcher_round.xml.flat",
@@ -312,12 +316,12 @@
         "source": "C:\\Users\\anton\\.gradle\\daemon\\7.5\\com.example.testapp-main-46:\\font\\poppinsregular.ttf"
     },
     {
-        "merged": "C:\\Users\\anton\\.gradle\\daemon\\7.5\\com.example.testapp-merged_res-44:\\mipmap-xxhdpi_logo_foreground.png.flat",
-        "source": "C:\\Users\\anton\\.gradle\\daemon\\7.5\\com.example.testapp-main-46:\\mipmap-xxhdpi\\logo_foreground.png"
-    },
-    {
         "merged": "C:\\Users\\anton\\.gradle\\daemon\\7.5\\com.example.testapp-merged_res-44:\\mipmap-xxhdpi_logo.png.flat",
         "source": "C:\\Users\\anton\\.gradle\\daemon\\7.5\\com.example.testapp-main-46:\\mipmap-xxhdpi\\logo.png"
+    },
+    {
+        "merged": "C:\\Users\\anton\\.gradle\\daemon\\7.5\\com.example.testapp-merged_res-44:\\mipmap-xxhdpi_logo_foreground.png.flat",
+        "source": "C:\\Users\\anton\\.gradle\\daemon\\7.5\\com.example.testapp-main-46:\\mipmap-xxhdpi\\logo_foreground.png"
     },
     {
         "merged": "C:\\Users\\anton\\.gradle\\daemon\\7.5\\com.example.testapp-merged_res-44:\\layout_activity_main2.xml.flat",
