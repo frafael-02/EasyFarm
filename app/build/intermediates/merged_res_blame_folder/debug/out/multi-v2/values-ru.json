@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.testapp-mergeDebugResources-48:/values-ru/values-ru.xml",
+            "outputFile": "com.example.testapp-mergeDebugResources-50:/values-ru/values-ru.xml",
             "map": [
                 {
                     "source": "C:\\Users\\anton\\.gradle\\caches\\transforms-3\\7c18f01edd35157f44e84f7847d1313d\\transformed\\play-services-basement-18.2.0\\res\\values-ru\\values.xml",

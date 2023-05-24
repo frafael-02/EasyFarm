@@ -1,6 +1,9 @@
 package com.example.testapp.search;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.CheckBox;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -9,7 +12,9 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.testapp.MainActivity2;
+import com.example.testapp.OdabraniPesticidActivity;
 import com.example.testapp.R;
+import com.example.testapp.entiteti.RecyclerViewInterface;
 import com.example.testapp.entiteti.UtilityClass;
 import com.example.testapp.shop.ChildAdapter;
 import com.example.testapp.shop.ShopChildModelClass;
@@ -18,7 +23,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class SearchActivty extends AppCompatActivity {
+public class SearchActivty extends AppCompatActivity implements RecyclerViewInterface {
 
     private RecyclerView recyclerView;
     private List<ShopChildModelClass> itemList;
@@ -57,7 +62,7 @@ public class SearchActivty extends AppCompatActivity {
         itemList.add(new ShopChildModelClass(R.drawable.backwheat,"pesticid"));
         itemList.add(new ShopChildModelClass(R.drawable.backlogin,"pesticid"));*/
 
-        itemAdapter=new SearchAdapter(itemList,this);
+        itemAdapter=new SearchAdapter(itemList,this,this);
         recyclerView.setAdapter(itemAdapter);
     }
 
@@ -75,4 +80,46 @@ public class SearchActivty extends AppCompatActivity {
 itemAdapter.setFilteredList(filteredList);
         }
     }
+
+    @Override
+    public void OnItemClick(int position) {
+        Intent intent = new Intent(SearchActivty.this, OdabraniPesticidActivity.class);
+        intent.putExtra("NAME",itemList.get(position).getPesticid().getNaziv());
+        intent.putExtra("SLIKA",itemList.get(position).getImage());
+
+    startActivity(intent);
+    }
+
+    public void onCheckBoxChecked(View view){
+        CheckBox checkBox=findViewById(view.getId());
+
+        switch (view.getId()){
+            case R.id.insekticid:
+            if(checkBox.isChecked()){
+                Toast.makeText(this, "Filter insekticida", Toast.LENGTH_SHORT).show();
+            }
+            else {
+                Toast.makeText(this, "Filter isključen", Toast.LENGTH_SHORT).show();
+            }
+            break;
+            case R.id.fungicid:
+                if(checkBox.isChecked()){
+                    Toast.makeText(this, "Filter fungicida", Toast.LENGTH_SHORT).show();
+                }
+                else {
+                    Toast.makeText(this, "Filter isključen", Toast.LENGTH_SHORT).show();
+                }
+                break;
+            case R.id.herbicid:
+                if(checkBox.isChecked()){
+                    Toast.makeText(this, "Filter herbicida", Toast.LENGTH_SHORT).show();
+                }
+                else {
+                    Toast.makeText(this, "Filter isključen", Toast.LENGTH_SHORT).show();
+                }
+                break;
+        }
+    }
+
+
 }

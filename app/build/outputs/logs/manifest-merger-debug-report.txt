@@ -12,10 +12,11 @@ MERGED from [com.google.android.material:material:1.8.0] C:\Users\anton\.gradle\
 MERGED from [androidx.constraintlayout:constraintlayout:2.1.4] C:\Users\anton\.gradle\caches\transforms-3\3229d8dbfb0c633e276edfd3e6294908\transformed\constraintlayout-2.1.4\AndroidManifest.xml:2:1-11:12
 MERGED from [androidx.appcompat:appcompat-resources:1.6.1] C:\Users\anton\.gradle\caches\transforms-3\bc14915fedc1798a01b1f6b5d446b360\transformed\appcompat-resources-1.6.1\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.appcompat:appcompat:1.6.1] C:\Users\anton\.gradle\caches\transforms-3\4a8fc8d4cffe1deef03672f2112cd6a4\transformed\appcompat-1.6.1\AndroidManifest.xml:17:1-22:12
+MERGED from [com.firebaseui:firebase-ui-storage:7.2.0] C:\Users\anton\.gradle\caches\transforms-3\7962e47bb661bec2ac3e151346248f24\transformed\firebase-ui-storage-7.2.0\AndroidManifest.xml:2:1-11:12
 MERGED from [com.google.firebase:firebase-firestore:24.1.0] C:\Users\anton\.gradle\caches\transforms-3\7362e13880f0f8c46e7bae18f03a0f8c\transformed\firebase-firestore-24.1.0\AndroidManifest.xml:2:1-26:12
 MERGED from [com.google.firebase:firebase-auth:21.0.3] C:\Users\anton\.gradle\caches\transforms-3\e3bbcff66d7f964896d0a252fe0dd281\transformed\firebase-auth-21.0.3\AndroidManifest.xml:17:1-73:12
 MERGED from [com.google.firebase:firebase-database:20.1.0] C:\Users\anton\.gradle\caches\transforms-3\9b30a9e0d91b080d26063a993319aa41\transformed\firebase-database-20.1.0\AndroidManifest.xml:15:1-37:12
-MERGED from [com.google.firebase:firebase-storage:19.2.0] C:\Users\anton\.gradle\caches\transforms-3\ff23c865d1c80ceeee5021e36169d596\transformed\firebase-storage-19.2.0\AndroidManifest.xml:15:1-39:12
+MERGED from [com.google.firebase:firebase-storage:19.2.2] C:\Users\anton\.gradle\caches\transforms-3\1fb20a81631e7abd248f9bbb8c9a860c\transformed\firebase-storage-19.2.2\AndroidManifest.xml:15:1-39:12
 MERGED from [androidx.navigation:navigation-fragment:2.5.3] C:\Users\anton\.gradle\caches\transforms-3\ca638d52cd734b74b3c5902693aa4e7e\transformed\navigation-fragment-2.5.3\AndroidManifest.xml:17:1-24:12
 MERGED from [com.google.android.gms:play-services-auth:20.5.0] C:\Users\anton\.gradle\caches\transforms-3\17b1e0e7419e9b13dd8973e6554d4e1b\transformed\play-services-auth-20.5.0\AndroidManifest.xml:17:1-40:12
 MERGED from [com.facebook.shimmer:shimmer:0.5.0] C:\Users\anton\.gradle\caches\transforms-3\93f764e730af7895a2858bb5a9bb7a14\transformed\shimmer-0.5.0\AndroidManifest.xml:2:1-7:12
@@ -28,6 +29,8 @@ MERGED from [com.google.android.gms:play-services-auth-api-phone:18.0.1] C:\User
 MERGED from [com.google.android.gms:play-services-auth-base:18.0.4] C:\Users\anton\.gradle\caches\transforms-3\ced0263e7a4491e1645cca14a7f0b26d\transformed\play-services-auth-base-18.0.4\AndroidManifest.xml:2:1-7:12
 MERGED from [com.google.android.gms:play-services-fido:20.0.1] C:\Users\anton\.gradle\caches\transforms-3\3d55a0b423f4c4e3044e33fada77721a\transformed\play-services-fido-20.0.1\AndroidManifest.xml:2:1-10:12
 MERGED from [com.google.android.gms:play-services-base:18.0.1] C:\Users\anton\.gradle\caches\transforms-3\2fb13fbd4f2364aafa4d08df45006df2\transformed\play-services-base-18.0.1\AndroidManifest.xml:16:1-24:12
+MERGED from [androidx.legacy:legacy-support-v4:1.0.0] C:\Users\anton\.gradle\caches\transforms-3\68f44c29e46b634fbc8116523b883589\transformed\legacy-support-v4-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [com.github.bumptech.glide:glide:4.11.0] C:\Users\anton\.gradle\caches\transforms-3\7b018f7b952dc5af9411c36606d22e28\transformed\glide-4.11.0\AndroidManifest.xml:2:1-12:12
 MERGED from [com.google.firebase:firebase-auth-interop:20.0.0] C:\Users\anton\.gradle\caches\transforms-3\d2e970bfb867656e68c0dcb6674ba202\transformed\firebase-auth-interop-20.0.0\AndroidManifest.xml:2:1-10:12
 MERGED from [com.google.firebase:firebase-common:20.2.0] C:\Users\anton\.gradle\caches\transforms-3\ee5d02db59e38604831bac2e3dd49ec0\transformed\firebase-common-20.2.0\AndroidManifest.xml:15:1-39:12
 MERGED from [com.google.android.gms:play-services-tasks:18.0.1] C:\Users\anton\.gradle\caches\transforms-3\fc088fc4eb280fc321a915706c3f24ed\transformed\play-services-tasks-18.0.1\AndroidManifest.xml:2:1-6:12
@@ -58,6 +61,7 @@ MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.5.1] C:\Users\anton\.gradl
 MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.5.1] C:\Users\anton\.gradle\caches\transforms-3\374ffb607fa707456f512195ef6b0e2b\transformed\lifecycle-viewmodel-savedstate-2.5.1\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.core:core-ktx:1.9.0] C:\Users\anton\.gradle\caches\transforms-3\749c0200844607dfa543129b83a7b943\transformed\core-ktx-1.9.0\AndroidManifest.xml:2:1-7:12
 MERGED from [androidx.transition:transition:1.4.1] C:\Users\anton\.gradle\caches\transforms-3\047a3a5b6ba9c3a93978abbc673bea4d\transformed\transition-1.4.1\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.media:media:1.0.0] C:\Users\anton\.gradle\caches\transforms-3\5dc65e3727186111a694992f8afbd292\transformed\media-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.window:window:1.0.0] C:\Users\anton\.gradle\caches\transforms-3\91ee67316cfb6f0a4adde4f62a3df5da\transformed\window-1.0.0\AndroidManifest.xml:17:1-33:12
 MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.0.0] C:\Users\anton\.gradle\caches\transforms-3\8167d9cdef8698e06292fb743d46e17f\transformed\swiperefreshlayout-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.asynclayoutinflater:asynclayoutinflater:1.0.0] C:\Users\anton\.gradle\caches\transforms-3\b50415115ee666ba2f468d47b82184f2\transformed\asynclayoutinflater-1.0.0\AndroidManifest.xml:17:1-22:12
@@ -81,6 +85,7 @@ MERGED from [androidx.lifecycle:lifecycle-livedata-core-ktx:2.5.1] C:\Users\anto
 MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.5.1] C:\Users\anton\.gradle\caches\transforms-3\21758b536599ef625699371e8446927f\transformed\lifecycle-livedata-core-2.5.1\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.arch.core:core-runtime:2.1.0] C:\Users\anton\.gradle\caches\transforms-3\ff3776e6d150fa93122418564ca1aef2\transformed\core-runtime-2.1.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\anton\.gradle\caches\transforms-3\c798d35f7989dbc84e7c8cf59d5cb534\transformed\interpolator-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [com.github.bumptech.glide:gifdecoder:4.11.0] C:\Users\anton\.gradle\caches\transforms-3\86a1014e83316ecf0abea8e4bd6b9d0b\transformed\gifdecoder-4.11.0\AndroidManifest.xml:2:1-11:12
 MERGED from [androidx.print:print:1.0.0] C:\Users\anton\.gradle\caches\transforms-3\07d5b0f433294fb8566b4dccc1b96a3d\transformed\print-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.annotation:annotation-experimental:1.3.0] C:\Users\anton\.gradle\caches\transforms-3\eb81fb53378604cc0225f33f394c7ec0\transformed\annotation-experimental-1.3.0\AndroidManifest.xml:17:1-22:12
 MERGED from [com.google.firebase:protolite-well-known-types:18.0.0] C:\Users\anton\.gradle\caches\transforms-3\303c89b29b1f94f8856e637193912e8d\transformed\protolite-well-known-types-18.0.0\AndroidManifest.xml:2:1-11:12
@@ -111,8 +116,8 @@ MERGED from [com.google.firebase:firebase-auth:21.0.3] C:\Users\anton\.gradle\ca
 MERGED from [com.google.firebase:firebase-auth:21.0.3] C:\Users\anton\.gradle\caches\transforms-3\e3bbcff66d7f964896d0a252fe0dd281\transformed\firebase-auth-21.0.3\AndroidManifest.xml:23:5-67
 MERGED from [com.google.firebase:firebase-database:20.1.0] C:\Users\anton\.gradle\caches\transforms-3\9b30a9e0d91b080d26063a993319aa41\transformed\firebase-database-20.1.0\AndroidManifest.xml:25:5-67
 MERGED from [com.google.firebase:firebase-database:20.1.0] C:\Users\anton\.gradle\caches\transforms-3\9b30a9e0d91b080d26063a993319aa41\transformed\firebase-database-20.1.0\AndroidManifest.xml:25:5-67
-MERGED from [com.google.firebase:firebase-storage:19.2.0] C:\Users\anton\.gradle\caches\transforms-3\ff23c865d1c80ceeee5021e36169d596\transformed\firebase-storage-19.2.0\AndroidManifest.xml:27:5-67
-MERGED from [com.google.firebase:firebase-storage:19.2.0] C:\Users\anton\.gradle\caches\transforms-3\ff23c865d1c80ceeee5021e36169d596\transformed\firebase-storage-19.2.0\AndroidManifest.xml:27:5-67
+MERGED from [com.google.firebase:firebase-storage:19.2.2] C:\Users\anton\.gradle\caches\transforms-3\1fb20a81631e7abd248f9bbb8c9a860c\transformed\firebase-storage-19.2.2\AndroidManifest.xml:27:5-67
+MERGED from [com.google.firebase:firebase-storage:19.2.2] C:\Users\anton\.gradle\caches\transforms-3\1fb20a81631e7abd248f9bbb8c9a860c\transformed\firebase-storage-19.2.2\AndroidManifest.xml:27:5-67
 	android:name
 		ADDED from C:\Users\anton\AndroidStudioProjects\EasyFarm2\app\src\main\AndroidManifest.xml:5:22-64
 uses-feature#android.hardware.camera
@@ -157,8 +162,8 @@ MERGED from [com.google.firebase:firebase-auth:21.0.3] C:\Users\anton\.gradle\ca
 MERGED from [com.google.firebase:firebase-auth:21.0.3] C:\Users\anton\.gradle\caches\transforms-3\e3bbcff66d7f964896d0a252fe0dd281\transformed\firebase-auth-21.0.3\AndroidManifest.xml:26:5-71:19
 MERGED from [com.google.firebase:firebase-database:20.1.0] C:\Users\anton\.gradle\caches\transforms-3\9b30a9e0d91b080d26063a993319aa41\transformed\firebase-database-20.1.0\AndroidManifest.xml:27:5-35:19
 MERGED from [com.google.firebase:firebase-database:20.1.0] C:\Users\anton\.gradle\caches\transforms-3\9b30a9e0d91b080d26063a993319aa41\transformed\firebase-database-20.1.0\AndroidManifest.xml:27:5-35:19
-MERGED from [com.google.firebase:firebase-storage:19.2.0] C:\Users\anton\.gradle\caches\transforms-3\ff23c865d1c80ceeee5021e36169d596\transformed\firebase-storage-19.2.0\AndroidManifest.xml:29:5-37:19
-MERGED from [com.google.firebase:firebase-storage:19.2.0] C:\Users\anton\.gradle\caches\transforms-3\ff23c865d1c80ceeee5021e36169d596\transformed\firebase-storage-19.2.0\AndroidManifest.xml:29:5-37:19
+MERGED from [com.google.firebase:firebase-storage:19.2.2] C:\Users\anton\.gradle\caches\transforms-3\1fb20a81631e7abd248f9bbb8c9a860c\transformed\firebase-storage-19.2.2\AndroidManifest.xml:29:5-37:19
+MERGED from [com.google.firebase:firebase-storage:19.2.2] C:\Users\anton\.gradle\caches\transforms-3\1fb20a81631e7abd248f9bbb8c9a860c\transformed\firebase-storage-19.2.2\AndroidManifest.xml:29:5-37:19
 MERGED from [com.google.android.gms:play-services-auth:20.5.0] C:\Users\anton\.gradle\caches\transforms-3\17b1e0e7419e9b13dd8973e6554d4e1b\transformed\play-services-auth-20.5.0\AndroidManifest.xml:22:5-38:19
 MERGED from [com.google.android.gms:play-services-auth:20.5.0] C:\Users\anton\.gradle\caches\transforms-3\17b1e0e7419e9b13dd8973e6554d4e1b\transformed\play-services-auth-20.5.0\AndroidManifest.xml:22:5-38:19
 MERGED from [com.google.android.gms:play-services-safetynet:17.0.0] C:\Users\anton\.gradle\caches\transforms-3\7c0ff89f786f1ef53d427195cf70a814\transformed\play-services-safetynet-17.0.0\AndroidManifest.xml:22:5-20
@@ -169,6 +174,8 @@ MERGED from [com.google.android.gms:play-services-fido:20.0.1] C:\Users\anton\.g
 MERGED from [com.google.android.gms:play-services-fido:20.0.1] C:\Users\anton\.gradle\caches\transforms-3\3d55a0b423f4c4e3044e33fada77721a\transformed\play-services-fido-20.0.1\AndroidManifest.xml:7:5-8:19
 MERGED from [com.google.android.gms:play-services-base:18.0.1] C:\Users\anton\.gradle\caches\transforms-3\2fb13fbd4f2364aafa4d08df45006df2\transformed\play-services-base-18.0.1\AndroidManifest.xml:19:5-23:19
 MERGED from [com.google.android.gms:play-services-base:18.0.1] C:\Users\anton\.gradle\caches\transforms-3\2fb13fbd4f2364aafa4d08df45006df2\transformed\play-services-base-18.0.1\AndroidManifest.xml:19:5-23:19
+MERGED from [com.github.bumptech.glide:glide:4.11.0] C:\Users\anton\.gradle\caches\transforms-3\7b018f7b952dc5af9411c36606d22e28\transformed\glide-4.11.0\AndroidManifest.xml:10:5-20
+MERGED from [com.github.bumptech.glide:glide:4.11.0] C:\Users\anton\.gradle\caches\transforms-3\7b018f7b952dc5af9411c36606d22e28\transformed\glide-4.11.0\AndroidManifest.xml:10:5-20
 MERGED from [com.google.firebase:firebase-auth-interop:20.0.0] C:\Users\anton\.gradle\caches\transforms-3\d2e970bfb867656e68c0dcb6674ba202\transformed\firebase-auth-interop-20.0.0\AndroidManifest.xml:7:5-8:19
 MERGED from [com.google.firebase:firebase-auth-interop:20.0.0] C:\Users\anton\.gradle\caches\transforms-3\d2e970bfb867656e68c0dcb6674ba202\transformed\firebase-auth-interop-20.0.0\AndroidManifest.xml:7:5-8:19
 MERGED from [com.google.firebase:firebase-common:20.2.0] C:\Users\anton\.gradle\caches\transforms-3\ee5d02db59e38604831bac2e3dd49ec0\transformed\firebase-common-20.2.0\AndroidManifest.xml:24:5-37:19
@@ -189,6 +196,8 @@ MERGED from [androidx.startup:startup-runtime:1.1.1] C:\Users\anton\.gradle\cach
 MERGED from [androidx.startup:startup-runtime:1.1.1] C:\Users\anton\.gradle\caches\transforms-3\a4abacc364e01a9a795dff853bb605cd\transformed\startup-runtime-1.1.1\AndroidManifest.xml:25:5-31:19
 MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\anton\.gradle\caches\transforms-3\ecac625faabffbb0784c9a9c31930ef0\transformed\versionedparcelable-1.1.1\AndroidManifest.xml:24:5-25:19
 MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\anton\.gradle\caches\transforms-3\ecac625faabffbb0784c9a9c31930ef0\transformed\versionedparcelable-1.1.1\AndroidManifest.xml:24:5-25:19
+MERGED from [com.github.bumptech.glide:gifdecoder:4.11.0] C:\Users\anton\.gradle\caches\transforms-3\86a1014e83316ecf0abea8e4bd6b9d0b\transformed\gifdecoder-4.11.0\AndroidManifest.xml:9:5-20
+MERGED from [com.github.bumptech.glide:gifdecoder:4.11.0] C:\Users\anton\.gradle\caches\transforms-3\86a1014e83316ecf0abea8e4bd6b9d0b\transformed\gifdecoder-4.11.0\AndroidManifest.xml:9:5-20
 	android:appComponentFactory
 		ADDED from [androidx.core:core:1.9.0] C:\Users\anton\.gradle\caches\transforms-3\43a64de5a16f642f933aa2c844c81289\transformed\core-1.9.0\AndroidManifest.xml:28:18-86
 	android:supportsRtl
@@ -307,14 +316,16 @@ MERGED from [androidx.appcompat:appcompat-resources:1.6.1] C:\Users\anton\.gradl
 MERGED from [androidx.appcompat:appcompat-resources:1.6.1] C:\Users\anton\.gradle\caches\transforms-3\bc14915fedc1798a01b1f6b5d446b360\transformed\appcompat-resources-1.6.1\AndroidManifest.xml:20:5-44
 MERGED from [androidx.appcompat:appcompat:1.6.1] C:\Users\anton\.gradle\caches\transforms-3\4a8fc8d4cffe1deef03672f2112cd6a4\transformed\appcompat-1.6.1\AndroidManifest.xml:20:5-44
 MERGED from [androidx.appcompat:appcompat:1.6.1] C:\Users\anton\.gradle\caches\transforms-3\4a8fc8d4cffe1deef03672f2112cd6a4\transformed\appcompat-1.6.1\AndroidManifest.xml:20:5-44
+MERGED from [com.firebaseui:firebase-ui-storage:7.2.0] C:\Users\anton\.gradle\caches\transforms-3\7962e47bb661bec2ac3e151346248f24\transformed\firebase-ui-storage-7.2.0\AndroidManifest.xml:7:5-9:41
+MERGED from [com.firebaseui:firebase-ui-storage:7.2.0] C:\Users\anton\.gradle\caches\transforms-3\7962e47bb661bec2ac3e151346248f24\transformed\firebase-ui-storage-7.2.0\AndroidManifest.xml:7:5-9:41
 MERGED from [com.google.firebase:firebase-firestore:24.1.0] C:\Users\anton\.gradle\caches\transforms-3\7362e13880f0f8c46e7bae18f03a0f8c\transformed\firebase-firestore-24.1.0\AndroidManifest.xml:7:5-9:41
 MERGED from [com.google.firebase:firebase-firestore:24.1.0] C:\Users\anton\.gradle\caches\transforms-3\7362e13880f0f8c46e7bae18f03a0f8c\transformed\firebase-firestore-24.1.0\AndroidManifest.xml:7:5-9:41
 MERGED from [com.google.firebase:firebase-auth:21.0.3] C:\Users\anton\.gradle\caches\transforms-3\e3bbcff66d7f964896d0a252fe0dd281\transformed\firebase-auth-21.0.3\AndroidManifest.xml:21:5-44
 MERGED from [com.google.firebase:firebase-auth:21.0.3] C:\Users\anton\.gradle\caches\transforms-3\e3bbcff66d7f964896d0a252fe0dd281\transformed\firebase-auth-21.0.3\AndroidManifest.xml:21:5-44
 MERGED from [com.google.firebase:firebase-database:20.1.0] C:\Users\anton\.gradle\caches\transforms-3\9b30a9e0d91b080d26063a993319aa41\transformed\firebase-database-20.1.0\AndroidManifest.xml:18:5-20:41
 MERGED from [com.google.firebase:firebase-database:20.1.0] C:\Users\anton\.gradle\caches\transforms-3\9b30a9e0d91b080d26063a993319aa41\transformed\firebase-database-20.1.0\AndroidManifest.xml:18:5-20:41
-MERGED from [com.google.firebase:firebase-storage:19.2.0] C:\Users\anton\.gradle\caches\transforms-3\ff23c865d1c80ceeee5021e36169d596\transformed\firebase-storage-19.2.0\AndroidManifest.xml:20:5-22:41
-MERGED from [com.google.firebase:firebase-storage:19.2.0] C:\Users\anton\.gradle\caches\transforms-3\ff23c865d1c80ceeee5021e36169d596\transformed\firebase-storage-19.2.0\AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.firebase:firebase-storage:19.2.2] C:\Users\anton\.gradle\caches\transforms-3\1fb20a81631e7abd248f9bbb8c9a860c\transformed\firebase-storage-19.2.2\AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.firebase:firebase-storage:19.2.2] C:\Users\anton\.gradle\caches\transforms-3\1fb20a81631e7abd248f9bbb8c9a860c\transformed\firebase-storage-19.2.2\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.navigation:navigation-fragment:2.5.3] C:\Users\anton\.gradle\caches\transforms-3\ca638d52cd734b74b3c5902693aa4e7e\transformed\navigation-fragment-2.5.3\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.navigation:navigation-fragment:2.5.3] C:\Users\anton\.gradle\caches\transforms-3\ca638d52cd734b74b3c5902693aa4e7e\transformed\navigation-fragment-2.5.3\AndroidManifest.xml:20:5-22:41
 MERGED from [com.google.android.gms:play-services-auth:20.5.0] C:\Users\anton\.gradle\caches\transforms-3\17b1e0e7419e9b13dd8973e6554d4e1b\transformed\play-services-auth-20.5.0\AndroidManifest.xml:20:5-44
@@ -339,6 +350,10 @@ MERGED from [com.google.android.gms:play-services-fido:20.0.1] C:\Users\anton\.g
 MERGED from [com.google.android.gms:play-services-fido:20.0.1] C:\Users\anton\.gradle\caches\transforms-3\3d55a0b423f4c4e3044e33fada77721a\transformed\play-services-fido-20.0.1\AndroidManifest.xml:5:5-44
 MERGED from [com.google.android.gms:play-services-base:18.0.1] C:\Users\anton\.gradle\caches\transforms-3\2fb13fbd4f2364aafa4d08df45006df2\transformed\play-services-base-18.0.1\AndroidManifest.xml:18:5-43
 MERGED from [com.google.android.gms:play-services-base:18.0.1] C:\Users\anton\.gradle\caches\transforms-3\2fb13fbd4f2364aafa4d08df45006df2\transformed\play-services-base-18.0.1\AndroidManifest.xml:18:5-43
+MERGED from [androidx.legacy:legacy-support-v4:1.0.0] C:\Users\anton\.gradle\caches\transforms-3\68f44c29e46b634fbc8116523b883589\transformed\legacy-support-v4-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-v4:1.0.0] C:\Users\anton\.gradle\caches\transforms-3\68f44c29e46b634fbc8116523b883589\transformed\legacy-support-v4-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [com.github.bumptech.glide:glide:4.11.0] C:\Users\anton\.gradle\caches\transforms-3\7b018f7b952dc5af9411c36606d22e28\transformed\glide-4.11.0\AndroidManifest.xml:6:5-8:41
+MERGED from [com.github.bumptech.glide:glide:4.11.0] C:\Users\anton\.gradle\caches\transforms-3\7b018f7b952dc5af9411c36606d22e28\transformed\glide-4.11.0\AndroidManifest.xml:6:5-8:41
 MERGED from [com.google.firebase:firebase-auth-interop:20.0.0] C:\Users\anton\.gradle\caches\transforms-3\d2e970bfb867656e68c0dcb6674ba202\transformed\firebase-auth-interop-20.0.0\AndroidManifest.xml:5:5-44
 MERGED from [com.google.firebase:firebase-auth-interop:20.0.0] C:\Users\anton\.gradle\caches\transforms-3\d2e970bfb867656e68c0dcb6674ba202\transformed\firebase-auth-interop-20.0.0\AndroidManifest.xml:5:5-44
 MERGED from [com.google.firebase:firebase-common:20.2.0] C:\Users\anton\.gradle\caches\transforms-3\ee5d02db59e38604831bac2e3dd49ec0\transformed\firebase-common-20.2.0\AndroidManifest.xml:19:5-21:41
@@ -399,6 +414,8 @@ MERGED from [androidx.core:core-ktx:1.9.0] C:\Users\anton\.gradle\caches\transfo
 MERGED from [androidx.core:core-ktx:1.9.0] C:\Users\anton\.gradle\caches\transforms-3\749c0200844607dfa543129b83a7b943\transformed\core-ktx-1.9.0\AndroidManifest.xml:5:5-44
 MERGED from [androidx.transition:transition:1.4.1] C:\Users\anton\.gradle\caches\transforms-3\047a3a5b6ba9c3a93978abbc673bea4d\transformed\transition-1.4.1\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.transition:transition:1.4.1] C:\Users\anton\.gradle\caches\transforms-3\047a3a5b6ba9c3a93978abbc673bea4d\transformed\transition-1.4.1\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.media:media:1.0.0] C:\Users\anton\.gradle\caches\transforms-3\5dc65e3727186111a694992f8afbd292\transformed\media-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.media:media:1.0.0] C:\Users\anton\.gradle\caches\transforms-3\5dc65e3727186111a694992f8afbd292\transformed\media-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.window:window:1.0.0] C:\Users\anton\.gradle\caches\transforms-3\91ee67316cfb6f0a4adde4f62a3df5da\transformed\window-1.0.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.window:window:1.0.0] C:\Users\anton\.gradle\caches\transforms-3\91ee67316cfb6f0a4adde4f62a3df5da\transformed\window-1.0.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.0.0] C:\Users\anton\.gradle\caches\transforms-3\8167d9cdef8698e06292fb743d46e17f\transformed\swiperefreshlayout-1.0.0\AndroidManifest.xml:20:5-44
@@ -445,6 +462,8 @@ MERGED from [androidx.arch.core:core-runtime:2.1.0] C:\Users\anton\.gradle\cache
 MERGED from [androidx.arch.core:core-runtime:2.1.0] C:\Users\anton\.gradle\caches\transforms-3\ff3776e6d150fa93122418564ca1aef2\transformed\core-runtime-2.1.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\anton\.gradle\caches\transforms-3\c798d35f7989dbc84e7c8cf59d5cb534\transformed\interpolator-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\anton\.gradle\caches\transforms-3\c798d35f7989dbc84e7c8cf59d5cb534\transformed\interpolator-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [com.github.bumptech.glide:gifdecoder:4.11.0] C:\Users\anton\.gradle\caches\transforms-3\86a1014e83316ecf0abea8e4bd6b9d0b\transformed\gifdecoder-4.11.0\AndroidManifest.xml:5:5-7:41
+MERGED from [com.github.bumptech.glide:gifdecoder:4.11.0] C:\Users\anton\.gradle\caches\transforms-3\86a1014e83316ecf0abea8e4bd6b9d0b\transformed\gifdecoder-4.11.0\AndroidManifest.xml:5:5-7:41
 MERGED from [androidx.print:print:1.0.0] C:\Users\anton\.gradle\caches\transforms-3\07d5b0f433294fb8566b4dccc1b96a3d\transformed\print-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.print:print:1.0.0] C:\Users\anton\.gradle\caches\transforms-3\07d5b0f433294fb8566b4dccc1b96a3d\transformed\print-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.annotation:annotation-experimental:1.3.0] C:\Users\anton\.gradle\caches\transforms-3\eb81fb53378604cc0225f33f394c7ec0\transformed\annotation-experimental-1.3.0\AndroidManifest.xml:20:5-44
@@ -539,8 +558,8 @@ MERGED from [com.google.firebase:firebase-auth:21.0.3] C:\Users\anton\.gradle\ca
 MERGED from [com.google.firebase:firebase-auth:21.0.3] C:\Users\anton\.gradle\caches\transforms-3\e3bbcff66d7f964896d0a252fe0dd281\transformed\firebase-auth-21.0.3\AndroidManifest.xml:24:5-79
 MERGED from [com.google.firebase:firebase-database:20.1.0] C:\Users\anton\.gradle\caches\transforms-3\9b30a9e0d91b080d26063a993319aa41\transformed\firebase-database-20.1.0\AndroidManifest.xml:24:5-79
 MERGED from [com.google.firebase:firebase-database:20.1.0] C:\Users\anton\.gradle\caches\transforms-3\9b30a9e0d91b080d26063a993319aa41\transformed\firebase-database-20.1.0\AndroidManifest.xml:24:5-79
-MERGED from [com.google.firebase:firebase-storage:19.2.0] C:\Users\anton\.gradle\caches\transforms-3\ff23c865d1c80ceeee5021e36169d596\transformed\firebase-storage-19.2.0\AndroidManifest.xml:26:5-79
-MERGED from [com.google.firebase:firebase-storage:19.2.0] C:\Users\anton\.gradle\caches\transforms-3\ff23c865d1c80ceeee5021e36169d596\transformed\firebase-storage-19.2.0\AndroidManifest.xml:26:5-79
+MERGED from [com.google.firebase:firebase-storage:19.2.2] C:\Users\anton\.gradle\caches\transforms-3\1fb20a81631e7abd248f9bbb8c9a860c\transformed\firebase-storage-19.2.2\AndroidManifest.xml:26:5-79
+MERGED from [com.google.firebase:firebase-storage:19.2.2] C:\Users\anton\.gradle\caches\transforms-3\1fb20a81631e7abd248f9bbb8c9a860c\transformed\firebase-storage-19.2.2\AndroidManifest.xml:26:5-79
 MERGED from [io.grpc:grpc-android:1.44.1] C:\Users\anton\.gradle\caches\transforms-3\171df840317bb8e7e9773eb938d29508\transformed\grpc-android-1.44.1\AndroidManifest.xml:9:5-79
 MERGED from [io.grpc:grpc-android:1.44.1] C:\Users\anton\.gradle\caches\transforms-3\171df840317bb8e7e9773eb938d29508\transformed\grpc-android-1.44.1\AndroidManifest.xml:9:5-79
 	android:name
@@ -551,8 +570,8 @@ MERGED from [com.google.firebase:firebase-auth:21.0.3] C:\Users\anton\.gradle\ca
 MERGED from [com.google.firebase:firebase-auth:21.0.3] C:\Users\anton\.gradle\caches\transforms-3\e3bbcff66d7f964896d0a252fe0dd281\transformed\firebase-auth-21.0.3\AndroidManifest.xml:64:9-70:19
 MERGED from [com.google.firebase:firebase-database:20.1.0] C:\Users\anton\.gradle\caches\transforms-3\9b30a9e0d91b080d26063a993319aa41\transformed\firebase-database-20.1.0\AndroidManifest.xml:28:9-34:19
 MERGED from [com.google.firebase:firebase-database:20.1.0] C:\Users\anton\.gradle\caches\transforms-3\9b30a9e0d91b080d26063a993319aa41\transformed\firebase-database-20.1.0\AndroidManifest.xml:28:9-34:19
-MERGED from [com.google.firebase:firebase-storage:19.2.0] C:\Users\anton\.gradle\caches\transforms-3\ff23c865d1c80ceeee5021e36169d596\transformed\firebase-storage-19.2.0\AndroidManifest.xml:30:9-36:19
-MERGED from [com.google.firebase:firebase-storage:19.2.0] C:\Users\anton\.gradle\caches\transforms-3\ff23c865d1c80ceeee5021e36169d596\transformed\firebase-storage-19.2.0\AndroidManifest.xml:30:9-36:19
+MERGED from [com.google.firebase:firebase-storage:19.2.2] C:\Users\anton\.gradle\caches\transforms-3\1fb20a81631e7abd248f9bbb8c9a860c\transformed\firebase-storage-19.2.2\AndroidManifest.xml:30:9-36:19
+MERGED from [com.google.firebase:firebase-storage:19.2.2] C:\Users\anton\.gradle\caches\transforms-3\1fb20a81631e7abd248f9bbb8c9a860c\transformed\firebase-storage-19.2.2\AndroidManifest.xml:30:9-36:19
 MERGED from [com.google.firebase:firebase-common:20.2.0] C:\Users\anton\.gradle\caches\transforms-3\ee5d02db59e38604831bac2e3dd49ec0\transformed\firebase-common-20.2.0\AndroidManifest.xml:32:9-36:35
 MERGED from [com.google.firebase:firebase-common:20.2.0] C:\Users\anton\.gradle\caches\transforms-3\ee5d02db59e38604831bac2e3dd49ec0\transformed\firebase-common-20.2.0\AndroidManifest.xml:32:9-36:35
 	android:exported
@@ -622,11 +641,11 @@ ADDED from [com.google.firebase:firebase-database:20.1.0] C:\Users\anton\.gradle
 	android:name
 		ADDED from [com.google.firebase:firebase-database:20.1.0] C:\Users\anton\.gradle\caches\transforms-3\9b30a9e0d91b080d26063a993319aa41\transformed\firebase-database-20.1.0\AndroidManifest.xml:32:17-109
 meta-data#com.google.firebase.components:com.google.firebase.storage.StorageRegistrar
-ADDED from [com.google.firebase:firebase-storage:19.2.0] C:\Users\anton\.gradle\caches\transforms-3\ff23c865d1c80ceeee5021e36169d596\transformed\firebase-storage-19.2.0\AndroidManifest.xml:33:13-35:85
+ADDED from [com.google.firebase:firebase-storage:19.2.2] C:\Users\anton\.gradle\caches\transforms-3\1fb20a81631e7abd248f9bbb8c9a860c\transformed\firebase-storage-19.2.2\AndroidManifest.xml:33:13-35:85
 	android:value
-		ADDED from [com.google.firebase:firebase-storage:19.2.0] C:\Users\anton\.gradle\caches\transforms-3\ff23c865d1c80ceeee5021e36169d596\transformed\firebase-storage-19.2.0\AndroidManifest.xml:35:17-82
+		ADDED from [com.google.firebase:firebase-storage:19.2.2] C:\Users\anton\.gradle\caches\transforms-3\1fb20a81631e7abd248f9bbb8c9a860c\transformed\firebase-storage-19.2.2\AndroidManifest.xml:35:17-82
 	android:name
-		ADDED from [com.google.firebase:firebase-storage:19.2.0] C:\Users\anton\.gradle\caches\transforms-3\ff23c865d1c80ceeee5021e36169d596\transformed\firebase-storage-19.2.0\AndroidManifest.xml:34:17-107
+		ADDED from [com.google.firebase:firebase-storage:19.2.2] C:\Users\anton\.gradle\caches\transforms-3\1fb20a81631e7abd248f9bbb8c9a860c\transformed\firebase-storage-19.2.2\AndroidManifest.xml:34:17-107
 activity#com.google.android.gms.auth.api.signin.internal.SignInHubActivity
 ADDED from [com.google.android.gms:play-services-auth:20.5.0] C:\Users\anton\.gradle\caches\transforms-3\17b1e0e7419e9b13dd8973e6554d4e1b\transformed\play-services-auth-20.5.0\AndroidManifest.xml:23:9-27:75
 	android:excludeFromRecents

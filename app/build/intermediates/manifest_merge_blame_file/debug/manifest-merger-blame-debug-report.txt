@@ -268,11 +268,11 @@
 145                android:value="com.google.firebase.components.ComponentRegistrar" />
 145-->[com.google.firebase:firebase-database:20.1.0] C:\Users\anton\.gradle\caches\transforms-3\9b30a9e0d91b080d26063a993319aa41\transformed\firebase-database-20.1.0\AndroidManifest.xml:33:17-82
 146            <meta-data
-146-->[com.google.firebase:firebase-storage:19.2.0] C:\Users\anton\.gradle\caches\transforms-3\ff23c865d1c80ceeee5021e36169d596\transformed\firebase-storage-19.2.0\AndroidManifest.xml:33:13-35:85
+146-->[com.google.firebase:firebase-storage:19.2.2] C:\Users\anton\.gradle\caches\transforms-3\1fb20a81631e7abd248f9bbb8c9a860c\transformed\firebase-storage-19.2.2\AndroidManifest.xml:33:13-35:85
 147                android:name="com.google.firebase.components:com.google.firebase.storage.StorageRegistrar"
-147-->[com.google.firebase:firebase-storage:19.2.0] C:\Users\anton\.gradle\caches\transforms-3\ff23c865d1c80ceeee5021e36169d596\transformed\firebase-storage-19.2.0\AndroidManifest.xml:34:17-107
+147-->[com.google.firebase:firebase-storage:19.2.2] C:\Users\anton\.gradle\caches\transforms-3\1fb20a81631e7abd248f9bbb8c9a860c\transformed\firebase-storage-19.2.2\AndroidManifest.xml:34:17-107
 148                android:value="com.google.firebase.components.ComponentRegistrar" />
-148-->[com.google.firebase:firebase-storage:19.2.0] C:\Users\anton\.gradle\caches\transforms-3\ff23c865d1c80ceeee5021e36169d596\transformed\firebase-storage-19.2.0\AndroidManifest.xml:35:17-82
+148-->[com.google.firebase:firebase-storage:19.2.2] C:\Users\anton\.gradle\caches\transforms-3\1fb20a81631e7abd248f9bbb8c9a860c\transformed\firebase-storage-19.2.2\AndroidManifest.xml:35:17-82
 149        </service>
 150
 151        <activity

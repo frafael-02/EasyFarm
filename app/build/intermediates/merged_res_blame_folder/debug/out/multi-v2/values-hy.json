@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.testapp-mergeDebugResources-48:/values-hy/values-hy.xml",
+            "outputFile": "com.example.testapp-mergeDebugResources-50:/values-hy/values-hy.xml",
             "map": [
                 {
                     "source": "C:\\Users\\anton\\.gradle\\caches\\transforms-3\\eed0b5ceaa8584e4f949bee695d7778c\\transformed\\navigation-ui-2.5.3\\res\\values-hy\\values-hy.xml",

@@ -13,7 +13,7 @@
         android:layout_height="0dp"
         android:layout_marginTop="5dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/searchView"
+        app:layout_constraintTop_toBottomOf="@id/linearLayout"
         app:layout_constraintBottom_toBottomOf="parent"/>
 
     <androidx.appcompat.widget.SearchView
@@ -28,6 +28,75 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:queryHint="Pretraživanje"
         app:iconifiedByDefault="false"/>
+    <RelativeLayout
+        android:id="@+id/linearLayout"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="50dp"
+        android:layout_marginStart="50dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@id/searchView"
+        app:layout_constraintStart_toStartOf="parent"
+        >
+        <CheckBox
+            android:id="@+id/insekticid"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:button="@drawable/custom_check_box_insekticid"
+            android:buttonTint="@color/transparent"
+            android:buttonTintMode="screen"
+            android:onClick="onCheckBoxChecked"
+            android:layout_centerHorizontal="true"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Insekticid"
+            android:textSize="16sp"
+            android:textColor="@color/iconGrey"
+            android:layout_below="@id/insekticid"
+            android:layout_centerHorizontal="true"
+            />
+        <CheckBox
+            android:id="@+id/herbicid"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:button="@drawable/custom_check_box_herbicid"
+            android:buttonTint="@color/transparent"
+            android:buttonTintMode="screen"
+            android:onClick="onCheckBoxChecked"
+            android:layout_alignParentEnd="true"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Herbicid"
+            android:textSize="16sp"
+            android:textColor="@color/iconGrey"
+            android:layout_below="@id/herbicid"
+            android:layout_alignParentEnd="true"
+            />
+        <CheckBox
+            android:id="@+id/fungicid"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:button="@drawable/custom_check_box_fungicid"
+            android:buttonTint="@color/transparent"
+            android:buttonTintMode="screen"
+            android:onClick="onCheckBoxChecked"
+            android:layout_alignParentStart="true"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Fungicid"
+            android:textSize="16sp"
+            android:textColor="@color/iconGrey"
+            android:layout_below="@id/fungicid"
+            android:layout_alignParentStart="true"
+            />
+    </RelativeLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

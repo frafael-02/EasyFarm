@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.testapp-mergeDebugResources-48:/values-zh-rTW/values-zh-rTW.xml",
+            "outputFile": "com.example.testapp-mergeDebugResources-50:/values-zh-rTW/values-zh-rTW.xml",
             "map": [
                 {
                     "source": "C:\\Users\\anton\\.gradle\\caches\\transforms-3\\40d051ec76015a051b8e274d50c57ecd\\transformed\\ucrop-2.2.8\\res\\values-zh-rTW\\values-zh-rTW.xml",

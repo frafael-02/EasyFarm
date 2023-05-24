@@ -2000,6 +2000,7 @@ color mtrl_textinput_focused_box_stroke_color
 color mtrl_textinput_hovered_box_stroke_color
 color notification_action_color_filter
 color notification_icon_bg_color
+color notification_material_background_media_default_color
 color primary_dark_material_dark
 color primary_dark_material_light
 color primary_material_dark
@@ -2751,6 +2752,10 @@ dimen notification_subtext_size
 dimen notification_top_pad
 dimen notification_top_pad_large_text
 dimen sliding_pane_detail_pane_width
+dimen subtitle_corner_radius
+dimen subtitle_outline_width
+dimen subtitle_shadow_offset
+dimen subtitle_shadow_radius
 dimen tooltip_corner_radius
 dimen tooltip_horizontal_padding
 dimen tooltip_margin
@@ -2901,6 +2906,9 @@ drawable common_google_signin_btn_text_light
 drawable common_google_signin_btn_text_light_focused
 drawable common_google_signin_btn_text_light_normal
 drawable common_google_signin_btn_text_light_normal_background
+drawable custom_check_box_fungicid
+drawable custom_check_box_herbicid
+drawable custom_check_box_insekticid
 drawable database
 drawable date
 drawable design_fab_background
@@ -2911,11 +2919,17 @@ drawable design_snackbar_background
 drawable drop_down
 drawable export
 drawable filter
+drawable fungicid
+drawable fungicid_checked
+drawable fungicid_unchecked
 drawable google
 drawable googleg_disabled_color_18
 drawable googleg_standard_color_18
 drawable gradient_shape
 drawable gradient_shape_back
+drawable herbicid
+drawable herbicid_checked
+drawable herbicid_unchecked
 drawable house
 drawable ic_arrow_back_black_24
 drawable ic_clear_black_24
@@ -2933,6 +2947,9 @@ drawable ic_mtrl_chip_close_circle
 drawable ic_photo_black_48dp
 drawable ic_photo_camera_black_48dp
 drawable ic_search_black_24
+drawable insekticid
+drawable insekticid_checked
+drawable insekticid_unchecked
 drawable lock
 drawable logo
 drawable logo_background
@@ -3099,6 +3116,7 @@ id accessibility_custom_action_6
 id accessibility_custom_action_7
 id accessibility_custom_action_8
 id accessibility_custom_action_9
+id action0
 id actionDown
 id actionDownUp
 id actionUp
@@ -3180,6 +3198,7 @@ id button8
 id buttonPanel
 id cache_measures
 id callMeasure
+id cancel_action
 id cancel_button
 id carryVelocity
 id center
@@ -3277,6 +3296,7 @@ id emailtextView
 id embed
 id end
 id endToStart
+id end_padder
 id enterAlways
 id enterAlwaysCollapsed
 id evidencijaFragmentId
@@ -3307,8 +3327,10 @@ id fragmentHorizontalGuidline
 id fragment_container_view_tag
 id frost
 id fullscreen_header
+id fungicid
 id ghost_view
 id ghost_view_holder
+id glide_custom_view_target_tag
 id gone
 id google
 id graph
@@ -3317,6 +3339,7 @@ id group_divider
 id grouping
 id groups
 id header_title
+id herbicid
 id hideable
 id home
 id homeAsUp
@@ -3342,6 +3365,7 @@ id immediateStop
 id included
 id indeterminate
 id info
+id insekticid
 id invisible
 id inward
 id italic
@@ -3411,6 +3435,7 @@ id material_timepicker_ok_button
 id material_timepicker_view
 id material_value_index
 id matrix
+id media_actions
 id menu_crop
 id menu_loader
 id message
@@ -3593,6 +3618,7 @@ id skipped
 id slide
 id sliding_pane_detail_container
 id sliding_pane_layout
+id slika_odabrani_pesticid
 id snackbar_action
 id snackbar_text
 id snap
@@ -3628,6 +3654,7 @@ id state_rotate
 id state_scale
 id staticLayout
 id staticPostLayout
+id status_bar_latest_event_content
 id stop
 id stopericaId
 id stretch
@@ -3936,8 +3963,17 @@ layout mtrl_search_bar
 layout mtrl_search_view
 layout notification_action
 layout notification_action_tombstone
+layout notification_media_action
+layout notification_media_cancel_action
+layout notification_template_big_media
+layout notification_template_big_media_custom
+layout notification_template_big_media_narrow
+layout notification_template_big_media_narrow_custom
 layout notification_template_custom_big
 layout notification_template_icon_group
+layout notification_template_lines_media
+layout notification_template_media
+layout notification_template_media_custom
 layout notification_template_part_chronometer
 layout notification_template_part_time
 layout parent_rv_layout
@@ -4614,9 +4650,14 @@ style TextAppearance_AppCompat_Widget_Switch
 style TextAppearance_AppCompat_Widget_TextView_SpinnerItem
 style TextAppearance_Compat_Notification
 style TextAppearance_Compat_Notification_Info
+style TextAppearance_Compat_Notification_Info_Media
 style TextAppearance_Compat_Notification_Line2
+style TextAppearance_Compat_Notification_Line2_Media
+style TextAppearance_Compat_Notification_Media
 style TextAppearance_Compat_Notification_Time
+style TextAppearance_Compat_Notification_Time_Media
 style TextAppearance_Compat_Notification_Title
+style TextAppearance_Compat_Notification_Title_Media
 style TextAppearance_Design_CollapsingToolbar_Expanded
 style TextAppearance_Design_Counter
 style TextAppearance_Design_Counter_Overflow

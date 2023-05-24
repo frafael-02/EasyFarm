@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.testapp-mergeDebugResources-48:/values-pt/values-pt.xml",
+            "outputFile": "com.example.testapp-mergeDebugResources-50:/values-pt/values-pt.xml",
             "map": [
                 {
                     "source": "C:\\Users\\anton\\.gradle\\caches\\transforms-3\\40d051ec76015a051b8e274d50c57ecd\\transformed\\ucrop-2.2.8\\res\\values-pt\\values-pt.xml",
