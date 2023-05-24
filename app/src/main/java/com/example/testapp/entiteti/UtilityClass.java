@@ -54,6 +54,17 @@ public class UtilityClass {
 
     }
 
+    public static List<ShopChildModelClass> pesticidToShopBioList(List<Pesticid> pesticidList)
+    {
+        List<ShopChildModelClass> list = new ArrayList<>();
+        for(Pesticid p : pesticidList) {
+            if(p.getBio())
+                list.add(new ShopChildModelClass(R.drawable.pesticid, p));
+        }
+        return list;
+
+    }
+
 
 
 }
