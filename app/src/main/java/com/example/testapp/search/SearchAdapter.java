@@ -11,9 +11,12 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.testapp.R;
+import com.example.testapp.database.GlideApp;
 import com.example.testapp.entiteti.RecyclerViewInterface;
 import com.example.testapp.shop.ChildAdapter;
 import com.example.testapp.shop.ShopChildModelClass;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 
 import java.util.List;
 
@@ -37,10 +40,10 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.ViewHolder
 
     @Override
     public void onBindViewHolder(@NonNull SearchAdapter.ViewHolder holder, int position) {
-        holder.iv_child_image.setImageResource(childModelClassList.get(position).getImage());
+        StorageReference storageReference = FirebaseStorage.getInstance().getReference().child("/pesticidiSlike/" + childModelClassList.get(position).getPesticid().getId() + ".jpg");
+        GlideApp.with(this.context).load(storageReference).into(holder.iv_child_image);
         holder.tv_child_text.setText(childModelClassList.get(position).getText());
-// da slika bode button
-//holder.iv_child_image.setOnClickListener();
+
     }
 
     @Override
