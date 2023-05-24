@@ -3071,7 +3071,6 @@ id BOTTOM_END
 id BOTTOM_START
 id CTRL
 id FUNCTION
-id FirstFragment
 id META
 id NO_DEBUG
 id SHIFT
@@ -3079,7 +3078,6 @@ id SHOW_ALL
 id SHOW_PATH
 id SHOW_PROGRESS
 id SYM
-id SecondFragment
 id TOP_END
 id TOP_START
 id accelerate
@@ -3120,8 +3118,6 @@ id action0
 id actionDown
 id actionDownUp
 id actionUp
-id action_FirstFragment_to_SecondFragment
-id action_SecondFragment_to_FirstFragment
 id action_bar
 id action_bar_activity_content
 id action_bar_container
@@ -3212,6 +3208,8 @@ id chains
 id checkbox
 id checked
 id chronometer
+id cijena
+id cijena_textView
 id circle_center
 id clear_text
 id clip_horizontal
@@ -3268,6 +3266,8 @@ id disableIntraAutoTransition
 id disablePostScroll
 id disableScroll
 id disjoint
+id djelovanje
+id djelovanje_textView
 id dobrodosli
 id dodajZemlju
 id dozaId
@@ -3322,6 +3322,8 @@ id flip
 id floating
 id forever
 id forggotPassword
+id formulacija
+id formulacija_textView
 id fragmentContainerView
 id fragmentHorizontalGuidline
 id fragment_container_view_tag
@@ -3475,7 +3477,6 @@ id mtrl_view_tag_bottom_padding
 id multiply
 id navBarVerticalGuidline
 id nav_controller_view_tag
-id nav_graph
 id nav_host_fragment_container
 id navigation_bar_item_active_indicator_view
 id navigation_bar_item_icon_container
@@ -3507,6 +3508,7 @@ id odgovorText
 id off
 id on
 id onInterceptTouchReturnSwipe
+id opisTextView
 id outline
 id outward
 id ovajMjesec
@@ -3534,7 +3536,11 @@ id postLayout
 id povrsinaId
 id povrsinaId2
 id povrsinaTextView
+id preporuka_button
+id preporuka_textView
 id pressed
+id primjena_button
+id primjena_textView
 id profil
 id profilBtn
 id progress_circular
@@ -3612,6 +3618,8 @@ id shortcut
 id showCustom
 id showHome
 id showTitle
+id sigurnost_button
+id sigurnost_textView
 id sin
 id skipCollapsed
 id skipped
@@ -3734,6 +3742,7 @@ id uniform
 id unlabeled
 id up
 id useLogo
+id vertical_guidline
 id vertical_only
 id view_offset_helper
 id view_overlay
@@ -3997,7 +4006,6 @@ mipmap ic_launcher_round
 mipmap logo
 mipmap logo_foreground
 mipmap logo_round
-navigation nav_graph
 plurals mtrl_badge_content_description
 raw firebase_common_keep
 string abc_action_bar_home_description

@@ -30,7 +30,7 @@
 
             <ImageView
                 android:id="@+id/slika_odabrani_pesticid"
-                android:layout_width="320dp"
+                android:layout_width="match_parent"
                 android:layout_height="200dp"
                 android:scaleType="fitCenter"
                 android:layout_marginRight="20dp"
@@ -58,17 +58,184 @@
 <androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="30dp">
-
-    <TextView
-        android:id="@+id/opisTextView"
+    android:padding="27dp">
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/vertical_guidline"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:orientation="vertical"
+       app:layout_constraintGuide_percent="0.37"
+        />
+
+    <TextView
+        android:id="@+id/cijena"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:text="CIJENA"
+        android:textSize="16sp"
+        android:fontFamily="@font/poppinsbold"
+        android:textColor="@color/greyText"
+        />
+
+    <TextView
+        android:id="@+id/cijena_textView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppinslight"
+        android:text="CIJENA"
+        android:textColor="@color/greyText"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@+id/vertical_guidline"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cijena" />
+    <TextView
+        android:id="@+id/formulacija"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cijena_textView"
+        android:text="FORMULACIJA"
+        android:textSize="16sp"
+        android:fontFamily="@font/poppinsbold"
+        android:textColor="@color/greyText"
+        />
+    <TextView
+        android:id="@+id/formulacija_textView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppinslight"
+        android:text="Vododispergirajuće granule (WG)"
+        android:textColor="@color/greyText"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="@+id/vertical_guidline"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/formulacija" />
+    <TextView
+        android:id="@+id/djelovanje"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/formulacija_textView"
+        android:text="NAČIN\nDJELOVANJA"
+        android:textSize="16sp"
+        android:fontFamily="@font/poppinsbold"
+        android:textColor="@color/greyText"
+        />
+    <TextView
+        android:id="@+id/djelovanje_textView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppinslight"
+        android:text="Kontaktno"
+        android:textColor="@color/greyText"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="@+id/vertical_guidline"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/djelovanje" />
+    <TextView
+        android:id="@+id/opisTextView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:text="Opis"
         android:textColor="@color/greyText"
         android:textSize="16sp"
-        tools:layout_editor_absoluteX="30dp"
-        tools:layout_editor_absoluteY="30dp" />
+        android:layout_marginStart="20dp"
+        app:layout_constraintStart_toEndOf="@id/vertical_guidline"
+app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/sigurnost_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/opisTextView"
+        android:background="@drawable/main_square"
+        android:backgroundTint="@color/white"
+        android:layout_marginTop="24dp"
+        android:fontFamily="@font/poppinsregular"
+        android:textSize="16sp"
+        android:drawableEnd="@drawable/drop_down"
+        android:paddingEnd="10dp"
+        android:paddingStart="10dp"
+        android:textColor="@color/greyText"
+        android:text="Mjere sigurnosti"
+        android:textAllCaps="false"
+        />
+    <TextView
+        android:id="@+id/sigurnost_textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Opis"
+        android:translationZ="-1dp"
+        android:textColor="@color/greyText"
+        android:textSize="16sp"
+        android:padding="10dp"
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/sigurnost_button" />
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/preporuka_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/sigurnost_textView"
+        android:background="@drawable/main_square"
+        android:backgroundTint="@color/white"
+        android:fontFamily="@font/poppinsregular"
+        android:textSize="16sp"
+        android:layout_marginTop="10dp"
+        android:drawableEnd="@drawable/drop_down"
+        android:paddingEnd="10dp"
+        android:paddingStart="10dp"
+        android:textColor="@color/greyText"
+        android:text="Preporuke za primjenu"
+        android:textAllCaps="false"
+        />
+    <TextView
+        android:id="@+id/preporuka_textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Opis"
+        android:translationZ="-1dp"
+        android:textColor="@color/greyText"
+        android:textSize="16sp"
+        android:padding="10dp"
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/preporuka_button" />
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/primjena_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/preporuka_textView"
+        android:background="@drawable/main_square"
+        android:backgroundTint="@color/white"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/poppinsregular"
+        android:textSize="16sp"
+        android:drawableEnd="@drawable/drop_down"
+        android:paddingEnd="10dp"
+        android:paddingStart="10dp"
+        android:textColor="@color/greyText"
+        android:text="Primjena"
+        android:textAllCaps="false"
+        />
+    <TextView
+        android:id="@+id/primjena_textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Opis"
+        android:translationZ="-1dp"
+        android:textColor="@color/greyText"
+        android:textSize="16sp"
+        android:padding="10dp"
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/primjena_button" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.core.widget.NestedScrollView>

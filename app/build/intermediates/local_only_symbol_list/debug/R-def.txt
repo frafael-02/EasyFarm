@@ -69,10 +69,6 @@ drawable yellow_button
 font poppinsbold
 font poppinslight
 font poppinsregular
-id FirstFragment
-id SecondFragment
-id action_FirstFragment_to_SecondFragment
-id action_SecondFragment_to_FirstFragment
 id addEvidencijaButton
 id appbar
 id arkodId
@@ -90,6 +86,8 @@ id button
 id button2
 id button3
 id button8
+id cijena
+id cijena_textView
 id cloud
 id collapsing_toolbar
 id constraintLayout
@@ -101,6 +99,8 @@ id danasLinearLayout
 id datumId2
 id datumTextView
 id datumView
+id djelovanje
+id djelovanje_textView
 id dobrodosli
 id dodajZemlju
 id dozaId
@@ -117,6 +117,8 @@ id filterBtn
 id filterBtn2
 id filterLayout
 id forggotPassword
+id formulacija
+id formulacija_textView
 id fragmentContainerView
 id fragmentHorizontalGuidline
 id fungicid
@@ -147,7 +149,6 @@ id lowerGuidline
 id main_square
 id mipgtextView
 id navBarVerticalGuidline
-id nav_graph
 id nazivId
 id nazivKulture
 id nazivPesticida
@@ -157,6 +158,7 @@ id nazivTextView
 id nazivView
 id nemateProfil
 id odgovorText
+id opisTextView
 id ovajMjesec
 id ovajMjesecIspod
 id passwordId
@@ -167,6 +169,10 @@ id planerFragmentId
 id povrsinaId
 id povrsinaId2
 id povrsinaTextView
+id preporuka_button
+id preporuka_textView
+id primjena_button
+id primjena_textView
 id profil
 id profilBtn
 id prskanjeTextView
@@ -182,6 +188,8 @@ id searchBar
 id searchView
 id shimmer_view
 id shop
+id sigurnost_button
+id sigurnost_textView
 id slika_odabrani_pesticid
 id spinnerBiljka
 id spinnerKulture
@@ -207,6 +215,7 @@ id tv_parent_button
 id ukupno
 id ukupnoIspod
 id ukupnoLinearLayout
+id vertical_guidline
 id vrijemeKrajId
 id vrijemeKrajTextView
 id vrijemeStartId
@@ -240,7 +249,6 @@ mipmap ic_launcher_round
 mipmap logo
 mipmap logo_foreground
 mipmap logo_round
-navigation nav_graph
 string app_name
 string default_web_client_id
 string first_fragment_label

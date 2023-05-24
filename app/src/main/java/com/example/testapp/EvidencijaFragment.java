@@ -289,6 +289,7 @@ public class EvidencijaFragment extends Fragment implements SelectListener {
                         }
                         TransitionManager.beginDelayedTransition(filterLayout, new AutoTransition());
                         filterBtn.startAnimation(animation2);
+                        filterLayout.startAnimation(animation1);
                         filterBtn.setVisibility(View.VISIBLE);
                         filterLayout.setVisibility(View.GONE);
 
