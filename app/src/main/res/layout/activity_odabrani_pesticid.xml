@@ -61,11 +61,14 @@
     android:padding="30dp">
 
     <TextView
+        android:id="@+id/opisTextView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="Nekaj"
+        android:text="Opis"
         android:textColor="@color/greyText"
-        android:textSize="16sp"/>
+        android:textSize="16sp"
+        tools:layout_editor_absoluteX="30dp"
+        tools:layout_editor_absoluteY="30dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.core.widget.NestedScrollView>
