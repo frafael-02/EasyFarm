@@ -13,6 +13,9 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.testapp.entiteti.Evidencija;
+import com.example.testapp.entiteti.Pesticid;
+import com.example.testapp.entiteti.RecyclerViewInterface;
 import com.example.testapp.entiteti.UtilityClass;
 import com.example.testapp.search.SearchActivty;
 import com.example.testapp.shop.ParentAdapter;
@@ -60,7 +63,7 @@ public class ShopFragment extends Fragment {
         regularPList.add(new ShopChildModelClass(R.drawable.backlogin,"pesticid"));*/
         regularPList= UtilityClass.pesticidToShopList(MainActivity2.pesticidList);
 
-        parentModelClassArrayList.add(new ShopParentModelClass("Pregled pesticida",regularPList));
+        parentModelClassArrayList.add(new ShopParentModelClass("Pregled pesticida", (ArrayList<ShopChildModelClass>) regularPList));
 
        /* bioPList.add(new ShopChildModelClass(R.drawable.pesticid,"pesticid"));
         bioPList.add(new ShopChildModelClass(R.drawable.backwheat,"pesticid"));
@@ -68,10 +71,10 @@ public class ShopFragment extends Fragment {
         bioPList.add(new ShopChildModelClass(R.drawable.backwheat,"pesticid"));
         bioPList.add(new ShopChildModelClass(R.drawable.backlogin,"pesticid"));*/
 
-        bioPList= UtilityClass.pesticidToShopList(MainActivity2.pesticidList);
+        bioPList= UtilityClass.pesticidToShopBioList(MainActivity2.pesticidList);
 
 
-        parentModelClassArrayList.add(new ShopParentModelClass("Pregled BIO pesticida",bioPList));
+        parentModelClassArrayList.add(new ShopParentModelClass("Pregled BIO pesticida", (ArrayList<ShopChildModelClass>) bioPList));
 
       /*  josNekajPList.add(new ShopChildModelClass(R.drawable.pesticid,"pesticid"));
         josNekajPList.add(new ShopChildModelClass(R.drawable.backwheat,"pesticid"));
@@ -98,6 +101,8 @@ public class ShopFragment extends Fragment {
 
         return view;
     }
+
+
 
 
 }

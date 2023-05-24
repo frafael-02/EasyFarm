@@ -33,7 +33,7 @@ public class NovPesticidActivity extends AppCompatActivity {
         }
         else{String nazivString = naziv.getText().toString();
             int dozaInt = Integer.parseInt(doza.getText().toString());
-            Pesticid pesticid = new Pesticid(MainActivity2.maxIdPesticid+1, nazivString, dozaInt, 0, "nista", "nista");
+            Pesticid pesticid = new Pesticid(MainActivity2.maxIdPesticid+1, nazivString, dozaInt, 0, "nista", "nista", false, 0);
             DatabaseQueries.sendPesticid(pesticid);
             finish();
         }
