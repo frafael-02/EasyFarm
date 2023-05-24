@@ -10,10 +10,19 @@ public class Pesticid extends Entitet implements Serializable {
 
     int dozaMax;
 
-    public Pesticid(Long id, String naziv, int dozaMax) {
+    double cijena;
+
+    String opis;
+
+    String proizvodjac;
+
+    public Pesticid(Long id, String naziv, int dozaMax, double cijena, String opis, String proizvodjac) {
         super(id);
         this.naziv = naziv;
         this.dozaMax = dozaMax;
+        this.opis=opis;
+        this.proizvodjac=proizvodjac;
+        this.cijena = cijena;
     }
 
     public String getNaziv() {
@@ -32,6 +41,17 @@ public class Pesticid extends Entitet implements Serializable {
         this.dozaMax = dozaMax;
     }
 
+    public double getCijena() {
+        return cijena;
+    }
+
+    public String getOpis() {
+        return opis;
+    }
+
+    public String getProizvodjac() {
+        return proizvodjac;
+    }
 
     @Override
     public boolean equals(Object o) {
@@ -40,6 +60,12 @@ public class Pesticid extends Entitet implements Serializable {
             if (!naziv.equals(((Pesticid) o).getNaziv()))
                 result++;
             else if (dozaMax != ((Pesticid) o).dozaMax)
+                result++;
+            else if(cijena != ((Pesticid) o).cijena)
+                result++;
+            else if(!opis.equals(((Pesticid) o).getOpis()))
+                result++;
+            else if(!proizvodjac.equals(((Pesticid) o).getProizvodjac()))
                 result++;
             return (result == 0);
         } else return false;
