@@ -1,6 +1,7 @@
 package com.example.testapp.shop;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,8 +12,10 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.example.testapp.OdabraniPesticidActivity;
 import com.example.testapp.R;
 import com.example.testapp.database.GlideApp;
+import com.example.testapp.search.SearchActivty;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
@@ -40,9 +43,21 @@ public class ChildAdapter extends RecyclerView.Adapter<ChildAdapter.ViewHolder> 
    // holder.iv_child_image.setImageResource(childModelClassList.get(position).image);
         StorageReference storageReference = FirebaseStorage.getInstance().getReference().child("/pesticidiSlike/" + childModelClassList.get(position).getPesticid().getId() + ".jpg");
         GlideApp.with(this.context).load(storageReference).into(holder.iv_child_image);
+        holder.iv_child_image.setTag(storageReference.toString());
     holder.tv_child_text.setText(childModelClassList.get(position).text);
 // da slika bode button
-//holder.iv_child_image.setOnClickListener();
+    holder.iv_child_image.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            String imageUrl = (String) holder.iv_child_image.getTag();
+            Intent intent = new Intent(context, OdabraniPesticidActivity.class);
+            intent.putExtra("NAME",childModelClassList.get(position).getPesticid().getNaziv());
+            intent.putExtra("SLIKA", imageUrl);
+            intent.putExtra("OPIS", childModelClassList.get(position).getPesticid().getOpis());
+
+            context.startActivity(intent);
+        }
+    });
     }
 
     @Override
