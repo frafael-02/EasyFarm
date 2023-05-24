@@ -41,8 +41,10 @@ public class DatabaseQueries {
                     MainActivity2.maxIdPesticid=id;
                     String attribute1 = pestSnapshot.child("naziv").getValue(String.class);
                     Integer attribute2 = pestSnapshot.child("dozaMax").getValue(Integer.class);
-
-                    Pesticid pesticid = new Pesticid(id, attribute1, attribute2);
+                    Double cijena = pestSnapshot.child("cijena").getValue(Double.class);
+                    String opis = pestSnapshot.child("opis").getValue(String.class);
+                    String proizvodjac = pestSnapshot.child("proizvodjac").getValue(String.class);
+                    Pesticid pesticid = new Pesticid(id, attribute1, attribute2, cijena, opis, proizvodjac);
                     pesticidiList.add(pesticid);
                 }
 
@@ -308,6 +310,8 @@ public class DatabaseQueries {
         });
 
     }
+
+
 
 
 
