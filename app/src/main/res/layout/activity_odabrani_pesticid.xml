@@ -55,10 +55,15 @@
     android:background="@drawable/background_text_pesticid"
     app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
 
-<androidx.constraintlayout.widget.ConstraintLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="27dp">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="27dp">
+    >
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/vertical_guidline"
         android:layout_width="match_parent"
@@ -96,6 +101,7 @@
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/cijena_textView"
+        android:layout_marginTop="5dp"
         android:text="FORMULACIJA"
         android:textSize="16sp"
         android:fontFamily="@font/poppinsbold"
@@ -119,6 +125,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/formulacija_textView"
         android:text="NAČIN\nDJELOVANJA"
+        android:layout_marginTop="5dp"
         android:textSize="16sp"
         android:fontFamily="@font/poppinsbold"
         android:textColor="@color/greyText"
@@ -145,12 +152,12 @@
         app:layout_constraintStart_toEndOf="@id/vertical_guidline"
 app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
+    </androidx.constraintlayout.widget.ConstraintLayout>
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/sigurnost_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/opisTextView"
+        app:layout_constraintTop_toBottomOf="@id/constraintLayout"
         android:background="@drawable/main_square"
         android:backgroundTint="@color/white"
         android:layout_marginTop="24dp"
@@ -236,6 +243,52 @@ app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/primjena_button" />
+
+
+        <TextView
+            android:id="@+id/kontakti"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="KONTAKTI"
+            android:textColor="@color/greyText"
+            android:textSize="24sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/primjena_button"
+            />
+
+
+        <TextView
+            android:id="@+id/mail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/main_square"
+            android:drawableStart="@drawable/mail"
+            android:backgroundTint="@color/white"
+            android:gravity="center_vertical"
+            android:padding="5dp"
+            android:textSize="16sp"
+            android:textColor="@color/greyText"
+            android:hint="Neki mail"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/kontakti"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/main_square"
+            android:drawableStart="@drawable/phone"
+            android:backgroundTint="@color/white"
+            android:gravity="center_vertical"
+            android:padding="5dp"
+            android:textSize="16sp"
+            android:textColor="@color/greyText"
+            android:hint="Neki broj tel"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/mail"
+            />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.core.widget.NestedScrollView>
