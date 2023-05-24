@@ -10,7 +10,11 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.example.testapp.R;
+import com.example.testapp.database.GlideApp;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 
 import java.util.List;
 
@@ -33,7 +37,9 @@ public class ChildAdapter extends RecyclerView.Adapter<ChildAdapter.ViewHolder> 
 
     @Override
     public void onBindViewHolder(@NonNull ChildAdapter.ViewHolder holder, int position) {
-    holder.iv_child_image.setImageResource(childModelClassList.get(position).image);
+   // holder.iv_child_image.setImageResource(childModelClassList.get(position).image);
+        StorageReference storageReference = FirebaseStorage.getInstance().getReference().child("/pesticidiSlike/" + childModelClassList.get(position).getPesticid().getId() + ".jpg");
+        GlideApp.with(this.context).load(storageReference).into(holder.iv_child_image);
     holder.tv_child_text.setText(childModelClassList.get(position).text);
 // da slika bode button
 //holder.iv_child_image.setOnClickListener();
