@@ -34,6 +34,7 @@ public class DatabaseQueries {
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
+                pesticidiList.clear();
 
 
                 for (DataSnapshot pestSnapshot : dataSnapshot.getChildren()) {
@@ -44,7 +45,9 @@ public class DatabaseQueries {
                     Double cijena = pestSnapshot.child("cijena").getValue(Double.class);
                     String opis = pestSnapshot.child("opis").getValue(String.class);
                     String proizvodjac = pestSnapshot.child("proizvodjac").getValue(String.class);
-                    Pesticid pesticid = new Pesticid(id, attribute1, attribute2, cijena, opis, proizvodjac);
+                    Boolean bio = pestSnapshot.child("bio").getValue(Boolean.class);
+                    Integer vrsta = pestSnapshot.child("vrsta").getValue(Integer.class);
+                    Pesticid pesticid = new Pesticid(id, attribute1, attribute2, cijena, opis, proizvodjac, bio, vrsta);
                     pesticidiList.add(pesticid);
                 }
 
