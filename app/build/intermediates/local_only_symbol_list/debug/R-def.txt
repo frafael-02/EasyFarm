@@ -54,6 +54,7 @@ drawable mail
 drawable main_square
 drawable pen
 drawable pesticid
+drawable phone
 drawable rain
 drawable save
 drawable search
@@ -132,6 +133,7 @@ id insekticid
 id itemId
 id iv_child_item
 id izvoz
+id kontakti
 id kulturaView
 id leftVerticalGuidline
 id linearLayout
@@ -146,6 +148,7 @@ id linearLayoutArkod
 id linearLayoutTop
 id loginButton
 id lowerGuidline
+id mail
 id main_square
 id mipgtextView
 id navBarVerticalGuidline

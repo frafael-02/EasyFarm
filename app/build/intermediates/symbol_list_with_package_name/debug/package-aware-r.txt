@@ -3029,6 +3029,7 @@ drawable notification_tile_bg
 drawable notify_panel_notification_icon_bg
 drawable pen
 drawable pesticid
+drawable phone
 drawable rain
 drawable save
 drawable search
@@ -3377,6 +3378,7 @@ id iv_child_item
 id izvoz
 id jumpToEnd
 id jumpToStart
+id kontakti
 id kulturaView
 id labeled
 id layout
@@ -3411,6 +3413,7 @@ id ltr
 id lytCameraPick
 id lytGalleryPick
 id m3_side_sheet
+id mail
 id main_square
 id marquee
 id masked

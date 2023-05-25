@@ -56,6 +56,10 @@
         "source": "C:\\Users\\anton\\.gradle\\daemon\\7.5\\com.example.testapp-main-54:\\mipmap-xhdpi\\logo.png"
     },
     {
+        "merged": "C:\\Users\\anton\\.gradle\\daemon\\7.5\\com.example.testapp-merged_res-52:\\drawable_phone.xml.flat",
+        "source": "C:\\Users\\anton\\.gradle\\daemon\\7.5\\com.example.testapp-main-54:\\drawable\\phone.xml"
+    },
+    {
         "merged": "C:\\Users\\anton\\.gradle\\daemon\\7.5\\com.example.testapp-merged_res-52:\\xml_data_extraction_rules.xml.flat",
         "source": "C:\\Users\\anton\\.gradle\\daemon\\7.5\\com.example.testapp-main-54:\\xml\\data_extraction_rules.xml"
     },
@@ -346,6 +350,10 @@
     {
         "merged": "C:\\Users\\anton\\.gradle\\daemon\\7.5\\com.example.testapp-merged_res-52:\\drawable_search.xml.flat",
         "source": "C:\\Users\\anton\\.gradle\\daemon\\7.5\\com.example.testapp-main-54:\\drawable\\search.xml"
+    },
+    {
+        "merged": "com.example.testapp-merged_res-52:/drawable_background_item_pesticid.xml.flat",
+        "source": "com.example.testapp-main-54:/drawable/background_item_pesticid.xml"
     },
     {
         "merged": "C:\\Users\\anton\\.gradle\\daemon\\7.5\\com.example.testapp-merged_res-52:\\layout_color_spinner_layout.xml.flat",
