@@ -9,6 +9,7 @@ import com.example.testapp.entiteti.Evidencija;
 import com.example.testapp.entiteti.Korisnik;
 import com.example.testapp.entiteti.Pesticid;
 import com.example.testapp.entiteti.Polje;
+import com.example.testapp.entiteti.Proizvodjac;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -44,10 +45,14 @@ public class DatabaseQueries {
                     Integer attribute2 = pestSnapshot.child("dozaMax").getValue(Integer.class);
                     Double cijena = pestSnapshot.child("cijena").getValue(Double.class);
                     String opis = pestSnapshot.child("opis").getValue(String.class);
-                    String proizvodjac = pestSnapshot.child("proizvodjac").getValue(String.class);
+                    Long proizvodjacId = pestSnapshot.child("proizvodjac").getValue(Long.class);
                     Boolean bio = pestSnapshot.child("bio").getValue(Boolean.class);
                     Integer vrsta = pestSnapshot.child("vrsta").getValue(Integer.class);
-                    Pesticid pesticid = new Pesticid(id, attribute1, attribute2, cijena, opis, proizvodjac, bio, vrsta);
+                    String nacinDjelovanja = pestSnapshot.child("nacinDjelovanja").getValue(String.class);
+                    String formulacija = pestSnapshot.child("formulacija").getValue(String.class);
+                    String primjena = pestSnapshot.child("primjena").getValue(String.class);
+                    String mjereSigunorsti = pestSnapshot.child("mjereSigurnosti").getValue(String.class);
+                    Pesticid pesticid = new Pesticid(id, attribute1, attribute2, cijena, opis, proizvodjacId, bio, vrsta, mjereSigunorsti, nacinDjelovanja, primjena, formulacija);
                     pesticidiList.add(pesticid);
                 }
 
@@ -60,6 +65,40 @@ public class DatabaseQueries {
             }
         });
     return pesticidiList;
+    }
+
+    public static List<Proizvodjac> getProizvodjaci()
+    {
+        List<Proizvodjac> proizvodjacList=new ArrayList<>();
+        FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance("https://testapp-dc63d-default-rtdb.europe-west1.firebasedatabase.app");
+        DatabaseReference myRef = firebaseDatabase.getReference("proizvodjac");
+        myRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                proizvodjacList.clear();
+
+
+                for (DataSnapshot pestSnapshot : dataSnapshot.getChildren()) {
+                    Long id = Long.valueOf(pestSnapshot.getKey());
+
+                    String attribute1 = pestSnapshot.child("naziv").getValue(String.class);
+                    String email = pestSnapshot.child("email").getValue(String.class);
+                    String telefon = pestSnapshot.child("telefon").getValue(String.class);
+
+                    proizvodjacList.add(new Proizvodjac(id, attribute1, email, telefon));
+                }
+
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
+
+        return proizvodjacList;
     }
 
 
