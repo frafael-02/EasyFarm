@@ -1,5 +1,7 @@
 package com.example.testapp.entiteti;
 
+import com.example.testapp.MainActivity2;
+
 import java.io.Serializable;
 
 
@@ -13,22 +15,33 @@ public class Pesticid extends Entitet implements Serializable {
     double cijena;
 
     String opis;
-
-    String proizvodjac;
+    Long proizvodjacId;
 
     Boolean bio;
 
     int vrsta;
+    String mjereSigurnosti;
 
-    public Pesticid(Long id, String naziv, int dozaMax, double cijena, String opis, String proizvodjac, Boolean bio, int vrsta) {
+    String nacinDjelovanja;
+
+    String primjena;
+
+    String formulacija;
+
+
+    public Pesticid(Long id, String naziv, int dozaMax, double cijena, String opis, Long proizvodjacId, Boolean bio, int vrsta, String mjereSigurnosti, String nacinDjelovanja, String primjena, String formulacija) {
         super(id);
         this.naziv = naziv;
         this.dozaMax = dozaMax;
-        this.opis=opis;
-        this.proizvodjac=proizvodjac;
         this.cijena = cijena;
-        this.bio=bio;
+        this.opis = opis;
+        this.proizvodjacId = proizvodjacId;
+        this.bio = bio;
         this.vrsta = vrsta;
+        this.mjereSigurnosti = mjereSigurnosti;
+        this.nacinDjelovanja = nacinDjelovanja;
+        this.primjena = primjena;
+        this.formulacija = formulacija;
     }
 
     public String getNaziv() {
@@ -55,15 +68,45 @@ public class Pesticid extends Entitet implements Serializable {
         return opis;
     }
 
-    public String getProizvodjac() {
-        return proizvodjac;
+    public Long getProizvodjacId() {
+        return proizvodjacId;
     }
+
+    public Proizvodjac getProizvodjac(){
+        for(Proizvodjac p : MainActivity2.proizvodjacList)
+        {
+            if(p.getId().equals(proizvodjacId))
+                return p;
+        }
+        return null;
+
+
+
+    }
+
+
 
     public Boolean getBio() {
         return bio;
     }
 
     public int getVrsta(){return vrsta;}
+
+    public String getMjereSigurnosti() {
+        return mjereSigurnosti;
+    }
+
+    public String getNacinDjelovanja() {
+        return nacinDjelovanja;
+    }
+
+    public String getPrimjena() {
+        return primjena;
+    }
+
+    public String getFormulacija() {
+        return formulacija;
+    }
 
     @Override
     public boolean equals(Object o) {
@@ -77,11 +120,19 @@ public class Pesticid extends Entitet implements Serializable {
                 result++;
             else if(!opis.equals(((Pesticid) o).getOpis()))
                 result++;
-            else if(!proizvodjac.equals(((Pesticid) o).getProizvodjac()))
+            else if(proizvodjacId != ((Pesticid) o).getProizvodjacId())
                 result++;
             else if(!bio.equals(((Pesticid) o).getBio()))
                 result++;
             else if(vrsta != ((Pesticid) o).getVrsta())
+                result++;
+            else if(!formulacija.equals(((Pesticid) o).getFormulacija()))
+                result++;
+            else if(!mjereSigurnosti.equals(((Pesticid) o).getMjereSigurnosti()))
+                result++;
+            else if(!primjena.equals(((Pesticid) o).getPrimjena()))
+                result++;
+            else if(!nacinDjelovanja.equals(((Pesticid) o).getNacinDjelovanja()))
                 result++;
             return (result == 0);
         } else return false;
