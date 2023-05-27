@@ -46,6 +46,7 @@ public class SearchActivty extends AppCompatActivity implements RecyclerViewInte
         f=false;
 
 
+
         searchView=findViewById(R.id.searchView);
         searchView.clearFocus();
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
@@ -74,6 +75,30 @@ public class SearchActivty extends AppCompatActivity implements RecyclerViewInte
 
         itemAdapter=new SearchAdapter(itemList,this,this);
         recyclerView.setAdapter(itemAdapter);
+
+        if((getIntent().getExtras() != null))
+        {
+            if((int)getIntent().getExtras().get("VRSTA") == 1)
+            {
+                h=true;
+               CheckBox checkBox = findViewById(R.id.herbicid);
+               checkBox.setChecked(true);
+
+                ;
+            }
+            else if((int)getIntent().getExtras().get("VRSTA") == 2)
+            {
+                f=true;
+                CheckBox checkBox = findViewById(R.id.fungicid);
+                checkBox.setChecked(true);
+            }
+            else{
+                i=true;
+                CheckBox checkBox = findViewById(R.id.insekticid);
+                checkBox.setChecked(true);
+            }
+            itemAdapter.setFilteredList(filterCheckBox(itemList, i, f, h));
+        }
     }
 
     private void filterList(String text) {
@@ -108,10 +133,10 @@ public class SearchActivty extends AppCompatActivity implements RecyclerViewInte
         Intent intent = new Intent(SearchActivty.this, OdabraniPesticidActivity.class);
         StorageReference storageReference = FirebaseStorage.getInstance().getReference().child("/pesticidiSlike/" + itemList.get(position).getPesticid().getId() + ".jpg");
         String imageUrl = storageReference.toString();
-        intent.putExtra("NAME",itemList.get(position).getPesticid().getNaziv());
-
+       // intent.putExtra("NAME",itemList.get(position).getPesticid().getNaziv());
+        intent.putExtra("PESTICID", itemList.get(position).getPesticid());
         intent.putExtra("SLIKA",imageUrl);
-        intent.putExtra("OPIS", itemList.get(position).getPesticid().getOpis());
+        //intent.putExtra("OPIS", itemList.get(position).getPesticid().getOpis());
 
         startActivity(intent);
     }
@@ -172,7 +197,7 @@ public class SearchActivty extends AppCompatActivity implements RecyclerViewInte
                     return lista;
                 }
                 else{
-                    filtriranaLista = filtriranaLista.stream().filter(p -> p.getPesticid().getVrsta() == 1 || p.getPesticid().getVrsta() == 2).collect(Collectors.toList());
+                    filtriranaLista = filtriranaLista.stream().filter(p -> p.getPesticid().getVrsta() == 3 || p.getPesticid().getVrsta() == 2).collect(Collectors.toList());
                     return filtriranaLista;
                 }
             }
@@ -182,7 +207,7 @@ public class SearchActivty extends AppCompatActivity implements RecyclerViewInte
                 return filtriranaLista;
             }
             else{
-                filtriranaLista=filtriranaLista.stream().filter(p -> p.getPesticid().getVrsta() == 1).collect(Collectors.toList());
+                filtriranaLista=filtriranaLista.stream().filter(p -> p.getPesticid().getVrsta() == 3).collect(Collectors.toList());
                 return  filtriranaLista;
             }
         }
@@ -190,7 +215,7 @@ public class SearchActivty extends AppCompatActivity implements RecyclerViewInte
         {
             if(h)
             {
-                filtriranaLista=filtriranaLista.stream().filter(p -> p.getPesticid().getVrsta() == 2 || p.getPesticid().getVrsta() == 3).collect(Collectors.toList());
+                filtriranaLista=filtriranaLista.stream().filter(p -> p.getPesticid().getVrsta() == 2 || p.getPesticid().getVrsta() == 1).collect(Collectors.toList());
                 return  filtriranaLista;
             }
             else{
@@ -200,7 +225,7 @@ public class SearchActivty extends AppCompatActivity implements RecyclerViewInte
         }
         else if(h)
         {
-            filtriranaLista=filtriranaLista.stream().filter(p -> p.getPesticid().getVrsta() == 3).collect(Collectors.toList());
+            filtriranaLista=filtriranaLista.stream().filter(p -> p.getPesticid().getVrsta() == 1).collect(Collectors.toList());
             return  filtriranaLista;
         }
         return lista;
