@@ -274,39 +274,41 @@ app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/kontakti"
             />
+
         <TextView
+            android:id="@+id/telefon"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
             android:background="@drawable/main_square"
-            android:drawableStart="@drawable/phone"
             android:backgroundTint="@color/white"
+            android:drawableStart="@drawable/phone"
             android:gravity="center_vertical"
             android:padding="5dp"
-            android:textSize="16sp"
-            android:textColor="@color/greyText"
             android:text="Neki broj tel"
+            android:textColor="@color/greyText"
+            android:textSize="16sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/mail"
-            />
+            app:layout_constraintTop_toBottomOf="@id/mail" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.core.widget.NestedScrollView>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/vrstaId"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
         android:baselineAlignBottom="false"
         android:clickable="true"
         android:scaleType="center"
-        app:fabSize="auto"
-        app:maxImageSize="35dp"
-        app:layout_anchor="@id/appbar"
-        app:layout_anchorGravity= "end|bottom"
-        android:layout_marginEnd="16dp"
         android:src="@drawable/insekticid"
-        app:tint="@android:color/white"
-        app:backgroundTint="@color/greenDark"/>
+        app:backgroundTint="@color/greenDark"
+        app:fabSize="auto"
+        app:layout_anchor="@id/appbar"
+        app:layout_anchorGravity="end|bottom"
+        app:maxImageSize="35dp"
+        app:tint="@android:color/white" />
 
 
 
