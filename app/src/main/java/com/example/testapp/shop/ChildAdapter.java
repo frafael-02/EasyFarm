@@ -19,6 +19,7 @@ import com.example.testapp.search.SearchActivty;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
+import java.io.Serializable;
 import java.util.List;
 
 public class ChildAdapter extends RecyclerView.Adapter<ChildAdapter.ViewHolder> {
@@ -51,9 +52,10 @@ public class ChildAdapter extends RecyclerView.Adapter<ChildAdapter.ViewHolder> 
         public void onClick(View v) {
             String imageUrl = (String) holder.iv_child_image.getTag();
             Intent intent = new Intent(context, OdabraniPesticidActivity.class);
-            intent.putExtra("NAME",childModelClassList.get(position).getPesticid().getNaziv());
+            intent.putExtra("PESTICID", (Serializable) childModelClassList.get(position).getPesticid());
+            //intent.putExtra("NAME",childModelClassList.get(position).getPesticid().getNaziv());
             intent.putExtra("SLIKA", imageUrl);
-            intent.putExtra("OPIS", childModelClassList.get(position).getPesticid().getOpis());
+            //intent.putExtra("OPIS", childModelClassList.get(position).getPesticid().getOpis());
 
             context.startActivity(intent);
         }
