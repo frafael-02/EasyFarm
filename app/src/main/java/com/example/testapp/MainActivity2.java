@@ -22,6 +22,7 @@ import com.example.testapp.entiteti.Evidencija;
 import com.example.testapp.entiteti.Korisnik;
 import com.example.testapp.entiteti.Pesticid;
 import com.example.testapp.entiteti.Polje;
+import com.example.testapp.entiteti.Proizvodjac;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.auth.FirebaseAuth;
@@ -34,6 +35,8 @@ public class MainActivity2 extends AppCompatActivity implements AccountDialog.Ac
     public static List<Biljka> biljkaList=DatabaseQueries.getBiljke();
     public static List<Polje> poljeList=DatabaseQueries.getPolja();
     public static List<Evidencija> evidencijaList=DatabaseQueries.getEvidencija();
+
+    public static List<Proizvodjac> proizvodjacList = DatabaseQueries.getProizvodjaci();
    public static long maxId;
    public static long maxIdPolje;
 
