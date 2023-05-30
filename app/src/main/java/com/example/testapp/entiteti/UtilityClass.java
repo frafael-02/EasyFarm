@@ -1,6 +1,7 @@
 package com.example.testapp.entiteti;
 
 
+import com.example.testapp.MainActivity2;
 import com.example.testapp.R;
 import com.example.testapp.shop.ShopChildModelClass;
 
@@ -63,6 +64,24 @@ public class UtilityClass {
         }
         return list;
 
+    }
+
+    public static Pesticid preporukaPesticid(String code)
+    {
+        for(Bolest b : MainActivity2.bolestList)
+        {
+            if(b.getCode().equals(code))
+            {
+             for(Pesticid p : MainActivity2.pesticidList)
+             {
+                 if(b.getPesticidId().equals(p.getId()))
+                 {
+                     return p;
+                 }
+             }
+            }
+        }
+        return null;
     }
 
 
