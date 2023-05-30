@@ -5,6 +5,7 @@ import androidx.annotation.NonNull;
 
 import com.example.testapp.MainActivity2;
 import com.example.testapp.entiteti.Biljka;
+import com.example.testapp.entiteti.Bolest;
 import com.example.testapp.entiteti.Evidencija;
 import com.example.testapp.entiteti.Korisnik;
 import com.example.testapp.entiteti.Pesticid;
@@ -99,6 +100,41 @@ public class DatabaseQueries {
 
 
         return proizvodjacList;
+    }
+
+
+    public static List<Bolest> getBolesti()
+    {
+        List<Bolest> bolestList=new ArrayList<>();
+        FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance("https://testapp-dc63d-default-rtdb.europe-west1.firebasedatabase.app");
+        DatabaseReference myRef = firebaseDatabase.getReference("bolest");
+        myRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                bolestList.clear();
+
+
+                for (DataSnapshot pestSnapshot : dataSnapshot.getChildren()) {
+                    Long id = Long.valueOf(pestSnapshot.getKey());
+
+                    String attribute1 = pestSnapshot.child("naziv").getValue(String.class);
+                    String code = pestSnapshot.child("code").getValue(String.class);
+                    Long pesticidId = pestSnapshot.child("pesticidId").getValue(Long.class);
+
+                    bolestList.add(new Bolest(id, attribute1, code, pesticidId));
+                }
+
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
+
+        return bolestList;
     }
 
 
