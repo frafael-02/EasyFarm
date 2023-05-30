@@ -5,6 +5,9 @@ import android.app.Activity;
 
 import com.example.testapp.MainActivity2;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.io.File;
 import java.io.IOException;
 
@@ -51,7 +54,8 @@ public class ImagePostRequest {
 
                 try (Response response = client.newCall(request).execute()) {
                     if (response.isSuccessful()) {
-                        MainActivity2.responseString = response.body().string();
+                        JSONObject jsonObject = new JSONObject(response.body().string());
+                        MainActivity2.responseString = jsonObject.getString("prediction");
 
 
 
@@ -61,9 +65,9 @@ public class ImagePostRequest {
                     }
                 } catch (IOException e) {
                     e.printStackTrace();
+                } catch (JSONException e) {
+                    throw new RuntimeException(e);
                 }
-
-
 
 
             }
