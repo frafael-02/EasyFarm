@@ -10,6 +10,7 @@ import androidx.fragment.app.FragmentTransaction;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.provider.ContactsContract;
 import android.view.View;
 
 import com.example.testapp.database.DatabaseQueries;
@@ -18,6 +19,7 @@ import com.example.testapp.database.DatabaseQueries;
 import com.example.testapp.databinding.ActivityMain2Binding;
 import com.example.testapp.entiteti.AccountDialog;
 import com.example.testapp.entiteti.Biljka;
+import com.example.testapp.entiteti.Bolest;
 import com.example.testapp.entiteti.Evidencija;
 import com.example.testapp.entiteti.Korisnik;
 import com.example.testapp.entiteti.Pesticid;
@@ -37,6 +39,8 @@ public class MainActivity2 extends AppCompatActivity implements AccountDialog.Ac
     public static List<Evidencija> evidencijaList=DatabaseQueries.getEvidencija();
 
     public static List<Proizvodjac> proizvodjacList = DatabaseQueries.getProizvodjaci();
+
+    public static List<Bolest> bolestList = DatabaseQueries.getBolesti();
    public static long maxId;
    public static long maxIdPolje;
 

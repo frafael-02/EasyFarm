@@ -26,6 +26,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.testapp.api.ImagePostRequest;
+import com.example.testapp.entiteti.Pesticid;
+import com.example.testapp.entiteti.UtilityClass;
 import com.github.drjacky.imagepicker.ImagePicker;
 import com.github.drjacky.imagepicker.constant.ImageProvider;
 
@@ -58,6 +60,8 @@ public class AiFragment extends Fragment {
     public TextView textView;
 
     public ImageView slika;
+
+    public TextView pesticidPreporuka;
 
 
 
@@ -97,6 +101,7 @@ public class AiFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_ai, container, false);
         slika = view.findViewById(R.id.imageView);
+        pesticidPreporuka = view.findViewById(R.id.textView3);
 
         ActivityResultLauncher<Intent> launcher=
                 registerForActivityResult(new ActivityResultContracts.StartActivityForResult(),(ActivityResult result)->{
@@ -162,7 +167,17 @@ public class AiFragment extends Fragment {
             new Handler().postDelayed(new Runnable() {
                 @Override
                 public void run() {
+
                     textView.setText(MainActivity2.responseString);
+                    Pesticid pesticid = UtilityClass.preporukaPesticid(textView.getText().toString());
+                    if(pesticid !=null)
+                    {
+                        pesticidPreporuka.setText(pesticid.getNaziv());
+                    }
+                    else
+                        pesticidPreporuka.setText("Nije pronađen pesticid za tu bolest.");
+
+
                 }
             }, 1000L);
 
