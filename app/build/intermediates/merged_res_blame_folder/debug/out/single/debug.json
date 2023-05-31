@@ -68,6 +68,10 @@
         "source": "C:\\Users\\anton\\.gradle\\daemon\\7.5\\com.example.testapp-main-54:\\drawable\\account.xml"
     },
     {
+        "merged": "C:\\Users\\anton\\.gradle\\daemon\\7.5\\com.example.testapp-merged_res-52:\\drawable_animation_gradient_list.xml.flat",
+        "source": "C:\\Users\\anton\\.gradle\\daemon\\7.5\\com.example.testapp-main-54:\\drawable\\animation_gradient_list.xml"
+    },
+    {
         "merged": "C:\\Users\\anton\\.gradle\\daemon\\7.5\\com.example.testapp-merged_res-52:\\drawable_logo.png.flat",
         "source": "C:\\Users\\anton\\.gradle\\daemon\\7.5\\com.example.testapp-main-54:\\drawable\\logo.png"
     },
@@ -280,6 +284,10 @@
         "source": "C:\\Users\\anton\\.gradle\\daemon\\7.5\\com.example.testapp-main-54:\\mipmap-xxxhdpi\\ic_launcher_round.webp"
     },
     {
+        "merged": "C:\\Users\\anton\\.gradle\\daemon\\7.5\\com.example.testapp-merged_res-52:\\drawable_animation_background2.xml.flat",
+        "source": "C:\\Users\\anton\\.gradle\\daemon\\7.5\\com.example.testapp-main-54:\\drawable\\animation_background2.xml"
+    },
+    {
         "merged": "C:\\Users\\anton\\.gradle\\daemon\\7.5\\com.example.testapp-merged_res-52:\\drawable_arrowfilled.xml.flat",
         "source": "C:\\Users\\anton\\.gradle\\daemon\\7.5\\com.example.testapp-main-54:\\drawable\\arrowfilled.xml"
     },
@@ -324,6 +332,10 @@
         "source": "C:\\Users\\anton\\.gradle\\daemon\\7.5\\com.example.testapp-main-54:\\layout\\activity_nova_evidencija.xml"
     },
     {
+        "merged": "C:\\Users\\anton\\.gradle\\daemon\\7.5\\com.example.testapp-merged_res-52:\\drawable_animation_background3.xml.flat",
+        "source": "C:\\Users\\anton\\.gradle\\daemon\\7.5\\com.example.testapp-main-54:\\drawable\\animation_background3.xml"
+    },
+    {
         "merged": "C:\\Users\\anton\\.gradle\\daemon\\7.5\\com.example.testapp-merged_res-52:\\layout_activity_main.xml.flat",
         "source": "C:\\Users\\anton\\.gradle\\daemon\\7.5\\com.example.testapp-main-54:\\layout\\activity_main.xml"
     },
@@ -352,8 +364,8 @@
         "source": "C:\\Users\\anton\\.gradle\\daemon\\7.5\\com.example.testapp-main-54:\\drawable\\search.xml"
     },
     {
-        "merged": "com.example.testapp-merged_res-52:/drawable_background_item_pesticid.xml.flat",
-        "source": "com.example.testapp-main-54:/drawable/background_item_pesticid.xml"
+        "merged": "com.example.testapp-merged_res-52:/layout_fragment_ai.xml.flat",
+        "source": "com.example.testapp-main-54:/layout/fragment_ai.xml"
     },
     {
         "merged": "C:\\Users\\anton\\.gradle\\daemon\\7.5\\com.example.testapp-merged_res-52:\\layout_color_spinner_layout.xml.flat",
@@ -452,15 +464,15 @@
         "source": "C:\\Users\\anton\\.gradle\\daemon\\7.5\\com.example.testapp-main-54:\\drawable\\gradient_shape_back.xml"
     },
     {
+        "merged": "C:\\Users\\anton\\.gradle\\daemon\\7.5\\com.example.testapp-merged_res-52:\\drawable_animation_background1.xml.flat",
+        "source": "C:\\Users\\anton\\.gradle\\daemon\\7.5\\com.example.testapp-main-54:\\drawable\\animation_background1.xml"
+    },
+    {
         "merged": "C:\\Users\\anton\\.gradle\\daemon\\7.5\\com.example.testapp-merged_res-52:\\mipmap-xxhdpi_ic_launcher_round.webp.flat",
         "source": "C:\\Users\\anton\\.gradle\\daemon\\7.5\\com.example.testapp-main-54:\\mipmap-xxhdpi\\ic_launcher_round.webp"
     },
     {
         "merged": "C:\\Users\\anton\\.gradle\\daemon\\7.5\\com.example.testapp-merged_res-52:\\drawable_selector.xml.flat",
         "source": "C:\\Users\\anton\\.gradle\\daemon\\7.5\\com.example.testapp-main-54:\\drawable\\selector.xml"
-    },
-    {
-        "merged": "com.example.testapp-merged_res-52:/layout_activity_odabrani_pesticid.xml.flat",
-        "source": "com.example.testapp-main-54:/layout/activity_odabrani_pesticid.xml"
     }
 ]

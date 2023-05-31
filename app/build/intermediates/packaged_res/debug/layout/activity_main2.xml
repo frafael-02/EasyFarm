@@ -14,12 +14,13 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.87" />
+
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/fragmentHorizontalGuidline"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.925" />
+        app:layout_constraintGuide_percent="1.0" />
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/fragmentContainerView"

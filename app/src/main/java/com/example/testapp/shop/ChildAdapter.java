@@ -46,6 +46,18 @@ public class ChildAdapter extends RecyclerView.Adapter<ChildAdapter.ViewHolder> 
         GlideApp.with(this.context).load(storageReference).into(holder.iv_child_image);
         holder.iv_child_image.setTag(storageReference.toString());
     holder.tv_child_text.setText(childModelClassList.get(position).text);
+        if(childModelClassList.get(position).getPesticid().getVrsta() == 1)
+        {
+            holder.imagePesticid.setImageResource(R.drawable.herbicid_checked);
+        }
+        else if(childModelClassList.get(position).getPesticid().getVrsta() == 2)
+        {
+            holder.imagePesticid.setImageResource(R.drawable.fungicid_checked);
+        }
+        if(childModelClassList.get(position).getPesticid().getBio()){
+            holder.bioPesticid.setVisibility(View.VISIBLE);
+        }
+
 // da slika bode button
     holder.iv_child_image.setOnClickListener(new View.OnClickListener() {
         @Override
@@ -72,10 +84,17 @@ public class ChildAdapter extends RecyclerView.Adapter<ChildAdapter.ViewHolder> 
         ImageView iv_child_image;
         TextView tv_child_text;
 
+        ImageView imagePesticid;
+        TextView bioPesticid;
+
+
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             iv_child_image=itemView.findViewById(R.id.iv_child_item);
             tv_child_text=itemView.findViewById(R.id.tv_child_item);
+            imagePesticid=itemView.findViewById(R.id.vrsta_pesticida);
+            bioPesticid=itemView.findViewById(R.id.bio_child_item);
+
         }
     }
 

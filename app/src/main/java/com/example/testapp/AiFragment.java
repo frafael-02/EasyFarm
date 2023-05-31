@@ -6,6 +6,7 @@ import static android.app.Activity.RESULT_OK;
 import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Bitmap;
+import android.graphics.drawable.AnimationDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 
@@ -13,6 +14,7 @@ import android.os.Bundle;
 import androidx.activity.result.ActivityResult;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
 
 import android.os.Handler;
@@ -22,7 +24,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import android.view.animation.Animation;
+import android.view.animation.ScaleAnimation;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.example.testapp.api.ImagePostRequest;
@@ -35,6 +40,7 @@ import org.jetbrains.annotations.NotNull;
 
 
 import java.io.IOException;
+import java.util.concurrent.TimeUnit;
 
 
 import kotlin.Unit;
@@ -62,6 +68,7 @@ public class AiFragment extends Fragment {
     public ImageView slika;
 
     public TextView pesticidPreporuka;
+    ProgressBar progressBar;
 
 
 
@@ -102,13 +109,51 @@ public class AiFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_ai, container, false);
         slika = view.findViewById(R.id.imageView);
         pesticidPreporuka = view.findViewById(R.id.textView3);
+        progressBar=view.findViewById(R.id.progresBar);
+        progressBar.setVisibility(View.INVISIBLE);
+        ConstraintLayout constraintLayout=view.findViewById(R.id.mainLayout);
+        AnimationDrawable animationDrawable = (AnimationDrawable) constraintLayout.getBackground();
+        animationDrawable.setEnterFadeDuration(2500);
+        animationDrawable.setExitFadeDuration(5000);
+        animationDrawable.start();
 
         ActivityResultLauncher<Intent> launcher=
                 registerForActivityResult(new ActivityResultContracts.StartActivityForResult(),(ActivityResult result)->{
                     if(result.getResultCode()==RESULT_OK){
+                        progressBar.setVisibility(View.VISIBLE);
                         Uri uri=result.getData().getData();
-                        slika.setImageURI(uri);
 
+                        slika.setImageURI(uri);
+                        Animation anim = new ScaleAnimation(
+                                0.5f, 1f, // Start and end values for the X axis scaling
+                                0.5f, 1f, // Start and end values for the Y axis scaling
+                                Animation.RELATIVE_TO_SELF, 0.5f, // Pivot point of X scaling
+                                Animation.RELATIVE_TO_SELF, 0.5f); // Pivot point of Y scaling
+                        anim.setFillAfter(true); // Needed to keep the result of the animation
+                        anim.setDuration(700);
+                        Animation anim2 = new ScaleAnimation(
+                                1f, 0.85f, // Start and end values for the X axis scaling
+                                1f, 0.85f, // Start and end values for the Y axis scaling
+                                Animation.RELATIVE_TO_SELF, 0.5f, // Pivot point of X scaling
+                                Animation.RELATIVE_TO_SELF, 0.5f); // Pivot point of Y scaling
+                        anim2.setFillAfter(true); // Needed to keep the result of the animation
+                        anim2.setDuration(300);
+                        slika.setVisibility(View.VISIBLE);
+                        slika.startAnimation(anim);
+                        Runnable myThread = () ->
+                        {
+                            try {
+                                TimeUnit.SECONDS.sleep(1);
+                            } catch (InterruptedException e) {
+                                throw new RuntimeException(e);
+                            }
+                            slika.startAnimation(anim2);
+                        };
+                        // Instantiating Thread class by passing Runnable
+                        // reference to Thread constructor
+                        Thread run = new Thread(myThread);
+                        // Starting the thread
+                        run.start();
                         Bitmap bitmap = null;
                         try {
                             bitmap = MediaStore.Images.Media.getBitmap(getActivity().getContentResolver(), uri);
@@ -125,6 +170,7 @@ public class AiFragment extends Fragment {
 
 
                         sendImage(imagePath);
+
 
                         // Use the uri to load the image
                     }else if(result.getResultCode()==ImagePicker.RESULT_ERROR){
@@ -169,6 +215,9 @@ public class AiFragment extends Fragment {
                 public void run() {
 
                     textView.setText(MainActivity2.responseString);
+                    progressBar.setVisibility(View.INVISIBLE);
+                    textView.setVisibility(View.VISIBLE);
+                    pesticidPreporuka.setVisibility(View.VISIBLE);
                     Pesticid pesticid = UtilityClass.preporukaPesticid(textView.getText().toString());
                     if(pesticid !=null)
                     {

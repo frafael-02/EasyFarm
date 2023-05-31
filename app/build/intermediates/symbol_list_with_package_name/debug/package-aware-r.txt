@@ -2868,6 +2868,10 @@ drawable abc_vector_test
 drawable account
 drawable account_home
 drawable add
+drawable animation_background1
+drawable animation_background2
+drawable animation_background3
+drawable animation_gradient_list
 drawable arrow
 drawable arrowfilled
 drawable avd_hide_password
@@ -3169,6 +3173,7 @@ id baseline
 id beginOnFirstDraw
 id beginning
 id bestChoice
+id bio_child_item
 id blocking
 id bottom
 id bottomAppBar
@@ -3347,6 +3352,7 @@ id hideable
 id home
 id homeAsUp
 id honorRequest
+id horizontalGuidline
 id horizontal_only
 id icon
 id icon_group
@@ -3414,6 +3420,7 @@ id lytCameraPick
 id lytGalleryPick
 id m3_side_sheet
 id mail
+id mainLayout
 id main_square
 id marquee
 id masked
@@ -3546,6 +3553,7 @@ id primjena_button
 id primjena_textView
 id profil
 id profilBtn
+id progresBar
 id progress_circular
 id progress_horizontal
 id prskanjeTextView
@@ -3687,6 +3695,7 @@ id tag_unhandled_key_event_manager
 id tag_unhandled_key_listeners
 id tag_window_insets_animation_callback
 id tekst
+id telefon
 id tempratureTextView
 id text
 id text1
@@ -3698,6 +3707,7 @@ id textStart
 id textTop
 id textView
 id textView2
+id textView3
 id text_input_end_icon
 id text_input_error_icon
 id text_input_start_icon
@@ -3760,6 +3770,8 @@ id vrijemeKrajId
 id vrijemeKrajTextView
 id vrijemeStartId
 id vrijemeStartTextView
+id vrstaId
+id vrsta_pesticida
 id west
 id wide
 id withText

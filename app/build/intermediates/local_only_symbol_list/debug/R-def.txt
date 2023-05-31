@@ -14,6 +14,10 @@ dimen fab_margin
 drawable account
 drawable account_home
 drawable add
+drawable animation_background1
+drawable animation_background2
+drawable animation_background3
+drawable animation_gradient_list
 drawable arrow
 drawable arrowfilled
 drawable background_item_pesticid
@@ -76,6 +80,7 @@ id arkodId
 id arkodTextView
 id arkodView
 id backArrow
+id bio_child_item
 id bottomAppBar
 id bottomGuidline
 id bottomNavigation
@@ -125,6 +130,7 @@ id fragmentHorizontalGuidline
 id fungicid
 id google
 id herbicid
+id horizontalGuidline
 id imageView
 id imageView2
 id imageView4
@@ -149,6 +155,7 @@ id linearLayoutTop
 id loginButton
 id lowerGuidline
 id mail
+id mainLayout
 id main_square
 id mipgtextView
 id navBarVerticalGuidline
@@ -178,6 +185,7 @@ id primjena_button
 id primjena_textView
 id profil
 id profilBtn
+id progresBar
 id prskanjeTextView
 id recyclerView
 id relativeLayout
@@ -205,10 +213,12 @@ id sredstvoSpinner
 id startButton
 id stopericaId
 id tekst
+id telefon
 id tempratureTextView
 id text1
 id textView
 id textView2
+id textView3
 id titleGuidline
 id toolbar
 id topDobrodosli
@@ -223,6 +233,8 @@ id vrijemeKrajId
 id vrijemeKrajTextView
 id vrijemeStartId
 id vrijemeStartTextView
+id vrstaId
+id vrsta_pesticida
 layout activity_loading
 layout activity_login
 layout activity_main
