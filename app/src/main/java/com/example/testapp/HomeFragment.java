@@ -19,12 +19,16 @@ import android.widget.TextView;
 
 import com.example.testapp.api.OpenMeteoApiClient;
 
+import com.example.testapp.api.PoljeAPI;
 import com.example.testapp.api.VirtualAgent;
 
+import com.example.testapp.database.DatabaseQueries;
 import com.example.testapp.entiteti.AccountDialog;
 import com.example.testapp.entiteti.Current;
 
+import com.example.testapp.entiteti.Koordinate;
 import com.example.testapp.entiteti.Korisnik;
+import com.example.testapp.entiteti.Polje;
 import com.example.testapp.entiteti.WeatherData;
 import com.example.testapp.entiteti.WeatherDataCallback;
 import com.facebook.shimmer.ShimmerFrameLayout;
@@ -39,7 +43,7 @@ import java.util.List;
  * Use the {@link HomeFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class HomeFragment extends Fragment {
+public class HomeFragment extends Fragment implements DataLoadListener, PoljeAPIListener {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -67,6 +71,8 @@ public class HomeFragment extends Fragment {
     public long timer;
 
     public Button pitajBtn;
+
+    private int br;
     ShimmerFrameLayout shimmerFrameLayout;
     ScrollView scrollView;
 
@@ -95,6 +101,12 @@ public class HomeFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        DatabaseQueries.registerDataLoadedListener(this);
+        PoljeAPI.registerDataLoadedListener(this);
+        if(MainActivity2.poljeList == null)
+            MainActivity2.poljeList =DatabaseQueries.getPolja();
+        br=0;
+
 
 
         if (getArguments() != null) {
@@ -102,30 +114,17 @@ public class HomeFragment extends Fragment {
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
         timer = 500L;
-        apiClient = new OpenMeteoApiClient();
-        double latitude = 46.32;
-        double longitude = 16.80;
-
-        apiClient.getWeatherData(latitude, longitude, new WeatherDataCallback() {
-            @Override
-            public void onSuccess(WeatherData weatherData) {
-
-                //  List<Daily> dailyList = weatherData.getDailyList();
-                //List<Hourly> hourlyList = weatherData.getHourlyList();
-                Current current = weatherData.getCurrent();
 
 
-                string = current.getTemperature() + "°C";
 
 
-            }
 
-            @Override
-            public void onFailure(Exception e) {
-                // Handle the error here
-                e.printStackTrace();
-            }
-        });
+
+
+
+
+
+
     }
 
     @Override
@@ -141,9 +140,11 @@ public class HomeFragment extends Fragment {
         shimmerFrameLayout=view.findViewById(R.id.shimmer_view);
         shimmerFrameLayout.setVisibility(View.INVISIBLE);
         scrollView=view.findViewById(R.id.screenId);
+       if(string != null)
+           temperatureTextView.setText(string);
 
 
-        new Handler().postDelayed(new Runnable() {
+        /*new Handler().postDelayed(new Runnable() {
 
             public void run () {
                 if(string != null)
@@ -153,7 +154,7 @@ public class HomeFragment extends Fragment {
 
 
             }
-        }, timer);
+        }, timer);*/
 
         AppCompatImageButton profilBtn = view.findViewById(R.id.profilBtn);
         profilBtn.setOnClickListener(new View.OnClickListener() {
@@ -187,8 +188,6 @@ public class HomeFragment extends Fragment {
 
             }
         });
-
-
 
 
 
@@ -228,6 +227,96 @@ public class HomeFragment extends Fragment {
 
     }
 
+    @Override
+    public void onDataLoaded(Polje polje)
+    {
+        br++;
+        if(br == 1)
+        {
+            if(polje.getKoordinate() != null)
+            {
+                double latitude = polje.getKoordinate().getX();
+                double longitude = polje.getKoordinate().getY();
 
 
+               MainActivity2.koordinate = polje.getKoordinate();
+                apiClient = new OpenMeteoApiClient();
+
+                apiClient.getWeatherData(latitude, longitude, new WeatherDataCallback() {
+                    @Override
+                    public void onSuccess(WeatherData weatherData) {
+
+                        //  List<Daily> dailyList = weatherData.getDailyList();
+                        //List<Hourly> hourlyList = weatherData.getHourlyList();
+                        Current current = weatherData.getCurrent();
+
+
+                        string = current.getTemperature() + "°C";
+                        getActivity().runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                temperatureTextView.setText(string);
+                            }
+                        });
+
+
+                    }
+
+                    @Override
+                    public void onFailure(Exception e) {
+                        // Handle the error here
+                        e.printStackTrace();
+                    }
+                });
+            }
+            else{
+                new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+
+                        MainActivity2.koordinate = PoljeAPI.poljeAPI(polje.getArkodId());
+
+                    }
+                }).start();
+
+            }
+
+        }
+
+
+
+    }
+
+
+    @Override
+    public void onDataLoaded(Double x, Double y) {
+        apiClient = new OpenMeteoApiClient();
+
+        apiClient.getWeatherData(x, y, new WeatherDataCallback() {
+            @Override
+            public void onSuccess(WeatherData weatherData) {
+
+                //  List<Daily> dailyList = weatherData.getDailyList();
+                //List<Hourly> hourlyList = weatherData.getHourlyList();
+                Current current = weatherData.getCurrent();
+
+
+                string = current.getTemperature() + "°C";
+                getActivity().runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        temperatureTextView.setText(string);
+                    }
+                });
+
+
+            }
+
+            @Override
+            public void onFailure(Exception e) {
+                // Handle the error here
+                e.printStackTrace();
+            }
+        });
+    }
 }
