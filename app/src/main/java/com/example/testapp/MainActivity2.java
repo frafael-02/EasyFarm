@@ -29,6 +29,7 @@ import com.example.testapp.entiteti.AccountDialog;
 import com.example.testapp.entiteti.Biljka;
 import com.example.testapp.entiteti.Bolest;
 import com.example.testapp.entiteti.Evidencija;
+import com.example.testapp.entiteti.Koordinate;
 import com.example.testapp.entiteti.Korisnik;
 import com.example.testapp.entiteti.Pesticid;
 import com.example.testapp.entiteti.Polje;
@@ -45,7 +46,9 @@ public class MainActivity2 extends AppCompatActivity implements AccountDialog.Ac
 
     public static  List<Pesticid> pesticidList = DatabaseQueries.getPesticidi();
     public static List<Biljka> biljkaList=DatabaseQueries.getBiljke();
-    public static List<Polje> poljeList=DatabaseQueries.getPolja();
+    public static List<Polje> poljeList;
+
+    public static Koordinate koordinate;
     public static List<Evidencija> evidencijaList=DatabaseQueries.getEvidencija();
 
     public static List<Proizvodjac> proizvodjacList = DatabaseQueries.getProizvodjaci();
