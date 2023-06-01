@@ -1,11 +1,18 @@
 package com.example.testapp;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.app.ActivityOptionsCompat;
+import androidx.core.util.Pair;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 
+import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
+import android.animation.ValueAnimator;
+import android.app.ActivityOptions;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Build;
@@ -67,9 +74,7 @@ BottomNavigationView bottomNavigationView;
         bottomNavigationView=findViewById(R.id.bottomNavigation);
         bottomNavigationView.setBackgroundColor(Color.TRANSPARENT);
         viewExplosion=findViewById(R.id.circle);
-         animation = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.animation_circle_explosion);
-
-
+        animation = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.animation_circle_explosion);
 
         if(savedInstanceState == null)
         {
@@ -104,25 +109,60 @@ switch(item.getItemId()){
         mButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               viewExplosion.startAnimation(animation);
-                Runnable myThread = () ->
-                {
-                    try {
-                        TimeUnit.MILLISECONDS.sleep(400);
-                    } catch (InterruptedException e) {
-                        throw new RuntimeException(e);
+
+                animation.setAnimationListener(new Animation.AnimationListener() {
+                    @Override
+                    public void onAnimationStart(Animation animation) {
+
+                        Runnable myThread = () ->
+                        {
+                            try {
+                                TimeUnit.MILLISECONDS.sleep(300);
+                            } catch (InterruptedException e) {
+                                throw new RuntimeException(e);
+                            }
+                            Intent myIntent = new Intent(MainActivity2.this, NovaEvidencijaActivity.class).addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+                            startActivity(myIntent);
+
+
+                        };
+                        Thread run = new Thread(myThread);
+                        run.start();
+
                     }
-                    Intent myIntent = new Intent(MainActivity2.this, NovaEvidencijaActivity.class);
+
+                    @Override
+                    public void onAnimationEnd(Animation animation) {
+
+
+                    }
+
+                    @Override
+                    public void onAnimationRepeat(Animation animation) {}
+                });
+
+viewExplosion.startAnimation(animation);
+
+
+         /*       ActivityOptionsCompat options = ActivityOptionsCompat
+                        .makeScaleUpAnimation(viewExplosion, viewExplosion.getWidth() / 2, viewExplosion.getHeight() / 2, 0, 0);
+
+                ValueAnimator valueAnimator = ValueAnimator.ofFloat(0f, 1f);
+                valueAnimator.setDuration(1000);
+                valueAnimator.addListener(new AnimatorListenerAdapter() {
+                    @Override
+                    public void onAnimationStart(Animator animation) {
+                        viewExplosion.setVisibility(View.VISIBLE);
+                    }
+                });
+                Intent intent = new Intent(MainActivity2.this, NovaEvidencijaActivity.class);
+                ActivityCompat.startActivity(MainActivity2.this, intent, options.toBundle());
+*/
+              /*      Intent myIntent = new Intent(MainActivity2.this, NovaEvidencijaActivity.class);
                     startActivity(myIntent);
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
                         overridePendingTransition(R.anim.alpha_animation,R.anim.alpha_animation,getColor(R.color.greenDark));
-                    }
-                };
-                // Instantiating Thread class by passing Runnable
-                // reference to Thread constructor
-                Thread run = new Thread(myThread);
-                // Starting the thread
-                run.start();
+                    }*/
 
             }
         });
