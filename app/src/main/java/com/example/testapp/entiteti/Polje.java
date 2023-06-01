@@ -11,9 +11,21 @@ public class Polje extends Entitet implements Serializable {
     String naziv;
     long biljkaId;
 
+    Koordinate koordinate;
+
     String korisnikEmail;
 
     int povrsina;
+
+    public Polje(Long id, String arkodId, String naziv, long biljkaId, String korisnikEmail, int povrsina, Koordinate koordinate) {
+        super(id);
+        this.arkodId = arkodId;
+        this.naziv = naziv;
+        this.biljkaId=biljkaId;
+        this.korisnikEmail = korisnikEmail;
+        this.povrsina = povrsina;
+        this.koordinate = koordinate;
+    }
 
     public Polje(Long id, String arkodId, String naziv, long biljkaId, String korisnikEmail, int povrsina) {
         super(id);
@@ -22,6 +34,7 @@ public class Polje extends Entitet implements Serializable {
         this.biljkaId=biljkaId;
         this.korisnikEmail = korisnikEmail;
         this.povrsina = povrsina;
+
     }
 
     public String getArkodId() {
@@ -63,6 +76,14 @@ public class Polje extends Entitet implements Serializable {
 
     public int getPovrsina(){return povrsina;}
 
+    public Koordinate getKoordinate() {
+        return koordinate;
+    }
+
+    public void setKoordinate(Koordinate koordinate) {
+        this.koordinate = koordinate;
+    }
+
     @NonNull
     @Override
     public String toString(){return naziv;}
@@ -82,6 +103,10 @@ public class Polje extends Entitet implements Serializable {
             else if(!korisnikEmail.equals(((Polje) o).getKorisnikEmail()))
                 result++;
             else if(povrsina != ((Polje) o).getPovrsina())
+                result++;
+            else if(koordinate.getX() != ((Polje) o).getKoordinate().getX())
+                result++;
+            else if(koordinate.getY() != ((Polje) o).getKoordinate().getY())
                 result++;
 
             return (result == 0);
