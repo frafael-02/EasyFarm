@@ -3,10 +3,14 @@ package com.example.testapp.database;
 import androidx.annotation.NonNull;
 
 
+import com.example.testapp.DataLoadListener;
 import com.example.testapp.MainActivity2;
+import com.example.testapp.R;
+import com.example.testapp.api.PoljeAPI;
 import com.example.testapp.entiteti.Biljka;
 import com.example.testapp.entiteti.Bolest;
 import com.example.testapp.entiteti.Evidencija;
+import com.example.testapp.entiteti.Koordinate;
 import com.example.testapp.entiteti.Korisnik;
 import com.example.testapp.entiteti.Pesticid;
 import com.example.testapp.entiteti.Polje;
@@ -28,7 +32,12 @@ import java.util.List;
 import java.util.Map;
 
 public class DatabaseQueries {
+private static DataLoadListener dataLoadListener;
 
+public static void registerDataLoadedListener(DataLoadListener listener)
+{
+    dataLoadListener = listener;
+}
     public static List<Pesticid> getPesticidi()
     {   List<Pesticid> pesticidiList = new ArrayList<>();
         FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance("https://testapp-dc63d-default-rtdb.europe-west1.firebasedatabase.app");
@@ -189,12 +198,37 @@ public class DatabaseQueries {
                         String attribute2 = pestSnapshot.child("naziv").getValue(String.class);
                         Long biljkaId = pestSnapshot.child("biljkaId").getValue(Long.class);
                         int povrsina = pestSnapshot.child("povrsina").getValue(Integer.class);
-                        Polje polje = new Polje(id, attribute1, attribute2, biljkaId, korisnikEmail, povrsina);
+                        Koordinate koordinate = new Koordinate(pestSnapshot.child("x").getValue(Double.class), pestSnapshot.child("y").getValue(Double.class));
+                        if(koordinate.getX() != 0.0 && koordinate.getY() != 0.0)
+                        {
+                            Polje polje = new Polje(id, attribute1, attribute2, biljkaId, korisnikEmail, povrsina, koordinate);
+                            poljeList.add(polje);
 
-                        poljeList.add(polje);
+                                if(dataLoadListener != null)
+                                {
+                                    dataLoadListener.onDataLoaded(polje);
+
+                                }
+
+                        }
+                        else{
+                            Polje polje = new Polje(id, attribute1, attribute2, biljkaId, korisnikEmail, povrsina);
+                            poljeList.add(polje);
+                            if(dataLoadListener != null)
+                            {
+                                dataLoadListener.onDataLoaded(polje);
+
+                            }
+
+                        }
+
+
+
+
                     }
 
                 }
+
 
 
             }
@@ -204,6 +238,7 @@ public class DatabaseQueries {
 
             }
         });
+
         return poljeList;
     }
 
