@@ -1,5 +1,10 @@
 R_DEF: Internal format may change without notice
 local
+anim alpha_animation
+anim animation_circle_explosion
+anim animation_circle_explosion_out
+anim slide_in_top
+anim slide_out_top
 color background
 color black
 color greenDark
@@ -17,6 +22,7 @@ drawable add
 drawable animation_background1
 drawable animation_background2
 drawable animation_background3
+drawable animation_circle
 drawable animation_gradient_list
 drawable arrow
 drawable arrowfilled
@@ -94,6 +100,7 @@ id button3
 id button8
 id cijena
 id cijena_textView
+id circle
 id cloud
 id collapsing_toolbar
 id constraintLayout

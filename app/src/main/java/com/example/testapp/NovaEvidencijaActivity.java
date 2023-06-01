@@ -6,6 +6,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.os.SystemClock;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.AdapterView;
 
 import android.widget.Button;
@@ -35,6 +37,7 @@ public class NovaEvidencijaActivity extends AppCompatActivity {
     private Spinner spinnerPesticida;
     private TextView nazivKulture;
     private TextView nazivPesticida;
+    View viewExplosion;
     private Button buttonStoperica;
 
     private LocalDateTime startTime;
@@ -69,6 +72,9 @@ public class NovaEvidencijaActivity extends AppCompatActivity {
         PoljeAdapter adapterPolja = new PoljeAdapter(this, new ArrayList<>(MainActivity2.poljeList));
         adapterPolja.setDropDownViewResource(R.layout.spinner_dropdown_layout);
         spinnerPolja.setAdapter(adapterPolja);
+        viewExplosion=findViewById(R.id.circle);
+        Animation animation = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.animation_circle_explosion_out);
+        viewExplosion.startAnimation(animation);
 
         spinnerPolja.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override

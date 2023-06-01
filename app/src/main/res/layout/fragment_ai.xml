@@ -88,6 +88,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:textAlignment="center"
+                android:textColor="@color/greyText"
                 android:textSize="16sp"
                 android:layout_marginBottom="80dp"
                 app:layout_constraintBottom_toBottomOf="parent"

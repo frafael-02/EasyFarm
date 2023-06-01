@@ -1,7 +1,6 @@
 package com.example.testapp;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
@@ -9,9 +8,11 @@ import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Intent;
 import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
-import android.provider.ContactsContract;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 
 import com.example.testapp.database.DatabaseQueries;
 
@@ -31,6 +32,8 @@ import com.google.firebase.auth.FirebaseAuth;
 
 
 import java.util.List;
+import java.util.concurrent.TimeUnit;
+
 public class MainActivity2 extends AppCompatActivity implements AccountDialog.AccountDialogListener {
 
     public static  List<Pesticid> pesticidList = DatabaseQueries.getPesticidi();
@@ -49,9 +52,11 @@ public class MainActivity2 extends AppCompatActivity implements AccountDialog.Ac
    public static long maxIdPesticid;
 
    public static Korisnik korisnik;
+   View viewExplosion;
     ActivityMain2Binding binding;
 BottomNavigationView bottomNavigationView;
     FloatingActionButton mButton;
+    Animation animation;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -61,6 +66,10 @@ BottomNavigationView bottomNavigationView;
         setContentView(binding.getRoot());
         bottomNavigationView=findViewById(R.id.bottomNavigation);
         bottomNavigationView.setBackgroundColor(Color.TRANSPARENT);
+        viewExplosion=findViewById(R.id.circle);
+         animation = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.animation_circle_explosion);
+
+
 
         if(savedInstanceState == null)
         {
@@ -95,8 +104,26 @@ switch(item.getItemId()){
         mButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent myIntent = new Intent(MainActivity2.this, NovaEvidencijaActivity.class);
-                startActivity(myIntent);
+               viewExplosion.startAnimation(animation);
+                Runnable myThread = () ->
+                {
+                    try {
+                        TimeUnit.MILLISECONDS.sleep(400);
+                    } catch (InterruptedException e) {
+                        throw new RuntimeException(e);
+                    }
+                    Intent myIntent = new Intent(MainActivity2.this, NovaEvidencijaActivity.class);
+                    startActivity(myIntent);
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+                        overridePendingTransition(R.anim.alpha_animation,R.anim.alpha_animation,getColor(R.color.greenDark));
+                    }
+                };
+                // Instantiating Thread class by passing Runnable
+                // reference to Thread constructor
+                Thread run = new Thread(myThread);
+                // Starting the thread
+                run.start();
+
             }
         });
 

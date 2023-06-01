@@ -8,6 +8,18 @@
     android:background="@drawable/backwheat"
     tools:context=".NovaEvidencijaActivity">
 
+    <View
+        android:id="@+id/circle"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:background="@drawable/animation_circle"
+        android:visibility="invisible"
+        android:translationZ="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/titleGuidline"
         android:layout_width="wrap_content"

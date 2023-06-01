@@ -11,6 +11,9 @@ anim abc_slide_out_bottom
 anim abc_slide_out_top
 anim abc_tooltip_enter
 anim abc_tooltip_exit
+anim alpha_animation
+anim animation_circle_explosion
+anim animation_circle_explosion_out
 anim btn_checkbox_to_checked_box_inner_merged_animation
 anim btn_checkbox_to_checked_box_outer_merged_animation
 anim btn_checkbox_to_checked_icon_null_animation
@@ -45,6 +48,8 @@ anim nav_default_enter_anim
 anim nav_default_exit_anim
 anim nav_default_pop_enter_anim
 anim nav_default_pop_exit_anim
+anim slide_in_top
+anim slide_out_top
 anim ucrop_loader_circle_path
 anim ucrop_loader_circle_scale
 animator design_appbar_state_list_animator
@@ -2871,6 +2876,7 @@ drawable add
 drawable animation_background1
 drawable animation_background2
 drawable animation_background3
+drawable animation_circle
 drawable animation_gradient_list
 drawable arrow
 drawable arrowfilled
@@ -3216,6 +3222,7 @@ id checked
 id chronometer
 id cijena
 id cijena_textView
+id circle
 id circle_center
 id clear_text
 id clip_horizontal
