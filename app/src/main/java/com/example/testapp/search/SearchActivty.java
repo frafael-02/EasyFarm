@@ -150,34 +150,34 @@ public class SearchActivty extends AppCompatActivity implements RecyclerViewInte
         switch (view.getId()){
             case R.id.insekticid:
             if(checkBox.isChecked()){
-                Toast.makeText(this, "Filter insekticida", Toast.LENGTH_SHORT).show();
+              //  Toast.makeText(this, "Filter insekticida", Toast.LENGTH_SHORT).show();
                 i=true;
 
             }
             else {
-                Toast.makeText(this, "Filter isključen", Toast.LENGTH_SHORT).show();
+               // Toast.makeText(this, "Filter isključen", Toast.LENGTH_SHORT).show();
                 i=false;
             }
             break;
             case R.id.fungicid:
                 if(checkBox.isChecked()){
                     f=true;
-                    Toast.makeText(this, "Filter fungicida", Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(this, "Filter fungicida", Toast.LENGTH_SHORT).show();
                 }
                 else {
                     f=false;
 
-                    Toast.makeText(this, "Filter isključen", Toast.LENGTH_SHORT).show();
+                  //  Toast.makeText(this, "Filter isključen", Toast.LENGTH_SHORT).show();
                 }
                 break;
             case R.id.herbicid:
                 if(checkBox.isChecked()){
              h=true;
-                    Toast.makeText(this, "Filter herbicida", Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(this, "Filter herbicida", Toast.LENGTH_SHORT).show();
                 }
                 else {
                     h=false;
-                    Toast.makeText(this, "Filter isključen", Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(this, "Filter isključen", Toast.LENGTH_SHORT).show();
                 }
                 break;
         }
