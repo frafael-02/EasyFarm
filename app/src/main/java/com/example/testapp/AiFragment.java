@@ -26,6 +26,7 @@ import android.view.ViewGroup;
 
 import android.view.animation.Animation;
 import android.view.animation.ScaleAnimation;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -68,7 +69,11 @@ public class AiFragment extends Fragment {
     public ImageView slika;
 
     public TextView pesticidPreporuka;
+
+    public Button analizaBtn;
     ProgressBar progressBar;
+
+    private ActivityResultLauncher<Intent> launcher;
 
 
 
@@ -109,6 +114,7 @@ public class AiFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_ai, container, false);
         slika = view.findViewById(R.id.imageView);
         pesticidPreporuka = view.findViewById(R.id.textView3);
+        analizaBtn = view.findViewById(R.id.button4);
         progressBar=view.findViewById(R.id.progresBar);
         progressBar.setVisibility(View.INVISIBLE);
         ConstraintLayout constraintLayout=view.findViewById(R.id.mainLayout);
@@ -117,7 +123,7 @@ public class AiFragment extends Fragment {
         animationDrawable.setExitFadeDuration(5000);
         animationDrawable.start();
 
-        ActivityResultLauncher<Intent> launcher=
+        launcher=
                 registerForActivityResult(new ActivityResultContracts.StartActivityForResult(),(ActivityResult result)->{
                     if(result.getResultCode()==RESULT_OK){
                         progressBar.setVisibility(View.VISIBLE);
@@ -178,21 +184,15 @@ public class AiFragment extends Fragment {
                         System.out.println(ImagePicker.Companion.getError(result.getData()));
                     }
                 });
-        ImagePicker.Companion.with(getActivity())
-                .maxResultSize(1920,1080,true)
-                .provider(ImageProvider.BOTH)
-                .crop()
-                .createIntentFromDialog((Function1)(new Function1(){
-                    public Object invoke(Object var1){
-                        this.invoke((Intent)var1);
-                        return Unit.INSTANCE;
-                    }
 
-                    public final void invoke(@NotNull Intent it){
-                        Intrinsics.checkNotNullParameter(it,"it");
-                        launcher.launch(it);
-                    }
-                }));
+        analizaBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                odaberiSliku();
+            }
+        });
+
+
 
 
         textView = view.findViewById(R.id.textView);
@@ -240,6 +240,24 @@ public class AiFragment extends Fragment {
     }
 
 
+    public void odaberiSliku()
+    {
 
+        ImagePicker.Companion.with(getActivity())
+                .maxResultSize(1920,1080,true)
+                .provider(ImageProvider.BOTH)
+                .crop()
+                .createIntentFromDialog((Function1)(new Function1(){
+                    public Object invoke(Object var1){
+                        this.invoke((Intent)var1);
+                        return Unit.INSTANCE;
+                    }
+
+                    public final void invoke(@NotNull Intent it){
+                        Intrinsics.checkNotNullParameter(it,"it");
+                        launcher.launch(it);
+                    }
+                }));
+    }
 
 }
