@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 
 
 import com.example.testapp.DataLoadListener;
+import com.example.testapp.EvidencijaLoadListener;
 import com.example.testapp.MainActivity2;
 import com.example.testapp.R;
 import com.example.testapp.api.PoljeAPI;
@@ -34,10 +35,17 @@ import java.util.Map;
 public class DatabaseQueries {
 private static DataLoadListener dataLoadListener;
 
+private static EvidencijaLoadListener evidencijaLoadListener;
+
 public static void registerDataLoadedListener(DataLoadListener listener)
 {
     dataLoadListener = listener;
 }
+
+    public static void registerEvidencijaLoadedListener(EvidencijaLoadListener listener)
+    {
+        evidencijaLoadListener = listener;
+    }
     public static List<Pesticid> getPesticidi()
     {   List<Pesticid> pesticidiList = new ArrayList<>();
         FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance("https://testapp-dc63d-default-rtdb.europe-west1.firebasedatabase.app");
@@ -272,6 +280,7 @@ public static void registerDataLoadedListener(DataLoadListener listener)
                         LocalDateTime kraj = LocalDateTime.parse(vrijemeKraj, formatter);
                         Evidencija evidencija = new Evidencija(id, pesticidId, koristenaDoza, poljeId,start, kraj, tretiranaPovrsina, biljkaId, korisnikEmail );
                         evidencijaList.add(evidencija);
+
                     }
 
 
@@ -279,7 +288,10 @@ public static void registerDataLoadedListener(DataLoadListener listener)
 
 
                 }
-
+                if(evidencijaLoadListener != null)
+                {
+                    evidencijaLoadListener.onDataLoaded(evidencijaList);
+                }
 
             }
 
@@ -289,6 +301,8 @@ public static void registerDataLoadedListener(DataLoadListener listener)
                 System.out.println("Error kod ucitavanja evidencije");
             }
         });
+
+
         return evidencijaList;
     }
 
