@@ -28,6 +28,7 @@ import com.example.testapp.database.DatabaseQueries;
 import com.example.testapp.entiteti.AccountDialog;
 import com.example.testapp.entiteti.Current;
 
+import com.example.testapp.entiteti.Evidencija;
 import com.example.testapp.entiteti.Koordinate;
 import com.example.testapp.entiteti.Korisnik;
 import com.example.testapp.entiteti.Polje;
@@ -46,7 +47,7 @@ import java.util.List;
  * Use the {@link HomeFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class HomeFragment extends Fragment implements DataLoadListener, PoljeAPIListener {
+public class HomeFragment extends Fragment implements DataLoadListener, PoljeAPIListener, EvidencijaLoadListener {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -111,7 +112,7 @@ public class HomeFragment extends Fragment implements DataLoadListener, PoljeAPI
         super.onCreate(savedInstanceState);
         DatabaseQueries.registerDataLoadedListener(this);
         PoljeAPI.registerDataLoadedListener(this);
-
+        DatabaseQueries.registerEvidencijaLoadedListener(this);
 
 
 
@@ -147,9 +148,13 @@ public class HomeFragment extends Fragment implements DataLoadListener, PoljeAPI
         mjesecPrskanje = view.findViewById(R.id.ovajMjesecIspod);
         ukupnoPrskanja = view.findViewById(R.id.ukupnoIspod);
 
-        danasPrskanje.setText(String.valueOf(UtilityClass.getPrskanjeDanas(MainActivity2.evidencijaList)) + "ha");
-        mjesecPrskanje.setText(String.valueOf(UtilityClass.getPrskanjeMjesec(MainActivity2.evidencijaList)) + "ha");
-        ukupnoPrskanja.setText(String.valueOf(UtilityClass.getPrskanjeUkupno(MainActivity2.evidencijaList)) + "ha");
+        if(MainActivity2.evidencijaList != null)
+        {
+            danasPrskanje.setText(String.valueOf(UtilityClass.getPrskanjeDanas(MainActivity2.evidencijaList)) + "ha");
+            mjesecPrskanje.setText(String.valueOf(UtilityClass.getPrskanjeMjesec(MainActivity2.evidencijaList)) + "ha");
+            ukupnoPrskanja.setText(String.valueOf(UtilityClass.getPrskanjeUkupno(MainActivity2.evidencijaList)) + "ha");
+        }
+
 
 
         RelativeLayout constraintLayout=view.findViewById(R.id.relativeLayout);
@@ -335,5 +340,13 @@ public class HomeFragment extends Fragment implements DataLoadListener, PoljeAPI
                 e.printStackTrace();
             }
         });
+    }
+
+    @Override
+    public void onDataLoaded(List<Evidencija> evidencijaList) {
+        danasPrskanje.setText(String.valueOf(UtilityClass.getPrskanjeDanas(evidencijaList)) + "ha");
+        mjesecPrskanje.setText(String.valueOf(UtilityClass.getPrskanjeMjesec(evidencijaList)) + "ha");
+        ukupnoPrskanja.setText(String.valueOf(UtilityClass.getPrskanjeUkupno(evidencijaList)) + "ha");
+
     }
 }
