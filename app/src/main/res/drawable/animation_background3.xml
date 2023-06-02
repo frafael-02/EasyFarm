@@ -8,8 +8,8 @@
                 android:endColor="@color/iconYellow"
 
                 >
-
             </gradient>
+            <corners android:radius="25dp"/>
         </shape>
     </item>
 </selector>

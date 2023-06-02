@@ -27,7 +27,6 @@
         <item name="windowNoTitle">true</item>
     </style>
     <style name="Theme.Collapsingtoolbar" parent="">
-
         <item name="android:statusBarColor">@color/greenDark</item>
         <item name="android:textColor">@color/greyText</item>
         <item name="fontFamily">@font/poppinsbold</item>

@@ -3,8 +3,6 @@ local
 anim alpha_animation
 anim animation_circle_explosion
 anim animation_circle_explosion_out
-anim slide_in_top
-anim slide_out_top
 color background
 color black
 color greenDark
@@ -19,6 +17,7 @@ dimen fab_margin
 drawable account
 drawable account_home
 drawable add
+drawable ai_icon
 drawable animation_background1
 drawable animation_background2
 drawable animation_background3
@@ -56,12 +55,14 @@ drawable ic_launcher_foreground
 drawable insekticid
 drawable insekticid_checked
 drawable insekticid_unchecked
+drawable location
 drawable lock
 drawable logo
 drawable logo_background
 drawable logoeasyfarm
 drawable mail
 drawable main_square
+drawable note
 drawable pen
 drawable pesticid
 drawable phone
@@ -87,7 +88,6 @@ id arkodTextView
 id arkodView
 id backArrow
 id bio_child_item
-id bottomAppBar
 id bottomGuidline
 id bottomNavigation
 id btnAI
@@ -104,7 +104,6 @@ id circle
 id cloud
 id collapsing_toolbar
 id constraintLayout
-id coordinator
 id cv_child_item
 id danas
 id danasIspod
@@ -147,6 +146,7 @@ id itemId
 id iv_child_item
 id izvoz
 id kontakti
+id kooridnateTextView
 id kulturaView
 id leftVerticalGuidline
 id linearLayout
@@ -165,6 +165,7 @@ id mail
 id mainLayout
 id main_square
 id mipgtextView
+id mjestoTextView
 id navBarVerticalGuidline
 id nazivId
 id nazivKulture
@@ -181,7 +182,6 @@ id ovajMjesecIspod
 id passwordId
 id pesticidView
 id pitanjeTextView
-id placeholder
 id planerFragmentId
 id povrsinaId
 id povrsinaId2

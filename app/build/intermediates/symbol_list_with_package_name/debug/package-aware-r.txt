@@ -48,8 +48,6 @@ anim nav_default_enter_anim
 anim nav_default_exit_anim
 anim nav_default_pop_enter_anim
 anim nav_default_pop_exit_anim
-anim slide_in_top
-anim slide_out_top
 anim ucrop_loader_circle_path
 anim ucrop_loader_circle_scale
 animator design_appbar_state_list_animator
@@ -2873,6 +2871,7 @@ drawable abc_vector_test
 drawable account
 drawable account_home
 drawable add
+drawable ai_icon
 drawable animation_background1
 drawable animation_background2
 drawable animation_background3
@@ -2960,6 +2959,7 @@ drawable ic_search_black_24
 drawable insekticid
 drawable insekticid_checked
 drawable insekticid_unchecked
+drawable location
 drawable lock
 drawable logo
 drawable logo_background
@@ -3025,6 +3025,7 @@ drawable mtrl_switch_track
 drawable mtrl_switch_track_decoration
 drawable mtrl_tabs_default_indicator
 drawable navigation_empty_icon
+drawable note
 drawable notification_action_background
 drawable notification_bg
 drawable notification_bg_low
@@ -3182,7 +3183,6 @@ id bestChoice
 id bio_child_item
 id blocking
 id bottom
-id bottomAppBar
 id bottomGuidline
 id bottomNavigation
 id bottom_to_top
@@ -3392,6 +3392,7 @@ id izvoz
 id jumpToEnd
 id jumpToStart
 id kontakti
+id kooridnateTextView
 id kulturaView
 id labeled
 id layout
@@ -3461,6 +3462,7 @@ id message
 id middle
 id mini
 id mipgtextView
+id mjestoTextView
 id month_grid
 id month_navigation_bar
 id month_navigation_fragment_toggle
@@ -3546,7 +3548,6 @@ id percent
 id pesticidView
 id pin
 id pitanjeTextView
-id placeholder
 id planerFragmentId
 id position
 id postLayout

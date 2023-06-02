@@ -2,8 +2,10 @@ package com.example.testapp;
 
 import android.app.DatePickerDialog;
 import android.content.Intent;
+import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
 
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -16,12 +18,15 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.AlphaAnimation;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 
+import android.widget.RelativeLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -42,6 +47,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 import java.util.Locale;
+import java.util.concurrent.TimeUnit;
 import java.util.stream.Collectors;
 
 /**
@@ -54,9 +60,7 @@ public class EvidencijaFragment extends Fragment implements SelectListener {
     RecyclerView recyclerView;
 
     MyAdapter myAdapter;
-   public TextView ukupnoPrskanja;
-   public TextView danasPrskanje;
-    public   TextView mjesecPrskanje;
+   FloatingActionButton mButton;
 
     public Button filterBtn;
     public Button filterBtn2;
@@ -78,7 +82,8 @@ public class EvidencijaFragment extends Fragment implements SelectListener {
 
     public EditText datum;
 
-
+    Animation animation;
+    View viewExplosion;
 
 
 
@@ -142,20 +147,17 @@ public class EvidencijaFragment extends Fragment implements SelectListener {
       recyclerView = view.findViewById(R.id.evidencijaListId);
         recyclerView.setLayoutManager(new LinearLayoutManager(view.getContext()));
         recyclerView.setHasFixedSize(true);
-        danasPrskanje = view.findViewById(R.id.danasIspod);
-        mjesecPrskanje = view.findViewById(R.id.ovajMjesecIspod);
-        ukupnoPrskanja = view.findViewById(R.id.ukupnoIspod);
         isVisible = false;
 
-       danasPrskanje.setText(String.valueOf(UtilityClass.getPrskanjeDanas(MainActivity2.evidencijaList)) + "ha");
-        mjesecPrskanje.setText(String.valueOf(UtilityClass.getPrskanjeMjesec(MainActivity2.evidencijaList)) + "ha");
-        ukupnoPrskanja.setText(String.valueOf(UtilityClass.getPrskanjeUkupno(MainActivity2.evidencijaList)) + "ha");
+
         filterBtn = view.findViewById(R.id.filterBtn);
         filterBtn.setVisibility(View.VISIBLE);
         filterBtn2 = view.findViewById(R.id.filterBtn2);
         filterLayout = view.findViewById(R.id.filterLayout);
         nazivSpinner = view.findViewById(R.id.nazivSpinner);
         datum = view.findViewById(R.id.datumId2);
+
+
 
         PoljeAdapter adapterPolja = new PoljeAdapter(getContext(), new ArrayList<>(MainActivity2.poljeList));
         adapterPolja.setDropDownViewResource(R.layout.spinner_dropdown_layout);
@@ -269,12 +271,12 @@ public class EvidencijaFragment extends Fragment implements SelectListener {
                 TransitionManager.beginDelayedTransition(filterLayout, new AutoTransition());
             AlphaAnimation animation1 = new AlphaAnimation(1.0f, 0.0f);
             animation1.setDuration(300);
-            animation1.setFillAfter(true);
+            //animation1.setFillAfter(true);
             AlphaAnimation animation2 = new AlphaAnimation(0.0f, 1.0f);
             animation2.setDuration(150);
             animation2.setFillAfter(true);
                 filterBtn.startAnimation(animation1);
-                filterBtn.setVisibility(View.INVISIBLE);
+                filterBtn.setVisibility(View.GONE);
                 filterLayout.setVisibility(View.VISIBLE);
                 filterBtn2.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -305,8 +307,51 @@ public class EvidencijaFragment extends Fragment implements SelectListener {
         }
     });
 
+        animation = AnimationUtils.loadAnimation(view.getContext(), R.anim.animation_circle_explosion);
+        viewExplosion=view.findViewById(R.id.circle);
+        mButton=view.findViewById(R.id.addEvidencijaButton);
+        mButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
-      return view;
+                animation.setAnimationListener(new Animation.AnimationListener() {
+                    @Override
+                    public void onAnimationStart(Animation animation) {
+
+                        Runnable myThread = () ->
+                        {
+                            try {
+                                TimeUnit.MILLISECONDS.sleep(300);
+                            } catch (InterruptedException e) {
+                                throw new RuntimeException(e);
+                            }
+                            Intent myIntent = new Intent(view.getContext(), NovaEvidencijaActivity.class).addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+                            startActivity(myIntent);
+
+
+                        };
+                        Thread run = new Thread(myThread);
+                        run.start();
+
+                    }
+
+                    @Override
+                    public void onAnimationEnd(Animation animation) {
+
+
+                    }
+
+                    @Override
+                    public void onAnimationRepeat(Animation animation) {
+                    }
+                });
+
+                viewExplosion.startAnimation(animation);
+
+            }
+        });
+
+                return view;
 
 
     }
@@ -396,6 +441,7 @@ public class EvidencijaFragment extends Fragment implements SelectListener {
 
 
     }
+
 
 
 }

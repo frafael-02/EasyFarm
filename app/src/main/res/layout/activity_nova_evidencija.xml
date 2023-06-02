@@ -66,6 +66,7 @@
         android:layout_marginBottom="20dp"
         android:layout_marginStart="5dp"
         android:layout_marginEnd="5dp"
+        android:padding="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@id/titleGuidline"
@@ -76,7 +77,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:background="@color/white"
             android:orientation="vertical"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -88,76 +88,71 @@
                 android:layout_height="wrap_content"
                 android:background="@drawable/style_spinner"
                 android:spinnerMode="dropdown"
-                android:layout_marginStart="5dp"
                 />
 
-            <TextView
-                android:id="@+id/nazivPolja"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:text="DOMAĆI NAZIV"
-                android:textSize="10sp"
-                android:textColor="@color/iconGrey"/>
+            <!--  <TextView
+                 android:id="@+id/nazivPolja"
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:text="DOMAĆI NAZIV"
+                 android:layout_marginTop="5dp"
+                 android:textSize="10sp"
+                 android:textColor="@color/iconGrey"/> -->
 
-        </LinearLayout>
-        <LinearLayout
-            android:id="@+id/linearLayout2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:background="@color/white"
-            android:orientation="vertical"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/linearLayout1">
+         </LinearLayout>
+         <LinearLayout
+             android:id="@+id/linearLayout2"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:layout_marginTop="20dp"
+             android:orientation="vertical"
+             app:layout_constraintEnd_toEndOf="parent"
+             app:layout_constraintStart_toStartOf="parent"
+             app:layout_constraintTop_toBottomOf="@id/linearLayout1">
 
-            <Spinner
-                android:id="@+id/spinnerKulture"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/style_spinner"
-                android:spinnerMode="dropdown"
-                android:layout_marginStart="5dp"
-                />
-            <TextView
-                android:id="@+id/nazivKulture"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="10sp"
-                android:text="TRETIRANA KULTURA"
-                android:layout_marginStart="10dp"
-                android:textColor="@color/iconGrey"
-                />
-        </LinearLayout>
-        <LinearLayout
-            android:id="@+id/linearLayout3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:background="@color/white"
-            android:orientation="vertical"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/linearLayout2">
+             <Spinner
+                 android:id="@+id/spinnerKulture"
+                 android:layout_width="match_parent"
+                 android:layout_height="wrap_content"
+                 android:background="@drawable/style_spinner"
+                 android:spinnerMode="dropdown"
+                 />
+             <!--   <TextView
+                   android:id="@+id/nazivKulture"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:textSize="10sp"
+                   android:text="TRETIRANA KULTURA"
+                   android:layout_marginTop="5dp"
+                   android:textColor="@color/iconGrey"
+                   /> -->
+          </LinearLayout>
+          <LinearLayout
+              android:id="@+id/linearLayout3"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:layout_marginTop="20dp"
+              android:orientation="vertical"
+              app:layout_constraintEnd_toEndOf="parent"
+              app:layout_constraintStart_toStartOf="parent"
+              app:layout_constraintTop_toBottomOf="@id/linearLayout2">
 
-            <Spinner
-                android:id="@+id/spinnerPesticida"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/style_spinner"
-                android:spinnerMode="dropdown"
-                android:layout_marginStart="5dp"
-                />
-            <TextView
-                android:id="@+id/nazivPesticida"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="10sp"
-                android:text="NAZIV SREDSTVA"
-                android:layout_marginStart="10dp"
-                android:textColor="@color/iconGrey"
-                />
+              <Spinner
+                  android:id="@+id/spinnerPesticida"
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:background="@drawable/style_spinner"
+                  android:spinnerMode="dropdown"
+                  />
+              <!-- <TextView
+                  android:id="@+id/nazivPesticida"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:textSize="10sp"
+                  android:text="NAZIV SREDSTVA"
+                  android:layout_marginTop="5dp"
+                  android:textColor="@color/iconGrey"
+                  /> -->
 
         </LinearLayout>
         <ImageView
@@ -203,67 +198,67 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:background="@color/white"
             android:orientation="vertical"
             app:layout_constraintTop_toBottomOf="@+id/startButton"
             app:layout_constraintStart_toStartOf="parent">
             <EditText
                 android:id="@+id/povrsinaId"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@color/white"
-                android:drawableEnd="@drawable/pen"
-                android:textColor="@color/greyText"
-                android:textStyle="bold"
-                android:textSize="20sp"
                 android:hint="POVRŠINA(Ha)"
-                android:inputType="number"
-                android:layout_marginStart="10dp"
-                />
-            <TextView
-                android:id="@+id/povrsinaTextView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="10sp"
-                android:text="POVRŠINA"
-                android:layout_marginStart="10dp"
-                android:textColor="@color/iconGrey"
-                />
-        </LinearLayout>
-
-
-        <LinearLayout
-            android:id="@+id/linearLayout5"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="20dp"
-            android:background="@color/white"
-            android:orientation="vertical"
-            app:layout_constraintTop_toBottomOf="@+id/linearLayout4"
-            app:layout_constraintStart_toStartOf="parent">
-            <EditText
-                android:id="@+id/dozaId"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Doza(ml))"
-                android:inputType="number"
-                android:background="@color/white"
+                android:background="@drawable/main_square"
+                android:backgroundTint="@color/white"
                 android:drawableEnd="@drawable/pen"
                 android:textColor="@color/greyText"
-                android:textStyle="bold"
-                android:textSize="20sp"
-                android:layout_marginStart="10dp"
+                android:fontFamily="@font/poppinsregular"
+                android:textSize="16sp"
+                android:padding="10dp"
+                android:inputType="number"
                 />
-            <TextView
-                android:id="@+id/dozaTextView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="10sp"
-                android:text="DOZA"
-                android:layout_marginStart="10dp"
-                android:textColor="@color/iconGrey"
-                />
+            <!--      <TextView
+                     android:id="@+id/povrsinaTextView"
+                     android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:textSize="10sp"
+                     android:text="POVRŠINA"
+                     android:layout_marginTop="5dp"
+                     android:textColor="@color/iconGrey"
+                     /> -->
+             </LinearLayout>
+
+
+             <LinearLayout
+                 android:id="@+id/linearLayout5"
+                 android:layout_width="match_parent"
+                 android:layout_height="wrap_content"
+                 android:layout_marginTop="10dp"
+                 android:layout_marginBottom="20dp"
+                 android:orientation="vertical"
+                 app:layout_constraintTop_toBottomOf="@+id/linearLayout4"
+                 app:layout_constraintStart_toStartOf="parent">
+                 <EditText
+                     android:id="@+id/dozaId"
+                     android:layout_width="match_parent"
+                     android:layout_height="wrap_content"
+                     android:hint="Doza(ml))"
+                     android:inputType="number"
+                     android:background="@drawable/main_square"
+                     android:backgroundTint="@color/white"
+                     android:drawableEnd="@drawable/pen"
+                     android:textColor="@color/greyText"
+                     android:fontFamily="@font/poppinsregular"
+                     android:padding="10dp"
+                     android:textSize="16sp"
+                     />
+                 <!--<TextView
+                     android:id="@+id/dozaTextView"
+                     android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:textSize="10sp"
+                     android:text="DOZA"
+                     android:layout_marginTop="5dp"
+                     android:textColor="@color/iconGrey"
+                     />-->
         </LinearLayout>
 
 

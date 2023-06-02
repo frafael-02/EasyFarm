@@ -1,5 +1,6 @@
 package com.example.testapp;
 
+import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
 
 import androidx.appcompat.widget.AppCompatImageButton;
@@ -13,6 +14,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 
+import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
@@ -29,6 +31,7 @@ import com.example.testapp.entiteti.Current;
 import com.example.testapp.entiteti.Koordinate;
 import com.example.testapp.entiteti.Korisnik;
 import com.example.testapp.entiteti.Polje;
+import com.example.testapp.entiteti.UtilityClass;
 import com.example.testapp.entiteti.WeatherData;
 import com.example.testapp.entiteti.WeatherDataCallback;
 import com.facebook.shimmer.ShimmerFrameLayout;
@@ -72,6 +75,11 @@ public class HomeFragment extends Fragment implements DataLoadListener, PoljeAPI
 
     public Button pitajBtn;
 
+    public TextView ukupnoPrskanja;
+    public TextView danasPrskanje;
+    public   TextView mjesecPrskanje;
+
+
     private int br;
     ShimmerFrameLayout shimmerFrameLayout;
     ScrollView scrollView;
@@ -103,6 +111,12 @@ public class HomeFragment extends Fragment implements DataLoadListener, PoljeAPI
         super.onCreate(savedInstanceState);
         DatabaseQueries.registerDataLoadedListener(this);
         PoljeAPI.registerDataLoadedListener(this);
+
+
+
+
+
+
         if(MainActivity2.poljeList == null)
             MainActivity2.poljeList =DatabaseQueries.getPolja();
         br=0;
@@ -114,17 +128,6 @@ public class HomeFragment extends Fragment implements DataLoadListener, PoljeAPI
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
         timer = 500L;
-
-
-
-
-
-
-
-
-
-
-
     }
 
     @Override
@@ -140,6 +143,20 @@ public class HomeFragment extends Fragment implements DataLoadListener, PoljeAPI
         shimmerFrameLayout=view.findViewById(R.id.shimmer_view);
         shimmerFrameLayout.setVisibility(View.INVISIBLE);
         scrollView=view.findViewById(R.id.screenId);
+        danasPrskanje = view.findViewById(R.id.danasIspod);
+        mjesecPrskanje = view.findViewById(R.id.ovajMjesecIspod);
+        ukupnoPrskanja = view.findViewById(R.id.ukupnoIspod);
+
+        danasPrskanje.setText(String.valueOf(UtilityClass.getPrskanjeDanas(MainActivity2.evidencijaList)) + "ha");
+        mjesecPrskanje.setText(String.valueOf(UtilityClass.getPrskanjeMjesec(MainActivity2.evidencijaList)) + "ha");
+        ukupnoPrskanja.setText(String.valueOf(UtilityClass.getPrskanjeUkupno(MainActivity2.evidencijaList)) + "ha");
+
+
+        RelativeLayout constraintLayout=view.findViewById(R.id.relativeLayout);
+        AnimationDrawable animationDrawable = (AnimationDrawable) constraintLayout.getBackground();
+        animationDrawable.setEnterFadeDuration(2500);
+        animationDrawable.setExitFadeDuration(5000);
+        animationDrawable.start();
        if(string != null)
            temperatureTextView.setText(string);
 

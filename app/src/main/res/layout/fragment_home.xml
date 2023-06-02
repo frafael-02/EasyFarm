@@ -23,12 +23,13 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             app:layout_constraintGuide_percent="0.10" />
+
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/lowerGuidline"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.40" />
+            app:layout_constraintGuide_percent="0.45" />
 
 
             <ImageView
@@ -63,23 +64,22 @@
         <RelativeLayout
             android:id="@+id/relativeLayout2"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
+            android:layout_height="wrap_content"
             android:background="@drawable/gradient_shape_back"
             android:elevation="20dp"
             android:layout_marginEnd="10dp"
             android:layout_marginStart="10dp"
-            app:layout_constraintBottom_toBottomOf="@id/lowerGuidline"
             app:layout_constraintTop_toBottomOf="@id/titleGuidline">
 
             <ImageView
                 android:id="@+id/cloud"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_centerHorizontal="true"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_alignParentStart="true"
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="10dp"
-                android:layout_marginEnd="10dp"
                 android:layout_marginBottom="10dp"
+                android:layout_marginEnd="10dp"
                 android:scaleType="fitXY"
                 android:src="@drawable/cloud" />
 
@@ -89,27 +89,177 @@
                     android:id="@+id/tempratureTextView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/cloud"
-                    android:layout_centerHorizontal="true"
-                    android:padding="5dp"
+                    android:layout_toRightOf="@+id/cloud"
+                    android:layout_alignTop="@id/cloud"
+                    android:layout_alignBottom="@id/cloud"
+                    android:gravity="center"
                     android:textAlignment="center"
                     android:hint="Učitavanje"
                     android:textColorHint="@color/iconGrey"
-                    android:fontFamily="@font/poppinsregular"
                     android:textColor="@color/white"
-                    android:textSize="48sp" />
-                <!--     <TextView
-                android:id="@+id/temp"
+                    android:textSize="24sp" />
+            <TextView
+                android:id="@+id/mjestoTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="temp"
-                android:textSize="30sp"
-                android:layout_marginLeft="5dp"
+                android:layout_alignParentEnd="true"
+                android:layout_alignTop="@id/cloud"
+                android:gravity="center"
+                android:layout_marginEnd="15dp"
+                android:textAlignment="center"
+                android:hint="Učitavanje"
+                android:textColorHint="@color/iconGrey"
+                android:fontFamily="@font/poppinsregular"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                android:drawableStart="@drawable/location"
                 />
--->
+            <TextView
+                android:id="@+id/kooridnateTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/mjestoTextView"
+                android:layout_alignParentEnd="true"
+                android:gravity="center"
+                android:layout_marginEnd="15dp"
+                android:textAlignment="center"
+                android:hint="Učitavanje"
+                android:textColorHint="@color/iconGrey"
+                android:fontFamily="@font/poppinsregular"
+                android:textColor="@color/white"
+                android:textSize="8sp"
+                />
+
 
 
         </RelativeLayout>
+        <RelativeLayout
+            android:id="@+id/relativeLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:background="@drawable/animation_gradient_list"
+            android:padding="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/relativeLayout2">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:padding="16dp">
+
+                <TextView
+                    android:id="@+id/prskanjeTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true"
+                    android:text="PRSKANJE"
+                    android:textColor="@color/greyText"
+                    android:textSize="24sp"
+                    android:fontFamily="@font/poppinsregular"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:id="@+id/ukupnoLinearLayout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/prskanjeTextView"
+                    android:layout_alignParentStart="true"
+                    android:gravity="center"
+                    android:layout_marginTop="8dp"
+
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/ukupno"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="UKUPNO"
+                        android:textColor="@color/iconGrey"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/ukupnoIspod"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/ukupno"
+                        android:layout_alignParentLeft="true"
+                        android:text="ha"
+                        android:textColor="@color/greyText"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/prskanjeTextView"
+                    android:layout_centerHorizontal="true"
+                    android:gravity="center"
+                    android:layout_marginTop="8dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/ovajMjesec"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="OVAJ MJESEC"
+                        android:textAlignment="center"
+                        android:textColor="@color/iconGrey"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/ovajMjesecIspod"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/ovajMjesec"
+                        android:layout_alignParentRight="true"
+                        android:text="ha"
+                        android:textColor="@color/greyText"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/danasLinearLayout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/prskanjeTextView"
+                    android:layout_alignParentEnd="true"
+                    android:gravity="center"
+                    android:layout_marginTop="8dp"
+                    android:orientation="vertical">
+                    <TextView
+                        android:id="@+id/danas"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:text="DANAS"
+                        android:textColor="@color/iconGrey"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/danasIspod"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:text="ha"
+                        android:textColor="@color/greyText"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+
+
 
         <EditText
             android:id="@+id/pitanjeTextView"

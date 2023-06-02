@@ -76,7 +76,7 @@ BottomNavigationView bottomNavigationView;
         setContentView(binding.getRoot());
         bottomNavigationView=findViewById(R.id.bottomNavigation);
         bottomNavigationView.setBackgroundColor(Color.TRANSPARENT);
-        viewExplosion=findViewById(R.id.circle);
+        //viewExplosion=findViewById(R.id.circle);
         animation = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.animation_circle_explosion);
 
         if(savedInstanceState == null)
@@ -108,7 +108,7 @@ switch(item.getItemId()){
 
 
 
-        mButton = findViewById(R.id.addEvidencijaButton);
+   /*     mButton = findViewById(R.id.addEvidencijaButton);
         mButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -165,11 +165,11 @@ viewExplosion.startAnimation(animation);
                     startActivity(myIntent);
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
                         overridePendingTransition(R.anim.alpha_animation,R.anim.alpha_animation,getColor(R.color.greenDark));
-                    }*/
+                    }
 
             }
         });
-
+*/
 
         /*  ImageButton btnEvidencija = findViewById(R.id.btnEvidencija);
         ImageButton btnHome = findViewById(R.id.btnHome);

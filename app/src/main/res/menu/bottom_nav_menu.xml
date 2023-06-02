@@ -5,16 +5,15 @@
         android:icon="@drawable/house"
         android:id="@+id/btnHome"
         />
-    <item android:title="Photo"
-        android:id="@+id/btnAI"
-        android:icon="@drawable/camera"
-        android:color="@color/iconYellow" android:state_checked="true"
-        />
-    <item android:id="@+id/placeholder"
-        android:title=""/>
-    <item android:title="Database"
+    <item android:title="Evidencija"
         android:id="@+id/btnEvidencija"
-        android:icon="@drawable/database"/>
+        android:icon="@drawable/note"/>
+
+    <item android:title="Asistent"
+        android:id="@+id/btnAI"
+        android:icon="@drawable/ai_icon"
+        />
+
     <item android:title="Shop"
         android:id="@+id/shop"
         android:icon="@drawable/cart"/>

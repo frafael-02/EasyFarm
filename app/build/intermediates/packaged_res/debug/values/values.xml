@@ -28,7 +28,6 @@
     <string name="second_fragment_label">Second Fragment</string>
     <string name="title_activity_odabrani_pesticid">OdabraniPesticidActivity</string>
     <style name="Theme.Collapsingtoolbar" parent="">
-
         <item name="android:statusBarColor">@color/greenDark</item>
         <item name="android:textColor">@color/greyText</item>
         <item name="fontFamily">@font/poppinsbold</item>
