@@ -92,7 +92,7 @@
                 android:id="@+id/textView3"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="80dp"
+                android:layout_marginBottom="20dp"
                 android:textAlignment="center"
                 android:textColor="@color/greyText"
                 android:textSize="16sp"
