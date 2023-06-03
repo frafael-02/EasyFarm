@@ -41,11 +41,14 @@ import com.example.testapp.entiteti.UtilityClass;
 import com.facebook.shimmer.ShimmerFrameLayout;
 import com.github.drjacky.imagepicker.ImagePicker;
 import com.github.drjacky.imagepicker.constant.ImageProvider;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 
 import org.jetbrains.annotations.NotNull;
 
 
 import java.io.IOException;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
@@ -280,6 +283,12 @@ public class AiFragment extends Fragment {
                     if(pesticid !=null)
                     {
                         pesticidPreporuka.setText(pesticid.getNaziv());
+                        pesticidPreporuka.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                klikNaPesticid(pesticid);
+                            }
+                        });
                         pitanje.setText("Reci mi nešto o" + " " + pesticid.getNaziv());
                         pitaj("Reci mi nešto o" + " " + pesticid.getNaziv());
                         new Handler().postDelayed(new Runnable() {
@@ -358,6 +367,17 @@ public class AiFragment extends Fragment {
 
 
 
+    }
+
+    public void klikNaPesticid(Pesticid pesticid)
+    {
+        StorageReference storageReference = FirebaseStorage.getInstance().getReference().child("/pesticidiSlike/" + pesticid.getId() + ".jpg");
+        String imageUrl = storageReference.toString();
+        Intent intent = new Intent(getContext(), OdabraniPesticidActivity.class);
+        intent.putExtra("PESTICID", (Serializable) pesticid);
+
+        intent.putExtra("SLIKA", imageUrl);
+        startActivity(intent);
     }
 
 }
