@@ -284,7 +284,7 @@
             android:textColor="@color/iconGrey"
             android:fontFamily="@font/poppinsbold"
             android:text="ZA VAS PREPORUČUJEMO:"
-            app:layout_constraintTop_toBottomOf="@id/relativeLayout"
+            app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             android:layout_margin="10dp"
             />

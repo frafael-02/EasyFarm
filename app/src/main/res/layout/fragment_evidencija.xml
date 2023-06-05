@@ -8,11 +8,93 @@
     tools:context=".EvidencijaFragment">
 
     <!-- TODO: Update blank fragment layout -->
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    android:id="@+id/cordinator"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fitsSystemWindows="true">
+    <com.google.android.material.appbar.CollapsingToolbarLayout
+        android:id="@+id/collapsing_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true"
+        app:contentScrim="@color/background"
+        app:layout_scrollFlags="scroll|snap|exitUntilCollapsed"
+        app:title="Pesticid"
+        app:expandedTitleTextColor="@color/white"
+        app:collapsedTitleTextColor="@color/iconGrey"
+        app:expandedTitleTextAppearance="@style/Theme.Collapsingtoolbar"
+        app:collapsedTitleTextAppearance="@style/Theme.Collapsingtoolbar"
+        android:background="@drawable/background_item_pesticid"
+        >
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white">
+
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/leftVerticalGuidline1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.06" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/rightVerticalGuidline1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.94" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/dodajZemlju"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/main_square"
+            android:drawableEnd="@drawable/soil"
+            android:paddingEnd="10dp"
+            android:paddingStart="50dp"
+            android:text="Dodaj zemlju"
+            android:textColor="@color/greyText"
+            android:fontFamily="@font/poppinsbold"
+            android:textSize="16sp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintEnd_toEndOf="@id/rightVerticalGuidline1"
+            app:layout_constraintStart_toStartOf="@+id/leftVerticalGuidline1"
+            app:layout_constraintTop_toTopOf="parent"  />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/button8"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/main_square"
+            app:backgroundTint="@color/background"
+            android:drawableEnd="@drawable/pesticid"
+            android:paddingEnd="10dp"
+            android:paddingStart="50dp"
+            android:text="Dodaj pesticid"
+            android:textColor="@color/greyText"
+            android:fontFamily="@font/poppinsbold"
+            android:textSize="16sp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintEnd_toEndOf="@id/rightVerticalGuidline1"
+            app:layout_constraintStart_toStartOf="@+id/leftVerticalGuidline1"
+            app:layout_constraintTop_toBottomOf="@id/dodajZemlju" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.appbar.CollapsingToolbarLayout>
+    </com.google.android.material.appbar.AppBarLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/white">
+        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
+    android:background="@color/white">
 
 
         <androidx.constraintlayout.widget.Guideline
@@ -46,6 +128,7 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_marginTop="10dp"
+
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -84,46 +167,11 @@
             android:layout_marginEnd="20dp"
             app:layout_constraintEnd_toStartOf="@id/izvoz"
             app:layout_constraintStart_toStartOf="@+id/leftVerticalGuidline"
-            app:layout_constraintTop_toBottomOf="@id/button8"
+            app:layout_constraintTop_toTopOf="parent"
             />
 
 
 
-
-        <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/dodajZemlju"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:background="@drawable/main_square"
-            android:drawableEnd="@drawable/soil"
-            android:paddingEnd="10dp"
-            android:paddingStart="50dp"
-            android:text="Dodaj zemlju"
-            android:textColor="@color/greyText"
-            android:fontFamily="@font/poppinsbold"
-            android:textSize="16sp"
-            android:layout_marginTop="8dp"
-            app:layout_constraintEnd_toEndOf="@id/rightVerticalGuidline"
-            app:layout_constraintStart_toStartOf="@+id/leftVerticalGuidline"
-            app:layout_constraintTop_toTopOf="parent"  />
-
-        <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/button8"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:background="@drawable/main_square"
-                app:backgroundTint="@color/background"
-                android:drawableEnd="@drawable/pesticid"
-                android:paddingEnd="10dp"
-                android:paddingStart="50dp"
-                android:text="Dodaj pesticid"
-                android:textColor="@color/greyText"
-                android:fontFamily="@font/poppinsbold"
-                android:textSize="16sp"
-                android:layout_marginTop="8dp"
-                app:layout_constraintEnd_toEndOf="@id/rightVerticalGuidline"
-                app:layout_constraintStart_toStartOf="@+id/leftVerticalGuidline"
-                app:layout_constraintTop_toBottomOf="@id/dodajZemlju" />
 
     <com.google.android.material.button.MaterialButton
              android:id="@+id/izvoz"
@@ -140,7 +188,7 @@
             android:textSize="16sp"
             android:layout_marginTop="8dp"
             app:layout_constraintEnd_toEndOf="@id/rightVerticalGuidline"
-            app:layout_constraintTop_toBottomOf="@id/button8"
+            app:layout_constraintTop_toTopOf="parent"
              />
 
         <LinearLayout
@@ -212,35 +260,37 @@
 
                 />
         </LinearLayout>
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/addEvidencijaButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:translationZ="2dp"
-            android:backgroundTint="@color/greenDark"
-            android:clickable="true"
-            android:src="@android:drawable/ic_input_add"
-            app:maxImageSize="32dp"
-            app:tint="@android:color/white"
-            app:backgroundTint="@color/greenDark"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginEnd="30dp"
-            android:layout_marginBottom="90dp"
-            />
-        <View
-            android:id="@+id/circle"
-            android:layout_width="64dp"
-            android:layout_height="64dp"
-            android:background="@drawable/animation_circle"
-            android:visibility="invisible"
-            android:translationZ="50dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginEnd="30dp"
-            android:layout_marginBottom="90dp"/>
+
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/addEvidencijaButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:translationZ="2dp"
+        android:backgroundTint="@color/greenDark"
+        android:clickable="true"
+        android:src="@android:drawable/ic_input_add"
+        app:maxImageSize="32dp"
+        app:tint="@android:color/white"
+        app:backgroundTint="@color/greenDark"
+        android:baselineAlignBottom="false"
+        android:layout_gravity="bottom|end"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="90dp"
+        />
+    <View
+        android:id="@+id/circle"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:background="@drawable/animation_circle"
+        android:visibility="invisible"
+        android:translationZ="50dp"
+        android:baselineAlignBottom="false"
+        android:layout_gravity="bottom|end"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="90dp"/>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
 
 </FrameLayout>

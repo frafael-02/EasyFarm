@@ -27,13 +27,13 @@
             app:collapsedTitleTextAppearance="@style/Theme.Collapsingtoolbar"
             android:background="@drawable/background_item_pesticid"
             >
-<ImageButton
-    android:onClick="backArrow"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:src="@drawable/arrow"
-    android:backgroundTint="@color/transparent"
-    />
+        <ImageButton
+            android:onClick="backArrow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/arrow"
+            android:backgroundTint="@color/transparent"
+            />
             <ImageView
                 android:id="@+id/slika_odabrani_pesticid"
                 android:layout_width="match_parent"

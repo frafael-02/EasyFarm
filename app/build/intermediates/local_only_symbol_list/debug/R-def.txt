@@ -107,6 +107,7 @@ id collapsing_toolbar
 id constraintLayout
 id constraintLayout2
 id constraintLayout3
+id cordinator
 id cv_child_item
 id danas
 id danasIspod
@@ -151,6 +152,7 @@ id kontakti
 id kooridnateTextView
 id kulturaView
 id leftVerticalGuidline
+id leftVerticalGuidline1
 id linearLayout
 id linearLayout1
 id linearLayout2
@@ -204,6 +206,7 @@ id relativeLayout
 id relativeLayout2
 id repeatPasswordId
 id rightVerticalGuidline
+id rightVerticalGuidline1
 id rv_child
 id rv_home
 id rv_parent

@@ -3247,6 +3247,7 @@ id continuousVelocity
 id controls_shadow
 id controls_wrapper
 id coordinator
+id cordinator
 id cos
 id counterclockwise
 id cradle
@@ -3404,6 +3405,7 @@ id layout_scale_wheel
 id left
 id leftToRight
 id leftVerticalGuidline
+id leftVerticalGuidline1
 id left_to_right
 id legacy
 id light
@@ -3584,6 +3586,7 @@ id reverseSawtooth
 id right
 id rightToLeft
 id rightVerticalGuidline
+id rightVerticalGuidline1
 id right_icon
 id right_side
 id right_to_left
