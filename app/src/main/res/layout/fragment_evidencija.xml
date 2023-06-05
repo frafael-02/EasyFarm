@@ -215,6 +215,7 @@
             android:backgroundTint="@color/greenDark"
             android:clickable="true"
             android:src="@android:drawable/ic_input_add"
+            app:maxImageSize="32dp"
             app:tint="@android:color/white"
             app:backgroundTint="@color/greenDark"
             app:layout_constraintBottom_toBottomOf="parent"

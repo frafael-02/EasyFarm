@@ -3202,6 +3202,7 @@ id btnSpremi
 id button
 id button2
 id button3
+id button4
 id button8
 id buttonPanel
 id cache_measures
@@ -3236,6 +3237,7 @@ id compress
 id confirm_button
 id constraint
 id constraintLayout
+id constraintLayout2
 id container
 id content
 id contentPanel

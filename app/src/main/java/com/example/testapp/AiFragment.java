@@ -27,30 +27,20 @@ import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.ScaleAnimation;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
-import android.widget.RelativeLayout;
-import android.widget.ScrollView;
 import android.widget.TextView;
 
 import com.example.testapp.api.ImagePostRequest;
-import com.example.testapp.api.VirtualAgent;
 import com.example.testapp.entiteti.Pesticid;
 import com.example.testapp.entiteti.UtilityClass;
-import com.facebook.shimmer.ShimmerFrameLayout;
 import com.github.drjacky.imagepicker.ImagePicker;
 import com.github.drjacky.imagepicker.constant.ImageProvider;
-import com.google.firebase.storage.FirebaseStorage;
-import com.google.firebase.storage.StorageReference;
 
 import org.jetbrains.annotations.NotNull;
 
 
 import java.io.IOException;
-import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 
@@ -83,20 +73,7 @@ public class AiFragment extends Fragment {
     public Button analizaBtn;
     ProgressBar progressBar;
 
-    public EditText pitanje;
-
-    public TextView odgovor;
-
-    private static volatile String odgovorStatic;
-
-    public Button pitajBtn;
-
-    ShimmerFrameLayout shimmerFrameLayout;
-    ScrollView scrollView;
-
     private ActivityResultLauncher<Intent> launcher;
-
-    public long timer;
 
 
 
@@ -129,7 +106,6 @@ public class AiFragment extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
-        timer = 500L;
     }
 
     @Override
@@ -146,16 +122,6 @@ public class AiFragment extends Fragment {
         animationDrawable.setEnterFadeDuration(2500);
         animationDrawable.setExitFadeDuration(5000);
         animationDrawable.start();
-
-
-
-
-        pitanje = view.findViewById(R.id.pitanjeTextView);
-        odgovor=view.findViewById(R.id.odgovorText);
-        pitajBtn = view.findViewById(R.id.button3);
-        shimmerFrameLayout=view.findViewById(R.id.shimmer_view);
-        shimmerFrameLayout.setVisibility(View.INVISIBLE);
-        scrollView=view.findViewById(R.id.screenId);
 
         launcher=
                 registerForActivityResult(new ActivityResultContracts.StartActivityForResult(),(ActivityResult result)->{
@@ -233,33 +199,6 @@ public class AiFragment extends Fragment {
 
 
 
-        pitajBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                odgovorStatic=null;
-
-                timer=500L;
-
-                pitaj(pitanje.getText().toString());
-                new Handler().postDelayed(new Runnable() {
-                    public void run () {
-
-                        while(odgovorStatic == null)
-                        {}
-                        if(odgovorStatic!=null)
-                            odgovor.setText(odgovorStatic);
-
-
-
-                    }
-                }, timer);
-
-            }
-        });
-
-
-
 
 
         return view;
@@ -283,26 +222,6 @@ public class AiFragment extends Fragment {
                     if(pesticid !=null)
                     {
                         pesticidPreporuka.setText(pesticid.getNaziv());
-                        pesticidPreporuka.setOnClickListener(new View.OnClickListener() {
-                            @Override
-                            public void onClick(View v) {
-                                klikNaPesticid(pesticid);
-                            }
-                        });
-                        pitanje.setText("Reci mi nešto o" + " " + pesticid.getNaziv());
-                        pitaj("Reci mi nešto o" + " " + pesticid.getNaziv());
-                        new Handler().postDelayed(new Runnable() {
-                            public void run () {
-
-                                while(odgovorStatic == null)
-                                {}
-                                if(odgovorStatic!=null)
-                                    odgovor.setText(odgovorStatic);
-
-
-
-                            }
-                        }, timer);
                     }
                     else
                         pesticidPreporuka.setText("Nije pronađen pesticid za tu bolest.");
@@ -339,45 +258,6 @@ public class AiFragment extends Fragment {
                         launcher.launch(it);
                     }
                 }));
-    }
-
-
-    public void pitaj(String pitanje)
-    {
-        List<String> result = new ArrayList<>();
-        shimmerFrameLayout.setVisibility(View.VISIBLE);
-        scrollView.setVisibility(View.INVISIBLE);
-        shimmerFrameLayout.startShimmer();
-        Handler handler = new Handler();
-        handler.postDelayed(()->{
-
-            shimmerFrameLayout.stopShimmer();
-            shimmerFrameLayout.setVisibility(View.INVISIBLE);
-            scrollView.setVisibility(View.VISIBLE);
-
-        },3000);
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-
-                odgovorStatic = (VirtualAgent.chatGPT(pitanje));
-
-            }
-        }).start();
-
-
-
-    }
-
-    public void klikNaPesticid(Pesticid pesticid)
-    {
-        StorageReference storageReference = FirebaseStorage.getInstance().getReference().child("/pesticidiSlike/" + pesticid.getId() + ".jpg");
-        String imageUrl = storageReference.toString();
-        Intent intent = new Intent(getContext(), OdabraniPesticidActivity.class);
-        intent.putExtra("PESTICID", (Serializable) pesticid);
-
-        intent.putExtra("SLIKA", imageUrl);
-        startActivity(intent);
     }
 
 }
