@@ -5,83 +5,80 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".HomeFragment">
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    android:layout_width="match_parent"
+     android:layout_height="match_parent">
 
-
-
-
-
-
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appbar"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/white"
-        android:paddingBottom="80dp"
-        >
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/titleGuidline"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.10" />
-
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/lowerGuidline"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.45" />
-
-
+        android:layout_height="wrap_content"
+        android:translationZ="2dp"
+        android:fitsSystemWindows="true">
+        <com.google.android.material.appbar.CollapsingToolbarLayout
+            android:id="@+id/collapsing_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fitsSystemWindows="true"
+            app:contentScrim="@color/white"
+            app:layout_scrollFlags="scroll|snap|exitUntilCollapsed"
+            app:title="Pesticid"
+            app:expandedTitleTextColor="@color/white"
+            app:collapsedTitleTextColor="@color/iconGrey"
+            app:expandedTitleTextAppearance="@style/Theme.Collapsingtoolbar"
+            app:collapsedTitleTextAppearance="@style/Theme.Collapsingtoolbar"
+            android:background="@color/white"
+            >
             <ImageView
-                android:layout_width="0dp"
-                android:layout_height="0dp"
+                android:layout_width="80dp"
+                android:layout_height="50dp"
                 android:adjustViewBounds="true"
+                app:layout_constraintDimensionRatio="1:1"
                 android:src="@drawable/logo"
                 android:layout_margin="10dp"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toTopOf="@id/relativeLayout2"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_gravity="center|top"
+                app:layout_collapseMode="parallax"
                 />
 
 
             <ImageButton
                 android:id="@+id/profilBtn"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
                 android:adjustViewBounds="true"
                 app:layout_constraintDimensionRatio="1:1"
+                android:layout_margin="10dp"
+                android:layout_gravity="start|top"
                 android:backgroundTint="@color/transparent"
                 android:src="@drawable/account_home"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toTopOf="@id/relativeLayout2"
+                app:layout_collapseMode="parallax"
                 />
-
-
-
-
-        <RelativeLayout
-            android:id="@+id/relativeLayout2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/gradient_shape_back"
-            android:elevation="20dp"
-            android:layout_marginEnd="10dp"
-            android:layout_marginStart="10dp"
-            app:layout_constraintTop_toBottomOf="@id/titleGuidline">
-
-            <ImageView
-                android:id="@+id/cloud"
-                android:layout_width="80dp"
-                android:layout_height="80dp"
-                android:layout_alignParentStart="true"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="10dp"
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_marginTop="65dp"
+                >
+            <RelativeLayout
+                android:id="@+id/relativeLayout2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/gradient_shape_back"
+                android:elevation="20dp"
                 android:layout_marginEnd="10dp"
-                android:scaleType="fitXY"
-                android:src="@drawable/cloud" />
+                android:layout_marginStart="10dp">
+
+                <ImageView
+                    android:id="@+id/cloud"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/cloud" />
 
 
 
@@ -98,170 +95,212 @@
                     android:textColorHint="@color/iconGrey"
                     android:textColor="@color/white"
                     android:textSize="24sp" />
-            <TextView
-                android:id="@+id/mjestoTextView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:layout_alignTop="@id/cloud"
-                android:gravity="center"
-                android:layout_marginEnd="15dp"
-                android:textAlignment="center"
-                android:hint="Učitavanje"
-                android:textColorHint="@color/iconGrey"
-                android:fontFamily="@font/poppinsregular"
-                android:textColor="@color/white"
-                android:textSize="16sp"
-                android:drawableStart="@drawable/location"
-                />
-            <TextView
-                android:id="@+id/kooridnateTextView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/mjestoTextView"
-                android:layout_alignParentEnd="true"
-                android:gravity="center"
-                android:layout_marginEnd="15dp"
-                android:textAlignment="center"
-                android:hint="Učitavanje"
-                android:textColorHint="@color/iconGrey"
-                android:fontFamily="@font/poppinsregular"
-                android:textColor="@color/white"
-                android:textSize="8sp"
-                />
-
-
-
-        </RelativeLayout>
-        <RelativeLayout
-            android:id="@+id/relativeLayout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:background="@drawable/animation_gradient_list"
-            android:padding="10dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/relativeLayout2">
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentTop="true"
-                android:padding="16dp">
-
                 <TextView
-                    android:id="@+id/prskanjeTextView"
+                    android:id="@+id/mjestoTextView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentTop="true"
-                    android:layout_centerHorizontal="true"
-                    android:text="PRSKANJE"
-                    android:textColor="@color/greyText"
-                    android:textSize="24sp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignTop="@id/cloud"
+                    android:gravity="center"
+                    android:layout_marginEnd="15dp"
+                    android:textAlignment="center"
+                    android:hint="Učitavanje"
+                    android:textColorHint="@color/iconGrey"
                     android:fontFamily="@font/poppinsregular"
-                    android:textStyle="bold" />
-
-                <LinearLayout
-                    android:id="@+id/ukupnoLinearLayout"
+                    android:textColor="@color/white"
+                    android:textSize="16sp"
+                    android:drawableStart="@drawable/location"
+                    />
+                <TextView
+                    android:id="@+id/kooridnateTextView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_below="@id/prskanjeTextView"
-                    android:layout_alignParentStart="true"
-                    android:gravity="center"
-                    android:layout_marginTop="8dp"
-
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:id="@+id/ukupno"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="UKUPNO"
-                        android:textColor="@color/iconGrey"
-                        android:textSize="18sp"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:id="@+id/ukupnoIspod"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@id/ukupno"
-                        android:layout_alignParentLeft="true"
-                        android:text="ha"
-                        android:textColor="@color/greyText"
-                        android:textSize="16sp"
-                        android:textStyle="bold" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/prskanjeTextView"
-                    android:layout_centerHorizontal="true"
-                    android:gravity="center"
-                    android:layout_marginTop="8dp"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:id="@+id/ovajMjesec"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="OVAJ MJESEC"
-                        android:textAlignment="center"
-                        android:textColor="@color/iconGrey"
-                        android:textSize="18sp"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:id="@+id/ovajMjesecIspod"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@id/ovajMjesec"
-                        android:layout_alignParentRight="true"
-                        android:text="ha"
-                        android:textColor="@color/greyText"
-                        android:textSize="16sp"
-                        android:textStyle="bold" />
-                </LinearLayout>
-                <LinearLayout
-                    android:id="@+id/danasLinearLayout"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/prskanjeTextView"
+                    android:layout_below="@+id/mjestoTextView"
                     android:layout_alignParentEnd="true"
                     android:gravity="center"
-                    android:layout_marginTop="8dp"
-                    android:orientation="vertical">
-                    <TextView
-                        android:id="@+id/danas"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                    android:layout_marginEnd="15dp"
+                    android:textAlignment="center"
+                    android:hint="Učitavanje"
+                    android:textColorHint="@color/iconGrey"
+                    android:fontFamily="@font/poppinsregular"
+                    android:textColor="@color/white"
+                    android:textSize="8sp"
+                    />
 
-                        android:text="DANAS"
-                        android:textColor="@color/iconGrey"
-                        android:textSize="18sp"
-                        android:textStyle="bold" />
 
-                    <TextView
-                        android:id="@+id/danasIspod"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
 
-                        android:text="ha"
-                        android:textColor="@color/greyText"
-                        android:textSize="16sp"
-                        android:textStyle="bold" />
-                </LinearLayout>
             </RelativeLayout>
+            <RelativeLayout
+                android:id="@+id/relativeLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="@drawable/animation_gradient_list"
+                android:padding="10dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/relativeLayout2">
 
-        </RelativeLayout>
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:padding="16dp">
+
+                    <TextView
+                        android:id="@+id/prskanjeTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentTop="true"
+                        android:layout_centerHorizontal="true"
+                        android:text="PRSKANJE"
+                        android:textColor="@color/greyText"
+                        android:textSize="24sp"
+                        android:fontFamily="@font/poppinsregular"
+                        android:textStyle="bold" />
+
+                    <LinearLayout
+                        android:id="@+id/ukupnoLinearLayout"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/prskanjeTextView"
+                        android:layout_alignParentStart="true"
+                        android:gravity="center"
+                        android:layout_marginTop="8dp"
+
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/ukupno"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="UKUPNO"
+                            android:textColor="@color/iconGrey"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/ukupnoIspod"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/ukupno"
+                            android:layout_alignParentLeft="true"
+                            android:text="ha"
+                            android:textColor="@color/greyText"
+                            android:textSize="16sp"
+                            android:textStyle="bold"
+                            />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/prskanjeTextView"
+                        android:layout_centerHorizontal="true"
+                        android:gravity="center"
+                        android:layout_marginTop="8dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/ovajMjesec"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="OVAJ MJESEC"
+                            android:textAlignment="center"
+                            android:textColor="@color/iconGrey"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/ovajMjesecIspod"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/ovajMjesec"
+                            android:layout_alignParentRight="true"
+                            android:text="ha"
+                            android:textColor="@color/greyText"
+                            android:textSize="16sp"
+                            android:textStyle="bold"/>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:id="@+id/danasLinearLayout"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/prskanjeTextView"
+                        android:layout_alignParentEnd="true"
+                        android:gravity="center"
+                        android:layout_marginTop="8dp"
+                        android:orientation="vertical">
+                        <TextView
+                            android:id="@+id/danas"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+
+                            android:text="DANAS"
+                            android:textColor="@color/iconGrey"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/danasIspod"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="ha"
+                            android:textStyle="bold"
+                            android:textColor="@color/greyText"
+                            android:textSize="16sp" />
+                    </LinearLayout>
+                </RelativeLayout>
+
+            </RelativeLayout>
+            </LinearLayout>
+
+           <!-- <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                app:layout_collapseMode="pin"/>-->
 
 
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+
+    </com.google.android.material.appbar.AppBarLayout>
 
 
-        <EditText
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
+        >
+
+
+        <TextView
+            android:id="@+id/preporuka_RecyclerView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:textColor="@color/iconGrey"
+            android:fontFamily="@font/poppinsbold"
+            android:text="ZA VAS PREPORUČUJEMO:"
+            app:layout_constraintTop_toBottomOf="@id/relativeLayout"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_margin="10dp"
+            />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_home"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="10dp"
+            app:layout_constraintTop_toBottomOf="@id/preporuka_RecyclerView"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            />
+
+   <!--     <EditText
             android:id="@+id/pitanjeTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -345,7 +384,7 @@
 
 
         </com.facebook.shimmer.ShimmerFrameLayout>
-
+-->
     </androidx.constraintlayout.widget.ConstraintLayout>
-
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
 </FrameLayout>

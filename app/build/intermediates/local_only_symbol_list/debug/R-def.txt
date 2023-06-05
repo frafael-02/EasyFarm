@@ -106,6 +106,7 @@ id cloud
 id collapsing_toolbar
 id constraintLayout
 id constraintLayout2
+id constraintLayout3
 id cv_child_item
 id danas
 id danasIspod
@@ -138,7 +139,6 @@ id fragmentHorizontalGuidline
 id fungicid
 id google
 id herbicid
-id horizontalGuidline
 id imageView
 id imageView2
 id imageView4
@@ -165,6 +165,7 @@ id loginButton
 id lowerGuidline
 id mail
 id mainLayout
+id main_relative_layout
 id main_square
 id mipgtextView
 id mjestoTextView
@@ -179,6 +180,7 @@ id nazivView
 id nemateProfil
 id odgovorText
 id opisTextView
+id opis_child_item
 id ovajMjesec
 id ovajMjesecIspod
 id passwordId
@@ -188,6 +190,7 @@ id planerFragmentId
 id povrsinaId
 id povrsinaId2
 id povrsinaTextView
+id preporuka_RecyclerView
 id preporuka_button
 id preporuka_textView
 id primjena_button
@@ -202,6 +205,7 @@ id relativeLayout2
 id repeatPasswordId
 id rightVerticalGuidline
 id rv_child
+id rv_home
 id rv_parent
 id screenId
 id searchBar
@@ -261,6 +265,7 @@ layout fragment_ai
 layout fragment_evidencija
 layout fragment_home
 layout fragment_shop
+layout general_rv_shop_layout
 layout home_loading
 layout item
 layout layout_dialog
@@ -295,5 +300,7 @@ style Theme.TestApp
 style Theme.TestApp.AppBarOverlay
 style Theme.TestApp.NoActionBar
 style Theme.TestApp.PopupOverlay
+style Theme.dole.evidencija
+style Theme.glavni.evidencija
 xml backup_rules
 xml data_extraction_rules

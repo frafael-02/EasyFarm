@@ -3238,6 +3238,7 @@ id confirm_button
 id constraint
 id constraintLayout
 id constraintLayout2
+id constraintLayout3
 id container
 id content
 id contentPanel
@@ -3361,7 +3362,6 @@ id hideable
 id home
 id homeAsUp
 id honorRequest
-id horizontalGuidline
 id horizontal_only
 id icon
 id icon_group
@@ -3431,6 +3431,7 @@ id lytGalleryPick
 id m3_side_sheet
 id mail
 id mainLayout
+id main_relative_layout
 id main_square
 id marquee
 id masked
@@ -3530,6 +3531,7 @@ id off
 id on
 id onInterceptTouchReturnSwipe
 id opisTextView
+id opis_child_item
 id outline
 id outward
 id ovajMjesec
@@ -3556,6 +3558,7 @@ id postLayout
 id povrsinaId
 id povrsinaId2
 id povrsinaTextView
+id preporuka_RecyclerView
 id preporuka_button
 id preporuka_textView
 id pressed
@@ -3589,6 +3592,7 @@ id rounded
 id row_index_key
 id rtl
 id rv_child
+id rv_home
 id rv_parent
 id save_non_transition_alpha
 id save_overlay_view
@@ -3941,6 +3945,7 @@ layout fragment_ai
 layout fragment_evidencija
 layout fragment_home
 layout fragment_shop
+layout general_rv_shop_layout
 layout home_loading
 layout item
 layout layout_dialog
@@ -4866,6 +4871,8 @@ style Theme_TestApp_AppBarOverlay
 style Theme_TestApp_NoActionBar
 style Theme_TestApp_PopupOverlay
 style Theme_Transparent_ImagePicker
+style Theme_dole_evidencija
+style Theme_glavni_evidencija
 style ThemeOverlay_AppCompat
 style ThemeOverlay_AppCompat_ActionBar
 style ThemeOverlay_AppCompat_Dark

@@ -4,38 +4,35 @@ import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
 
 import androidx.appcompat.widget.AppCompatImageButton;
-import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
-import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.EditText;
 
 import android.widget.RelativeLayout;
-import android.widget.ScrollView;
 import android.widget.TextView;
 
 
 import com.example.testapp.api.OpenMeteoApiClient;
 
 import com.example.testapp.api.PoljeAPI;
-import com.example.testapp.api.VirtualAgent;
 
 import com.example.testapp.database.DatabaseQueries;
 import com.example.testapp.entiteti.AccountDialog;
 import com.example.testapp.entiteti.Current;
 
 import com.example.testapp.entiteti.Evidencija;
-import com.example.testapp.entiteti.Koordinate;
 import com.example.testapp.entiteti.Korisnik;
 import com.example.testapp.entiteti.Polje;
 import com.example.testapp.entiteti.UtilityClass;
 import com.example.testapp.entiteti.WeatherData;
 import com.example.testapp.entiteti.WeatherDataCallback;
-import com.facebook.shimmer.ShimmerFrameLayout;
+import com.example.testapp.shop.GeneralShopAdapter;
+import com.example.testapp.shop.ParentAdapter;
+import com.example.testapp.shop.ShopChildModelClass;
 
 
 import java.util.ArrayList;
@@ -64,17 +61,14 @@ public class HomeFragment extends Fragment implements DataLoadListener, PoljeAPI
 
     private OpenMeteoApiClient apiClient;
     public TextView temperatureTextView;
-
-    public EditText pitanje;
-
-    public TextView odgovor;
-
-
     public static String string;
 
     public long timer;
 
-    public Button pitajBtn;
+    RecyclerView recyclerView;
+    List<ShopChildModelClass> childModelClassArrayList;
+    GeneralShopAdapter generalShopAdapter;
+
 
     public TextView ukupnoPrskanja;
     public TextView danasPrskanje;
@@ -82,8 +76,6 @@ public class HomeFragment extends Fragment implements DataLoadListener, PoljeAPI
 
 
     private int br;
-    ShimmerFrameLayout shimmerFrameLayout;
-    ScrollView scrollView;
 
     public HomeFragment() {
         // Required empty public constructor
@@ -117,7 +109,6 @@ public class HomeFragment extends Fragment implements DataLoadListener, PoljeAPI
 
 
 
-
         if(MainActivity2.poljeList == null)
             MainActivity2.poljeList =DatabaseQueries.getPolja();
         br=0;
@@ -138,15 +129,18 @@ public class HomeFragment extends Fragment implements DataLoadListener, PoljeAPI
         // Inflate the layout for this fragment
         View view =inflater.inflate(R.layout.fragment_home, container, false);
         temperatureTextView = view.findViewById(R.id.tempratureTextView);
-        pitanje = view.findViewById(R.id.pitanjeTextView);
-        odgovor=view.findViewById(R.id.odgovorText);
-        pitajBtn = view.findViewById(R.id.button3);
-        shimmerFrameLayout=view.findViewById(R.id.shimmer_view);
-        shimmerFrameLayout.setVisibility(View.INVISIBLE);
-        scrollView=view.findViewById(R.id.screenId);
         danasPrskanje = view.findViewById(R.id.danasIspod);
         mjesecPrskanje = view.findViewById(R.id.ovajMjesecIspod);
         ukupnoPrskanja = view.findViewById(R.id.ukupnoIspod);
+
+        recyclerView=view.findViewById(R.id.rv_home);
+        childModelClassArrayList=new ArrayList<>();
+        childModelClassArrayList= UtilityClass.pesticidToShopList(MainActivity2.pesticidList);
+        generalShopAdapter=new GeneralShopAdapter(childModelClassArrayList,view.getContext());
+        recyclerView.setLayoutManager(new LinearLayoutManager(view.getContext()));
+        recyclerView.setAdapter(generalShopAdapter);
+        generalShopAdapter.notifyDataSetChanged();;
+
 
         if(MainActivity2.evidencijaList != null)
         {
@@ -186,7 +180,7 @@ public class HomeFragment extends Fragment implements DataLoadListener, PoljeAPI
             }
         });
 
-        pitajBtn.setOnClickListener(new View.OnClickListener() {
+        /*pitajBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
@@ -194,7 +188,7 @@ public class HomeFragment extends Fragment implements DataLoadListener, PoljeAPI
 
                 timer=500L;
 
-                pitaj(pitanje.getText().toString());
+                //pitaj(pitanje.getText().toString());
                 new Handler().postDelayed(new Runnable() {
                     public void run () {
 
@@ -209,10 +203,7 @@ public class HomeFragment extends Fragment implements DataLoadListener, PoljeAPI
                 }, timer);
 
             }
-        });
-
-
-
+        });*/
         return view;
     }
 
@@ -222,7 +213,7 @@ public class HomeFragment extends Fragment implements DataLoadListener, PoljeAPI
         accountDialog.show(getParentFragmentManager(), "Vaš korisnički profil");
     }
 
-    public void pitaj(String pitanje)
+  /*  public void pitaj(String pitanje)
     {
         List<String> result = new ArrayList<>();
         shimmerFrameLayout.setVisibility(View.VISIBLE);
@@ -247,7 +238,7 @@ public class HomeFragment extends Fragment implements DataLoadListener, PoljeAPI
 
 
 
-    }
+    }*/
 
     @Override
     public void onDataLoaded(Polje polje)

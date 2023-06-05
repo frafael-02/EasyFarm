@@ -104,6 +104,10 @@
         "source": "C:\\Users\\anton\\.gradle\\daemon\\7.5\\com.example.testapp-main-54:\\drawable\\shadow.xml"
     },
     {
+        "merged": "com.example.testapp-merged_res-52:/layout_fragment_home.xml.flat",
+        "source": "com.example.testapp-main-54:/layout/fragment_home.xml"
+    },
+    {
         "merged": "C:\\Users\\anton\\.gradle\\daemon\\7.5\\com.example.testapp-merged_res-52:\\layout_fragment_shop.xml.flat",
         "source": "C:\\Users\\anton\\.gradle\\daemon\\7.5\\com.example.testapp-main-54:\\layout\\fragment_shop.xml"
     },
@@ -336,12 +340,12 @@
         "source": "C:\\Users\\anton\\.gradle\\daemon\\7.5\\com.example.testapp-main-54:\\layout\\activity_main2.xml"
     },
     {
-        "merged": "C:\\Users\\anton\\.gradle\\daemon\\7.5\\com.example.testapp-merged_res-52:\\drawable_style_spinner.xml.flat",
-        "source": "C:\\Users\\anton\\.gradle\\daemon\\7.5\\com.example.testapp-main-54:\\drawable\\style_spinner.xml"
-    },
-    {
         "merged": "C:\\Users\\anton\\.gradle\\daemon\\7.5\\com.example.testapp-merged_res-52:\\layout_activity_nova_evidencija.xml.flat",
         "source": "C:\\Users\\anton\\.gradle\\daemon\\7.5\\com.example.testapp-main-54:\\layout\\activity_nova_evidencija.xml"
+    },
+    {
+        "merged": "C:\\Users\\anton\\.gradle\\daemon\\7.5\\com.example.testapp-merged_res-52:\\drawable_style_spinner.xml.flat",
+        "source": "C:\\Users\\anton\\.gradle\\daemon\\7.5\\com.example.testapp-main-54:\\drawable\\style_spinner.xml"
     },
     {
         "merged": "C:\\Users\\anton\\.gradle\\daemon\\7.5\\com.example.testapp-merged_res-52:\\drawable_animation_background3.xml.flat",
@@ -350,6 +354,10 @@
     {
         "merged": "C:\\Users\\anton\\.gradle\\daemon\\7.5\\com.example.testapp-merged_res-52:\\layout_activity_main.xml.flat",
         "source": "C:\\Users\\anton\\.gradle\\daemon\\7.5\\com.example.testapp-main-54:\\layout\\activity_main.xml"
+    },
+    {
+        "merged": "C:\\Users\\anton\\.gradle\\daemon\\7.5\\com.example.testapp-merged_res-52:\\layout_general_rv_shop_layout.xml.flat",
+        "source": "C:\\Users\\anton\\.gradle\\daemon\\7.5\\com.example.testapp-main-54:\\layout\\general_rv_shop_layout.xml"
     },
     {
         "merged": "C:\\Users\\anton\\.gradle\\daemon\\7.5\\com.example.testapp-merged_res-52:\\layout_child_rv_layout.xml.flat",
@@ -374,10 +382,6 @@
     {
         "merged": "C:\\Users\\anton\\.gradle\\daemon\\7.5\\com.example.testapp-merged_res-52:\\drawable_search.xml.flat",
         "source": "C:\\Users\\anton\\.gradle\\daemon\\7.5\\com.example.testapp-main-54:\\drawable\\search.xml"
-    },
-    {
-        "merged": "com.example.testapp-merged_res-52:/layout_fragment_ai.xml.flat",
-        "source": "com.example.testapp-main-54:/layout/fragment_ai.xml"
     },
     {
         "merged": "C:\\Users\\anton\\.gradle\\daemon\\7.5\\com.example.testapp-merged_res-52:\\layout_color_spinner_layout.xml.flat",
@@ -468,12 +472,12 @@
         "source": "C:\\Users\\anton\\.gradle\\daemon\\7.5\\com.example.testapp-main-54:\\drawable\\ic_launcher_background.xml"
     },
     {
-        "merged": "C:\\Users\\anton\\.gradle\\daemon\\7.5\\com.example.testapp-merged_res-52:\\drawable_soil.xml.flat",
-        "source": "C:\\Users\\anton\\.gradle\\daemon\\7.5\\com.example.testapp-main-54:\\drawable\\soil.xml"
-    },
-    {
         "merged": "C:\\Users\\anton\\.gradle\\daemon\\7.5\\com.example.testapp-merged_res-52:\\layout_activity_odabrana_evidencija.xml.flat",
         "source": "C:\\Users\\anton\\.gradle\\daemon\\7.5\\com.example.testapp-main-54:\\layout\\activity_odabrana_evidencija.xml"
+    },
+    {
+        "merged": "C:\\Users\\anton\\.gradle\\daemon\\7.5\\com.example.testapp-merged_res-52:\\drawable_soil.xml.flat",
+        "source": "C:\\Users\\anton\\.gradle\\daemon\\7.5\\com.example.testapp-main-54:\\drawable\\soil.xml"
     },
     {
         "merged": "C:\\Users\\anton\\.gradle\\daemon\\7.5\\com.example.testapp-merged_res-52:\\layout_parent_rv_layout.xml.flat",

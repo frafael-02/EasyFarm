@@ -51,9 +51,11 @@ tools:context=".OdabranaEvidencijaActivity">
     android:layout_width="match_parent"
     android:layout_height="0dp"
     android:background="@drawable/main_square"
-    android:layout_marginBottom="20dp"
     android:layout_marginStart="5dp"
     android:layout_marginEnd="5dp"
+    android:layout_marginBottom="5sp"
+    android:paddingStart="5dp"
+    android:paddingEnd="5dp"
     app:layout_constraintEnd_toEndOf="parent"
     app:layout_constraintStart_toStartOf="parent"
     app:layout_constraintTop_toTopOf="@id/titleGuidline"
@@ -64,7 +66,6 @@ tools:context=".OdabranaEvidencijaActivity">
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:background="@color/white"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -76,17 +77,16 @@ tools:context=".OdabranaEvidencijaActivity">
             android:layout_height="wrap_content"
             android:background="@drawable/style_spinner"
             android:spinnerMode="dropdown"
-            android:layout_marginStart="5dp"
+
             />
 
         <TextView
             android:id="@+id/nazivPolja"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
             android:text="DOMAĆI NAZIV"
-            android:textSize="10sp"
-            android:textColor="@color/iconGrey"/>
+            style="@style/Theme.dole.evidencija"
+           />
 
     </LinearLayout>
     <LinearLayout
@@ -94,7 +94,6 @@ tools:context=".OdabranaEvidencijaActivity">
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:background="@color/white"
         android:orientation="vertical"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout1"
         app:layout_constraintStart_toStartOf="parent">
@@ -102,23 +101,17 @@ tools:context=".OdabranaEvidencijaActivity">
             android:id="@+id/arkodId"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/white"
-            android:drawableEnd="@drawable/pen"
-            android:textColor="@color/greyText"
-            android:textStyle="bold"
-            android:textSize="20sp"
             android:hint="ARKOD ID"
-            android:inputType="number"
-            android:layout_marginStart="10dp"
+            style="@style/Theme.glavni.evidencija"
+
+
             />
         <TextView
             android:id="@+id/arkodTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="10sp"
             android:text="ARKOD ID"
-            android:layout_marginStart="10dp"
-            android:textColor="@color/iconGrey"
+            style="@style/Theme.dole.evidencija"
             />
     </LinearLayout>
     <LinearLayout
@@ -126,7 +119,6 @@ tools:context=".OdabranaEvidencijaActivity">
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:background="@color/white"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -138,16 +130,13 @@ tools:context=".OdabranaEvidencijaActivity">
             android:layout_height="wrap_content"
             android:background="@drawable/style_spinner"
             android:spinnerMode="dropdown"
-            android:layout_marginStart="5dp"
             />
         <TextView
             android:id="@+id/nazivKulture"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="10sp"
             android:text="TRETIRANA KULTURA"
-            android:layout_marginStart="10dp"
-            android:textColor="@color/iconGrey"
+            style="@style/Theme.dole.evidencija"
             />
     </LinearLayout>
     <LinearLayout
@@ -155,7 +144,6 @@ tools:context=".OdabranaEvidencijaActivity">
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:background="@color/white"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -167,16 +155,13 @@ tools:context=".OdabranaEvidencijaActivity">
             android:layout_height="wrap_content"
             android:background="@drawable/style_spinner"
             android:spinnerMode="dropdown"
-            android:layout_marginStart="5dp"
             />
         <TextView
             android:id="@+id/nazivPesticida"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="10sp"
             android:text="NAZIV SREDSTVA"
-            android:layout_marginStart="10dp"
-            android:textColor="@color/iconGrey"
+            style="@style/Theme.dole.evidencija"
             />
 
     </LinearLayout>
@@ -187,7 +172,6 @@ tools:context=".OdabranaEvidencijaActivity">
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:background="@color/white"
         android:orientation="vertical"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout3"
         app:layout_constraintStart_toStartOf="parent">
@@ -195,23 +179,18 @@ tools:context=".OdabranaEvidencijaActivity">
             android:id="@+id/povrsinaId2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/white"
-            android:drawableEnd="@drawable/pen"
-            android:textColor="@color/greyText"
-            android:textStyle="bold"
-            android:textSize="20sp"
             android:hint="POVRŠINA(Ha)"
             android:inputType="number"
-            android:layout_marginStart="10dp"
+            style="@style/Theme.glavni.evidencija"
+
+
             />
         <TextView
             android:id="@+id/povrsinaTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="10sp"
             android:text="POVRŠINA"
-            android:layout_marginStart="10dp"
-            android:textColor="@color/iconGrey"
+            style="@style/Theme.dole.evidencija"
             />
     </LinearLayout>
 
@@ -221,7 +200,6 @@ tools:context=".OdabranaEvidencijaActivity">
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:background="@color/white"
         android:orientation="vertical"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout4"
         app:layout_constraintStart_toStartOf="parent">
@@ -231,21 +209,16 @@ tools:context=".OdabranaEvidencijaActivity">
             android:layout_height="wrap_content"
             android:hint="Doza(ml)"
             android:inputType="number"
-            android:background="@color/white"
-            android:drawableEnd="@drawable/pen"
-            android:textColor="@color/greyText"
-            android:textStyle="bold"
-            android:textSize="20sp"
-            android:layout_marginStart="10dp"
+            style="@style/Theme.glavni.evidencija"
+
             />
         <TextView
             android:id="@+id/dozaTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="10sp"
             android:text="DOZA"
-            android:layout_marginStart="10dp"
-            android:textColor="@color/iconGrey"
+            style="@style/Theme.dole.evidencija"
+
             />
     </LinearLayout>
     <LinearLayout
@@ -253,7 +226,6 @@ tools:context=".OdabranaEvidencijaActivity">
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:background="@color/white"
         android:orientation="vertical"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout5"
         app:layout_constraintStart_toStartOf="parent">
@@ -262,23 +234,24 @@ tools:context=".OdabranaEvidencijaActivity">
             android:id="@+id/datumId2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:background="@color/white"
             android:drawableEnd="@drawable/date"
             android:hint="DATUM"
-            android:inputType="none"
-            android:onClick="pickDatum"
+            android:textColorHint="@color/iconGrey"
+            android:inputType="number"
+            android:background="@drawable/main_square"
+            android:backgroundTint="@color/white"
             android:textColor="@color/greyText"
-            android:textSize="20sp"
-            android:textStyle="bold" />
+            android:fontFamily="@font/poppinsregular"
+            android:padding="10dp"
+            android:textSize="16sp"
+            />
         <TextView
             android:id="@+id/datumTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="10sp"
             android:text="DATUM"
-            android:layout_marginStart="10dp"
-            android:textColor="@color/iconGrey"
+            style="@style/Theme.dole.evidencija"
+
             />
     </LinearLayout>
 
@@ -295,29 +268,21 @@ tools:context=".OdabranaEvidencijaActivity">
             android:layout_weight="1"
             android:layout_marginTop="10dp"
             android:layout_marginRight="10dp"
-            android:background="@color/white"
             android:orientation="vertical">
             <EditText
                 android:id="@+id/vrijemeStartId"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="VRIJEME"
-                android:inputType="number"
-                android:background="@color/white"
-                android:drawableEnd="@drawable/watch"
-                android:textColor="@color/greyText"
-                android:textStyle="bold"
-                android:textSize="20sp"
-                android:layout_marginStart="10dp"
+                style="@style/Theme.glavni.evidencija"
+
                 />
             <TextView
                 android:id="@+id/vrijemeStartTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="10sp"
                 android:text="VRIJEME POČETKA"
-                android:layout_marginStart="10dp"
-                android:textColor="@color/iconGrey"
+                style="@style/Theme.dole.evidencija"
                 />
         </LinearLayout>
         <LinearLayout
@@ -326,29 +291,22 @@ tools:context=".OdabranaEvidencijaActivity">
             android:layout_weight="1"
             android:layout_marginTop="10dp"
             android:layout_marginLeft="10dp"
-            android:background="@color/white"
             android:orientation="vertical">
             <EditText
                 android:id="@+id/vrijemeKrajId"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="VRIJEME"
-                android:inputType="number"
-                android:background="@color/white"
-                android:drawableEnd="@drawable/watch"
-                android:textColor="@color/greyText"
-                android:textStyle="bold"
-                android:textSize="20sp"
-                android:layout_marginStart="10dp"
+                style="@style/Theme.glavni.evidencija"
+
                 />
             <TextView
                 android:id="@+id/vrijemeKrajTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="10sp"
                 android:text="VRIJEME ZAVRŠETKA"
-                android:layout_marginStart="10dp"
-                android:textColor="@color/iconGrey"
+                style="@style/Theme.dole.evidencija"
+
                 />
         </LinearLayout>
 
@@ -362,16 +320,13 @@ tools:context=".OdabranaEvidencijaActivity">
         android:id="@+id/btnSpremi"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="60px"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="5dp"
         android:onClick="spremiClicked"
         android:text=" SPREMI"
         android:background="@drawable/yellow_button"
         android:drawableStart="@drawable/save"
-        android:paddingLeft="10dp"
-        android:paddingRight="10dp"
-        android:paddingTop="10dp"
-        android:paddingBottom="10dp"
-        android:layout_marginTop="10dp"
+        android:padding="10dp"
         android:textColor="@color/greyText"
         android:fontFamily="@font/poppinsbold"
         android:textSize="20sp"

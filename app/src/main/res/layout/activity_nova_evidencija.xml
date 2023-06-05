@@ -66,7 +66,8 @@
         android:layout_marginBottom="20dp"
         android:layout_marginStart="5dp"
         android:layout_marginEnd="5dp"
-        android:padding="10dp"
+        android:paddingStart="5dp"
+        android:paddingEnd="5dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@id/titleGuidline"
@@ -206,13 +207,7 @@
                 android:hint="POVRŠINA(Ha)"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/main_square"
-                android:backgroundTint="@color/white"
-                android:drawableEnd="@drawable/pen"
-                android:textColor="@color/greyText"
-                android:fontFamily="@font/poppinsregular"
-                android:textSize="16sp"
-                android:padding="10dp"
+            style="@style/Theme.glavni.evidencija"
                 android:inputType="number"
                 />
             <!--      <TextView
@@ -242,13 +237,9 @@
                      android:layout_height="wrap_content"
                      android:hint="Doza(ml))"
                      android:inputType="number"
-                     android:background="@drawable/main_square"
-                     android:backgroundTint="@color/white"
-                     android:drawableEnd="@drawable/pen"
-                     android:textColor="@color/greyText"
-                     android:fontFamily="@font/poppinsregular"
-                     android:padding="10dp"
-                     android:textSize="16sp"
+                     style="@style/Theme.glavni.evidencija"
+
+
                      />
                  <!--<TextView
                      android:id="@+id/dozaTextView"

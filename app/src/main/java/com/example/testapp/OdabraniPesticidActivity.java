@@ -15,6 +15,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.view.View;
 import android.view.animation.AlphaAnimation;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -48,7 +49,7 @@ public class OdabraniPesticidActivity extends AppCompatActivity {
     TextView opis;
 
     TextView cijena;
-
+    ImageButton backArrow;
     boolean sigurnost_boolean=true;
     boolean primjena_boolean=true;
     boolean preporuka_boolean=true;
@@ -108,6 +109,7 @@ public class OdabraniPesticidActivity extends AppCompatActivity {
         formulacijaTextView.setText(pesticid.getFormulacija());
         emailTextView.setText(email);
         telefonTextView.setText(telefon);
+        backArrow=findViewById(R.id.backArrow);
 
 
 
@@ -182,7 +184,10 @@ public class OdabraniPesticidActivity extends AppCompatActivity {
 
 
 
-    }
 
+
+    }
+    public void backArrow(View view)
+    {     finish();    }
 
 }

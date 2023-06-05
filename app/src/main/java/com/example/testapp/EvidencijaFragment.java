@@ -214,21 +214,6 @@ public class EvidencijaFragment extends Fragment implements SelectListener {
         myAdapter = new MyAdapter(view.getContext(), (ArrayList<Evidencija>) MainActivity2.evidencijaList, this);
       recyclerView.setAdapter(myAdapter);
 
-      /*  FloatingActionButton mButton = (FloatingActionButton) view.findViewById(R.id.addEvidencijaButton);
-        mButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-
-                    Intent myIntent = new Intent(getActivity(), NovaEvidencijaActivity.class);
-
-
-                    startActivity(myIntent);
-
-
-            }
-        });
-*/
     Button novoPoljeBtn = view.findViewById(R.id.dodajZemlju);
     novoPoljeBtn.setOnClickListener(new View.OnClickListener(){
 
