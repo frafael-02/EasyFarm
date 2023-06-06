@@ -154,7 +154,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/pitanjeTextView" />
 
-            <ScrollView
+            <androidx.core.widget.NestedScrollView
                 android:id="@+id/screenId"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
@@ -167,7 +167,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/button3">
 
-                <TextView
+              <!--  <TextView
                     android:id="@+id/odgovorText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -178,10 +178,18 @@
                     android:textColor="@color/greyText"
                     android:textColorHint="@color/iconGrey"
                     android:textSize="16sp"
-                    app:layout_constraintEnd_toEndOf="parent" />
+                    app:layout_constraintEnd_toEndOf="parent" />-->
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
 
 
-            </ScrollView>
+            </androidx.core.widget.NestedScrollView>
+
+
+
 
             <com.facebook.shimmer.ShimmerFrameLayout
                 android:id="@+id/shimmer_view"
