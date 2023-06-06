@@ -18,6 +18,7 @@ import com.example.testapp.entiteti.Pesticid;
 import com.example.testapp.entiteti.RecyclerViewInterface;
 import com.example.testapp.entiteti.UtilityClass;
 import com.example.testapp.search.SearchActivty;
+import com.example.testapp.shop.GeneralShopAdapter;
 import com.example.testapp.shop.ParentAdapter;
 import com.example.testapp.shop.ShopChildModelClass;
 import com.example.testapp.shop.ShopParentModelClass;
@@ -28,11 +29,13 @@ import java.util.List;
 public class ShopFragment extends Fragment {
 
     RecyclerView recyclerView;
+    RecyclerView recyclerView2;
     ArrayList<ShopParentModelClass> parentModelClassArrayList;
     ArrayList<ShopChildModelClass> childModelClassArrayList;
     List<ShopChildModelClass> regularPList;
     List<ShopChildModelClass> bioPList;
-    ArrayList<ShopChildModelClass> josNekajPList;
+    List<ShopChildModelClass> dolePList;
+    GeneralShopAdapter generalShopAdapter;
     Button searchButton;
 
     ParentAdapter parentAdapter;
@@ -50,11 +53,12 @@ public class ShopFragment extends Fragment {
         searchButton=view.findViewById(R.id.searchBar);
 
         recyclerView=view.findViewById(R.id.rv_parent);
+        recyclerView2=view.findViewById(R.id.rv_general);
         childModelClassArrayList=new ArrayList<>();
         parentModelClassArrayList=new ArrayList<>();
         regularPList =new ArrayList<>();
         bioPList=new ArrayList<>();
-        josNekajPList=new ArrayList<>();
+        dolePList=new ArrayList<>();
 
       /*  regularPList.add(new ShopChildModelClass(R.drawable.pesticid,"pesticid"));
         regularPList.add(new ShopChildModelClass(R.drawable.backwheat,"pesticid"));
@@ -62,6 +66,7 @@ public class ShopFragment extends Fragment {
         regularPList.add(new ShopChildModelClass(R.drawable.backwheat,"pesticid"));
         regularPList.add(new ShopChildModelClass(R.drawable.backlogin,"pesticid"));*/
         regularPList= UtilityClass.pesticidToShopList(MainActivity2.pesticidList);
+        dolePList=UtilityClass.pesticidToShopList(MainActivity2.pesticidList);
 
         parentModelClassArrayList.add(new ShopParentModelClass("Pregled pesticida", (ArrayList<ShopChildModelClass>) regularPList));
 
@@ -82,12 +87,14 @@ public class ShopFragment extends Fragment {
         josNekajPList.add(new ShopChildModelClass(R.drawable.backwheat,"pesticid"));
         josNekajPList.add(new ShopChildModelClass(R.drawable.backlogin,"pesticid"));*/
 
-        parentModelClassArrayList.add(new ShopParentModelClass("bezveze pesticida",josNekajPList));
-
         parentAdapter=new ParentAdapter(parentModelClassArrayList,view.getContext());
+        generalShopAdapter=new GeneralShopAdapter(dolePList,view.getContext());
        recyclerView.setLayoutManager(new LinearLayoutManager(view.getContext()));
+        recyclerView2.setLayoutManager(new LinearLayoutManager(view.getContext()));
        recyclerView.setAdapter(parentAdapter);
-       parentAdapter.notifyDataSetChanged();;
+       recyclerView2.setAdapter(generalShopAdapter);
+       parentAdapter.notifyDataSetChanged();
+       generalShopAdapter.notifyDataSetChanged();
 
 
         searchButton.setOnClickListener(new View.OnClickListener() {

@@ -3342,7 +3342,6 @@ id forggotPassword
 id formulacija
 id formulacija_textView
 id fragmentContainerView
-id fragmentHorizontalGuidline
 id fragment_container_view_tag
 id frost
 id fullscreen_header
@@ -3499,7 +3498,6 @@ id mtrl_picker_text_input_range_start
 id mtrl_picker_title_text
 id mtrl_view_tag_bottom_padding
 id multiply
-id navBarVerticalGuidline
 id nav_controller_view_tag
 id nav_host_fragment_container
 id navigation_bar_item_active_indicator_view
@@ -3595,6 +3593,7 @@ id rounded
 id row_index_key
 id rtl
 id rv_child
+id rv_general
 id rv_home
 id rv_parent
 id save_non_transition_alpha

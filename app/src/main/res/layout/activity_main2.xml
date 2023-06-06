@@ -8,19 +8,7 @@
     android:backgroundTint="@color/white"
     tools:context=".MainActivity2">
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/navBarVerticalGuidline"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.9" />
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/fragmentHorizontalGuidline"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="1.0" />
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/fragmentContainerView"
@@ -32,7 +20,7 @@
         tools:layout="@layout/fragment_home"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/fragmentHorizontalGuidline"
+        app:layout_constraintBottom_toBottomOf="parent"
 
         />
 <!--<androidx.coordinatorlayout.widget.CoordinatorLayout
@@ -95,13 +83,13 @@
        android:translationZ="1dp"
        android:src="@drawable/main_square"
        app:layout_constraintBottom_toBottomOf="parent"
-       app:layout_constraintTop_toTopOf="@id/navBarVerticalGuidline"
-       app:tint="#F2FFFFFF" />
+       app:layout_constraintTop_toTopOf="@id/bottomNavigation"
+       app:tint="#D9FFFFFF" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNavigation"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
         android:translationZ="2dp"
         app:itemIconTint="@drawable/selector"
         app:itemTextColor="@drawable/selector"
@@ -111,7 +99,6 @@
         app:itemIconSize="24dp"
         app:layout_constraintHeight_percent="0.08"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toTopOf="@id/navBarVerticalGuidline"
         />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

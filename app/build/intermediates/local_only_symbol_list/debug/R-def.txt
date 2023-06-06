@@ -136,7 +136,6 @@ id forggotPassword
 id formulacija
 id formulacija_textView
 id fragmentContainerView
-id fragmentHorizontalGuidline
 id fungicid
 id google
 id herbicid
@@ -171,7 +170,6 @@ id main_relative_layout
 id main_square
 id mipgtextView
 id mjestoTextView
-id navBarVerticalGuidline
 id nazivId
 id nazivKulture
 id nazivPesticida
@@ -208,6 +206,7 @@ id repeatPasswordId
 id rightVerticalGuidline
 id rightVerticalGuidline1
 id rv_child
+id rv_general
 id rv_home
 id rv_parent
 id screenId
