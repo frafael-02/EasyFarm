@@ -6,8 +6,7 @@ import androidx.annotation.NonNull;
 import com.example.testapp.DataLoadListener;
 import com.example.testapp.EvidencijaLoadListener;
 import com.example.testapp.MainActivity2;
-import com.example.testapp.R;
-import com.example.testapp.api.PoljeAPI;
+import com.example.testapp.PesticidLoad;
 import com.example.testapp.entiteti.Biljka;
 import com.example.testapp.entiteti.Bolest;
 import com.example.testapp.entiteti.Evidencija;
@@ -37,9 +36,16 @@ private static DataLoadListener dataLoadListener;
 
 private static EvidencijaLoadListener evidencijaLoadListener;
 
+private static PesticidLoad pesticiLoad;
+
 public static void registerDataLoadedListener(DataLoadListener listener)
 {
     dataLoadListener = listener;
+}
+
+public static void registerDataLoadedPesticidListener(PesticidLoad listener)
+{
+    pesticiLoad=listener;
 }
 
     public static void registerEvidencijaLoadedListener(EvidencijaLoadListener listener)
@@ -72,6 +78,11 @@ public static void registerDataLoadedListener(DataLoadListener listener)
                     String mjereSigunorsti = pestSnapshot.child("mjereSigurnosti").getValue(String.class);
                     Pesticid pesticid = new Pesticid(id, attribute1, attribute2, cijena, opis, proizvodjacId, bio, vrsta, mjereSigunorsti, nacinDjelovanja, primjena, formulacija);
                     pesticidiList.add(pesticid);
+                }
+                if(pesticiLoad != null)
+                {
+                    pesticiLoad.onDataLoad2(pesticidiList);
+
                 }
 
 
