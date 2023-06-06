@@ -25,10 +25,15 @@ import androidx.activity.result.ActivityResult;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.core.widget.NestedScrollView;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.testapp.api.ChatAdapter;
 import com.example.testapp.api.ImagePostRequest;
 import com.example.testapp.api.VirtualAgent;
+import com.example.testapp.entiteti.Message;
 import com.example.testapp.entiteti.Pesticid;
 import com.example.testapp.entiteti.UtilityClass;
 import com.facebook.shimmer.ShimmerFrameLayout;
@@ -72,9 +77,13 @@ public class AiFragment extends Fragment {
     private static volatile String odgovorStatic;
     public Button pitajBtn;
     ShimmerFrameLayout shimmerFrameLayout;
-    ScrollView scrollView;
+    NestedScrollView scrollView;
     private ActivityResultLauncher<Intent> launcher;
     public long timer;
+
+    private RecyclerView recyclerView;
+    private ChatAdapter chatAdapter;
+    private static List<Message> messages = new ArrayList<>();
     public AiFragment() {
         // Required empty public constructor
     }
@@ -119,7 +128,7 @@ public class AiFragment extends Fragment {
         animationDrawable.setExitFadeDuration(5000);
         animationDrawable.start();
         pitanje = view.findViewById(R.id.pitanjeTextView);
-        odgovor=view.findViewById(R.id.odgovorText);
+       // odgovor=view.findViewById(R.id.odgovorText);
         pitajBtn = view.findViewById(R.id.button3);
         shimmerFrameLayout=view.findViewById(R.id.shimmer_view);
         shimmerFrameLayout.setVisibility(View.INVISIBLE);
@@ -198,11 +207,28 @@ public class AiFragment extends Fragment {
                         while(odgovorStatic == null)
                         {}
                         if(odgovorStatic!=null)
-                            odgovor.setText(odgovorStatic);
+                        {
+                            messages.add(new Message(odgovorStatic, false));
+                            chatAdapter.notifyItemInserted(messages.size() - 1);
+
+                            // Clear the input field
+
+
+                            // Scroll to the bottom of the RecyclerView
+                            recyclerView.scrollToPosition(messages.size() - 1);
+                            //  odgovor.setText(odgovorStatic);
+                        }
+
                     }
                 }, timer);
             }
         });
+
+        recyclerView = view.findViewById(R.id.recyclerView);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+
+        chatAdapter = new ChatAdapter(messages);
+        recyclerView.setAdapter(chatAdapter);
         return view;
     }
     public void sendImage(String uri)
@@ -226,14 +252,25 @@ public class AiFragment extends Fragment {
                                 klikNaPesticid(pesticid);
                             }
                         });
-                        pitanje.setText("Reci mi nešto o" + " " + pesticid.getNaziv());
+                       // pitanje.setText("Reci mi nešto o" + " " + pesticid.getNaziv());
                         pitaj("Reci mi nešto o" + " " + pesticid.getNaziv());
                         new Handler().postDelayed(new Runnable() {
                             public void run () {
                                 while(odgovorStatic == null)
                                 {}
                                 if(odgovorStatic!=null)
-                                    odgovor.setText(odgovorStatic);
+                                {
+                                    messages.add(new Message(odgovorStatic, false));
+                                    chatAdapter.notifyItemInserted(messages.size() - 1);
+
+                                    // Clear the input field
+
+
+                                    // Scroll to the bottom of the RecyclerView
+                                    recyclerView.scrollToPosition(messages.size() - 1);
+                                    // odgovor.setText(odgovorStatic);
+                                }
+
                             }
                         }, timer);
                     }
@@ -265,6 +302,15 @@ public class AiFragment extends Fragment {
     }
     public void pitaj(String pitanje)
     {
+        messages.add(new Message(pitanje, true));
+        chatAdapter.notifyItemInserted(messages.size() - 1);
+
+        // Clear the input field
+
+
+        // Scroll to the bottom of the RecyclerView
+        recyclerView.scrollToPosition(messages.size() - 1);
+
         List<String> result = new ArrayList<>();
         shimmerFrameLayout.setVisibility(View.VISIBLE);
         scrollView.setVisibility(View.INVISIBLE);

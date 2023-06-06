@@ -26,6 +26,7 @@ import com.example.testapp.entiteti.Current;
 
 import com.example.testapp.entiteti.Evidencija;
 import com.example.testapp.entiteti.Korisnik;
+import com.example.testapp.entiteti.Pesticid;
 import com.example.testapp.entiteti.Polje;
 import com.example.testapp.entiteti.UtilityClass;
 import com.example.testapp.entiteti.WeatherData;
@@ -44,7 +45,7 @@ import java.util.List;
  * Use the {@link HomeFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class HomeFragment extends Fragment implements DataLoadListener, PoljeAPIListener, EvidencijaLoadListener {
+public class HomeFragment extends Fragment implements DataLoadListener, PoljeAPIListener, EvidencijaLoadListener, PesticidLoad {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -105,6 +106,7 @@ public class HomeFragment extends Fragment implements DataLoadListener, PoljeAPI
         DatabaseQueries.registerDataLoadedListener(this);
         PoljeAPI.registerDataLoadedListener(this);
         DatabaseQueries.registerEvidencijaLoadedListener(this);
+        DatabaseQueries.registerDataLoadedPesticidListener(this);
 
 
 
@@ -338,6 +340,17 @@ public class HomeFragment extends Fragment implements DataLoadListener, PoljeAPI
         danasPrskanje.setText(String.valueOf(UtilityClass.getPrskanjeDanas(evidencijaList)) + "ha");
         mjesecPrskanje.setText(String.valueOf(UtilityClass.getPrskanjeMjesec(evidencijaList)) + "ha");
         ukupnoPrskanja.setText(String.valueOf(UtilityClass.getPrskanjeUkupno(evidencijaList)) + "ha");
+
+    }
+
+
+
+    @Override
+    public void onDataLoad2(List<Pesticid> pesticidList) {
+
+        childModelClassArrayList= UtilityClass.pesticidToShopList(pesticidList);
+        generalShopAdapter.setChildModelClassList(childModelClassArrayList);
+        generalShopAdapter.notifyDataSetChanged();;
 
     }
 }
