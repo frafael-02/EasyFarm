@@ -107,4 +107,8 @@ public class GeneralShopAdapter extends RecyclerView.Adapter<GeneralShopAdapter.
         this.childModelClassList=filteredList;
         notifyDataSetChanged();
     }
+
+    public void setChildModelClassList(List<ShopChildModelClass> childModelClassList) {
+        this.childModelClassList = childModelClassList;
+    }
 }
