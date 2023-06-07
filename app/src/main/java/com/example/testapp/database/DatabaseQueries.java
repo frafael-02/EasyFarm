@@ -204,6 +204,7 @@ public static void registerDataLoadedPesticidListener(PesticidLoad listener)
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
 
+                poljeList.clear();
 
                 for (DataSnapshot pestSnapshot : dataSnapshot.getChildren()) {
                     Long id = Long.valueOf(pestSnapshot.getKey());
@@ -223,21 +224,13 @@ public static void registerDataLoadedPesticidListener(PesticidLoad listener)
                             Polje polje = new Polje(id, attribute1, attribute2, biljkaId, korisnikEmail, povrsina, koordinate);
                             poljeList.add(polje);
 
-                                if(dataLoadListener != null)
-                                {
-                                    dataLoadListener.onDataLoaded(polje);
 
-                                }
 
                         }
                         else{
                             Polje polje = new Polje(id, attribute1, attribute2, biljkaId, korisnikEmail, povrsina);
                             poljeList.add(polje);
-                            if(dataLoadListener != null)
-                            {
-                                dataLoadListener.onDataLoaded(polje);
 
-                            }
 
                         }
 
@@ -247,7 +240,7 @@ public static void registerDataLoadedPesticidListener(PesticidLoad listener)
                     }
 
                 }
-
+        dataLoadListener.onDataLoaded2(poljeList);
 
 
             }
@@ -384,6 +377,15 @@ public static void registerDataLoadedPesticidListener(PesticidLoad listener)
         newRecordMap.put("korisnikEmail", polje.getKorisnikEmail());
         newRecordMap.put("povrsina", polje.getPovrsina());
         newRecordMap.put("biljkaId", polje.getBiljkaId());
+        if(polje.getKoordinate() != null)
+        {
+            newRecordMap.put("x", polje.getKoordinate().getX());
+            newRecordMap.put("y", polje.getKoordinate().getY());
+        }
+        else{
+            newRecordMap.put("x", 0.0);
+            newRecordMap.put("y", 0.0);
+        }
         newRecordId.setValue(newRecordMap);
     }
 
@@ -395,6 +397,15 @@ public static void registerDataLoadedPesticidListener(PesticidLoad listener)
         HashMap<String, Object> newRecordMap = new HashMap<>();
         newRecordMap.put("naziv", pesticid.getNaziv());
         newRecordMap.put("dozaMax", pesticid.getDozaMax());
+        newRecordMap.put("cijena", pesticid.getCijena());
+        newRecordMap.put("bio", pesticid.getVrsta());
+        newRecordMap.put("formulacija", pesticid.getFormulacija());
+        newRecordMap.put("mjereSigurnosti", pesticid.getMjereSigurnosti());
+        newRecordMap.put("opis", pesticid.getOpis());
+        newRecordMap.put("primjena", pesticid.getPrimjena());
+        newRecordMap.put("proizvodjac", pesticid.getProizvodjacId());
+        newRecordMap.put("nacinDjelovanja", pesticid.getNacinDjelovanja());
+        newRecordMap.put("vrsta", 1);
         newRecordId.setValue(newRecordMap);
     }
 
