@@ -5,7 +5,9 @@ import androidx.annotation.NonNull;
 import com.example.testapp.DataLoadListener;
 import com.example.testapp.MainActivity2;
 import com.example.testapp.PoljeAPIListener;
+import com.example.testapp.database.DatabaseQueries;
 import com.example.testapp.entiteti.Koordinate;
+import com.example.testapp.entiteti.Polje;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -30,7 +32,7 @@ public class PoljeAPI {
 
     private static String API_URL = "http://192.168.241.1:8080/dohvatiKoordinate";
 
-    public static Koordinate poljeAPI(String arkod)
+    public static Koordinate poljeAPI(Polje polje)
     {
 
 
@@ -38,7 +40,7 @@ public class PoljeAPI {
         okhttp3.OkHttpClient client = new OkHttpClient();
      //   okhttp3.HttpUrl.Builder urlBuilder = HttpUrl.parse(API_URL).newBuilder();
        // urlBuilder.addQueryParameter("?arkod", arkod);
-        String urlString = "http://192.168.241.1:8080/dohvatiKoordinate?arkod=" + arkod.toString();
+        String urlString = "http://192.168.241.1:8080/dohvatiKoordinate?arkod=" + polje.getArkodId().toString();
         System.out.println(urlString);
         Request request = new Request.Builder()
                 .url(urlString)
@@ -50,7 +52,8 @@ public class PoljeAPI {
                koordinate.setX(jsonObject.getDouble("x"));
                koordinate.setY(jsonObject.getDouble("y"));
                 dataLoadListener.onDataLoaded(jsonObject.getDouble("x"), jsonObject.getDouble("y"));
-
+                polje.setKoordinate(koordinate);
+                DatabaseQueries.sendPolje(polje);
 
             } else {
 
