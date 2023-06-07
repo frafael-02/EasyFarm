@@ -78,13 +78,13 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@id/navBarVerticalGuidline"/>-->
    <ImageView
+       android:id="@+id/blurImageView"
        android:layout_width="match_parent"
        android:layout_height="0dp"
        android:translationZ="1dp"
-       android:src="@drawable/main_square"
+       android:background="#CCFFFFFF"
        app:layout_constraintBottom_toBottomOf="parent"
-       app:layout_constraintTop_toTopOf="@id/bottomNavigation"
-       app:tint="#D9FFFFFF" />
+       app:layout_constraintTop_toTopOf="@id/bottomNavigation" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNavigation"

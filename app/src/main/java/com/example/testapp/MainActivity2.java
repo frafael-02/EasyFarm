@@ -15,11 +15,15 @@ import android.animation.ValueAnimator;
 import android.app.ActivityOptions;
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.RenderEffect;
+import android.graphics.Shader;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 
 import com.example.testapp.database.DatabaseQueries;
 
@@ -47,7 +51,7 @@ public class MainActivity2 extends AppCompatActivity implements AccountDialog.Ac
     public static  List<Pesticid> pesticidList = DatabaseQueries.getPesticidi();
     public static List<Biljka> biljkaList=DatabaseQueries.getBiljke();
     public static List<Polje> poljeList;
-
+    public static ImageView imageView;
     public static Koordinate koordinate;
     public static List<Evidencija> evidencijaList=DatabaseQueries.getEvidencija();
 
@@ -76,9 +80,12 @@ BottomNavigationView bottomNavigationView;
         setContentView(binding.getRoot());
         bottomNavigationView=findViewById(R.id.bottomNavigation);
         bottomNavigationView.setBackgroundColor(Color.TRANSPARENT);
+        imageView=findViewById(R.id.blurImageView);
         //viewExplosion=findViewById(R.id.circle);
         animation = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.animation_circle_explosion);
-
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+            imageView.setRenderEffect(RenderEffect.createBlurEffect(10,10, Shader.TileMode.MIRROR));
+        }
         if(savedInstanceState == null)
         {
             replaceFragment(new HomeFragment());

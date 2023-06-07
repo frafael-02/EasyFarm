@@ -88,6 +88,7 @@ id arkodTextView
 id arkodView
 id backArrow
 id bio_child_item
+id blurImageView
 id bottomGuidline
 id bottomNavigation
 id btnAI
@@ -163,11 +164,13 @@ id linearLayout7
 id linearLayoutArkod
 id linearLayoutTop
 id loginButton
+id logoImage
 id lowerGuidline
 id mail
 id mainLayout
 id main_relative_layout
 id main_square
+id messageText
 id mipgtextView
 id mjestoTextView
 id nazivId
@@ -178,7 +181,6 @@ id nazivSpinner
 id nazivTextView
 id nazivView
 id nemateProfil
-id odgovorText
 id opisTextView
 id opis_child_item
 id ovajMjesec
@@ -270,6 +272,7 @@ layout fragment_shop
 layout general_rv_shop_layout
 layout home_loading
 layout item
+layout item_message
 layout layout_dialog
 layout parent_rv_layout
 layout search_cards

@@ -3182,6 +3182,7 @@ id beginning
 id bestChoice
 id bio_child_item
 id blocking
+id blurImageView
 id bottom
 id bottomGuidline
 id bottomNavigation
@@ -3425,6 +3426,7 @@ id listMode
 id list_item
 id locale
 id loginButton
+id logoImage
 id lowerGuidline
 id ltr
 id lytCameraPick
@@ -3463,6 +3465,7 @@ id media_actions
 id menu_crop
 id menu_loader
 id message
+id messageText
 id middle
 id mini
 id mipgtextView
@@ -3526,7 +3529,6 @@ id north
 id notification_background
 id notification_main_column
 id notification_main_column_container
-id odgovorText
 id off
 id on
 id onInterceptTouchReturnSwipe
@@ -3950,6 +3952,7 @@ layout fragment_shop
 layout general_rv_shop_layout
 layout home_loading
 layout item
+layout item_message
 layout layout_dialog
 layout m3_alert_dialog
 layout m3_alert_dialog_actions
