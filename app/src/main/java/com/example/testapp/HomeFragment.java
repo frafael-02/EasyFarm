@@ -12,7 +12,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import android.widget.AdapterView;
 import android.widget.RelativeLayout;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 
@@ -75,6 +77,15 @@ public class HomeFragment extends Fragment implements DataLoadListener, PoljeAPI
     public TextView danasPrskanje;
     public   TextView mjesecPrskanje;
 
+    public int odabranoPoljeInt;
+
+    public Spinner spinner;
+
+    private PoljeAdapter2 poljeAdapter;
+
+    public TextView mjestoTextView;
+
+    private static Polje odabranoPolje;
 
     private int br;
 
@@ -111,8 +122,10 @@ public class HomeFragment extends Fragment implements DataLoadListener, PoljeAPI
 
 
 
+
         if(MainActivity2.poljeList == null)
             MainActivity2.poljeList =DatabaseQueries.getPolja();
+
         br=0;
 
 
@@ -134,7 +147,81 @@ public class HomeFragment extends Fragment implements DataLoadListener, PoljeAPI
         danasPrskanje = view.findViewById(R.id.danasIspod);
         mjesecPrskanje = view.findViewById(R.id.ovajMjesecIspod);
         ukupnoPrskanja = view.findViewById(R.id.ukupnoIspod);
+        mjestoTextView=view.findViewById(R.id.mjestoTextView);
+        spinner=view.findViewById(R.id.spinner);
+        poljeAdapter = new PoljeAdapter2(getContext(), (ArrayList<Polje>) MainActivity2.poljeList);
+        spinner.setAdapter(poljeAdapter);
+        spinner.setSelection(0,false);
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                if(poljeAdapter.getItem(position) != null)
+                {
+                    Polje polje =poljeAdapter.getItem(position);
+                    odabranoPolje=polje;
+                    mjestoTextView.setText(polje.getNaziv());
+                    odabranoPoljeInt=position;
 
+
+                    if(polje.getKoordinate() != null)
+                    {
+                        double latitude = polje.getKoordinate().getX();
+                        double longitude = polje.getKoordinate().getY();
+
+
+                        MainActivity2.koordinate = polje.getKoordinate();
+                        apiClient = new OpenMeteoApiClient();
+
+                        apiClient.getWeatherData(latitude, longitude, new WeatherDataCallback() {
+                            @Override
+                            public void onSuccess(WeatherData weatherData) {
+
+                                //  List<Daily> dailyList = weatherData.getDailyList();
+                                //List<Hourly> hourlyList = weatherData.getHourlyList();
+                                Current current = weatherData.getCurrent();
+
+
+
+                                string = current.getTemperature() + "°C";
+                                getActivity().runOnUiThread(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        temperatureTextView.setText(string);
+                                    }
+                                });
+
+
+                            }
+
+                            @Override
+                            public void onFailure(Exception e) {
+                                // Handle the error here
+                                e.printStackTrace();
+                            }
+                        });
+                    }
+                    else{
+                        new Thread(new Runnable() {
+                            @Override
+                            public void run() {
+
+                                MainActivity2.koordinate = PoljeAPI.poljeAPI(polje);
+
+                            }
+                        }).start();
+
+                    }
+
+                }
+
+
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
         recyclerView=view.findViewById(R.id.rv_home);
         childModelClassArrayList=new ArrayList<>();
         childModelClassArrayList= UtilityClass.pesticidToShopList(MainActivity2.pesticidList);
@@ -159,7 +246,11 @@ public class HomeFragment extends Fragment implements DataLoadListener, PoljeAPI
         animationDrawable.setExitFadeDuration(5000);
         animationDrawable.start();
        if(string != null)
+       {
            temperatureTextView.setText(string);
+           mjestoTextView.setText(odabranoPolje.getNaziv());
+       }
+
 
 
         /*new Handler().postDelayed(new Runnable() {
@@ -243,11 +334,22 @@ public class HomeFragment extends Fragment implements DataLoadListener, PoljeAPI
     }*/
 
     @Override
-    public void onDataLoaded(Polje polje)
+    public void onDataLoaded2(List<Polje> poljeList)
     {
-        br++;
+
+
+       poljeAdapter.setmObjects((ArrayList<Polje>) poljeList);
+       spinner.setAdapter(poljeAdapter);
+
+        Polje polje = poljeList.get(0);
+
+
+       br++;
+       if(br > 1)
+           spinner.setSelection(odabranoPoljeInt);
         if(br == 1)
-        {
+        { odabranoPolje=polje;
+            mjestoTextView.setText(polje.getNaziv());
             if(polje.getKoordinate() != null)
             {
                 double latitude = polje.getKoordinate().getX();
@@ -289,7 +391,7 @@ public class HomeFragment extends Fragment implements DataLoadListener, PoljeAPI
                     @Override
                     public void run() {
 
-                        MainActivity2.koordinate = PoljeAPI.poljeAPI(polje.getArkodId());
+                        MainActivity2.koordinate = PoljeAPI.poljeAPI(polje);
 
                     }
                 }).start();
@@ -305,6 +407,10 @@ public class HomeFragment extends Fragment implements DataLoadListener, PoljeAPI
 
     @Override
     public void onDataLoaded(Double x, Double y) {
+
+        temperatureTextView.setText("učitavanje");
+
+
         apiClient = new OpenMeteoApiClient();
 
         apiClient.getWeatherData(x, y, new WeatherDataCallback() {
@@ -317,6 +423,7 @@ public class HomeFragment extends Fragment implements DataLoadListener, PoljeAPI
 
 
                 string = current.getTemperature() + "°C";
+
                 getActivity().runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
