@@ -24,6 +24,7 @@ import android.widget.TextView;
 import androidx.activity.result.ActivityResult;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
+import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.widget.NestedScrollView;
 import androidx.fragment.app.Fragment;
@@ -215,7 +216,12 @@ public class AiFragment extends Fragment {
 
 
                             // Scroll to the bottom of the RecyclerView
-                            recyclerView.scrollToPosition(messages.size() - 1);
+                            scrollView.post(new Runnable() {
+                                @Override
+                                public void run() {
+                                    scrollView.fullScroll(ScrollView.FOCUS_DOWN);
+                                }
+                            });
                             //  odgovor.setText(odgovorStatic);
                         }
 
@@ -226,6 +232,7 @@ public class AiFragment extends Fragment {
 
         recyclerView = view.findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+
 
         chatAdapter = new ChatAdapter(messages);
         recyclerView.setAdapter(chatAdapter);
@@ -309,7 +316,7 @@ public class AiFragment extends Fragment {
 
 
         // Scroll to the bottom of the RecyclerView
-        recyclerView.scrollToPosition(messages.size() - 1);
+
 
         List<String> result = new ArrayList<>();
         shimmerFrameLayout.setVisibility(View.VISIBLE);
@@ -325,8 +332,11 @@ public class AiFragment extends Fragment {
             @Override
             public void run() {
                 odgovorStatic = (VirtualAgent.chatGPT(pitanje));
+
             }
         }).start();
+
+
 
     }
 

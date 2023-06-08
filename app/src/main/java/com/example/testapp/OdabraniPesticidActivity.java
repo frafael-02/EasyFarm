@@ -8,7 +8,7 @@ import com.example.testapp.entiteti.Pesticid;
 import com.example.testapp.search.SearchActivty;
 import com.google.android.material.appbar.CollapsingToolbarLayout;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
+
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -19,12 +19,7 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
-import androidx.navigation.ui.AppBarConfiguration;
-import androidx.navigation.ui.NavigationUI;
 
-import com.example.testapp.databinding.ActivityOdabraniPesticidBinding;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 public class OdabraniPesticidActivity extends AppCompatActivity {
@@ -109,7 +104,7 @@ public class OdabraniPesticidActivity extends AppCompatActivity {
         formulacijaTextView.setText(pesticid.getFormulacija());
         emailTextView.setText(email);
         telefonTextView.setText(telefon);
-        backArrow=findViewById(R.id.backArrow);
+        backArrow=findViewById(R.id.imageButton);
 
 
 
@@ -181,6 +176,16 @@ public class OdabraniPesticidActivity extends AppCompatActivity {
             }
         });
 
+        backArrow.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+            backArrow(view);
+            }
+
+        });
+
+        backArrow.bringToFront();
 
 
 
@@ -188,6 +193,9 @@ public class OdabraniPesticidActivity extends AppCompatActivity {
 
     }
     public void backArrow(View view)
-    {     finish();    }
+    {     finish();
+        System.out.println("vrati se!");
+
+    }
 
 }
