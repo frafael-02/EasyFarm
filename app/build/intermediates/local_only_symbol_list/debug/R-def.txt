@@ -277,6 +277,7 @@ layout home_loading
 layout item
 layout item_message
 layout layout_dialog
+layout layout_dialog_lokacija
 layout parent_rv_layout
 layout search_cards
 layout spinner_dropdown_layout
