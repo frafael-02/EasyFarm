@@ -2869,9 +2869,11 @@ drawable abc_textfield_search_default_mtrl_alpha
 drawable abc_textfield_search_material
 drawable abc_vector_test
 drawable account
+drawable account_chat1
 drawable account_home
 drawable add
 drawable ai_icon
+drawable ai_icon_chat1
 drawable animation_background1
 drawable animation_background2
 drawable animation_background3
@@ -3238,8 +3240,8 @@ id compress
 id confirm_button
 id constraint
 id constraintLayout
+id constraintLayout1
 id constraintLayout2
-id constraintLayout3
 id container
 id content
 id contentPanel
@@ -3371,6 +3373,7 @@ id ifRoom
 id ignore
 id ignoreRequest
 id image
+id imageButton
 id imageView
 id imageView2
 id imageView4
@@ -3426,14 +3429,12 @@ id listMode
 id list_item
 id locale
 id loginButton
-id logoImage
 id lowerGuidline
 id ltr
 id lytCameraPick
 id lytGalleryPick
 id m3_side_sheet
 id mail
-id mainLayout
 id main_relative_layout
 id main_square
 id marquee
@@ -3663,6 +3664,7 @@ id snapMargins
 id south
 id spacer
 id special_effects_controller_view_tag
+id spinner
 id spinnerBiljka
 id spinnerKulture
 id spinnerPesticida

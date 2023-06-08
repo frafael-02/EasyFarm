@@ -15,9 +15,11 @@ color transparent
 color white
 dimen fab_margin
 drawable account
+drawable account_chat1
 drawable account_home
 drawable add
 drawable ai_icon
+drawable ai_icon_chat1
 drawable animation_background1
 drawable animation_background2
 drawable animation_background3
@@ -106,8 +108,8 @@ id circle
 id cloud
 id collapsing_toolbar
 id constraintLayout
+id constraintLayout1
 id constraintLayout2
-id constraintLayout3
 id cordinator
 id cv_child_item
 id danas
@@ -140,6 +142,7 @@ id fragmentContainerView
 id fungicid
 id google
 id herbicid
+id imageButton
 id imageView
 id imageView2
 id imageView4
@@ -164,10 +167,8 @@ id linearLayout7
 id linearLayoutArkod
 id linearLayoutTop
 id loginButton
-id logoImage
 id lowerGuidline
 id mail
-id mainLayout
 id main_relative_layout
 id main_square
 id messageText
@@ -219,6 +220,7 @@ id shop
 id sigurnost_button
 id sigurnost_textView
 id slika_odabrani_pesticid
+id spinner
 id spinnerBiljka
 id spinnerKulture
 id spinnerPesticida

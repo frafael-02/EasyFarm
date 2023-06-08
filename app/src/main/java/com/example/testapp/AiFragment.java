@@ -123,11 +123,11 @@ public class AiFragment extends Fragment {
         analizaBtn = view.findViewById(R.id.button4);
         progressBar=view.findViewById(R.id.progresBar);
         progressBar.setVisibility(View.INVISIBLE);
-        ConstraintLayout constraintLayout=view.findViewById(R.id.mainLayout);
+    /*    ConstraintLayout constraintLayout=view.findViewById(R.id.mainLayout);
         AnimationDrawable animationDrawable = (AnimationDrawable) constraintLayout.getBackground();
         animationDrawable.setEnterFadeDuration(2500);
         animationDrawable.setExitFadeDuration(5000);
-        animationDrawable.start();
+        animationDrawable.start();*/
         pitanje = view.findViewById(R.id.pitanjeTextView);
        // odgovor=view.findViewById(R.id.odgovorText);
         pitajBtn = view.findViewById(R.id.button3);
@@ -227,6 +227,7 @@ public class AiFragment extends Fragment {
 
                     }
                 }, timer);
+                pitanje.getText().clear();
             }
         });
 
@@ -320,13 +321,13 @@ public class AiFragment extends Fragment {
 
         List<String> result = new ArrayList<>();
         shimmerFrameLayout.setVisibility(View.VISIBLE);
-        scrollView.setVisibility(View.INVISIBLE);
+        recyclerView.setVisibility(View.INVISIBLE);
         shimmerFrameLayout.startShimmer();
         Handler handler = new Handler();
         handler.postDelayed(()->{
             shimmerFrameLayout.stopShimmer();
             shimmerFrameLayout.setVisibility(View.INVISIBLE);
-            scrollView.setVisibility(View.VISIBLE);
+            recyclerView.setVisibility(View.VISIBLE);
         },3000);
         new Thread(new Runnable() {
             @Override
@@ -335,7 +336,6 @@ public class AiFragment extends Fragment {
 
             }
         }).start();
-
 
 
     }
