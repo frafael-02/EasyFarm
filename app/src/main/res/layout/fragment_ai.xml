@@ -16,31 +16,53 @@
         android:layout_marginEnd="10dp"
         android:layout_marginTop="10dp"
         android:layout_marginBottom="80dp">
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/white"
+            android:background="@drawable/main_square"
+            android:translationZ="1dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginStart="10dp"
+            app:layout_constraintStart_toEndOf="@id/button4"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent">
 
         <EditText
             android:id="@+id/pitanjeTextView"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:layout_marginStart="5dp"
-            android:layout_marginEnd="5dp"
+            android:layout_weight="8"
             android:hint="Upišite pitanje za Virtualnog Asistenta"
             android:inputType="textMultiLine"
-            style="@style/Theme.glavni.evidencija"
             android:textSize="16sp"
-            android:translationZ="2dp"
-            android:layout_marginBottom="5dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintBottom_toTopOf="@id/button3" />
+            android:textColor="@color/greyText"
+            android:fontFamily="@font/poppinsregular"
+            android:scrollbarSize="@dimen/browser_actions_context_menu_min_padding"
+            android:padding="10dp"
+            android:layout_marginStart="3dp"
+            android:textColorHint="@color/iconGrey"
+            android:backgroundTint="@color/greenDark"
 
-        <androidx.appcompat.widget.AppCompatButton
+ />
+            <androidx.appcompat.widget.AppCompatImageButton
+                android:id="@+id/button3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/right_arrow"
+                android:layout_gravity="center"
+                android:background="@color/transparent"
+                android:padding="15dp"
+
+                android:layout_weight="1"
+                />
+        </LinearLayout>
+       <!-- <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/button3"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:layout_marginEnd="100dp"
-            android:layout_marginBottom="10dp"
-            android:layout_marginStart="5dp"
+
             android:background="@drawable/yellow_button"
             android:fontFamily="@font/poppinsbold"
             android:padding="8dp"
@@ -48,9 +70,9 @@
             android:textColor="@color/greyText"
             android:textSize="24sp"
             android:elevation="20dp"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/button4"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent" />
+            app:layout_constraintBottom_toBottomOf="parent" />-->
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/button4"
             android:layout_width="wrap_content"
@@ -62,9 +84,9 @@
             app:maxImageSize="32dp"
             app:tint="@android:color/white"
             app:backgroundTint="@color/greenDark"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
-            android:layout_marginEnd="5dp"
+            android:layout_marginStart="5dp"
             android:layout_marginBottom="10dp"
 
             />

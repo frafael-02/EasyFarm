@@ -3044,6 +3044,7 @@ drawable pen
 drawable pesticid
 drawable phone
 drawable rain
+drawable right_arrow
 drawable save
 drawable search
 drawable selector

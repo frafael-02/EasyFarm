@@ -16,6 +16,7 @@ import android.view.animation.Animation;
 import android.view.animation.ScaleAnimation;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.ScrollView;
@@ -76,7 +77,7 @@ public class AiFragment extends Fragment {
     public EditText pitanje;
     public TextView odgovor;
     private static volatile String odgovorStatic;
-    public Button pitajBtn;
+    public ImageButton pitajBtn;
     ShimmerFrameLayout shimmerFrameLayout;
     NestedScrollView scrollView;
     private ActivityResultLauncher<Intent> launcher;
