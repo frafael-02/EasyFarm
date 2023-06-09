@@ -35,6 +35,7 @@ import com.example.testapp.entiteti.Bolest;
 import com.example.testapp.entiteti.Evidencija;
 import com.example.testapp.entiteti.Koordinate;
 import com.example.testapp.entiteti.Korisnik;
+import com.example.testapp.entiteti.LokacijaDialog;
 import com.example.testapp.entiteti.Pesticid;
 import com.example.testapp.entiteti.Polje;
 import com.example.testapp.entiteti.Proizvodjac;
@@ -258,4 +259,6 @@ viewExplosion.startAnimation(animation);
         MainActivity2.korisnik.setMibpg(mibpg);
         DatabaseQueries.urediKorisnik(FirebaseAuth.getInstance().getCurrentUser().getUid(), punoIme, mibpg);
     }
+
+
 }

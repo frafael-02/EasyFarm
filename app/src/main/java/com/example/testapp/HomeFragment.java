@@ -28,6 +28,7 @@ import com.example.testapp.entiteti.Current;
 
 import com.example.testapp.entiteti.Evidencija;
 import com.example.testapp.entiteti.Korisnik;
+import com.example.testapp.entiteti.LokacijaDialog;
 import com.example.testapp.entiteti.Pesticid;
 import com.example.testapp.entiteti.Polje;
 import com.example.testapp.entiteti.UtilityClass;
@@ -47,7 +48,7 @@ import java.util.List;
  * Use the {@link HomeFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class HomeFragment extends Fragment implements DataLoadListener, PoljeAPIListener, EvidencijaLoadListener, PesticidLoad {
+public class HomeFragment extends Fragment implements DataLoadListener, PoljeAPIListener, EvidencijaLoadListener, PesticidLoad, LokacijaDialog.LokacijaDialogListener {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -77,15 +78,15 @@ public class HomeFragment extends Fragment implements DataLoadListener, PoljeAPI
     public TextView danasPrskanje;
     public   TextView mjesecPrskanje;
 
+    public TextView lokacijaChange;
     public int odabranoPoljeInt;
 
-    public Spinner spinner;
 
-    private PoljeAdapter2 poljeAdapter;
+
 
     public TextView mjestoTextView;
 
-    private static Polje odabranoPolje;
+    public static Polje odabranoPolje;
 
     private int br;
 
@@ -118,6 +119,7 @@ public class HomeFragment extends Fragment implements DataLoadListener, PoljeAPI
         PoljeAPI.registerDataLoadedListener(this);
         DatabaseQueries.registerEvidencijaLoadedListener(this);
         DatabaseQueries.registerDataLoadedPesticidListener(this);
+        LokacijaDialog.setListener(this);
 
 
 
@@ -148,80 +150,11 @@ public class HomeFragment extends Fragment implements DataLoadListener, PoljeAPI
         mjesecPrskanje = view.findViewById(R.id.ovajMjesecIspod);
         ukupnoPrskanja = view.findViewById(R.id.ukupnoIspod);
         mjestoTextView=view.findViewById(R.id.mjestoTextView);
-        spinner=view.findViewById(R.id.spinner);
-        poljeAdapter = new PoljeAdapter2(getContext(), (ArrayList<Polje>) MainActivity2.poljeList);
-        spinner.setAdapter(poljeAdapter);
-        spinner.setSelection(0,false);
-        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                if(poljeAdapter.getItem(position) != null)
-                {
-                    Polje polje =poljeAdapter.getItem(position);
-                    odabranoPolje=polje;
-                    mjestoTextView.setText(polje.getNaziv());
-                    odabranoPoljeInt=position;
-
-
-                    if(polje.getKoordinate() != null)
-                    {
-                        double latitude = polje.getKoordinate().getX();
-                        double longitude = polje.getKoordinate().getY();
-
-
-                        MainActivity2.koordinate = polje.getKoordinate();
-                        apiClient = new OpenMeteoApiClient();
-
-                        apiClient.getWeatherData(latitude, longitude, new WeatherDataCallback() {
-                            @Override
-                            public void onSuccess(WeatherData weatherData) {
-
-                                //  List<Daily> dailyList = weatherData.getDailyList();
-                                //List<Hourly> hourlyList = weatherData.getHourlyList();
-                                Current current = weatherData.getCurrent();
 
 
 
-                                string = current.getTemperature() + "°C";
-                                getActivity().runOnUiThread(new Runnable() {
-                                    @Override
-                                    public void run() {
-                                        temperatureTextView.setText(string);
-                                    }
-                                });
+        lokacijaChange = view.findViewById(R.id.kooridnateTextView);
 
-
-                            }
-
-                            @Override
-                            public void onFailure(Exception e) {
-                                // Handle the error here
-                                e.printStackTrace();
-                            }
-                        });
-                    }
-                    else{
-                        new Thread(new Runnable() {
-                            @Override
-                            public void run() {
-
-                                MainActivity2.koordinate = PoljeAPI.poljeAPI(polje);
-
-                            }
-                        }).start();
-
-                    }
-
-                }
-
-
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
-            }
-        });
         recyclerView=view.findViewById(R.id.rv_home);
         childModelClassArrayList=new ArrayList<>();
         childModelClassArrayList= UtilityClass.pesticidToShopList(MainActivity2.pesticidList);
@@ -250,6 +183,10 @@ public class HomeFragment extends Fragment implements DataLoadListener, PoljeAPI
             temperatureTextView.setText(string);
             mjestoTextView.setText(odabranoPolje.getNaziv());
         }
+        if(odabranoPolje != null)
+        {
+            mjestoTextView.setText(odabranoPolje.getNaziv());
+        }
 
 
 
@@ -270,6 +207,13 @@ public class HomeFragment extends Fragment implements DataLoadListener, PoljeAPI
             @Override
             public void onClick(View v) {
                 openProfile(MainActivity2.korisnik);
+            }
+        });
+
+        lokacijaChange.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                changeLokacija();
             }
         });
 
@@ -306,6 +250,12 @@ public class HomeFragment extends Fragment implements DataLoadListener, PoljeAPI
         accountDialog.show(getParentFragmentManager(), "Vaš korisnički profil");
     }
 
+    public void changeLokacija()
+    {
+        LokacijaDialog lokacijaDialog = new LokacijaDialog();
+        lokacijaDialog.show(getParentFragmentManager(), "Odaberite polje za vremensku analizu");
+    }
+
   /*  public void pitaj(String pitanje)
     {
         List<String> result = new ArrayList<>();
@@ -338,15 +288,13 @@ public class HomeFragment extends Fragment implements DataLoadListener, PoljeAPI
     {
 
 
-        poljeAdapter.setmObjects((ArrayList<Polje>) poljeList);
-        spinner.setAdapter(poljeAdapter);
+
 
         Polje polje = poljeList.get(0);
 
 
         br++;
-        if(br > 1)
-            spinner.setSelection(odabranoPoljeInt);
+
         if(br == 1)
         { odabranoPolje=polje;
             mjestoTextView.setText(polje.getNaziv());
@@ -458,6 +406,62 @@ public class HomeFragment extends Fragment implements DataLoadListener, PoljeAPI
         childModelClassArrayList= UtilityClass.pesticidToShopList(pesticidList);
         generalShopAdapter.setChildModelClassList(childModelClassArrayList);
         generalShopAdapter.notifyDataSetChanged();;
+
+    }
+
+    @Override
+    public void setLokacija(Polje polje) {
+
+
+        mjestoTextView.setText(polje.getNaziv());
+        odabranoPolje = polje;
+        if(polje.getKoordinate() != null)
+        {
+            double latitude = polje.getKoordinate().getX();
+            double longitude = polje.getKoordinate().getY();
+
+
+            MainActivity2.koordinate = polje.getKoordinate();
+            apiClient = new OpenMeteoApiClient();
+
+            apiClient.getWeatherData(latitude, longitude, new WeatherDataCallback() {
+                @Override
+                public void onSuccess(WeatherData weatherData) {
+
+                    //  List<Daily> dailyList = weatherData.getDailyList();
+                    //List<Hourly> hourlyList = weatherData.getHourlyList();
+                    Current current = weatherData.getCurrent();
+
+
+                    string = current.getTemperature() + "°C";
+                    getActivity().runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            temperatureTextView.setText(string);
+                        }
+                    });
+
+
+                }
+
+                @Override
+                public void onFailure(Exception e) {
+                    // Handle the error here
+                    e.printStackTrace();
+                }
+            });
+        }
+        else{
+            new Thread(new Runnable() {
+                @Override
+                public void run() {
+
+                    MainActivity2.koordinate = PoljeAPI.poljeAPI(polje);
+
+                }
+            }).start();
+
+        }
 
     }
 }

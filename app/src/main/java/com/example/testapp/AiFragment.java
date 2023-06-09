@@ -35,6 +35,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.testapp.api.ChatAdapter;
 import com.example.testapp.api.ImagePostRequest;
 import com.example.testapp.api.VirtualAgent;
+import com.example.testapp.entiteti.Bolest;
 import com.example.testapp.entiteti.Message;
 import com.example.testapp.entiteti.Pesticid;
 import com.example.testapp.entiteti.UtilityClass;
@@ -247,11 +248,16 @@ public class AiFragment extends Fragment {
             new Handler().postDelayed(new Runnable() {
                 @Override
                 public void run() {
-                    textView.setText(MainActivity2.responseString);
+                    for(Bolest b: MainActivity2.bolestList)
+                    {
+                        if(b.getCode().equals(MainActivity2.responseString))
+                            textView.setText(b.getNaziv());
+                    }
+                    //textView.setText(MainActivity2.responseString);
                     progressBar.setVisibility(View.INVISIBLE);
                     textView.setVisibility(View.VISIBLE);
                     pesticidPreporuka.setVisibility(View.VISIBLE);
-                    Pesticid pesticid = UtilityClass.preporukaPesticid(textView.getText().toString());
+                    Pesticid pesticid = UtilityClass.preporukaPesticid(MainActivity2.responseString);
                     if(pesticid !=null)
                     {
                         pesticidPreporuka.setText(pesticid.getNaziv());
@@ -262,7 +268,7 @@ public class AiFragment extends Fragment {
                             }
                         });
                        // pitanje.setText("Reci mi nešto o" + " " + pesticid.getNaziv());
-                        pitaj("Reci mi nešto o" + " " + pesticid.getNaziv());
+                        pitaj("Reci mi nešto o" + " " + textView.getText());
                         new Handler().postDelayed(new Runnable() {
                             public void run () {
                                 while(odgovorStatic == null)
