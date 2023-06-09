@@ -1,6 +1,7 @@
 package com.example.testapp.api;
 
 import com.example.testapp.BuildConfig;
+import com.example.testapp.VirtualniAgentNotify;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 
@@ -10,6 +11,7 @@ import org.json.JSONObject;
 
 
 import java.io.IOException;
+import java.util.concurrent.TimeUnit;
 
 
 import okhttp3.MediaType;
@@ -20,6 +22,12 @@ import okhttp3.Response;
 
 public class VirtualAgent {
 
+    public static VirtualniAgentNotify listener;
+
+    public static void registerNotifier(VirtualniAgentNotify listener)
+    {
+        VirtualAgent.listener = listener;
+    }
     public static String chatGPT(String message) {
 
 
@@ -38,7 +46,13 @@ public class VirtualAgent {
         requestJson.add("messages", gson.toJsonTree(new JsonObject[]{messageJson}));
 
         RequestBody body = RequestBody.create(gson.toJson(requestJson), MediaType.parse("application/json"));
-        OkHttpClient client = new OkHttpClient();
+
+        OkHttpClient client = new OkHttpClient.Builder()
+                .connectTimeout(5, TimeUnit.SECONDS) // Timeout for establishing the connection
+                .readTimeout(20, TimeUnit.SECONDS) // Timeout for reading data from the server
+                .writeTimeout(20, TimeUnit.SECONDS) // Timeout for writing data to the server
+                .build();
+
         Request request = new Request.Builder()
                 .url(url)
                 .post(body)
@@ -53,6 +67,7 @@ public class VirtualAgent {
 
         try {
             Response response = client.newCall(request).execute();
+
             String responseBody = response.body().string();
             JSONObject responseJson = new JSONObject(responseBody);
             JSONArray choicesArray = responseJson.getJSONArray("choices");
@@ -60,7 +75,8 @@ public class VirtualAgent {
             String messageContent = messageObject.getString("content");
 
             response.close();
-
+            System.out.println(messageContent);
+            listener.onResponse(messageContent);
             return messageContent;
         } catch (IOException e) {
             throw new RuntimeException(e);
