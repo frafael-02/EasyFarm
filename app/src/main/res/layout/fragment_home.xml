@@ -114,21 +114,22 @@
                     android:drawableStart="@drawable/location"
                     style="?android:attr/borderlessButtonStyle"
                     />
+
                 <TextView
                     android:id="@+id/kooridnateTextView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/mjestoTextView"
                     android:layout_alignParentEnd="true"
-                    android:gravity="center"
-                    android:layout_marginEnd="15dp"
-                    android:textAlignment="center"
-                    android:hint="Učitavanje"
-                    android:textColorHint="@color/iconGrey"
+                    android:layout_marginEnd="20dp"
                     android:fontFamily="@font/poppinsregular"
+                    android:gravity="center"
+                    android:text="Promijenite lokaciju"
+                    android:textAlignment="center"
                     android:textColor="@color/white"
-                    android:textSize="8sp"
-                    />
+                    android:textColorHint="@color/iconGrey"
+                    android:textSize="12sp" />
+
 
 
             </RelativeLayout>
@@ -257,13 +258,6 @@
 
             </RelativeLayout>
             </LinearLayout>
-
-            <Spinner
-                android:id="@+id/spinner"
-                android:layout_width="142dp"
-                android:layout_height="65dp"
-                android:layout_gravity="end"
-                android:layout_marginBottom="15dp" />
 
             <!-- <androidx.appcompat.widget.Toolbar
                  android:id="@+id/toolbar"
