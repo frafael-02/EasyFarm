@@ -2896,6 +2896,7 @@ drawable btn_radio_off_to_on_mtrl_animation
 drawable btn_radio_on_mtrl
 drawable btn_radio_on_to_off_mtrl_animation
 drawable camera
+drawable cancle
 drawable cart
 drawable cloud
 drawable common_full_open_on_phone
@@ -3202,6 +3203,7 @@ id browser_actions_menu_view
 id btnAI
 id btnEvidencija
 id btnHome
+id btnOdustani
 id btnSpremi
 id button
 id button2
@@ -4882,6 +4884,7 @@ style Theme_TestApp_PopupOverlay
 style Theme_Transparent_ImagePicker
 style Theme_dole_evidencija
 style Theme_glavni_evidencija
+style Theme_save_button
 style ThemeOverlay_AppCompat
 style ThemeOverlay_AppCompat_ActionBar
 style ThemeOverlay_AppCompat_Dark

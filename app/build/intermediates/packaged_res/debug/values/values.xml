@@ -69,6 +69,16 @@
         <item name="android:padding">10dp</item>
         <item name="android:textColorHint">@color/iconGrey</item>
     </style>
+    <style name="Theme.save.button" parent="">
+        <item name="android:background">@drawable/yellow_button</item>
+        <item name="android:drawableStart">@drawable/save</item>
+        <item name="android:fontFamily">@font/poppinsbold</item>
+        <item name="android:padding">10dp</item>
+        <item name="android:text">SPREMI</item>
+        <item name="android:drawablePadding">5dp</item>
+        <item name="android:textColor">@color/greyText</item>
+        <item name="android:textSize">16sp</item>
+    </style>
     <style name="ThemeOverlay.SearchView" parent="">
         <item name="android:editTextColor">@color/greyText</item>
         <item name="android:textColorHint">@color/iconGrey</item>

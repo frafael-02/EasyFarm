@@ -244,15 +244,6 @@ viewExplosion.startAnimation(animation);
                         .commit();
             }
         });*/
-
-
-
-
-
-
-
-
-
     }
 
     private void replaceFragment(Fragment fragment){
@@ -260,9 +251,7 @@ viewExplosion.startAnimation(animation);
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.replace(R.id.fragmentContainerView,fragment, null);
         fragmentTransaction.commit();
-
     }
-
     @Override
     public void editInformation(String punoIme, int mibpg) {
         MainActivity2.korisnik.setPunoIme(punoIme);

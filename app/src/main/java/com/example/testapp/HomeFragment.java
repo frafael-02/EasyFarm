@@ -245,11 +245,11 @@ public class HomeFragment extends Fragment implements DataLoadListener, PoljeAPI
         animationDrawable.setEnterFadeDuration(2500);
         animationDrawable.setExitFadeDuration(5000);
         animationDrawable.start();
-       if(string != null)
-       {
-           temperatureTextView.setText(string);
-           mjestoTextView.setText(odabranoPolje.getNaziv());
-       }
+        if(string != null)
+        {
+            temperatureTextView.setText(string);
+            mjestoTextView.setText(odabranoPolje.getNaziv());
+        }
 
 
 
@@ -338,15 +338,15 @@ public class HomeFragment extends Fragment implements DataLoadListener, PoljeAPI
     {
 
 
-       poljeAdapter.setmObjects((ArrayList<Polje>) poljeList);
-       spinner.setAdapter(poljeAdapter);
+        poljeAdapter.setmObjects((ArrayList<Polje>) poljeList);
+        spinner.setAdapter(poljeAdapter);
 
         Polje polje = poljeList.get(0);
 
 
-       br++;
-       if(br > 1)
-           spinner.setSelection(odabranoPoljeInt);
+        br++;
+        if(br > 1)
+            spinner.setSelection(odabranoPoljeInt);
         if(br == 1)
         { odabranoPolje=polje;
             mjestoTextView.setText(polje.getNaziv());
@@ -356,7 +356,7 @@ public class HomeFragment extends Fragment implements DataLoadListener, PoljeAPI
                 double longitude = polje.getKoordinate().getY();
 
 
-               MainActivity2.koordinate = polje.getKoordinate();
+                MainActivity2.koordinate = polje.getKoordinate();
                 apiClient = new OpenMeteoApiClient();
 
                 apiClient.getWeatherData(latitude, longitude, new WeatherDataCallback() {
