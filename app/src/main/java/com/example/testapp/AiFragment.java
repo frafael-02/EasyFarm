@@ -62,7 +62,7 @@ import kotlin.jvm.internal.Intrinsics;
  * Use the {@link AiFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class AiFragment extends Fragment {
+public class AiFragment extends Fragment implements VirtualniAgentNotify {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -115,6 +115,7 @@ public class AiFragment extends Fragment {
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
         timer = 500L;
+        VirtualAgent.registerNotifier(this);
     }
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -178,7 +179,7 @@ public class AiFragment extends Fragment {
                         } catch (IOException e) {
                             throw new RuntimeException(e);
                         }
-                        String path= MediaStore.Images.Media.insertImage(getActivity().getContentResolver(), bitmap, "slika" , "slika");
+                        String path= MediaStore.Images.Media.insertImage(getActivity().getContentResolver(), bitmap, "slika2" , "slika");
                         Uri newUri=Uri.parse(path);
                         String[] projection = { MediaStore.Images.Media.DATA };
                         Cursor cursor = getActivity().getContentResolver().query(newUri, projection, null, null, null);
@@ -202,10 +203,10 @@ public class AiFragment extends Fragment {
         pitajBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                odgovorStatic=null;
-                timer=500L;
+                odgovorStatic = null;
+                timer = 500L;
                 pitaj(pitanje.getText().toString());
-                new Handler().postDelayed(new Runnable() {
+               /*new Handler().postDelayed(new Runnable() {
                     public void run () {
                         while(odgovorStatic == null)
                         {}
@@ -228,22 +229,25 @@ public class AiFragment extends Fragment {
                         }
 
                     }
-                }, timer);
+                }, timer);*/
                 pitanje.getText().clear();
             }
         });
 
-        recyclerView = view.findViewById(R.id.recyclerView);
-        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+                recyclerView = view.findViewById(R.id.recyclerView);
+                recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
 
-        chatAdapter = new ChatAdapter(messages);
-        recyclerView.setAdapter(chatAdapter);
-        return view;
+                chatAdapter = new ChatAdapter(messages);
+                recyclerView.setAdapter(chatAdapter);
+                return view;
+
+
     }
     public void sendImage(String uri)
     {
         if(getActivity() != null) {
+
             ImagePostRequest.sendImagePostRequest(getActivity(), uri);
             new Handler().postDelayed(new Runnable() {
                 @Override
@@ -268,8 +272,9 @@ public class AiFragment extends Fragment {
                             }
                         });
                        // pitanje.setText("Reci mi nešto o" + " " + pesticid.getNaziv());
-                        pitaj("Reci mi nešto o" + " " + textView.getText());
-                        new Handler().postDelayed(new Runnable() {
+                        pitaj("Reci mi nešto o" + " " + textView.getText().toString());
+
+                        /*new Handler().postDelayed(new Runnable() {
                             public void run () {
                                 while(odgovorStatic == null)
                                 {}
@@ -287,7 +292,7 @@ public class AiFragment extends Fragment {
                                 }
 
                             }
-                        }, timer);
+                        }, timer);*/
                     }
                     else
                         pesticidPreporuka.setText("Nije pronađen pesticid za tu bolest.");
@@ -330,12 +335,12 @@ public class AiFragment extends Fragment {
         shimmerFrameLayout.setVisibility(View.VISIBLE);
         recyclerView.setVisibility(View.INVISIBLE);
         shimmerFrameLayout.startShimmer();
-        Handler handler = new Handler();
+       /* Handler handler = new Handler();
         handler.postDelayed(()->{
             shimmerFrameLayout.stopShimmer();
             shimmerFrameLayout.setVisibility(View.INVISIBLE);
             recyclerView.setVisibility(View.VISIBLE);
-        },3000);
+        },3000);*/
         new Thread(new Runnable() {
             @Override
             public void run() {
@@ -358,4 +363,33 @@ public class AiFragment extends Fragment {
         startActivity(intent);
     }
 
+    @Override
+    public void onResponse(String string) {
+        odgovorStatic = string;
+        messages.add(new Message(string, false));
+
+
+    getActivity().runOnUiThread(new Runnable() {
+        @Override
+        public void run() {
+            shimmerFrameLayout.stopShimmer();
+            shimmerFrameLayout.setVisibility(View.INVISIBLE);
+            recyclerView.setVisibility(View.VISIBLE);
+            chatAdapter.notifyItemInserted(messages.size() - 1);
+            scrollView.post(new Runnable() {
+                @Override
+                public void run() {
+                    scrollView.fullScroll(ScrollView.FOCUS_DOWN);
+                }
+            });
+            recyclerView.scrollToPosition(messages.size() - 1);
+        }
+    });
+
+        // Clear the input field
+
+
+        // Scroll to the bottom of the RecyclerView
+
+    }
 }
