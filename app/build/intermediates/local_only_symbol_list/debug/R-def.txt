@@ -155,7 +155,6 @@ id itemId
 id iv_child_item
 id izvoz
 id kontakti
-id kooridnateTextView
 id kulturaView
 id leftVerticalGuidline
 id leftVerticalGuidline1
@@ -223,7 +222,6 @@ id shop
 id sigurnost_button
 id sigurnost_textView
 id slika_odabrani_pesticid
-id spinner
 id spinnerBiljka
 id spinnerKulture
 id spinnerPesticida

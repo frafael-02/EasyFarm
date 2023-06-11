@@ -37,13 +37,12 @@
                 android:src="@drawable/arrow" />
             <ImageView
                 android:id="@+id/slika_odabrani_pesticid"
-                android:layout_width="match_parent"
+                android:layout_width="200dp"
                 android:layout_height="200dp"
                 android:scaleType="fitCenter"
-                android:layout_marginRight="20dp"
                 android:layout_marginBottom="30dp"
                 android:src="@drawable/pesticid"
-                android:layout_gravity="center|end"
+                android:layout_gravity="center"
                 app:layout_collapseMode="parallax"/>
             <androidx.appcompat.widget.Toolbar
                 android:id="@+id/toolbar"

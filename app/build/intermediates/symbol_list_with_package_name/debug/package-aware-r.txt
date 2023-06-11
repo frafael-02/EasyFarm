@@ -3401,7 +3401,6 @@ id izvoz
 id jumpToEnd
 id jumpToStart
 id kontakti
-id kooridnateTextView
 id kulturaView
 id labeled
 id layout
@@ -3667,7 +3666,6 @@ id snapMargins
 id south
 id spacer
 id special_effects_controller_view_tag
-id spinner
 id spinnerBiljka
 id spinnerKulture
 id spinnerPesticida

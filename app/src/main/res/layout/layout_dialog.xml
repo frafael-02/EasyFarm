@@ -19,6 +19,7 @@
                 android:backgroundTint="@color/white"
                 android:textColorHint="@color/iconGrey"
                 android:fontFamily="@font/poppinsregular"
+                android:textColor="@color/greyText"
                 android:textSize="16sp"
                 android:padding="8dp"
                 android:textAlignment="center"

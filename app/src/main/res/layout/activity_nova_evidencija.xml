@@ -167,7 +167,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textAlignment="center"
-            android:textSize="30sp"
+            android:textSize="24sp"
             android:textStyle="bold"
             android:textColor="@color/greyText"
             app:layout_constraintTop_toBottomOf="@+id/imageView" />
@@ -182,10 +182,9 @@
             android:paddingRight="40dp"
             android:paddingTop="15dp"
             android:paddingBottom="15dp"
-            android:layout_marginTop="10dp"
             android:textColor="@color/greyText"
             android:fontFamily="@font/poppinsbold"
-            android:textSize="20sp"
+            android:textSize="16sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/stopericaId" />

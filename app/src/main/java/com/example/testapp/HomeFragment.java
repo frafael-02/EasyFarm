@@ -13,6 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.RelativeLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -78,13 +79,13 @@ public class HomeFragment extends Fragment implements DataLoadListener, PoljeAPI
     public TextView danasPrskanje;
     public   TextView mjesecPrskanje;
 
-    public TextView lokacijaChange;
+
     public int odabranoPoljeInt;
 
 
 
 
-    public TextView mjestoTextView;
+    public Button mjestoTextView;
 
     public static Polje odabranoPolje;
 
@@ -153,7 +154,6 @@ public class HomeFragment extends Fragment implements DataLoadListener, PoljeAPI
 
 
 
-        lokacijaChange = view.findViewById(R.id.kooridnateTextView);
 
         recyclerView=view.findViewById(R.id.rv_home);
         childModelClassArrayList=new ArrayList<>();
@@ -210,7 +210,7 @@ public class HomeFragment extends Fragment implements DataLoadListener, PoljeAPI
             }
         });
 
-        lokacijaChange.setOnClickListener(new View.OnClickListener() {
+        mjestoTextView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 changeLokacija();

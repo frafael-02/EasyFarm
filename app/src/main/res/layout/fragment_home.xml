@@ -115,20 +115,7 @@
                     style="?android:attr/borderlessButtonStyle"
                     />
 
-                <TextView
-                    android:id="@+id/kooridnateTextView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/mjestoTextView"
-                    android:layout_alignParentEnd="true"
-                    android:layout_marginEnd="20dp"
-                    android:fontFamily="@font/poppinsregular"
-                    android:gravity="center"
-                    android:text="Promijenite lokaciju"
-                    android:textAlignment="center"
-                    android:textColor="@color/white"
-                    android:textColorHint="@color/iconGrey"
-                    android:textSize="12sp" />
+
 
 
 
@@ -158,7 +145,7 @@
                         android:layout_alignParentTop="true"
                         android:layout_centerHorizontal="true"
                         android:text="PRSKANJE"
-                        android:textColor="@color/greyText"
+                        android:textColor="@color/white"
                         android:textSize="24sp"
                         android:fontFamily="@font/poppinsregular"
                         android:textStyle="bold" />
