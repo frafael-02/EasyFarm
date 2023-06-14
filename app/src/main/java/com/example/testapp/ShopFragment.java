@@ -7,15 +7,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
-import androidx.core.app.ActivityOptionsCompat;
-import androidx.core.view.ViewCompat;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.testapp.entiteti.Evidencija;
-import com.example.testapp.entiteti.Pesticid;
-import com.example.testapp.entiteti.RecyclerViewInterface;
 import com.example.testapp.entiteti.UtilityClass;
 import com.example.testapp.search.SearchActivty;
 import com.example.testapp.shop.GeneralShopAdapter;
@@ -43,6 +39,9 @@ public class ShopFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
+        ((AppCompatActivity) getActivity()).getSupportActionBar().show();
+
+        getActivity().setTitle("Pronađi pesticid");
     }
 
 
@@ -108,7 +107,6 @@ public class ShopFragment extends Fragment {
 
         return view;
     }
-
 
 
 

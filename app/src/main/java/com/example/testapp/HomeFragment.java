@@ -3,11 +3,13 @@ package com.example.testapp;
 import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
 
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatImageButton;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.view.ContextThemeWrapper;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -122,6 +124,8 @@ public class HomeFragment extends Fragment implements DataLoadListener, PoljeAPI
         DatabaseQueries.registerDataLoadedPesticidListener(this);
         LokacijaDialog.setListener(this);
 
+       // getActivity().setTitle("Home");
+
 
 
 
@@ -143,6 +147,10 @@ public class HomeFragment extends Fragment implements DataLoadListener, PoljeAPI
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        ((AppCompatActivity) getActivity()).getSupportActionBar().hide();
+
+
+
 
         // Inflate the layout for this fragment
         View view =inflater.inflate(R.layout.fragment_home, container, false);

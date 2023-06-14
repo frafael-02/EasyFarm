@@ -26,6 +26,7 @@ import androidx.activity.result.ActivityResult;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.widget.NestedScrollView;
 import androidx.fragment.app.Fragment;
@@ -116,6 +117,9 @@ public class AiFragment extends Fragment implements VirtualniAgentNotify {
         }
         timer = 500L;
         VirtualAgent.registerNotifier(this);
+        ((AppCompatActivity) getActivity()).getSupportActionBar().show();
+
+        getActivity().setTitle("Virtualni agent");
     }
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

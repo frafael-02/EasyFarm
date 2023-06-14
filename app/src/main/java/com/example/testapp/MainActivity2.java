@@ -80,7 +80,7 @@ BottomNavigationView bottomNavigationView;
         binding = ActivityMain2Binding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         bottomNavigationView=findViewById(R.id.bottomNavigation);
-        bottomNavigationView.setBackgroundColor(Color.TRANSPARENT);
+        //bottomNavigationView.setBackgroundColor(Color.TRANSPARENT);
         imageView=findViewById(R.id.blurImageView);
         //viewExplosion=findViewById(R.id.circle);
        /* if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {

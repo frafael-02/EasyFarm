@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
 
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -30,6 +31,7 @@ import android.widget.RelativeLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.Toolbar;
 
 import com.example.testapp.api.ExcelFileController;
 
@@ -131,6 +133,11 @@ public class EvidencijaFragment extends Fragment implements SelectListener {
         }
         selectedSredstvo = 0L;
         selectedPolje = 0L;
+        getActivity().setActionBar(new Toolbar(getContext()));
+        ((AppCompatActivity) getActivity()).getSupportActionBar().show();
+
+        getActivity().setTitle("Evidencija");
+
 
 
 
@@ -148,6 +155,7 @@ public class EvidencijaFragment extends Fragment implements SelectListener {
         recyclerView.setLayoutManager(new LinearLayoutManager(view.getContext()));
         recyclerView.setHasFixedSize(true);
         isVisible = false;
+
 
 
         filterBtn = view.findViewById(R.id.filterBtn);
