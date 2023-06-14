@@ -26,6 +26,10 @@
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
     </style>
+    <style name="Theme.TestApp.Fragmenti">
+        <item name="windowActionBar">true</item>
+        <item name="windowNoTitle">false</item>
+    </style>
     <style name="Theme.Collapsingtoolbar" parent="">
         <item name="android:statusBarColor">@color/greenDark</item>
         <item name="android:textColor">@color/greyText</item>
