@@ -82,7 +82,7 @@
        android:layout_width="match_parent"
        android:layout_height="0dp"
        android:translationZ="1dp"
-       android:background="#CCFFFFFF"
+       android:background="@color/black"
        app:layout_constraintBottom_toBottomOf="parent"
        app:layout_constraintTop_toTopOf="@id/bottomNavigation" />
 
@@ -92,10 +92,11 @@
         android:layout_height="wrap_content"
         android:translationZ="2dp"
         app:itemIconTint="@drawable/selector"
+        app:itemBackground="@color/greenLight"
         app:itemTextColor="@drawable/selector"
         android:backgroundTint="#FFFFFF"
         app:menu="@menu/bottom_nav_menu"
-        android:background="@color/transparent"
+        android:background="@color/black"
         app:itemIconSize="24dp"
         app:layout_constraintHeight_percent="0.08"
         app:layout_constraintBottom_toBottomOf="parent"
