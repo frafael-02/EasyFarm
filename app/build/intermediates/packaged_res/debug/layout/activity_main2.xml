@@ -93,7 +93,7 @@
         android:translationZ="2dp"
         app:itemIconTint="@drawable/selector"
         app:itemTextColor="@drawable/selector"
-        android:backgroundTint="#80FFFFFF"
+        android:backgroundTint="#FFFFFF"
         app:menu="@menu/bottom_nav_menu"
         android:background="@color/transparent"
         app:itemIconSize="24dp"

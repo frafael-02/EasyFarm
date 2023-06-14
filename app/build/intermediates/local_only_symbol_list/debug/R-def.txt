@@ -156,8 +156,6 @@ id iv_child_item
 id izvoz
 id kontakti
 id kulturaView
-id leftVerticalGuidline
-id leftVerticalGuidline1
 id linearLayout
 id linearLayout1
 id linearLayout2
@@ -208,8 +206,6 @@ id recyclerView
 id relativeLayout
 id relativeLayout2
 id repeatPasswordId
-id rightVerticalGuidline
-id rightVerticalGuidline1
 id rv_child
 id rv_general
 id rv_home

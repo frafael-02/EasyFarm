@@ -3409,8 +3409,6 @@ id layout_rotate_wheel
 id layout_scale_wheel
 id left
 id leftToRight
-id leftVerticalGuidline
-id leftVerticalGuidline1
 id left_to_right
 id legacy
 id light
@@ -3588,8 +3586,6 @@ id reverse
 id reverseSawtooth
 id right
 id rightToLeft
-id rightVerticalGuidline
-id rightVerticalGuidline1
 id right_icon
 id right_side
 id right_to_left

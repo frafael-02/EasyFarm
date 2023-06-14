@@ -83,10 +83,9 @@ BottomNavigationView bottomNavigationView;
         bottomNavigationView.setBackgroundColor(Color.TRANSPARENT);
         imageView=findViewById(R.id.blurImageView);
         //viewExplosion=findViewById(R.id.circle);
-        animation = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.animation_circle_explosion);
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+       /* if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
             imageView.setRenderEffect(RenderEffect.createBlurEffect(10,10, Shader.TileMode.MIRROR));
-        }
+        }*/
         if(savedInstanceState == null)
         {
             replaceFragment(new HomeFragment());

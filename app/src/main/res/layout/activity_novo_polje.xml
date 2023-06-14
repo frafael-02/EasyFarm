@@ -43,8 +43,8 @@
         android:layout_centerInParent="true"
         android:layout_marginStart="5dp"
         android:layout_marginEnd="5dp"
-        android:paddingStart="5dp"
-        android:paddingEnd="5dp"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
         android:background="@drawable/main_square">
 
         <LinearLayout
@@ -52,6 +52,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
+
             android:orientation="vertical"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
@@ -161,7 +162,7 @@
             android:id="@+id/button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="20dp"
+            android:layout_marginBottom="20dp"
             android:layout_marginTop="10dp"
             android:onClick="spremiClicked"
             style="@style/Theme.save.button"

@@ -3408,8 +3408,6 @@ int id layout_rotate_wheel 0x7f090143
 int id layout_scale_wheel 0x7f090144
 int id left 0x7f090145
 int id leftToRight 0x7f090146
-int id leftVerticalGuidline 0x7f090147
-int id leftVerticalGuidline1 0x7f090148
 int id left_to_right 0x7f090149
 int id legacy 0x7f09014a
 int id light 0x7f09014b
@@ -3587,8 +3585,6 @@ int id reverse 0x7f0901f6
 int id reverseSawtooth 0x7f0901f7
 int id right 0x7f0901f8
 int id rightToLeft 0x7f0901f9
-int id rightVerticalGuidline 0x7f0901fa
-int id rightVerticalGuidline1 0x7f0901fb
 int id right_icon 0x7f0901fc
 int id right_side 0x7f0901fd
 int id right_to_left 0x7f0901fe
