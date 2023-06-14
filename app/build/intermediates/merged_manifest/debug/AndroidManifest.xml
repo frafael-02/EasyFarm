@@ -99,7 +99,8 @@
             android:exported="false" />
         <activity
             android:name="com.example.testapp.MainActivity2"
-            android:exported="false" />
+            android:exported="false"
+            android:theme="@style/Theme.TestApp.Fragmenti" />
         <activity
             android:name="com.example.testapp.MainActivity"
             android:exported="false" />

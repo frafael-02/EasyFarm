@@ -47,9 +47,21 @@
         <item name="android:fontFamily">@font/poppinslight</item>
         <item name="android:windowContentTransitions">true</item>
     </style>
-    <style name="Theme.TestApp.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar"/>
+    <style name="Theme.TestApp.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar">
+
+    </style>
+    <style name="Theme.TestApp.Fragmenti">
+        <item name="windowActionBar">true</item>
+        <item name="windowNoTitle">false</item>
+        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
+        <item name="colorPrimary">@color/greenDark</item>
+        <item name="android:fontFamily">@font/poppinsbold</item>
+        <item name="android:textColorPrimary">@color/white</item>
+        <item name="android:windowContentTransitions">true</item>
+    </style>
     <style name="Theme.TestApp.NoActionBar">
         <item name="windowActionBar">false</item>
+
         <item name="windowNoTitle">true</item>
     </style>
     <style name="Theme.TestApp.PopupOverlay" parent="ThemeOverlay.AppCompat.Light"/>

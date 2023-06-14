@@ -92,7 +92,6 @@ id arkodTextView
 id arkodView
 id backArrow
 id bio_child_item
-id blurImageView
 id bottomGuidline
 id bottomNavigation
 id btnAI
@@ -303,6 +302,7 @@ style ThemeOverlay.SearchView
 style Theme.Collapsingtoolbar
 style Theme.TestApp
 style Theme.TestApp.AppBarOverlay
+style Theme.TestApp.Fragmenti
 style Theme.TestApp.NoActionBar
 style Theme.TestApp.PopupOverlay
 style Theme.dole.evidencija

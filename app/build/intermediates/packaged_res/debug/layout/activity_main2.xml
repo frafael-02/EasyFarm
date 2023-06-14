@@ -77,25 +77,20 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@id/navBarVerticalGuidline"/>-->
-   <ImageView
-       android:id="@+id/blurImageView"
-       android:layout_width="match_parent"
-       android:layout_height="0dp"
-       android:translationZ="1dp"
-       android:background="#CCFFFFFF"
-       app:layout_constraintBottom_toBottomOf="parent"
-       app:layout_constraintTop_toTopOf="@id/bottomNavigation" />
+
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNavigation"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:translationZ="2dp"
+        android:elevation="50dp"
+        app:compatShadowEnabled="true"
         app:itemIconTint="@drawable/selector"
         app:itemTextColor="@drawable/selector"
         android:backgroundTint="#FFFFFF"
         app:menu="@menu/bottom_nav_menu"
-        android:background="@color/transparent"
+        android:background="@color/white"
         app:itemIconSize="24dp"
         app:layout_constraintHeight_percent="0.08"
         app:layout_constraintBottom_toBottomOf="parent"
