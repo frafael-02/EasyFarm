@@ -59,11 +59,11 @@ public class OdabraniPesticidActivity extends AppCompatActivity {
         buttonVrsta = findViewById(R.id.vrstaId);
         if(pesticid.getVrsta() == 1)
         {
-            buttonVrsta.setImageResource(R.drawable.herbicid);
+            buttonVrsta.setImageResource(R.drawable.herbicid_checked);
         }
         else if(pesticid.getVrsta() == 2)
         {
-            buttonVrsta.setImageResource(R.drawable.fungicid);
+            buttonVrsta.setImageResource(R.drawable.fungicid_checked);
         }
         String name= pesticid.getNaziv();
         String imageUrl = getIntent().getStringExtra("SLIKA");

@@ -56,6 +56,7 @@ import java.io.IOException;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.concurrent.TimeUnit;
 import kotlin.Unit;
 import kotlin.jvm.functions.Function1;
@@ -85,6 +86,7 @@ public class AiFragment extends Fragment implements VirtualniAgentNotify {
     ShimmerFrameLayout shimmerFrameLayout;
     NestedScrollView scrollView;
     private ActivityResultLauncher<Intent> launcher;
+    private ImageView iconRight;
     public long timer;
 
     private RecyclerView recyclerView;
@@ -153,6 +155,7 @@ public class AiFragment extends Fragment implements VirtualniAgentNotify {
         getPesticidSlika = view.findViewById(R.id.iv_child_item);
         shimmerFrameLayout=view.findViewById(R.id.shimmer_view);
         shimmerFrameLayout.setVisibility(View.INVISIBLE);
+        iconRight=view.findViewById(R.id.right_icon);
         scrollView=view.findViewById(R.id.screenId);
         launcher=
                 registerForActivityResult(new ActivityResultContracts.StartActivityForResult(),(ActivityResult result)->{
@@ -280,8 +283,21 @@ public class AiFragment extends Fragment implements VirtualniAgentNotify {
                     textView.setVisibility(View.VISIBLE);
                   //  pesticidPreporuka.setVisibility(View.VISIBLE);
                     Pesticid pesticid = UtilityClass.preporukaPesticid(MainActivity2.responseString);
+
                     if(pesticid !=null)
                     {
+                        if(pesticid.getVrsta() == 1)
+                        {
+                            iconRight.setImageResource(R.drawable.herbicid);
+                        }
+                        else if(Objects.requireNonNull(pesticid).getVrsta() == 2)
+                        {
+                            iconRight.setImageResource(R.drawable.fungicid);
+                        }
+                        else{
+                            iconRight.setImageResource(R.drawable.insekticid);
+                        }
+
                         StorageReference storageReference = FirebaseStorage.getInstance().getReference().child("/pesticidiSlike/" + pesticid.getId() + ".jpg");
                         GlideApp.with(getContext()).load(storageReference).into(getPesticidSlika);
 

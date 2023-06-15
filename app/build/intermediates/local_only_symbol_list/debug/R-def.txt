@@ -205,6 +205,7 @@ id recyclerView
 id relativeLayout
 id relativeLayout2
 id repeatPasswordId
+id right_icon
 id rv_child
 id rv_general
 id rv_home
@@ -233,7 +234,6 @@ id tempratureTextView
 id text1
 id textView
 id textView2
-id textView3
 id titleGuidline
 id toolbar
 id topDobrodosli
