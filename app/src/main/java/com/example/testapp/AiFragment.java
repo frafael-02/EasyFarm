@@ -27,6 +27,7 @@ import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.widget.NestedScrollView;
 import androidx.fragment.app.Fragment;
@@ -36,6 +37,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.testapp.api.ChatAdapter;
 import com.example.testapp.api.ImagePostRequest;
 import com.example.testapp.api.VirtualAgent;
+import com.example.testapp.database.GlideApp;
 import com.example.testapp.entiteti.Bolest;
 import com.example.testapp.entiteti.Message;
 import com.example.testapp.entiteti.Pesticid;
@@ -87,6 +89,13 @@ public class AiFragment extends Fragment implements VirtualniAgentNotify {
 
     private RecyclerView recyclerView;
     private ChatAdapter chatAdapter;
+
+    public TextView getPesticidPreporuka;
+
+    public CardView cardView;
+    public ImageView getPesticidSlika;
+
+    public ImageView pesticidSlika;
     private static List<Message> messages = new ArrayList<>();
     public AiFragment() {
         // Required empty public constructor
@@ -126,10 +135,11 @@ public class AiFragment extends Fragment implements VirtualniAgentNotify {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_ai, container, false);
         slika = view.findViewById(R.id.imageView);
-        pesticidPreporuka = view.findViewById(R.id.textView3);
+        //pesticidPreporuka = view.findViewById(R.id.textView3);
         analizaBtn = view.findViewById(R.id.button4);
         progressBar=view.findViewById(R.id.progresBar);
         progressBar.setVisibility(View.INVISIBLE);
+        cardView = view.findViewById(R.id.cv_child_item);
     /*    ConstraintLayout constraintLayout=view.findViewById(R.id.mainLayout);
         AnimationDrawable animationDrawable = (AnimationDrawable) constraintLayout.getBackground();
         animationDrawable.setEnterFadeDuration(2500);
@@ -138,6 +148,9 @@ public class AiFragment extends Fragment implements VirtualniAgentNotify {
         pitanje = view.findViewById(R.id.pitanjeTextView);
        // odgovor=view.findViewById(R.id.odgovorText);
         pitajBtn = view.findViewById(R.id.button3);
+     //   pesticidSlika = view.findViewById(R.id.imageView3);
+        getPesticidPreporuka=view.findViewById(R.id.tv_child_item);
+        getPesticidSlika = view.findViewById(R.id.iv_child_item);
         shimmerFrameLayout=view.findViewById(R.id.shimmer_view);
         shimmerFrameLayout.setVisibility(View.INVISIBLE);
         scrollView=view.findViewById(R.id.screenId);
@@ -263,13 +276,17 @@ public class AiFragment extends Fragment implements VirtualniAgentNotify {
                     }
                     //textView.setText(MainActivity2.responseString);
                     progressBar.setVisibility(View.INVISIBLE);
+                    cardView.setVisibility(View.VISIBLE);
                     textView.setVisibility(View.VISIBLE);
-                    pesticidPreporuka.setVisibility(View.VISIBLE);
+                  //  pesticidPreporuka.setVisibility(View.VISIBLE);
                     Pesticid pesticid = UtilityClass.preporukaPesticid(MainActivity2.responseString);
                     if(pesticid !=null)
                     {
-                        pesticidPreporuka.setText(pesticid.getNaziv());
-                        pesticidPreporuka.setOnClickListener(new View.OnClickListener() {
+                        StorageReference storageReference = FirebaseStorage.getInstance().getReference().child("/pesticidiSlike/" + pesticid.getId() + ".jpg");
+                        GlideApp.with(getContext()).load(storageReference).into(getPesticidSlika);
+
+                        getPesticidPreporuka.setText(pesticid.getNaziv());
+                    cardView.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
                                 klikNaPesticid(pesticid);
@@ -299,7 +316,7 @@ public class AiFragment extends Fragment implements VirtualniAgentNotify {
                         }, timer);*/
                     }
                     else
-                        pesticidPreporuka.setText("Nije pronađen pesticid za tu bolest.");
+                        getPesticidPreporuka.setText("Nije pronađen pesticid za tu bolest.");
                 }
             }, 1000L);
             MainActivity2.responseString=null;
