@@ -39,9 +39,7 @@ public class ShopFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
-        ((AppCompatActivity) getActivity()).getSupportActionBar().show();
 
-        getActivity().setTitle("Pronađi pesticid");
     }
 
 

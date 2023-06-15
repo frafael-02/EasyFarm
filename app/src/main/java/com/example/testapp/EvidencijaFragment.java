@@ -133,10 +133,10 @@ public class EvidencijaFragment extends Fragment implements SelectListener {
         }
         selectedSredstvo = 0L;
         selectedPolje = 0L;
-        getActivity().setActionBar(new Toolbar(getContext()));
-        ((AppCompatActivity) getActivity()).getSupportActionBar().show();
+      //  getActivity().setActionBar(new Toolbar(getContext()));
+      //  ((AppCompatActivity) getActivity()).getSupportActionBar().show();
 
-        getActivity().setTitle("Evidencija");
+
 
 
 

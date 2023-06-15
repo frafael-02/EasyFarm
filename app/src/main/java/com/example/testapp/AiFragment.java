@@ -128,9 +128,7 @@ public class AiFragment extends Fragment implements VirtualniAgentNotify {
         }
         timer = 500L;
         VirtualAgent.registerNotifier(this);
-        ((AppCompatActivity) getActivity()).getSupportActionBar().show();
 
-        getActivity().setTitle("Virtualni agent");
     }
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

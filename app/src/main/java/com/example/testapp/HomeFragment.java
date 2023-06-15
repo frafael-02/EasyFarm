@@ -147,7 +147,7 @@ public class HomeFragment extends Fragment implements DataLoadListener, PoljeAPI
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        ((AppCompatActivity) getActivity()).getSupportActionBar().hide();
+
 
 
 
