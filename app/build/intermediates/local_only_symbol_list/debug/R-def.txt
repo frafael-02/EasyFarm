@@ -302,7 +302,6 @@ style ThemeOverlay.SearchView
 style Theme.Collapsingtoolbar
 style Theme.TestApp
 style Theme.TestApp.AppBarOverlay
-style Theme.TestApp.Fragmenti
 style Theme.TestApp.NoActionBar
 style Theme.TestApp.PopupOverlay
 style Theme.dole.evidencija

@@ -27,6 +27,7 @@ public class GeneralShopAdapter extends RecyclerView.Adapter<GeneralShopAdapter.
     List<ShopChildModelClass> childModelClassList;
     Context context;
 
+
     public GeneralShopAdapter(List<ShopChildModelClass> childModelClassList, Context context) {
         this.childModelClassList = childModelClassList;
         this.context = context;
@@ -58,6 +59,7 @@ public class GeneralShopAdapter extends RecyclerView.Adapter<GeneralShopAdapter.
         if(childModelClassList.get(position).getPesticid().getBio()){
             holder.bioPesticid.setVisibility(View.VISIBLE);
         }
+
 
 // da slika bode button
         holder.relativeLayout.setOnClickListener(new View.OnClickListener() {

@@ -368,14 +368,9 @@ public class AiFragment extends Fragment implements VirtualniAgentNotify {
 
         List<String> result = new ArrayList<>();
         shimmerFrameLayout.setVisibility(View.VISIBLE);
-        recyclerView.setVisibility(View.INVISIBLE);
         shimmerFrameLayout.startShimmer();
-       /* Handler handler = new Handler();
-        handler.postDelayed(()->{
-            shimmerFrameLayout.stopShimmer();
-            shimmerFrameLayout.setVisibility(View.INVISIBLE);
-            recyclerView.setVisibility(View.VISIBLE);
-        },3000);*/
+        recyclerView.setVisibility(View.INVISIBLE);
+
         new Thread(new Runnable() {
             @Override
             public void run() {
